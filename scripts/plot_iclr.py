@@ -12,7 +12,7 @@ for f in sorted(GT.glob("*.json")):
     rows.append({"wmean": d["ground_truth"]["weighted_mean_overall"],
                  "accept": d["ground_truth"]["accept"]})
 
-edges = list(range(1, 12))  # 1..11 for [1,2)..[10,11)
+edges = list(range(1, 10)) + [10.01]  # [1,2)..[9,10) plus a closed-right bin to catch wmean=10.0
 accept_vals = [r["wmean"] for r in rows if r["accept"]]
 reject_vals = [r["wmean"] for r in rows if not r["accept"]]
 
@@ -23,8 +23,8 @@ ax.hist([accept_vals, reject_vals], bins=edges, stacked=True,
 ax.set_xlabel("weighted_mean_overall (ICLR 2025 scale: 1–10)")
 ax.set_ylabel("count")
 ax.set_title(f"ICLR 2025 ground-truth distribution — n={len(rows)}")
-ax.set_xticks(edges)
-ax.set_xlim(1, 11)
+ax.set_xticks(list(range(1, 11)))
+ax.set_xlim(1, 10)
 bin_totals = [sum(1 for r in rows if lo <= r["wmean"] < hi) for lo, hi in zip(edges[:-1], edges[1:])]
 y_top = max(bin_totals) + 1
 ax.set_ylim(0, y_top)
