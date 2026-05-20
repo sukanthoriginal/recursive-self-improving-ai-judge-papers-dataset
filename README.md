@@ -41,6 +41,8 @@ score↔decision mismatches:
 - 40 papers: 4 per 0.5-wide bin × 10 bins across the 1–6 scale
 - 4 mismatch papers: 1 low-score accept (wmean<3.0) + 1 high-score reject per bin in [4.0–5.5)
 
+![v2 ground-truth distribution](neurips-2025-dataset-v2/v2_ground_truth.png)
+
 Mismatch papers are flagged with `mismatch: true` in their meta.json.
 
 ## Sanitization
