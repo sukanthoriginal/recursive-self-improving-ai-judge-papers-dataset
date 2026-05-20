@@ -1,0 +1,57 @@
+{
+  "paper_id": "Xm57IXqU0n",
+  "decision": "Accept (poster)",
+  "reviews": [
+    {
+      "reviewer_id": "5hw1Keo6gG",
+      "overall": 4,
+      "confidence": 2,
+      "quality": 2,
+      "clarity": 3,
+      "significance": 2,
+      "originality": 2,
+      "summary": "This paper introduces a novel method to improve Contextual Integrity (CI) in LLM agents, ensuring that AI agents appropriately disclose information based on contextual norms. The authors propose two key innovations: Contextual Integrity CoT prompting, which explicitly guides LLMs to reason about information-sharing appropriateness and RL finetuning to further enhance CI reasoning using a synthetic dataset (~700 examples). The method is evaluated on both synthetic data and the human-annotated PrivacyLens benchmark, showing up to 40% reduction in privacy leakage while maintaining task utility.",
+      "strengths_and_weaknesses": "Strength:\n1. First work to explicitly use RL for CI reasoning in LLMs, demonstrating transferability from synthetic data to real-world benchmarks.\n2. Experiments show consistent improvements across different models (Qwen, Llama, Mistral)\n3. Experiments show it is generalizable to PrivacyLens, which validates real-world applicability.\n\nWeakness:\n1. The method lacks innovation. The article constructs a dataset through a large model (GPT) and then trains a small model through reinforcement learning. In essence, it is just a simple knowledge distillation. Moreover, the final experiment in Table 3 shows that the performance of the trained small model does not reach the level of the baseline model without the CoT prompt, which shows that the method in this article still has a lot of room for improvement.\n2. The dataset is relatively small (only 700 examples), which may not cover different domains and more complex scenarios. Moreover, the dataset is generated using GPT without human annotators, which may induce model bias. How to ensure the correctness and rationality of the generated dataset\uff1f\n3. The experiment only tests on the synthesized dataset and PrivacyLens, which is insufficient to show the outperformance of the method. It is suggested to test on a more realistic and comprehensive benchmark (such as CONFAIDE(ICLR24)) and compare with previous methods, such as AirGapAgent (CCS24).\n4. Privacy norms may be context-dependent and change over time, and the authors do not consider these effects.  Additionally, some users may wish to insert custom rules and specifications, which are not supported by this document.\n5. The paper did not include baselines in the evaluations. It is suggested to compare with different fine-tuning methods, such as PPO, SFT, and fine-tuning-free methods like few-shot prompts, etc.\n\n[1] Can LLMs keep a secret? testing privacy implications of language models via contextual integrity theory. ICLR,2024.\n[2]AirGapAgent: Protecting Privacy-Conscious Conversational Agents, CCS24",
+      "questions": "see weakness.",
+      "limitations": "see weakness.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I believe the author has partially addressed my concerns; I would like to raise my score to 4. However, I still have the following points:\n\n1. Comparison with previous methods: Although AirGapAgent is not open-source, it is based on prompt design. The author could attempt to reproduce it or use a similar approach for a more thorough comparison.\n2. Generalizability of the method: The datasets used and evaluated by the authors contain a limited number of samples. It remains unclear whether the method can be effectively applied to more open and unstructured problem settings."
+    },
+    {
+      "reviewer_id": "xaXI9f8PMc",
+      "overall": 5,
+      "confidence": 5,
+      "quality": 4,
+      "clarity": 4,
+      "significance": 3,
+      "originality": 3,
+      "summary": "In this paper, the authors study the relevant problem of contextual integrity, as agents need to share important information to complete a task, but not sensitive information. Grounded in reasoning, the authors define CoT and RL setups that can be leveraged in different contexts. To evaluate it, they test both a synthetic dataset and an existing benchmark, with several relevant LLMs and LRMs. Their results show that both CI-CoT and CI-RL improve compared to the baseline across all models according to their metrics ($\\mathcal{I}, \\mathcal{U}, \\mathcal{C}$, LR, and ALR), and better performance for LLMs than LRMs. Helpfulness seems to be a tradeoff for CI, so the authors define a setup where the integrity-utility importance can be controlled.",
+      "strengths_and_weaknesses": "## Strengths\n\n- The paper is extremely clear, easy to follow, and motivates the problem really well.\n- They define both a CoT and RL versions of contextual integrity (CI). This gives access to one that can be used in all settings very easily, and one that can be adopted during post-training.\n- They generate a dataset with the necessary constraints to study CI.\n- In the RL setup, they experiment with several open models relevant today, and then compare these with other relevant open reasoning models.\n- They complement their results on their own dataset with experiments on PrivacyLens, an existing benchmark.\n- On top of this, they studied an integrity-utility trade-off in Appendix A. This allows to control depending on the criticality of the task, which can also help improve helpfulness.\n- The reporting of the results, visually and in text, is immediately clear.\n- The metrics used make sense and are well defined: utility, integrity, complete, helpfulness, leakage rate, and adjusted leakage rate.\n- Their results show clear improvements both with CI-CoT and CI-RL.\n- All the training details, prompts, examples, and extra related work are described in the Appendix.\n\n## Weaknesses\n\n- It\u2019d be good to have some stats for the dataset you generate to show its diversity and balance. For example, in the prompt on page 21 (and also in line 157), you include a plan for avoiding obvious cues. Have you verified that those instructions were followed in the creation of the dataset? You have results for PrivacyLens, so I don\u2019t think this is concerning, but still good to have.\n- Appendix A should explain helpfulness, LR, and ALR. It mentions PrivacyLens before the paper gets (chronologically) to Section 5. Maybe a reference in the Appendix back to that section is already good enough.",
+      "questions": "- What happens in agentic scenarios where they\u2019re using tools instead of tags (e.g., < think >< /think >)?. I think CI-CoT would be easy to adapt, but what about CI-RL?\n- What is the temperature used for the dataset generation? You reported it for training in Appendix F and for PrivacyLens in Section 5, but not for the dataset generation.\n- Lines 230-231: \u201cThe results demonstrate that instruction-tuned LLMs achieve substantially higher integrity, utility, and task completion scores compared to LRMs, even after CI-RL training.\u201d In my opinion, these results (before CI-RL) are comparable across LLM and LRM. It\u2019s not a big deal, just mentioning it.\n- What is the trade-off in terms of the number of output tokens? This would increase the price, so it\u2019d be good to know.",
+      "limitations": "Yes, it includes limitations in Section 7.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I think this paper is great and should be accepted.\n\n**Main strengths:** Clarity, motivation, CoT and RL versions, synthetic dataset and well-known benchmark, relevant open and closed models, integrity-utility trade-off, good results, all details available.\n\nI wrote a few weaknesses and questions, and the authors addressed them successfully."
+    },
+    {
+      "reviewer_id": "N8tUwxR5aS",
+      "overall": 5,
+      "confidence": 3,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 3,
+      "originality": 2,
+      "summary": "The paper introduces an RL-based post training framework to enhance LLMs' reasoning around contextual integrity (CI). The authors generated a dataset that spans different CI related scenarios. In the proposed method, an LLM is prompted to use CoT to reason about CI, and is RL-trained on the synthetic data. The paper shows that the proposed method achieves improvements on PrivacyLens, demonstrating that CI reasoning can be transferred to real-world contexts.",
+      "strengths_and_weaknesses": "Strengths\n* Results are promising: CI-RL significantly improves integrity scores, while maintaining the utility score. \n* Experiments with multiple LLM families.\n\n\nWeaknesses\n* The reward function is somewhat arbitrary. Other than filtering for keywords, would it be better to learn a reward model, or use a prompted LLM to generate the reward?\n* only does evaluation on the PrivacyLens dataset.",
+      "questions": "* In Table 2, DeepSeek-R1-Distill-Qwen-14B originally has higher utility than the instruction-tuned Qwen14B, but after RL training the utility lowered significantly. This much decrease due to RL is not seen in the IT models in Table 1. What could be happening?\n* Could you also compare to the dataset in [1]?\n\n[1] Mireshghallah et al. \"Can LLMs Keep a Secret? Testing Privacy Implications of Language Models via Contextual Integrity Theory.\"\u00a0The Twelfth International Conference on Learning Representations.",
+      "limitations": "Yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "The authors provided a compelling rebuttal about the weaknesses and answered the questions."
+    }
+  ]
+}

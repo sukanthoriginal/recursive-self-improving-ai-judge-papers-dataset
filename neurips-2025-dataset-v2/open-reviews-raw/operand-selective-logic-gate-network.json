@@ -1,0 +1,74 @@
+{
+  "paper_id": "sfqIc7BnwS",
+  "decision": "Reject",
+  "reviews": [
+    {
+      "reviewer_id": "rK6nxG7Ngw",
+      "overall": 1,
+      "confidence": 4,
+      "quality": 2,
+      "clarity": 2,
+      "significance": 1,
+      "originality": 2,
+      "summary": "The paper introduces Operand Selective Logic Gate Network (OSLGNs), a symbolic neural architecture. OSLGNs, like prior work, replace neurons with a differentiable selection of logic gates. In contrast to prior work, this differentiable selection is a straight-through estimation of an argmax (instead of a softmax), and additionally, the paper similarly adds a differentiable selection of the operands as well, with an initialization scheme. Experiments are performed on MNIST.",
+      "strengths_and_weaknesses": "- Strengths\n    - The paper has multiple ablation studies.\n    - Logic gate networks pose an interesting research direction, and the idea of this approach is interesting as well (selecting not only the operators but also the operands).\n    - Use of straight-through estimation is motivated and shown to be useful through ablation studies.\n- Weaknesses\n    - The experiments are only on MNIST, which is a very easy classification dataset.\n    - Accuracy on MNIST is very low (+/- 40%), despite MNIST being a very easy dataset where accuracies near 100% are easily feasible.\n    - The experiments do not include any competitors (e.g. previous logic gate networks).\n    - The writing can be improved a lot (e.g. line 61 \u201cUnlike softmax method from petersen\u2019s research\u201d, \u201callowing the model to learn with consisting logic gate identity\u201d, lines 154-155 \u201cMNIST dataset is used.\u201d).\n    - Not enough details about the experiments are given in the text. For instance, what is \u201cbinarized MNIST\u201d (line 163)? How do you binarize it? While the code is provided, enough details should also be given in the text or appendices, especially if it is necessary to understand the experiments (such as knowing what the dataset is).\n    - No mention about which seeds were used (if any) for the experiments.\n    - No error bars are reported for the results (e.g. standard-deviation or confidence intervals).\n    - I don\u2019t see where the licenses are listed (e.g. for MNIST), despite the authors claiming in the checklist that they list them.",
+      "questions": "- What is the symbol \u201cj\u201d in the equation below line 88? I don\u2019t believe this is explained.",
+      "limitations": "Yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "The key issues remain unresolved:\n- The experimental evaluation lacks any competitor.\n- The experimental evaluation is only on a very simple dataset (MNIST) and despite this, the results are poor.\n- No standard-deviations are reported, no information is given about seeding, and licenses are not explicitly mentioned."
+    },
+    {
+      "reviewer_id": "JpQk6Zaf5M",
+      "overall": 2,
+      "confidence": 4,
+      "quality": 1,
+      "clarity": 2,
+      "significance": 2,
+      "originality": 2,
+      "summary": "This paper proposes Operand-Selective Logic Gate Networks (OSLGN), a symbolic neural architecture that builds differentiable logic circuits through both operand and operator selection. Unlike prior differentiable logic networks that only support operator choice, OSLGN introduces differentiable operand selection, significantly enhancing modular and compositional capabilities. The architecture is further guided by a Gaussian proximity prior inspired by small-world networks to promote local logic structures and training stability. Although classification performance on binarized MNIST is modest, the network can be fully translated into symbolic Boolean expressions, showcasing strong interpretability and compression potential. The authors provide all code and symbolic tracing routines via open Colab links.",
+      "strengths_and_weaknesses": "Strengths:\n\n- Novel architecture introducing operand-level selection in logic gates; a key step forward in symbolic neural computation.\n- High interpretability: network outputs can be converted into explicit symbolic Boolean expressions.\n\nWeaknesses:\n\n- Limited experimental scope: only evaluated on binarized MNIST; no comparison with other neuro-symbolic systems.\n- Low classification accuracy (~53% max on MNIST), raising questions about general-purpose utility.\n- Potential overparameterization: compressed symbolic circuits use only a fraction of available gates.\n- Lack of ablation on symbolic generalization: e.g., performance on out-of-distribution logic compositions.\n- Writing is dense in places, especially in figures and selector equations, which could benefit from expanded clarity.",
+      "questions": "1. Generalization: Can OSLGN be applied to more complex tasks beyond binarized MNIST, e.g., CLEVR, CIFAR, or logic reasoning datasets?\n2. Comparative Baselines: Have you considered comparing to DeepProbLog, LNN, NLM, or other symbolic logic networks?\n3. Stability of Operand Routing: Did you observe instability in operand selection during early training? Would annealing help?\n4. Symbolic Tracing Efficiency: Can the symbolic expression tracing scale to longer chains or real-world reasoning tasks?\n5. Compression Metrics: Beyond operator count, have you considered measuring circuit path diversity or logic depth?",
+      "limitations": "The authors include a dedicated \u201cLimitations\u201d section, discussing accuracy gaps, operand redundancy, and future directions. Transparency is commendable.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": null
+    },
+    {
+      "reviewer_id": "mWZkhiFo0X",
+      "overall": 2,
+      "confidence": 3,
+      "quality": 2,
+      "clarity": 2,
+      "significance": 1,
+      "originality": 2,
+      "summary": "This paper proposes Operand-Selective Logic Gate Networks (OSLGN), an architecture that extends differentiable logic gate networks with operand selection. Rather than only learning which operators to apply for each gate, this work also learns the operands that should be fed into those gates. Inspired by small-world connectivity, OSLGN uses a prior that encourages selected operands to be near each other. The experiments demonstrate the importance of gradient flow through operand selection, evaluate the effect of network depth on performance, and justify the use of local operand initialization (which generalizes better). The evaluation also demonstrates that trained networks can be converted into compact logic expressions.",
+      "strengths_and_weaknesses": "Strengths:\n\n- This paper is related to the promising and active area of logic gate networks research, which can be extremely useful for tasks where fast inference is critical.\n- The differentiability of the operand selection was carefully considered, ultimately using the straight-through estimator in place of argmax to ensure differentiability.\n- The chosen prior is justified by experiments that show local initialization achieves higher validation accuracy, acting as a regularizer for OSLGN.\n\nWeaknesses:\n- It would have been useful if there was more background about the architecture of traditional differentiable logic gate networks. How do these networks select their operands (if not at training time)? Why exactly is this selection sub-optimal?\n- The experiments do not appear to use prior work on differentiable logic gate networks [1] as a baseline. It would have been better to empirically evaluate their differences.\n- While experiments justify some of the design choices (preserving gradients, using local operand initialization), the validation accuracy is still very low, rarely exceeding 50% on MNIST classification.\n\n[1] Deep differentiable logic gate networks, NeurIPS 2022",
+      "questions": "- What is the motivation for extending differentiable logic gate networks with operand selection? Why did they need to be improved in this way?\n- How often are far-away features learned to be selected together? In what cases might this occur?\n- What overhead in training time is added by training the operand selector?",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "While the authors addressed some of my concerns like training time, the evaluation still needs improvement. Since OSLGN does not demonstrate comparable or superior accuracy compared to baselines, I maintain my score."
+    },
+    {
+      "reviewer_id": "7pmrSFJ5OK",
+      "overall": 1,
+      "confidence": 5,
+      "quality": 1,
+      "clarity": 1,
+      "significance": 1,
+      "originality": 1,
+      "summary": "The paper investigates the problem of selecting operands from the input for differentiable logic gated networks. To this end, the authors propose a framework named Operand Selective Logic Gated Networks (OSLGN) through a novel modular extension. In particular, this extension consists of two operand selectors, one for each input. These selectors simply computes a linear projection over the input and applies a hard selection via the argmax function, followed by one-hot masking operation. The authors also propose a local initialization scheme using a simple Gaussian prior. The paper provides some empirical evidence on MNIST dataset.",
+      "strengths_and_weaknesses": "**Strengths**\n- The problem of learning to select inputs for differentiable logic gated networks is interesting.\n\n**Weaknesses**\n\n- The paper requires substantial revisions to improve its completeness and writing quality. As a specific example among many, line 154 states: \"Experiments are performed in google colab. Every ipynb is shared via link. MNIST[3] dataset is used.\" Several issues need to be addressed in this sentence. \"Google Colab\" should be capitalized. The configuration of Google Colab used for the experiments should be specified. A space is needed between \"MNIST\" and \"[3]\". What is ipynb? Where is the link?\n- The proposed method is totally trivial and significantly below the bar of even a small machine learning conference.\n- It is not clear the design of the experiments. For example, how the MNIST data is processed for such kinds of models?\n- The experiments are trivial as they only consider simple data like MNIST without any competitors. They are not designed to highlight the main research question which is to learn the operands. In the end, it is not clear what are the advantages of learning operands in the experiments.",
+      "questions": "Please see the Weaknesses. The paper is extremely weak for the moment. There is an additional question:  How is it ensured that the two operand selectors do not always choose the same input, thereby limiting the diversity of operations or comparisons?",
+      "limitations": "There are a lot of problems for this paper as outlined in the weaknesses. The authors should improve the paper significantly for the next version.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I will keep my original score as the rebuttal did not fully resolve my concerns, and I think the paper needs significant improvements."
+    }
+  ]
+}

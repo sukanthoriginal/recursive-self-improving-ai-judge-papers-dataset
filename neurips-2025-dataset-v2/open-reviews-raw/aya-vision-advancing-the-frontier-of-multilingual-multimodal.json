@@ -1,0 +1,74 @@
+{
+  "paper_id": "BJBje1IHI9",
+  "decision": "Reject",
+  "reviews": [
+    {
+      "reviewer_id": "PPi4l5oKgP",
+      "overall": 5,
+      "confidence": 4,
+      "quality": 4,
+      "clarity": 4,
+      "significance": 4,
+      "originality": 3,
+      "summary": "In order to address the challenges of data scarcity and catastrophic forgetting in building large multilingual multimodal models, this paper proposes a synthetic annotation framework to generate high-quality and diverse multilingual textual data, as well as a simple and effective cross-modal model merging technique. Extensive experimental analyses confirm that this is a solid piece of work.",
+      "strengths_and_weaknesses": "Strengths:\n\n1.\t**Effective synthetic annotation framework.** The authors provide a detailed description and demonstration of the pipeline, including data collection, recaptioning, filtering, and translation. They also present multiple metrics to show improvements in text quality and diversity, which strengthens the validity of their approach.\n\n2.\t**Effective cross-modal model merging.** The proposed training-free method is simple and lightweight. Subsequent ablation studies clearly demonstrate its effectiveness.\n\n3.\t**Comprehensive experimental evaluation.** The authors conduct extensive experiments on a wide range of multilingual multimodal benchmarks. The ablation studies are well-designed and sufficient to support the effectiveness of the proposed methods.\n\n4.\t**Solid contributions.** The dataset, method, and models proposed in this work have the potential to significantly advance research in the field of multilingual and multimodal learning.\n\n\nWeaknesses:\n\n1.\t**Subpar performance.** Despite having a larger parameter size, Aya-Vision-8B underperforms compared to Qwen-2.5-VL-7B on most of the benchmark tasks, as shown in Table 1. \n2.\t**Inadequate Filtering.** In the second stage of this filtering process in Section 2 (line 131), a unimodal LLM is employed to detect semantic inconsistencies between the original and recaptioned captions to mitigate the hallucinations and nuanced errors. However, due to the lack of visual information, it may fail to identify hallucinations introduced by the MLLM, making the semantic filter appears inadequate. \n3.\t**Ineffective Post-Editing.** In the post-editing stage of the Hybrid Translation Pipeline, refining the translated text without referencing the original source may fail to effectively correct issues like linguistic artifacts, cultural biases, and semantic misalignments introduced by machine translation. For example, as shown in Figure 2, the Chinese translation of a rephrased prompt changes the meaning from \"what kind of beverage is in the French press\" to \"what kind of beverage is usually brewed in the French press\", shifting the focus from the actual image content to general knowledge. This illustrates the limitation of the current approach in preserving task-specific semantics during translation.\n4.\t**Typographical error.** Line 176: \"cross-model\" should be corrected to \"cross-modal\". In line 167, there is an unnecessary comma following the colon, which should be removed. \n5.\t**Format Issues.** It is recommended to standardize the use of the hyphen in \u201cAya-Vision\u201d across Sections 5 and 6 for consistency. The description in Figure 4 does not accurately match the image content, as the left panel shows six compared models, whereas only five are mentioned in the caption.",
+      "questions": "1.\tIn the Hybrid Translation Pipeline described in Section 2, the authors note that GPT models perform well in high-resource languages but often struggle in low-resource settings. This indeed a common issue among current large language models. However, the authors ultimately choose the NLLB-3.3B model as their translation model. What are the unique advantages of this model, and does it effectively address the aforementioned issues in low-resource languages? This requires further clarification from the authors.\n\n2.\tIn Line 167, the authors mention generating a balanced fine-tuning mix from three data sources. The reviewers would like to know whether this \"balanced\" ratio was determined through experimentation or based on prior experience. Furthermore, unlike many previous works, this study does not incorporate text-only data. The authors should explain the rationale behind this design choice.",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "Thank you to the authors for the responses, which have effectively addressed my concerns."
+    },
+    {
+      "reviewer_id": "x2fRLAQD7W",
+      "overall": 5,
+      "confidence": 4,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 3,
+      "originality": 3,
+      "summary": "This paper introduces Aya Vision, a family of open-weight, multilingual, multimodal models in 8B and 32B sizes that operate across 23 languages. The work addresses the key challenges of multilingual data scarcity and \"catastrophic forgetting,\" where models lose text-only capabilities after vision training. To solve this, the authors developed: \n\n- A synthetic annotation framework that enhances and translates data using a process of recaptioning and context-aware rephrasing to create high-quality, fluent multilingual datasets. \n- A training-free cross-modal model merging technique that blends the weights of the final multimodal model with its original text-only counterpart, which successfully preserves text performance while boosting multimodal capabilities. \n\nAs a result, Aya Vision models achieve state-of-the-art performance, outperforming significantly larger models on both multimodal and text-only tasks. The paper also contributes AyaVisionBench, a new benchmark for evaluating generative multilingual models.",
+      "strengths_and_weaknesses": "### Strengths\n\n- This paper is well written and easy to follow.\n- Instead of relying on simple machine translation, the authors developed a multi-stage synthetic annotation framework which improves the translation quality.\n- Cross-modal model merging is a training-free and highly effective solution to catastrophic forgetting.\n- The resulting Aya Vision models achieve strong performance across a range of evaluations.\n\n### Weaknesses\n\n- The quality of the entire data pipeline and evaluation process is heavily dependent on the performance of other large-scale, often proprietary, model, for example `command-r-plus`, `claude-3.7-sonnet`. This reliance means that the results are contingent on the capabilities and potential biases of these external systems.\n- While the paper's \"cross-modal merging\" is presented as a novel and effective empirical method, its underlying theoretical mechanism is not deeply explored.",
+      "questions": "See Weaknesses.",
+      "limitations": "Yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "My concern has been addressed and I'd like to raise my score to 5."
+    },
+    {
+      "reviewer_id": "eOnVl8x859",
+      "overall": 5,
+      "confidence": 3,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 3,
+      "originality": 2,
+      "summary": "This paper proposes Aya Vision, a family of multilingual multimodal LLMs (8B and 32B) trained to follow instructions in 23 languages. The authors introduce an annotation pipeline that combines machine translation with LLM-based rephrasing to improve the quality and diversity of multilingual multimodal data. They also propose a training-free cross-modal model merging technique that preserves text-only performance while enhancing multimodal capabilities. Additionally, the paper provides a new multilingual benchmark for evaluation.",
+      "strengths_and_weaknesses": "**Strengths:**\n1. The paper is well-written and easy to follow.\n2. The idea of training-free modal merging is simple but effective.\n3. The Figure 9 clearly show that each component brings notable performance gains supporting the effectiveness of the overall design.\n4. The proposed model outperforms existing open-weight baselines on multilingual multimodal benchmarks.\n\n**Weakness:**\n1. Although the authors introduce a pipeline that combines machine translation with LLM-based rephrasing to curate training data, there is no comparison with directly using an LLM for translation. It remains unclear whether the proposed approach leads to better performance than using an LLM for translation alone. An ablation study would help clarify the benefit of combining machine translation with rephrasing.\n2. The merging approach blends weights between the text-only and multimodal models. It\u2019s unclear whether simply using an intermediate checkpoint from early-stage multimodal fine-tuning could achieve a similar balance between text-only and multimodal performance. A comparison would help clarify whether merging offers a real advantage over this simpler alternative.",
+      "questions": "1. How does the translation task improve performance on low-resource languages when using machine translation plus LLM-based rephrasing, compared to directly using an LLM for translation?\n2. Figure 7 shows as the alpha increase, the multimodal performance somehow decrease at the left figure. When alpha is 1 the weight is all multi-modal weights and it should have the best performance at multi-modal. I wonder why it shows decrease trend as alpha increase.",
+      "limitations": "Yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "The author provided detailed replies to my questions and addressed my concerns. The author clarified the necessity of using machine translation followed by an LLM for rephrasing, as opposed to directly using an LLM for translation. They also addressed my question about why multimodal performance improves when using modal merging."
+    },
+    {
+      "reviewer_id": "PNVBT5fSQn",
+      "overall": 6,
+      "confidence": 3,
+      "quality": 4,
+      "clarity": 4,
+      "significance": 4,
+      "originality": 4,
+      "summary": "Note to Area Chair: The paper\u2019s title [Aya] reveals clues about the authors\u2019 identities, which may impacted my review.\n\nThis paper presents Aya Vision, a multilingual multimodal model that uses synthetic data and cross-modal merging to overcome data scarcity and catastrophic forgetting, achieving strong performance on vision and text tasks while outperforming larger models.",
+      "strengths_and_weaknesses": "Strengths:\n\n- Novel cross-modal model merging that efficiently preserves text performance while adding multimodal capabilities.\n- Strong results across 23 languages, beating larger models with fewer parameters.\n- Comprehensive ablation studies showing the impact of design choices clearly.\n- Balanced multilingual data strategy that improves performance.\n- New benchmark (AyaVisionBench) for evaluating multilingual multimodal systems.\n- Commitment to open release, supporting reproducibility.\n- Two sizes are considered: 8B and 32B \n\nWeaknesses (not major): \n\n- Missing details on training hardware/cost and scalability.\n- Limited details on dataset quality.\n- Heavy use of synthetic data may limit real-world generalization.",
+      "questions": "I give a complete score, no questions. If you want, see the weaknesses mentioned.",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I will keep my positive score the same as before."
+    }
+  ]
+}

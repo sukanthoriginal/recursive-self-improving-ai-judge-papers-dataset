@@ -1,0 +1,10 @@
+{
+  "paper_id": "1KylG7l2oQ",
+  "title": "Per-channel autoregressive linear prediction padding in tiled CNN processing of 2D spatial data",
+  "venue": "Submitted to NeurIPS 2025",
+  "decision": "Reject",
+  "accept": false,
+  "bin": "[2.0,2.5)",
+  "openreview_url": "https://openreview.net/forum?id=1KylG7l2oQ",
+  "mismatch": false
+}

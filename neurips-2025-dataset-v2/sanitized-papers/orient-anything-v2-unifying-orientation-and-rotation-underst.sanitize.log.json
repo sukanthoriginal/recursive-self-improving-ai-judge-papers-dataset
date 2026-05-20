@@ -1,0 +1,48 @@
+{
+  "redactions": [
+    "title_page_author_block"
+  ],
+  "pattern": {
+    "email": 0,
+    "orcid": 0,
+    "url": 2,
+    "arxiv": 17
+  },
+  "section_redactions": 1,
+  "author_name_redactions": {
+    "Zehan": 2,
+    "Zehan Wang": 2,
+    "Wang": 36,
+    "Zhang": 19,
+    "Ziang Zhang": 2,
+    "Ziang": 2,
+    "Jiayang Xu": 1,
+    "Jiayang": 1,
+    "Jialei Wang": 1,
+    "Jialei": 1,
+    "Tianyu": 2,
+    "Tianyu Pang": 2,
+    "Pang": 2,
+    "Chao": 2,
+    "Chao Du": 2,
+    "Zhao": 20,
+    "Hengshuang Zhao": 2,
+    "Hengshuang": 2,
+    "Zhou Zhao": 2,
+    "Zhou": 6
+  },
+  "authors_groundtruth": [
+    "Zehan Wang",
+    "Ziang Zhang",
+    "Jiayang Xu",
+    "Jialei Wang",
+    "Tianyu Pang",
+    "Chao Du",
+    "Hengshuang Zhao",
+    "Zhou Zhao"
+  ],
+  "verify": {
+    "ok": true,
+    "issues": []
+  }
+}

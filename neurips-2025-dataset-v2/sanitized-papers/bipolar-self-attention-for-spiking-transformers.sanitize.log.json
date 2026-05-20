@@ -1,0 +1,61 @@
+{
+  "redactions": [
+    "title_page_author_block"
+  ],
+  "pattern": {
+    "email": 1,
+    "orcid": 0,
+    "url": 0,
+    "arxiv": 18
+  },
+  "section_redactions": 1,
+  "author_name_redactions": {
+    "Shuai": 9,
+    "Shuai Wang": 9,
+    "Wang": 68,
+    "Malu": 12,
+    "Zhang": 160,
+    "Malu Zhang": 13,
+    "Jingya": 2,
+    "Jingya Wang": 2,
+    "Dehao Zhang": 9,
+    "Dehao": 9,
+    "Shan": 5,
+    "Yimeng": 4,
+    "Yimeng Shan": 5,
+    "Jieyuan Zhang": 3,
+    "Jieyuan": 3,
+    "Xiao": 16,
+    "Yichen Xiao": 6,
+    "Yichen": 8,
+    "Honglin": 3,
+    "Honglin Cao": 3,
+    "Cao": 6,
+    "Haonan Zhang": 1,
+    "Haonan": 1,
+    "Zeyu Ma": 1,
+    "Zeyu": 1,
+    "Yang Yang": 7,
+    "Yang": 23,
+    "Haizhou": 3,
+    "Haizhou Li": 3
+  },
+  "authors_groundtruth": [
+    "Shuai Wang",
+    "Malu Zhang",
+    "Jingya Wang",
+    "Dehao Zhang",
+    "Yimeng Shan",
+    "Jieyuan Zhang",
+    "Yichen Xiao",
+    "Honglin Cao",
+    "Haonan Zhang",
+    "Zeyu Ma",
+    "Yang Yang",
+    "Haizhou Li"
+  ],
+  "verify": {
+    "ok": true,
+    "issues": []
+  }
+}

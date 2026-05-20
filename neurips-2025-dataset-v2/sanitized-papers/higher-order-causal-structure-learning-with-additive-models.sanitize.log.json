@@ -1,0 +1,39 @@
+{
+  "redactions": [
+    "title_page_author_block"
+  ],
+  "pattern": {
+    "email": 0,
+    "orcid": 0,
+    "url": 9,
+    "arxiv": 1
+  },
+  "section_redactions": 0,
+  "author_name_redactions": {
+    "James Enouen": 2,
+    "Enouen": 5,
+    "James": 3,
+    "Zheng": 4,
+    "Yujia": 1,
+    "Yujia Zheng": 1,
+    "Ignavier Ng": 2,
+    "Ignavier": 2,
+    "Liu": 4,
+    "Yan Liu": 2,
+    "Yan": 5,
+    "Zhang": 5,
+    "Kun": 4,
+    "Kun Zhang": 4
+  },
+  "authors_groundtruth": [
+    "James Enouen",
+    "Yujia Zheng",
+    "Ignavier Ng",
+    "Yan Liu",
+    "Kun Zhang"
+  ],
+  "verify": {
+    "ok": true,
+    "issues": []
+  }
+}

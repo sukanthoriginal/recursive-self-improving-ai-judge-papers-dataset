@@ -1,0 +1,10 @@
+{
+  "paper_id": "3nza35A6I4",
+  "title": "Training Language Models to Generate Quality Code with Program Analysis Feedback",
+  "venue": "NeurIPS 2025 poster",
+  "decision": "Accept (poster)",
+  "accept": true,
+  "bin": "[3.5,4.0)",
+  "openreview_url": "https://openreview.net/forum?id=3nza35A6I4",
+  "mismatch": false
+}

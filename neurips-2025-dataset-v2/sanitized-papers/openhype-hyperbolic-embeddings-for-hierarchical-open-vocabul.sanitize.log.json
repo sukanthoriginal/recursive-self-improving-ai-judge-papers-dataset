@@ -1,0 +1,40 @@
+{
+  "redactions": [
+    "title_page_author_block"
+  ],
+  "pattern": {
+    "email": 1,
+    "orcid": 0,
+    "url": 21,
+    "arxiv": 3
+  },
+  "section_redactions": 1,
+  "author_name_redactions": {
+    "Weijler": 3,
+    "Lisa Weijler": 1,
+    "Lisa": 2,
+    "Koch": 2,
+    "Sebastian Koch": 2,
+    "Sebastian": 2,
+    "Fabio": 1,
+    "Fabio Poiesi": 1,
+    "Poiesi": 1,
+    "Timo Ropinski": 2,
+    "Timo": 2,
+    "Ropinski": 2,
+    "Pedro": 2,
+    "Hermosilla": 2,
+    "Pedro Hermosilla": 2
+  },
+  "authors_groundtruth": [
+    "Lisa Weijler",
+    "Sebastian Koch",
+    "Fabio Poiesi",
+    "Timo Ropinski",
+    "Pedro Hermosilla"
+  ],
+  "verify": {
+    "ok": true,
+    "issues": []
+  }
+}

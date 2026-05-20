@@ -1,0 +1,91 @@
+{
+  "paper_id": "k5ekIwvmYA",
+  "decision": "Reject",
+  "reviews": [
+    {
+      "reviewer_id": "hpkkoRQ5re",
+      "overall": 3,
+      "confidence": 4,
+      "quality": 3,
+      "clarity": 2,
+      "significance": 2,
+      "originality": 3,
+      "summary": "This paper proposes the Multi-Actor Multi-Critic (MAMC) deep deterministic reinforcement learning method, which introduces a framework with multiple actors and multiple critics to improve both exploration and value estimation in reinforcement learning tasks. MAMC features an innovative selection strategy based on non-dominated sorting, evaluating actors using both skill (expected return) and creativity (diversity of critic outputs). It employs a quantile-based ensemble approach for value estimation to address common issues, such as overestimation and underestimation biases. Theoretical analysis demonstrates that MAMC ensures stable learning and bounded estimation error. Experiments on MuJoCo benchmarks show that MAMC outperforms several leading methods in terms of convergence speed and final returns, especially in challenging environments. The study\u2019s contributions include improved ensemble estimators, a new multi-objective actor selection framework, theoretical justifications, and robust empirical results on complex continuous control problems",
+      "strengths_and_weaknesses": "Strengths:\n1) Novel Architecture: The paper introduces a unique Multi-Actor Multi-Critic (MAMC) framework that incorporates multiple actors and critics with a sophisticated selection mechanism, which is innovative compared to prior actor-critic architectures.\n2) Balanced Exploration and Exploitation: The use of a two-objective actor selection mechanism (skill and creativity factors) based on non-dominated sorting helps balance the trade-off between finding high-quality actions and maintaining diverse exploration, supporting robust learning.\n3) Quantile-Based Ensemble Estimation: The quantile-based ensemble strategy for critic evaluation addresses common estimation biases (over- and underestimation), leading to more stable and accurate value estimates.\n\nWeakness:\n1) Scalability Concerns: Maintaining and training multiple actors and critics may lead to increased computational and memory demands, which could become a bottleneck for large-scale or resource-constrained applications.\n2) Limited Stochastic Policy Comparison: While comparisons with both deterministic and stochastic methods are included, the authors acknowledge that stochastic approaches like REDQ-SMR can surpass MAMC in some environments, suggesting potential limitations of the deterministic framework.\n3) Hyperparameter Sensitivity: The performance of MAMC can be sensitive to the setting of the quantile parameter q, and the best value appears environment-dependent, requiring tuning for different tasks.\n4) It is recommended to further strengthen English writing, with a focus on the accurate use of verb tenses.",
+      "questions": "Q1: MAMC involves simultaneously maintaining and updating multiple actors and critics, which requires considerable computational resources. Could the authors provide a more detailed breakdown of the runtime, memory usage, and scalability as the number of actors/critics increases, especially compared to baselines?\nQ2: The paper acknowledges that stochastic actor-critic methods such as REDQ-SMR may outperform the deterministic-policy MAMC on the most challenging environments. Could the authors discuss in more detail the underlying reasons for this and whether extensions to stochastic or hybrid policy frameworks are feasible within the MAMC? \nQ3: The non-dominated sorting based on skill and creativity for actor selection is novel, and ablation shows its benefit. Can you provide a more detailed analysis or visualization of how the balance between exploration and exploitation evolves over time and across environments?",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": null
+    },
+    {
+      "reviewer_id": "GTm7qPRusj",
+      "overall": 3,
+      "confidence": 3,
+      "quality": 2,
+      "clarity": 2,
+      "significance": 2,
+      "originality": 2,
+      "summary": "The authors proposed a multi-actor based policy gradient method in this submission, in contrast to the single-actor methods in some previous work. The proposed method contains a few new features, mainly focusing on quantile based ensemble estimation for actor/critic evaluation and actor selection. Furthermore, the authors provided some theoretical analysis regarding variance reduction. The experimental results demonstrated the superior performance of the proposed method over a few baseline methods.",
+      "strengths_and_weaknesses": "## Strength:\n\nGiven that multiple-actor has been employed in previous methods, e.g., SUNRISE, the major contribution from this submission is maily on the quantile base ensemble estimation, which looks interesting and is somewhat justified in practice.\n\n\n## Weakness:\n\n1. Even though the proposed quantile based ensemble estimation approach looks interesting, some in-depth analysis is necessary to explain why it should work well. The authors may hint about its benefits in Section 4.3, but I was not able to identify them.\n\n2. Given a few other related methods also belong to the multi-actor multi-critic family, why not compare against them in the experiments, e.g., SUNRISE?\n\n3. There are a few typos and some claims may look incorrct, for which are summarized below.\n\n   * In Eq. (2) and Eq. (7), shouldn't the sign in front of $\\gamma$ be negative?\n   * DQN is considered to be value based method so it should not be included in Table 1.",
+      "questions": "* what did you mean by the ``a current manner'' in L47?\n* what's the definition for `skill` and `creativity` in L174?\n* what's the motivation of using median over quantile in Eq. (6)?",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I will keep my score because (i) the theorems in Section 5 show the benefits from variance, but the results on the estimation errors look insufficient; (ii) the boundary between stochastic and deterministic nature of MAMC vs. Sunrise is also a bit blurry."
+    },
+    {
+      "reviewer_id": "usA8PZcIlv",
+      "overall": 2,
+      "confidence": 4,
+      "quality": 2,
+      "clarity": 2,
+      "significance": 2,
+      "originality": 1,
+      "summary": "This paper proposes a novel multi-actor multi-critic (MAMC) deep deterministic reinforcement learning method with quantile-based ensemble estimation for addressing the issues of estimation accuracy. MAMC has three key contributions: the non-dominated sorting for actor selection to explore skill and creativity, a quantile-based ensemble method for evaluating actors and critics, and exploiting the actor based on the best skill factor. The authors provide a theoretical analysis to prove the learning stability and bounded estimation bias for the MAMC. Empirical studies on the MuJoCo benchmark validate the effectiveness of MAMC, demonstrating superior performance compared to state-of-the-art deep deterministic-based reinforcement learning methods.",
+      "strengths_and_weaknesses": "**Strength:**\n1. The MAMC method introduces a novel multi-actor multi-critic RL architecture that addresses the limitations of existing single-actor, single/multi-critic RL methods.\n2. MAMC presents nice theoretical properties and the bounds of the estimation error.\n\n**Weakness:**\n1. MAMC is confined to a deterministic setting. Its performance on stochastic RL methods is unknown.\n2. It is not clear whether the gained performances are from the increased capacity of the neural network or the algorithmic improvement of the RL method.\n3. MAMC does not always show superior performance in Figure 1. Only 5 scenarios are not enough to evaluate the effectiveness of the proposed method.\n4. We can see the improvement of performance in some MoJoCo scenarios. But it is not clear what the exact level of the estimation MAMC can gain in this paper.",
+      "questions": "Q1: Why do you use quantiles?\n\nQ2: Is MAMC sensitive to the number of actors/critics?\n\nQ3: Why were you interested in the issues of estimation accuracy in the deterministic RL problem?",
+      "limitations": "See above comments.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": null
+    },
+    {
+      "reviewer_id": "vWXajX5Xc4",
+      "overall": 3,
+      "confidence": 5,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 2,
+      "originality": 2,
+      "summary": "This paper proposes a novel multi-actor multi-critic deep deterministic reinforcement learning method (MAMC), aiming to address the issues of insufficient exploration and instability in traditional reinforcement learning methods. The method combines multiple actors and critics, introducing an actor selection mechanism based on skill and creativity factors, a quantile-based ensemble Q-value estimation strategy, and the exploitation of the actor with the best skill factor, which effectively improves stability and policy performance during the learning process. The paper demonstrates the advantages of the proposed method in terms of estimation bias control and learning stability. \n\nThrough experimental validation, MAMC performs excellently across multiple MuJoCo environments, outperforming existing deep deterministic reinforcement learning methods, particularly in the early and mid-training stages, where the effects are more pronounced. The experimental results also show that the actor selection mechanism, based on different policy qualities, can significantly enhance the model's generalization ability. This study provides an effective improvement to reinforcement learning methods with a multi-actor multi-critic structure.",
+      "strengths_and_weaknesses": "Strengths:\n1) This paper proposes a novel multi-actor multi-critic (MAMC) deep deterministic reinforcement learning architecture that effectively combines multiple actors and critics, with no fixed pairings between them. Unlike traditional single actor-critic structures, the MAMC architecture provides greater flexibility by using multiple critics to evaluate the policy, while multiple actors participate in exploring the policy, thus effectively enhancing the diversity of the exploration process and the accuracy of the evaluation process.\n2) The experimental design is reasonable and convincing. The authors test the proposed method across multiple standard MuJoCo environments, including Ant, Half-Cheetah, Hopper, and Humanoid, to comprehensively validate its effectiveness. Moreover, the paper compares the method with several mainstream reinforcement learning baseline methods (e.g., REDQ). The results show that MAMC significantly outperforms the baseline methods in various environments, further validating the effectiveness of the proposed approach.\n\nWeaknesses:\n1) The paper introduces a novel multi-actor multi-critic structure, but the MAMC method is mainly an extension and integrative optimization of the existing actor-critic structure. The primary improvement lies in enhancing the system-level integration, which improves the stability and accuracy of policy evaluation and exploration. However, this improvement is more focused on the combination and optimization of existing architectures rather than introducing a fundamentally new theoretical mechanism or paradigm, making the innovation incremental.\n2) The proposed method uses 10 actors and 10 critics simultaneously. Although this design improves the effectiveness of exploration and evaluation, it may also incur high computational and training costs. While the paper briefly mentions the hardware configuration, it does not provide a detailed discussion of the computational burden introduced by the multi-actor and multi-critic design, nor does it evaluate the cost-effectiveness compared to other baseline methods.\n3) According to the experimental curves, MAMC shows stable performance in the later stages of training, and in some cases, it is slightly inferior to REDQ. This indicates that the long-term performance advantage of the method is not prominent. The performance degradation in later training stages may be related to sample reuse or the multi-actor mechanism. The design of multiple actors might cause instability in policy updates during long-term training, especially when dealing with multi-batch samples and recursive training, leading to potential policy degradation or learning instability. Whether this issue is due to the frequency of policy updates or interactions between actors requires further analysis.",
+      "questions": "See above.",
+      "limitations": "Yes.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "This work proposes the MAMC method, which performs integrated optimization based on the multi-actor multi-critic architecture, enhancing the stability of policy evaluation and the effectiveness of exploration. However, the innovation mainly lies in architectural integration, lacking theoretical breakthroughs and representing an incremental improvement. In addition, the multi-actor multi-critic design introduces significant computational cost. \n\nOverall, the method has limited innovation and incurs high training time overhead. After considering the response of the authors and the discussions from other reviewers, I want to keep or reduce my score. Based on these obvious weeknesses, I recommend rejecting the paper."
+    },
+    {
+      "reviewer_id": "kIysKUV4qc",
+      "overall": 3,
+      "confidence": 3,
+      "quality": 3,
+      "clarity": 2,
+      "significance": 2,
+      "originality": 2,
+      "summary": "This work proposes a novel multi-actor, multi-critic algorithm to improve performance compared to single-actor or single-critic approaches. The authors design a quantile-based ensemble value function to evaluate the performance of different policies (actors). In addition, the algorithm introduces a creativity factor and a skill factor to guide exploration. The paper provides theoretical analysis to support the effectiveness of the method and includes diverse simulation results and evaluation metrics to validate the proposed algorithm.",
+      "strengths_and_weaknesses": "***Strengths***\n1.  The design of the Q-ensemble method is novel and generalizable. This metric has potential applications in a wide range of reinforcement learning problems.\n\n2. The simulation section provides sufficient and persuasive experiments that effectively validate the proposed method.\n\n***Weaknesses***\n1. The theoretical proof section is somewhat trivial and lacks depth.\n\n2. The MAMC algorithm significantly increases computational cost, which may limit its practicality\u2014especially in large-scale models.",
+      "questions": "1. How should the weights of the creativity factor and skill factor be selected in practice to balance exploration and exploitation, particularly for challenging tasks with high variance? For more difficult environments, would reducing the weight of the creativity factor help stabilize learning?\n\n2. Could the authors provide results using different weight settings for the creativity and skill factors in the Ant-v5 and Humanoid-v5 environments? This would help demonstrate the sensitivity of the method to these parameters.\n\n3. In Equation (6), first line, why is the mid quantile used instead of the average across critics? Does the mid quantile offer specific advantages, such as robustness to outliers or overestimation?",
+      "limitations": "Yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "Based on the rebuttal and the information provided, I believe the level of novelty in this work does not justify an increased score. First, while the MAMC algorithm shows some performance improvement, it is not significantly better than other algorithms, yet it incurs substantially higher computational cost. Second, from a practical perspective, I find the design of the MAMC algorithm to be unreasonable. Therefore, I will maintain my original score."
+    }
+  ]
+}

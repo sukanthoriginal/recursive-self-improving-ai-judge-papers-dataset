@@ -1,0 +1,74 @@
+{
+  "paper_id": "bFlE9AyEJY",
+  "decision": "Reject",
+  "reviews": [
+    {
+      "reviewer_id": "yXv4KtC8QN",
+      "overall": 2,
+      "confidence": 3,
+      "quality": 2,
+      "clarity": 2,
+      "significance": 2,
+      "originality": 4,
+      "summary": "The paper introduces the Spectral Dictionary Generative Model (SDGM), a novel neural network architecture for white-box language modeling via dictionary learning. The network works as follows: the tokens are embedded into Euclidean space, mixed via a 1d (causal) convolution to get dictionary weights, and multiplied by dictionary atoms. This obtains a reconstruction of the initial embeddings. A classification head applied to this reconstructed embedding (such as the standard LM head in LLMs) obtains a probability distribution over the vocabulary which can then be used for language modeling. The paper contains experiments about performance and efficiency on the standard LM task with the datasets WikiText-2 and Penn TreeBank, comparing against Transformer-XL, GPT-2-Small, and Linformer.",
+      "strengths_and_weaknesses": "Strengths:\n- The idea of using a dictionary learning module as the whole language model is novel.\n- The authors have seemed to do some work to improve the efficiency of their network so that it is reasonable compared to transformers in the presented circumstances.\n\nWeaknesses:\n- The methodology itself is not clearly described. For example the language modeling loss is variously described as $\\\\mathcal{L}\\_{\\\\mathrm{NLL}}$ (the standard next-token-prediction language modeling loss) and $\\\\mathcal{L}\\_{\\\\mathrm{MLM}}$ (the masked language modeling loss). How do you actually train the model? Also the sampling step is not clear (what are the formal definitions of $P\\_{\\\\mathrm{vocab}}$ and $P\\_{\\\\mathrm{copy}}$?)\n- Also, the intuition behind the different blocks is not clear. Why would you want to reconstruct the original embeddings $X$ in the final layer and use these reconstructed embeddings $\\hat{X}$ for generation? Note that the original embeddings _do not_ have the benefit of inter-token interactions, so if the weights were learned to simultaneously optimize all terms in the composite loss, you would be generating the next token based only on the most recent token and not using context, it would be equivalent to using $X$ directly.\n- It is difficult to imagine how to do optimizations for autoregressive sampling, such as KV caching, which are already baked into transformer-like architectures, and without which sampling would indeed be slow.\n- The experimental results show some performance and efficiency improvement over models with similar parameter counts, but the results are slightly dubious; the perplexities are very high for all models, and not including language modeling loss at all barely makes the perplexity worse, and comparable to Linformer which is trained only with the language modeling loss).",
+      "questions": "- The authors claim efficiency improvements over transformers, specifically on GPU memory and throughput. It would be interesting to know what optimizations (e.g. flash attention, custom kernels) the baseline transformers enjoy. Also it would be interesting to know generation efficiency.\n- It would be much appreciated to give some clarity or intuition about how perplexity empirically does not get much worse when the language modeling loss is completely dropped; this seems particularly mysterious to me and I may be misunderstanding the setup.\n- Is there any evidence that the learned language model has any side benefits (i.e., interpretability seems pretty relevant)?",
+      "limitations": "Yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": null
+    },
+    {
+      "reviewer_id": "OIhdexnSRp",
+      "overall": 2,
+      "confidence": 5,
+      "quality": 2,
+      "clarity": 2,
+      "significance": 3,
+      "originality": 4,
+      "summary": "The paper proposes \"Spectral Dictionary Generative Model\", an alternative replacing the current QKV-attention method used for LLM training, based on fourier decomposition and gaussian priors. \nThe method indeed is quite novel and has some unique potentials, i.p. efficiency gains and potentially domain adaptability due to re-using models with different priors.",
+      "strengths_and_weaknesses": "- S1 the paper is well written and easy to understand (given the complex domain)\n- S2 the approach is rather unique\n\nHowever:\n- W1 i understand compute was a limiting factor - but i do not find the trained model and comparison to outdated models sufficient, along with chosen evals. Only perplexity is compared on a 50M parameter model which is rather unconclusive. \n- W2 The training is unsufficiently described - ie #steps, step duration, model parameters (layers) etc., chosen activation (and why). It is also unclear how the posterior gaussian prior is to be trained/ how it influences generation, what limitations or required adaptations are, and how the gaussian prior during training is obtained/ trained. Similarly it is claimed that throughput is improved without describing how that is measured. The method introduces new hyperparameters, for which some (random looking) values are chosen without any shown sweep, and the only conclusion is \"loss looks better with than without\".\n- W3 in addition to W2, the K that asymptotically vanishes from big O notation, has to be already quite large already (256), for which it's hard to deduce the 'efficiency' claim.\n- W4 scaling is not discussed at all, (ip for W2/W3), how do runtimes change under varying sequence lengths etc/ i.p. for model scaling how is K expected to change for more domains/ bigger models. using/comparing to some different gpt-neo sizes would've been a better choice\n- W5 just because you got some fourier decomposition does not render your method interpretable (claimed even in the title). It is neither analyzed nor sufficiently discussed (or i somehow missed it?!)\n- W6 the graphic quality does not fit the NIPS standard.\n\n\nMinors:\n- i don't get why you explicitly describe batching, it rather adds confusion (to me). \n- write out the einsum in eq 6\n- 165 N=B\u00d7L?\n- sometimes GMM missed in p(z)\n- eq 16 - context\n- 274 eq missing",
+      "questions": "- please address/ comment on weaknesses above.\n- will you publish the code?",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": null
+    },
+    {
+      "reviewer_id": "T1mPq7WkG6",
+      "overall": 3,
+      "confidence": 4,
+      "quality": 2,
+      "clarity": 3,
+      "significance": 3,
+      "originality": 2,
+      "summary": "This paper proposes Atoms, a modular and interpretable framework for token pruning in vision Transformers. Instead of black-box pruning, The method leverages Short-Time Fourier Transform (STFT) to assess token importance via frequency domain analysis. By decomposing pruning decisions into interpretable components (\u201catoms\u201d), it achieves efficient and accurate token reduction. The approach is compatible with various Transformer architectures and shows strong results on classification and segmentation tasks.",
+      "strengths_and_weaknesses": "Strengths\n- The paper presents an interpretable approach to token pruning by introducing Metaformer Atoms, which decompose the pruning strategy into additive functional components. The use of STFT to assess token importance in the frequency domain is intuitive.\n- The paper is generally well-written and clearly structured. The design of Metaformer Atoms is explained step by step, and key concepts like frequency masking and token filtering are illustrated with helpful figures.\n\nWeaknesses\n- While the STFT-based pruning intuition is compelling, the paper lacks deeper theoretical justification for why frequency domain features correlate with token importance across tasks and models.\n- Figure 1 needs to be polished.\n- The method\u2019s performance is heavily supported by empirical tuning (e.g., choice of frequency filters, additive component weights), which may limit reproducibility or generalization to other domains.\n- The method introduces multiple hyperparameters (e.g., $\\alpha$, $\\beta$, $\\gamma$, $\\delta$), but no ablation studies are provided to evaluate their individual contributions or robustness. Similarly, the impact of different Fourier Transform variants (e.g., FFT, STFT, DCT) is not explored. These missing ablations reduce the interpretability and generalizability of the framework.\n- In Table 1, the model sizes vary significantly across baselines, making the accuracy-FLOPs trade-off comparison less meaningful. To provide a more fair and convincing evaluation, the paper should include comparisons with methods such as GQA, Sparse Attention, and FwNet-ECA, while controlling for model size.\n- The use of frequency-domain representations (e.g., Fourier Transform) in attention mechanisms has been explored in prior work. Notably, FwNet-ECA [Mian et al., 2025] applies Fourier filtering to enhance window attention with global receptive fields. This overlap diminishes the novelty of the current contribution, particularly if not adequately differentiated or cited.\n\nReference:\n- Mian S, Wang Y, Gu N, et al. FwNet-ECA: A Classification Model Enhancing Window Attention with Global Receptive Fields via Fourier Filtering Operations. arXiv preprint arXiv:2502.18094, 2025.",
+      "questions": "1. The method introduces several components and hyperparameters (e.g., $\\alpha$, $\\beta$, $\\gamma$, $\\delta$) in the pruning scoring function, but their individual effects are not studied. Could the authors provide ablation experiments to assess how sensitive the model is to these parameters and whether they interact significantly?\n2. The current method relies on STFT for token importance estimation. Have the authors tried alternative transforms such as FFT, DCT, or learned frequency bases?\n3. The model sizes differ significantly across methods in Table 1. Would the performance trend hold if model sizes and parameter counts were normalized across baselines? Including size-matched comparisons with GQA, Sparse Attention, and FwNet-ECA would strengthen the claims.\n4. Prior work like FwNet-ECA (Mian et al., 2025) has also applied Fourier filtering in attention. Could the authors clearly differentiate their method from FwNet-ECA and discuss the novelty in design or application? Explicit discussion and citation would be important here.\n5. One key motivation is to make token pruning more interpretable. Could the authors provide more visual or quantitative evidence (e.g., attention heatmaps, token importance consistency, alignment with human attention) to support this claim?",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": null
+    },
+    {
+      "reviewer_id": "qoysZ0nLS3",
+      "overall": 2,
+      "confidence": 4,
+      "quality": 2,
+      "clarity": 3,
+      "significance": 2,
+      "originality": 2,
+      "summary": "The paper introduces the Spectral Dictionary Generative Model (SDGM), which replaces the quadratic self-attention mechanism with a learnable global Fourier dictionary of K atoms and per-token mixing coefficients. A dual-domain objective\u2014time-domain MSE, frequency-domain STFT loss, and standard LM loss\u2014is used, and a Gaussian-mixture prior is fit over the mixing vectors to enable generation. SDGM claims O(K L) time/memory complexity (with K \u226a L), competitive perplexity on WikiText-2 and PTB, and lower memory / higher throughput than Transformer-XL, GPT-2-Small, and Linformer",
+      "strengths_and_weaknesses": "Strengths: \n\n+ Clear mathematical formulation with well-defined encoder/decoder, loss, and latent prior.\n\n+ Proposes an interpretable spectral alternative to attention that could inspire follow-up work.\n\n+ Linear complexity attractive for long-sequence modeling.\n\nWeakness: \n\n* Empirical scope narrow: only small-scale LM datasets (PTB, WikiText-2) and short contexts; no evaluation on long-context benchmarks or chain-of-thought (CoT) reasoning.\n* Perplexity alone is insufficient to judge generative quality or reasoning ability.\n* Efficiency study omits state-of-the-art optimized attention (e.g., FlashAttention-2, H3, GPU hierarchical kv-cache), so gains may be overstated.\n* Claims of \u201ccompetitive\u201d performance are vague without stronger baselines or confidence intervals.\n* No statistical variability or significance analysis; results are single-run.\n* Without convincing large-scale or task-diverse evidence, impact on practical LLMs is limited; current results do not demonstrate viability on reasoning-heavy or industrial workloads.",
+      "questions": "Can you report perplexity and generation accuracy on long-range or reasoning datasets? \n\nHow does SDGM behave when both K and model width/parameters scale to GPT-2 (\u2248124 M) or LLaMA-7B regimes? A scaling curve\u2014even on a subset of data\u2014would clarify whether the approach remains competitive.",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": null
+    }
+  ]
+}

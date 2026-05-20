@@ -1,0 +1,74 @@
+{
+  "paper_id": "MjOf5qnEX7",
+  "decision": "Accept (poster)",
+  "reviews": [
+    {
+      "reviewer_id": "ImxtBFV16m",
+      "overall": 4,
+      "confidence": 3,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 2,
+      "originality": 3,
+      "summary": "This paper studies span-based results for offline reinforcement learning in average-reward MDPs. Unlike prior offline results that focus on unichain MDPs, the authors leverage the span-based approach (Matthew et al. (2024)) to derive results for the more general class of weakly communicating MDPs. They introduce a new quantity, $T_{\\text{hit}}(P,\\pi^\\*)$, and show that pessimistic value iteration with a span-based bonus function succeeds if at least $O(T_{\\text{hit}}(P,\\pi^\\*)^2)$ samples are collected for each state. Furthermore, they establish an $O(T_{\\text{hit}}(P,\\pi^\\*))$ lower bound on the required number of samples per state. The theoretical results are supported by rigorous proofs.",
+      "strengths_and_weaknesses": "Strengths:\n\n1. The paper is well-written and easy to follow. The intuition of the newly introduced term $T_{hit}(P,\\pi^*)$ is clear, and the proof sketch can help the reader to quickly grasp the high-level idea of the proof.\n\n2. The negative result for offline RL is both interesting and important. It highlights that offline RL requires sufficient samples for every state, even for states that are never visited by the optimal policy. This is a valuable insight, as many existing offline RL works rely only on the single-policy coverage assumption.\n\n3. This paper is the first to consider the application of the pessimistic value iteration algorithm in average-reward MDPs. The proposed quantile clipping technique is both novel and interesting. The theoretical analysis is rigorous and may also be of independent interest.\n\nWeaknesses:\n\n1. The $\\Omega(T_{hit}(P,\\pi^\\*))$ lower bound result does not match the $O(T_{hit}(P,\\pi^\\*)^2)$ sample complexity result. \n\n2. There is no experiment to primarily examine whether $O(T_{hit}(P,\\pi^\\*)^2)$ samples are needed or $O(T_{hit}(P,\\pi^\\*))$ is enough. Some preliminary experiments that could provide theoretical insight would be great.",
+      "questions": "1. Is this quantile clipping technique useful in online RL, especially in span-based average-reward online RL?\n\n2. The lower bound provided is only linear because it is based on the argument that certain transitions remain unobserved unless at least $O(T_{hit}(P,\\pi^\\*))$ samples are collected for each state. At a high level, I think transitions cannot be accurately identified with fewer than $O(T_{hit}(P,\\pi^\\*)^2)$ samples, which may be a potential avenue to further strengthen and improve the current lower bound result. Is it possible to improve your lower bound result in this way?",
+      "limitations": "yes.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I appreciate the author's rebuttal. I will keep my score."
+    },
+    {
+      "reviewer_id": "ryNP3WxQOq",
+      "overall": 5,
+      "confidence": 2,
+      "quality": 3,
+      "clarity": 2,
+      "significance": 2,
+      "originality": 3,
+      "summary": "This paper addresses the sample complexity of average-reward offline RL in the weakly communicating MDPs. The established bound only depends on complexity measures corresponding to the optimal policy, instead of being uniform over all policies. The lower bounds results demonstrate the unimprovable dependence on two novel measures, i.e., the *transient state dataset coverage* and the *effective size*.",
+      "strengths_and_weaknesses": "* **Strengths:**\n    1. This paper presents a comprehensive analysis of the average-reward offline RL in the weakly communicating MDPs. The results improve over the previous work in two ways. First, the derived sample complexity bound only depends on the optimal policy. Second, two novel complexity measures are introduced, and the dependence is demonstrated through the lower bounds.\n    2. An interesting result is that sufficient data is required even for transient state-action pairs. This could provide further insights to the community.\n\n* **Weaknesses:**\n    1. The derived bound requires data from all states, which could be limiting in practice.\n    2. It is unclear whether the *transient state dataset coverage* assumption is fundamentally different from the *uniform mixing time* in the construction of the hard instance (see Question 3 below).",
+      "questions": "1. Is the *transient state dataset coverage* assumption only necessary for a small suboptimality $\\delta$ (as Theorem 3.3 requires $\\delta \\le e^{-9}$)?\n2. How does Alg. 1 perform in the unichain MDPs? Can it learn a near-optimal policy without the *transient state dataset coverage* assumption?\n3. In the hard instance (Section 4.2), the \"difficulty\" may also be explained by the *uniform mixing time*, i.e., it requires a sufficient amount of time to recover the transition from state 2 to state 1 for any arbitrary policy. It seems that both the uniform mixing time and the *transient state* are somewhat equivalent in this case.",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "The authors' response addressed most of my concerns. I maintain the acceptance of this paper."
+    },
+    {
+      "reviewer_id": "5jX0cwl5cz",
+      "overall": 4,
+      "confidence": 2,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 3,
+      "originality": 3,
+      "summary": "This paper concerns the problem of offline RL in average-reward MDPs, where, due to the long horizon, there are unique challenges in handling distribution shift and non-uniform coverage. As I understand it, the main contribution is establishing a statistical upper bound utilizing only single-policy complexity terms, namely, the bias span and a novel policy hitting radius. The algorithm utilizes pessimistic value iteration with quantile clipping. Lower bounds establish that single-policy coverage alone is insufficient, and that the dependence on certain quantities (such as $m$) in the upper bound are tight.",
+      "strengths_and_weaknesses": "I am not familiar with average-reward RL, so I'm afraid my feedback is largely superficial, and I cannot evaluate this paper well in the context of existing work. As far as I can tell the paper seems carefully done and well-written, and I appreciate that the paper investigates lower bounds against their positive results. \n\nSome parts of the bounds, such as $m$, were unfamiliar to me and so somewhat difficult to interpret from the exposition. Overall the paper is fairly dense, and I'm not sure how easy it is to extract or intuit which analytical or algorithmic interventions (policy hitting radius?) enabled the derivation of single-policy complexity results.",
+      "questions": "Could you highlight the elements of your analysis or algorithm that enable you to derive single-policy guarantees? (and perhaps what was lacking in previous work?)",
+      "limitations": "I think so",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": null
+    },
+    {
+      "reviewer_id": "mnQYZopuwK",
+      "overall": 4,
+      "confidence": 3,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 3,
+      "originality": 3,
+      "summary": "This paper studies average reward offline RL. In average reward setting, distribution shift and coverage issues are amplified. The paper targets these challenges and focus on overcoming limitations of prior theory that relied on uniform complexity measures. The main contribution is an offline RL algorithm with guarantees that depend only on the target policy\u2019s characteristics, rather than on worst-case MDP-wide constants. They introduce two policy-dependent complexity metrics which measures how long it takes for the policy to reach a representative state in its stationary distribution support. It then derive the single-policy sample complexity bounds for average-reward offline RL.",
+      "strengths_and_weaknesses": "Strengths: \n\n-The paper introduces policy-dependent complexity measures to characterize offline RL sample complexity, the bias span and the policy hitting radius. By depending only on the target policy\u2019s dynamics, these metrics avoid the overly conservative uniform bounds. \n\n-The paper provides matching upper and lower bounds, offering a convergence rate $\\tilde{O}(\\frac{1}{\\sqrt{m}})$.\n\n-The algorithm deals with the weakly communicating MDP, which is more general compared to related work.\n\nWeaknesses:\n\nThe flip side of the paper\u2019s single-policy focus is a stringent coverage assumption: the offline dataset must have adequate samples for every state-action pair along the optimal policy, even for states that the optimal policy would rarely or never visit on its own. This means the behavior policy that generated the dataset needs to have explored a bit of all parts of the state space (at least enough to \u201ccover\u201d the optimal action in each state). While the paper justifies that such assumption is provably necessary in the worst case, it still represents a potential weakness in applicability: if a dataset lacks any support in a part of the state space that turns out to be relevant, the theory suggests no offline algorithm can reliably avoid suboptimal decisions involving that part. The paper\u2019s requirement is essentially to have at least on the order of $\\tilde{O}(T_{\\mathit{hit}}^2)$ samples for each state $s$ of the action $\\pi^*(s)$. In many cases this might be reasonable as $T_{\\mathit{hit}}$ could be moderate and this requirement does not scale with $m$, but in others it may be unrealistic. Thus, the results hinge on an idealized assumption that the offline data, while biased, is somewhat broad in coverage.",
+      "questions": "I have no questions.",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I decide to maintain the current score."
+    }
+  ]
+}

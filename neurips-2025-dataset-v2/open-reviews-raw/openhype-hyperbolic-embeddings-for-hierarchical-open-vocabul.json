@@ -1,0 +1,74 @@
+{
+  "paper_id": "zQmXDUbZ5D",
+  "decision": "Accept (poster)",
+  "reviews": [
+    {
+      "reviewer_id": "BCCStJebFT",
+      "overall": 4,
+      "confidence": 2,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 2,
+      "originality": 2,
+      "summary": "The submission introduces OpenHype, a Neural Radiance Field that embeds an open-vocabulary semantic hierarchy in hyperbolic (Lorentz) space, enabling continuous part \u2192 object \u2192 region queries with a single render pass. Experiments on Search3D and LERF scenes report sizable mIoU gains over LangSplat and OV-NeRF, and ablations explore curvature, dimension, and step length. While the hyperbolic formulation is conceptually novel relative to Euclidean/tree approaches such as Hi-LSplat and ReasonGrounder, the empirical study omits several state-of-the-art baselines, lacks real-time metrics, and provides little analysis of hyperbolic optimisation stability.",
+      "strengths_and_weaknesses": "Strength:\n1. The authors abandon the usual Euclidean or spherical feature spaces and embed the whole open-vocabulary tree in Lorentz hyperbolic space, whose negative curvature naturally accommodates exponentially expanding trees. This idea has been explored in 2-D and vision-language models for representing hierarchies, but\u2014so far as the literature shows\u2014has not been applied to NeRF or 3-D Gaussian Splatting before.\n2. By distilling CLIP features into the hyperbolic field, the method inherits the free-form text querying of OV-NeRF yet pushes it further down to \u201cwheel\u201d, \u201cdoorknob\u201d or even finer part semantics\u2014something earlier systems struggled to do consistently.\n3. Training hyper-parameters, compute budgets and a link to code are given; releasing a complex NeRF variant with reproducible instructions is still the exception rather than the rule in this young sub-field, so this is a practical virtue of the paper.\n\nWeakness:\n1. The paper does not evaluate or, at least discuss, against Hi-LSplat or RelationField all targeting hierarchical or relational semantics in 3-D radiance fields. Without these numbers, the superiority of the proposed method remains unproven.\n2. Experiments are confined to indoor ScanNet-style scenes. Outdoor environments (e.g., Tanks & Temples) or dynamic captures would test whether hyperbolic supervision copes with lighting extremes, motion blur and large depth ranges.\n3. Semantic-SAM is powerful yet still error-prone with occlusions or mirror reflections; because those masks seed the entire hierarchy, segmentation noise could cascade through the hyperbolic field, but the paper offers no robustness study. \n\nIf the authors address most concerns, I will reupdate the score and comment.",
+      "questions": "See weakness.",
+      "limitations": "Although single-pass rendering should be faster, the paper omits FPS and memory numbers. GARField\u2014which also addresses hierarchical grouping\u2014reports detailed runtime statistics; a similar disclosure would let readers weigh the practical trade-offs",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "The final justification is BA, because the author provides more explanation for some ambiguous points that were unclear in the original version. Even though the author still misses comparisons with some recently published works, these works are considered concurrent ones. Therefore, this will not degrade the novelty of this work."
+    },
+    {
+      "reviewer_id": "pgMpw7FNxj",
+      "overall": 4,
+      "confidence": 1,
+      "quality": 2,
+      "clarity": 3,
+      "significance": 2,
+      "originality": 3,
+      "summary": "This paper aims to improve 3d object and scene modeling through using the properties of hyperbolic geometry to encode hierarchical structure in latent space in a single pass. The authors compare their method with LERF, OpenNeRF, and LangSplat, finding that their method is the best when evaluated with the Search3D and LERF datasets.",
+      "strengths_and_weaknesses": "Strengths\n- Writing is clear and structured nicely\n- Qualitative and quantitative results are better than baselines\n- Ablation studies help improve understanding\n\nWeaknesses\n- Limited evaluation in terms of breadth of datasets / tasks\n- Lack of detail regarding baselines",
+      "questions": "- Is inference more expensive than the baselines due to hyperbolic embeddings? If so, how would results differ if you improved the baselines with more compute?\n- Do the baselines and your results use the same base models?\n- Could you include additional 2D baselines, include those based on a powerful large model like SAM?",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I maintain my score for now because my main concern (weakness 1) has not been adequately addressed."
+    },
+    {
+      "reviewer_id": "hCWGhF1Dri",
+      "overall": 4,
+      "confidence": 3,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 2,
+      "originality": 3,
+      "summary": "This paper proposes using hyperbolic space for hierarchical embedding in NeRF, which naturally captures multi-scale relationships and allows for smooth traversal of the hierarchy via geodesic paths. Experiments on open-vocabulary segmentation from radiance fields demonstrate the effectiveness of this continuous hierarchical structure.",
+      "strengths_and_weaknesses": "Strength:\n1. The paper is well-written and effectively communicates its ideas, even to readers unfamiliar with the domain, aided by clear and illustrative figures.\n\n2. To the best of my knowledge (though I am not an expert in this area), this is the first work to propose a continuous hierarchy for semantic embeddings.\n\n3. The experimental results are impressive, and the paper includes a thorough and extensive ablation study.\n\nWeakness: \n1. I suggest the authors give more discussion on choosing the Lorentz model but not other models, even for example, why not hemisphere, if the authors could give reasonable ideas or give ablations on that, it could complete the whole idea of the paper. \n\n2. As the paper stated in the limitations, this work depends on the quality of the language-vision model, the previous segmentation model, and the assumption that the embedding is smoothly distributed. I'm wondering whether the authors could conduct an ablation to show the robustness of the model to different vision-language models.",
+      "questions": "1. Could the authors elaborate on the computational cost or time efficiency of sampling along the geodesic?\n\n2. Are there additional downstream tasks or applications that could benefit from this type of embedding?\n\n3. Could the authors clarify why the neural network first learns features in the tangent space and then projects them to the hyperbolic space, rather than learning the embeddings directly in hyperbolic space?\n\n4. Please refer to the weaknesses section for further comments.",
+      "limitations": "The authors adequately addressed the limitations and potential negative societal impact of their work in the supplementary material.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": null
+    },
+    {
+      "reviewer_id": "zibnGcyl6G",
+      "overall": 4,
+      "confidence": 3,
+      "quality": 2,
+      "clarity": 2,
+      "significance": 2,
+      "originality": 3,
+      "summary": "This paper presents OpenHype, a method for open-vocabulary segmentation in Neural Radiance Fields (NeRF) that encodes 3D scene hierarchies in a continuous hyperbolic space. Unlike prior approaches that rely on fixed, discrete hierarchies or require multiple rendering passes, OpenHype leverages geodesic traversal in hyperbolic latent space to efficiently model and query semantic structures at varying levels of abstraction. The method combines a hyperbolic auto-encoder for learning language-aligned hierarchical embeddings and a NeRF model supervised directly in this space, enabling accurate segmentation for compositional queries. Extensive experiments on the Search3D and LERF benchmarks demonstrate significant improvements, particularly in fine-grained part-level segmentation, over state-of-the-art baselines.",
+      "strengths_and_weaknesses": "## Strength\n\n1. I appreciate the core idea of the paper: language queries in 3D inherently involve different levels of granularity, and instead of relying on multi-scale CLIP features\u2014which can be computationally expensive\u2014a natural solution is to construct the feature field in hyperbolic space. This allows for efficient geodesic traversal to obtain multi-scale features at low cost. The central insight is both intuitive and compelling.\n\n2. The performance improvements are clear and significant Table 1,2, showing that the proposed method work well.\n\n## Weakness\n\n1. The paper would benefit significantly from improved writing. While I understand that hyperbolic representations are not commonly discussed and can be challenging to describe, the current presentation lacks clarity and important implementation details. In particular, the description of the CLIP-based encoder-decoder is vague. It is unclear whether this module is trained jointly across the entire dataset (which I assume is the case) or separately for each scene. If it is trained across scenes, the authors should specify which dataset is used for training and provide relevant training details such as supervision strategy, epochs, and optimization settings.\n\n2. I remain unconvinced by the current approach for constructing hierarchical data and training the CLIP-based VAE in hyperbolic space. The method relies on Semantic SAM to extract object masks and builds hierarchies by detecting smaller masks (level-2) contained within larger ones (level-1). However, this strategy results in very shallow hierarchies\u2014typically only two levels\u2014which limits the expressiveness and potential of the hyperbolic framework. There are several alternatives that could yield richer hierarchical structures. For example: (1) SAM natively provides masks at multiple scales (large, medium, small), which could naturally form a multi-level hierarchy; (2) one could iteratively crop within large masks to discover finer structures, enabling deeper semantic levels. I am not sure if the proposed way is a good enough way to construct the data.\n\n3. Related to the previous issue, I\u2019m also curious why the authors chose to train a hyperbolic CLIP encoder-decoder from scratch rather than leveraging existing pretrained hyperbolic CLIP models (e.g., from prior work like Hyperbolic CLIP [1] or similar). While I can imagine potential reasons, it would be helpful to clarify this design choice and, ideally, include a comparison showing whether using a pretrained hyperbolic model yields better, worse, or comparable performance. This would help isolate whether the gains come from the hyperbolic space itself or from task-specific training.\n\n4. The \"Extrapolated features.\" look strange to me. Wouldn't it destroy many information since all pixels inside one single big masks share the same features in this way?\n\n\n[1] Hyperbolic Image-Text Representations",
+      "questions": "1. Could the authors clarify why the proposed method also improves performance on the \"object\" queries in Table 1(a)? It is intuitive that modeling hierarchy in hyperbolic space would help with fine-grained queries like object parts, but it's less clear why it would also lead to significant gains on higher-level object queries, which existing methods already handle reasonably well. \n\n2. This paper [2] discusses another side of the \"bag of words\": CLIP cannot tell the spatial relationships between objects. I am curious, could the proposed method solve this problem?\n\n3. Not a weakness, not an issue. There are many new papers (including [2]) discussing open-vocabulary grounding. It might be good to cite as well.\n\n[2] From Thousands to Billions: 3D Visual Language Grounding via Render-Supervised Distillation from 2D VLMs, ICML 2025\n\n[3] LargeSpatialModel: End-to-end Unposed Images to Semantic 3D, Neurips 2024.\n\n[4] Feature 3DGS: Supercharging 3D Gaussian Splatting to Enable Distilled Feature Fields, CVPR 2024\n\n[5] Semantic Gaussians: Open-Vocabulary Scene Understanding with 3D Gaussian Splatting\n\n[6] SAB3R: Semantic-Augmented Backbone in 3D Reconstruction,\n...",
+      "limitations": "I don't see limitation discussed in the main paper.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "The rebuttal addresses most of my questions, so I increased the score."
+    }
+  ]
+}

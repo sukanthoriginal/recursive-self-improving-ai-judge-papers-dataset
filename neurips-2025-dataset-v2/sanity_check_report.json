@@ -1,0 +1,1105 @@
+{
+  "adadetectgpt-adaptive-detection-of-llm-generated-text-with-s": {
+    "authors": [
+      "Hongyi Zhou",
+      "Jin Zhu",
+      "Pingfan Su",
+      "Kai Ye",
+      "Ying Yang",
+      "Shakeel Gavioli-Akilagun",
+      "Chengchun Shi"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "self_reference_phrase",
+          "match": "as we demonstrated in",
+          "context": "original and perturbed tokens. However, as we demonstrated in Section 3, rel solely on the logits can be sub-optimal for detecting LLM-genera"
+        },
+        {
+          "check": "self_reference_phrase",
+          "match": "extend our",
+          "context": "ataset. function. Next, in Part (d), we extend our proposal to the black-box setting. Finally, in Part (e), we establish the stati"
+        },
+        {
+          "check": "page1_affiliation_keywords",
+          "hits": [
+            "OpenAI"
+          ]
+        }
+      ]
+    },
+    "n_authors": 7
+  },
+  "affine-invariant-global-non-asymptotic-convergence-analysis": {
+    "authors": [
+      "Qiujiang Jin",
+      "Aryan Mokhtari"
+    ],
+    "status": "PASS",
+    "findings": {
+      "FAIL": [],
+      "WARN": []
+    },
+    "n_authors": 2
+  },
+  "afterimages-their-neural-substrates-and-their-role-as-short": {
+    "authors": [
+      "Charles Q. Wu"
+    ],
+    "status": "PASS",
+    "findings": {
+      "FAIL": [],
+      "WARN": []
+    },
+    "n_authors": 1
+  },
+  "among-us-a-sandbox-for-measuring-and-detecting-agentic-decep": {
+    "authors": [
+      "Satvik Golechha",
+      "Adri\u00e0 Garriga-Alonso"
+    ],
+    "status": "PASS",
+    "findings": {
+      "FAIL": [],
+      "WARN": []
+    },
+    "n_authors": 2
+  },
+  "an-efficient-implementation-for-solving-the-all-pairs-minima": {
+    "authors": [
+      "Gangli Liu"
+    ],
+    "status": "PASS",
+    "findings": {
+      "FAIL": [],
+      "WARN": []
+    },
+    "n_authors": 1
+  },
+  "aya-vision-advancing-the-frontier-of-multilingual-multimodal": {
+    "authors": [
+      "Saurabh Dash",
+      "Yiyang Nan",
+      "John Dang",
+      "Arash Ahmadian",
+      "Shivalika Singh",
+      "Madeline Smith",
+      "Bharat Venkitesh",
+      "Vladyslav Shmyhlo",
+      "Viraat Aryabumi",
+      "Walter Beller-Morales",
+      "Jeremy Pekmez",
+      "Jason Ozuzu",
+      "Pierre Harvey Richemond",
+      "Acyr Locatelli",
+      "Nicholas Frosst",
+      "Phil Blunsom",
+      "Aidan Gomez",
+      "Ivan Zhang",
+      "Marzieh Fadaee",
+      "Manoj Govindassamy",
+      "Sudip Roy",
+      "Matthias Gall\u00e9",
+      "Beyza Ermis",
+      "Ahmet \u00dcst\u00fcn",
+      "Sara Hooker"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "xdvipdfmx (20240305)"
+        },
+        {
+          "check": "acknowledgment_style_phrase",
+          "match": "supported by",
+          "context": " existing open-weight baselines and are supported by 362 AyaVisionBench, a benchmark tailored for evaluating gen"
+        },
+        {
+          "check": "acknowledgment_style_phrase",
+          "match": "supported by",
+          "context": "slate7, covering all 23 lan- 878 guages supported by AyaVision. All translations were subsequently veri\ufb01ed by hu"
+        }
+      ]
+    },
+    "n_authors": 25
+  },
+  "beyond-two-stage-training-integrating-sft-and-rl-for-improve": {
+    "authors": [
+      "Liang CHEN",
+      "Xueting Han",
+      "Li Shen",
+      "Jing Bai",
+      "Kam-Fai Wong"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        },
+        {
+          "check": "page1_affiliation_keywords",
+          "hits": [
+            "OpenAI"
+          ]
+        }
+      ]
+    },
+    "n_authors": 5
+  },
+  "bipolar-self-attention-for-spiking-transformers": {
+    "authors": [
+      "Shuai Wang",
+      "Malu Zhang",
+      "Jingya Wang",
+      "Dehao Zhang",
+      "Yimeng Shan",
+      "Jieyuan Zhang",
+      "Yichen Xiao",
+      "Honglin Cao",
+      "Haonan Zhang",
+      "Zeyu Ma",
+      "Yang Yang",
+      "Haizhou Li"
+    ],
+    "status": "PASS",
+    "findings": {
+      "FAIL": [],
+      "WARN": []
+    },
+    "n_authors": 12
+  },
+  "brillm-brain-inspired-large-language-model": {
+    "authors": [
+      "hai zhao",
+      "Hongqiu Wu",
+      "Dongjie Yang",
+      "Anni Zou",
+      "Jiale Hong"
+    ],
+    "status": "PASS",
+    "findings": {
+      "FAIL": [],
+      "WARN": []
+    },
+    "n_authors": 5
+  },
+  "conditional-gradient-methods-with-standard-lmo-for-stochasti": {
+    "authors": [
+      "Khanh-Hung Giang-Tran",
+      "Soroosh Shafiee",
+      "Nam Ho-Nguyen"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "self_reference_phrase",
+          "match": "extend our",
+          "context": "a sample complexity of O(1/\u03f54). We next extend our analysis to the more general case where F is not necessarily convex. In this se"
+        },
+        {
+          "check": "self_reference_phrase",
+          "match": "extend our",
+          "context": "etails are omitted for brevity. We next extend our analysis to the more general case where F is not necessarily convex, using the "
+        },
+        {
+          "check": "page1_affiliation_keywords",
+          "hits": [
+            "meta"
+          ]
+        }
+      ]
+    },
+    "n_authors": 3
+  },
+  "contextual-integrity-in-llms-via-reasoning-and-reinforcement": {
+    "authors": [
+      "Guangchen Lan",
+      "Huseyin A Inan",
+      "Sahar Abdelnabi",
+      "Janardhan Kulkarni",
+      "Lukas Wutschitz",
+      "Reza Shokri",
+      "Christopher Brinton",
+      "Robert Sim"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "acknowledgment_style_phrase",
+          "match": "supported by",
+          "context": "cyLens benchmark. All stated claims are supported by our experimental results. Guidelines: \u2022 The answer NA means"
+        },
+        {
+          "check": "page1_affiliation_keywords",
+          "hits": [
+            "Microsoft"
+          ]
+        }
+      ]
+    },
+    "n_authors": 8
+  },
+  "convergence-of-clipped-sgd-on-convex-l-0-l-1-smooth-function": {
+    "authors": [
+      "Ofir Gaash",
+      "Kfir Yehuda Levy",
+      "Yair Carmon"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.25"
+        },
+        {
+          "check": "acknowledgment_style_phrase",
+          "match": "supported by",
+          "context": "nce the double-sampling approach is not supported by empirical data, it is interesting to study convergence with"
+        },
+        {
+          "check": "page1_affiliation_keywords",
+          "hits": [
+            "University"
+          ]
+        }
+      ]
+    },
+    "n_authors": 3
+  },
+  "cosimgen-controllable-diffusion-model-for-simultaneous-image": {
+    "authors": [
+      "Rupak Bose",
+      "CHINEDU NWOYE",
+      "Aditya Bhat",
+      "Soham Walimbe",
+      "Nicolas Padoy"
+    ],
+    "status": "PASS",
+    "findings": {
+      "FAIL": [],
+      "WARN": []
+    },
+    "n_authors": 5
+  },
+  "diffvax-optimization-free-image-immunization-against-diffusi": {
+    "authors": [
+      "Tarik Can Ozden",
+      "Ozgur Kara",
+      "Oguzhan Akcin",
+      "Kerem Zaman",
+      "Shashank Srivastava",
+      "Sandeep P. Chinchali",
+      "James Matthew Rehg"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        },
+        {
+          "check": "self_reference_phrase",
+          "match": "extend our",
+          "context": "nts. Leveraging this efficiency, 300 we extend our framework to video, demonstrating promising results for the first time (see Sec"
+        }
+      ]
+    },
+    "n_authors": 7
+  },
+  "efficient-training-free-online-routing-for-high-volume-multi": {
+    "authors": [
+      "Fangzhou Wu",
+      "Sandeep Silwal"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "acknowledgment_style_phrase",
+          "match": "supported by",
+          "context": "under mild assumptions. This is further supported by extensive experiments, where our method outperforms all 8 b"
+        },
+        {
+          "check": "page1_affiliation_keywords",
+          "hits": [
+            "OpenAI"
+          ]
+        }
+      ]
+    },
+    "n_authors": 2
+  },
+  "enforcing-boundary-conditions-for-physics-informed-neural-op": {
+    "authors": [
+      "Niklas G\u00f6schel",
+      "Sebastian G\u00f6tschel",
+      "Daniel Ruprecht"
+    ],
+    "status": "PASS",
+    "findings": {
+      "FAIL": [],
+      "WARN": []
+    },
+    "n_authors": 3
+  },
+  "evolutionary-distributed-training": {
+    "authors": [
+      "Yushu Jiang"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "acknowledgment_style_phrase",
+          "match": "supported by",
+          "context": "aining compared to data-parallel, while supported by scaling 195 laws [3] and open source reproduction [8]. 196 "
+        }
+      ]
+    },
+    "n_authors": 1
+  },
+  "flexolmo-open-language-models-for-flexible-data-use": {
+    "authors": [
+      "Weijia Shi",
+      "Akshita Bhagia",
+      "Kevin Farhat",
+      "Niklas Muennighoff",
+      "Jacob Morrison",
+      "Evan Pete Walsh",
+      "Dustin Schwenk",
+      "Shayne Longpre",
+      "Jake Poznanski",
+      "Allyson Ettinger",
+      "Daogao Liu",
+      "Margaret Li",
+      "Mike Lewis",
+      "Wen-tau Yih",
+      "Dirk Groeneveld",
+      "Luca Soldaini",
+      "Kyle Lo",
+      "Noah A. Smith",
+      "Luke Zettlemoyer",
+      "Pang Wei Koh",
+      "Hannaneh Hajishirzi",
+      "Ali Farhadi",
+      "Sewon Min"
+    ],
+    "status": "PASS",
+    "findings": {
+      "FAIL": [],
+      "WARN": []
+    },
+    "n_authors": 23
+  },
+  "from-attention-to-atoms-spectral-dictionary-learning-for-fas": {
+    "authors": [
+      "Andrew Jeremy Kiruluta"
+    ],
+    "status": "PASS",
+    "findings": {
+      "FAIL": [],
+      "WARN": []
+    },
+    "n_authors": 1
+  },
+  "geometry-aware-edge-pooling-for-graph-neural-networks": {
+    "authors": [
+      "Katharina Limbeck",
+      "Lydia Mezrag",
+      "Guy Wolf",
+      "Bastian Rieck"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "self_reference_phrase",
+          "match": "extend our",
+          "context": "0 \u00b1 3.0 D.6 Comparison with EdgePool To extend our evaluation, we compare with the pytorch_geometric implementation of Edge- Pool "
+        }
+      ]
+    },
+    "n_authors": 4
+  },
+  "higher-order-causal-structure-learning-with-additive-models": {
+    "authors": [
+      "James Enouen",
+      "Yujia Zheng",
+      "Ignavier Ng",
+      "Yan Liu",
+      "Kun Zhang"
+    ],
+    "status": "PASS",
+    "findings": {
+      "FAIL": [],
+      "WARN": []
+    },
+    "n_authors": 5
+  },
+  "imagenet-trained-cnns-are-not-biased-towards-texture-revisit": {
+    "authors": [
+      "Tom Burgert",
+      "Oliver Stoll",
+      "Paolo Rota",
+      "Beg\u00fcm Demir"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "acknowledgment_style_phrase",
+          "match": "supported by",
+          "context": "sual domains. These claims are directly supported by the theoretical arguments in Section 3, the methodological "
+        }
+      ]
+    },
+    "n_authors": 4
+  },
+  "korgym-a-dynamic-game-platform-for-llm-reasoning-evaluation": {
+    "authors": [
+      "Jiajun Shi",
+      "Jian Yang",
+      "Jiaheng Liu",
+      "Xingyuan Bu",
+      "Jiangjie Chen",
+      "Junting Zhou",
+      "Kaijing Ma",
+      "Zhoufutu Wen",
+      "Bingli Wang",
+      "Yancheng He",
+      "Liang Song",
+      "Hualei Zhu",
+      "Shilong Li",
+      "Xingjian Wang",
+      "Wei Zhang",
+      "Ruibin Yuan",
+      "Yifan Yao",
+      "Wenjun Yang",
+      "Yunli Wang",
+      "Siyuan Fang",
+      "Siyu Yuan",
+      "Qianyu He",
+      "Xiangru Tang",
+      "Yingshui Tan",
+      "Wangchunshu Zhou",
+      "Zhaoxiang Zhang",
+      "Zhoujun Li",
+      "Wenhao Huang",
+      "Ge Zhang"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "acknowledgment_style_phrase",
+          "match": "supported by",
+          "context": "27 LLMs/VLMs. These claims are directly supported by both the theoretical motivation and the experimental result"
+        }
+      ]
+    },
+    "n_authors": 29
+  },
+  "learning-to-factorize-spatio-temporal-foundation-models": {
+    "authors": [
+      "Siru Zhong",
+      "Junjie Qiu",
+      "Yangyu Wu",
+      "Xingchen Zou",
+      "Zhongwen Rao",
+      "Bin Yang",
+      "Chenjuan Guo",
+      "Hao Xu",
+      "Yuxuan Liang"
+    ],
+    "status": "PASS",
+    "findings": {
+      "FAIL": [],
+      "WARN": []
+    },
+    "n_authors": 9
+  },
+  "long-rvos-a-comprehensive-benchmark-for-long-term-referring": {
+    "authors": [
+      "Tianming Liang",
+      "Haichao Jiang",
+      "Yuting Yang",
+      "Chaolei Tan",
+      "Shuai Li",
+      "Wei-Shi Zheng",
+      "Jian-Fang Hu"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.25"
+        }
+      ]
+    },
+    "n_authors": 7
+  },
+  "mesh-rft-enhancing-mesh-generation-via-fine-grained-reinforc": {
+    "authors": [
+      "Jian Liu",
+      "Jing Xu",
+      "Song Guo",
+      "Jing Li",
+      "Guojingfeng",
+      "Jiaao Yu",
+      "Haohan Weng",
+      "Biwen Lei",
+      "Xianghui Yang",
+      "Zhuo Chen",
+      "Fangqi Zhu",
+      "Tao Han",
+      "Chunchao Guo"
+    ],
+    "status": "PASS",
+    "findings": {
+      "FAIL": [],
+      "WARN": []
+    },
+    "n_authors": 13
+  },
+  "ml-approach-to-qualimetry-gnns-in-value-assessment": {
+    "authors": [
+      "Korostelev Sergey P"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "page1_affiliation_keywords",
+          "hits": [
+            "University",
+            "school of"
+          ]
+        }
+      ]
+    },
+    "n_authors": 1
+  },
+  "multi-actor-multi-critic-deep-deterministic-reinforcement-le": {
+    "authors": [
+      "Andy Wu",
+      "Chun-Cheng Lin",
+      "Rung-Tzuo Liaw",
+      "Yuehua Huang",
+      "Chihjung Kuo",
+      "Chia-Tong Weng"
+    ],
+    "status": "PASS",
+    "findings": {
+      "FAIL": [],
+      "WARN": []
+    },
+    "n_authors": 6
+  },
+  "mvg-crps-a-robust-loss-function-for-multivariate-probabilist": {
+    "authors": [
+      "Vincent Zhihao Zheng",
+      "Lijun Sun"
+    ],
+    "status": "PASS",
+    "findings": {
+      "FAIL": [],
+      "WARN": []
+    },
+    "n_authors": 2
+  },
+  "nbsp-a-neuron-level-framework-for-balancing-stability-and-pl": {
+    "authors": [
+      "Jiahua Lan",
+      "Sen Zhang",
+      "Haixia Pan",
+      "Ruijun Liu",
+      "Li Shen",
+      "Dacheng Tao"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        },
+        {
+          "check": "page1_affiliation_keywords",
+          "hits": [
+            "Meta"
+          ]
+        }
+      ]
+    },
+    "n_authors": 6
+  },
+  "near-optimal-sample-complexities-of-divergence-based-s-recta": {
+    "authors": [
+      "Zhenghao Li",
+      "Shengbo Wang",
+      "Nian Si"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "acknowledgment_style_phrase",
+          "match": "We acknowledge",
+          "context": " 329 on |S|, |A|, and \u03b5 simultaneously. We acknowledge, however, two limitations: the reliance on access 330 to a "
+        },
+        {
+          "check": "acknowledgment_style_phrase",
+          "match": "supported by",
+          "context": "629 abstract and introduction are fully supported by the theoretical analyses and experiments 630 presented in t"
+        }
+      ]
+    },
+    "n_authors": 3
+  },
+  "noisesdf2noisesdf-learning-clean-neural-fields-from-noisy-su": {
+    "authors": [
+      "Tengkai Wang",
+      "Weihao Li",
+      "Ruikai Cui",
+      "Shi Qiu",
+      "Nick Barnes"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.25"
+        },
+        {
+          "check": "acknowledgment_style_phrase",
+          "match": "supported by",
+          "context": "e Noise2Noise framework. The claims are supported by comprehensive 450 experiments across multiple benchmark dat"
+        }
+      ]
+    },
+    "n_authors": 5
+  },
+  "one-token-embedding-is-enough-to-deadlock-your-large-reasoni": {
+    "authors": [
+      "Mohan Zhang",
+      "Yihua Zhang",
+      "Jinghan Jia",
+      "Zhangyang Wang",
+      "Sijia Liu",
+      "Tianlong Chen"
+    ],
+    "status": "PASS",
+    "findings": {
+      "FAIL": [],
+      "WARN": []
+    },
+    "n_authors": 6
+  },
+  "openhype-hyperbolic-embeddings-for-hierarchical-open-vocabul": {
+    "authors": [
+      "Lisa Weijler",
+      "Sebastian Koch",
+      "Fabio Poiesi",
+      "Timo Ropinski",
+      "Pedro Hermosilla"
+    ],
+    "status": "PASS",
+    "findings": {
+      "FAIL": [],
+      "WARN": []
+    },
+    "n_authors": 5
+  },
+  "operand-selective-logic-gate-network": {
+    "authors": [
+      "Soon Ho Choi"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "acknowledgment_style_phrase",
+          "match": "We acknowledge",
+          "context": "e controllable AI in sensitive domains. We acknowledge the potential for misuse 745 in automation of decision logi"
+        }
+      ]
+    },
+    "n_authors": 1
+  },
+  "optimal-single-policy-sample-complexity-and-transient-covera": {
+    "authors": [
+      "Matthew Zurek",
+      "Guy Zamir",
+      "Yudong Chen"
+    ],
+    "status": "PASS",
+    "findings": {
+      "FAIL": [],
+      "WARN": []
+    },
+    "n_authors": 3
+  },
+  "orient-anything-v2-unifying-orientation-and-rotation-underst": {
+    "authors": [
+      "Zehan Wang",
+      "Ziang Zhang",
+      "Jiayang Xu",
+      "Jialei Wang",
+      "Tianyu Pang",
+      "Chao Du",
+      "Hengshuang Zhao",
+      "Zhou Zhao"
+    ],
+    "status": "PASS",
+    "findings": {
+      "FAIL": [],
+      "WARN": []
+    },
+    "n_authors": 8
+  },
+  "per-channel-autoregressive-linear-prediction-padding-in-tile": {
+    "authors": [
+      "Olli Niemitalo",
+      "Otto Rosenberg",
+      "Nathaniel Narra",
+      "Olli Koskela",
+      "Iivari Kunttu"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "acknowledgment_style_phrase",
+          "match": "We acknowledge",
+          "context": "s? 354 Answer: [Yes] 355 Justification: We acknowledge and discuss several limitations, including the uncertainty "
+        }
+      ]
+    },
+    "n_authors": 5
+  },
+  "pipelinerl-faster-on-policy-reinforcement-learning-for-long": {
+    "authors": [
+      "Alexandre Pich\u00e9",
+      "Ehsan Kamalloo",
+      "Rafael Pardinas",
+      "Xiaoyin Chen",
+      "Dzmitry Bahdanau"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        }
+      ]
+    },
+    "n_authors": 5
+  },
+  "quantifying-first-order-markov-breakdowns-in-noisy-reinforce": {
+    "authors": [
+      "Naveen Mysore"
+    ],
+    "status": "PASS",
+    "findings": {
+      "FAIL": [],
+      "WARN": []
+    },
+    "n_authors": 1
+  },
+  "reducing-deep-network-complexity-via-sparse-hierarchical-fou": {
+    "authors": [
+      "Andrew Jeremy Kiruluta"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "page1_affiliation_keywords",
+          "hits": [
+            "NVIDIA"
+          ]
+        }
+      ]
+    },
+    "n_authors": 1
+  },
+  "reshape-then-factorize-communication-efficient-fl-via-model": {
+    "authors": [
+      "Mohammad Mahdi Rahimi",
+      "Younghyun Park",
+      "Humaira Kousar",
+      "Hasnain Irshad Bhatti",
+      "Dong-Jun Han",
+      "Jaekyun Moon"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        }
+      ]
+    },
+    "n_authors": 6
+  },
+  "restore3d-breathing-life-into-broken-objects-with-shape-and": {
+    "authors": [
+      "Xiaolong Shen",
+      "Zongxin Yang",
+      "Yi Yang"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        },
+        {
+          "check": "acknowledgment_style_phrase",
+          "match": "We acknowledge",
+          "context": "s? 784 Answer: [Yes] 785 Justification: We acknowledge the NeurIPS Code of Ethics and obey them in our paper 786 G"
+        }
+      ]
+    },
+    "n_authors": 3
+  },
+  "self-directed-decomposition-empowers-reasoning-potentials-in": {
+    "authors": [
+      "Chuan Tian",
+      "Yilei Zhang"
+    ],
+    "status": "PASS",
+    "findings": {
+      "FAIL": [],
+      "WARN": []
+    },
+    "n_authors": 2
+  },
+  "stab-sgd-noise-adaptivity-in-smooth-optimization-with-stabil": {
+    "authors": [
+      "David A. R. Robin",
+      "Killian Bakong",
+      "Kevin Scaman"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "acknowledgment_style_phrase",
+          "match": "supported by",
+          "context": "ares objective, this modeling choice is supported by the Lipschitz-continuity of the ReLU non-linearity x 7\u2192max("
+        }
+      ]
+    },
+    "n_authors": 3
+  },
+  "strider-navigation-via-instruction-aligned-structural-decisi": {
+    "authors": [
+      "Diqi He",
+      "Xuehao Gao",
+      "Hao Li",
+      "Junwei Han",
+      "Dingwen Zhang"
+    ],
+    "status": "PASS",
+    "findings": {
+      "FAIL": [],
+      "WARN": []
+    },
+    "n_authors": 5
+  },
+  "structured-sparse-transition-matrices-to-enable-state-tracki": {
+    "authors": [
+      "Aleksandar Terzic",
+      "Nicolas Menet",
+      "Michael Hersche",
+      "Thomas Hofmann",
+      "Abbas Rahimi"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "acknowledgment_style_phrase",
+          "match": "supported by",
+          "context": "ts on an unproven conjecture, but it is supported by significant experimental evidence Merrill et al. (2024); Ci"
+        }
+      ]
+    },
+    "n_authors": 5
+  },
+  "training-language-models-to-generate-quality-code-with-progr": {
+    "authors": [
+      "Feng Yao",
+      "Zilong Wang",
+      "Liyuan Liu",
+      "Junxia Cui",
+      "Li Zhong",
+      "Xiaohan Fu",
+      "Haohui Mai",
+      "Vish Krishnan",
+      "Jianfeng Gao",
+      "Jingbo Shang"
+    ],
+    "status": "PASS",
+    "findings": {
+      "FAIL": [],
+      "WARN": []
+    },
+    "n_authors": 10
+  },
+  "weak-to-strong-generalization-via-formative-learning-from-st": {
+    "authors": [
+      "Nguyen Minh Phuc",
+      "Chinh Duc La",
+      "Heng Ji",
+      "Khoa D Doan"
+    ],
+    "status": "PASS",
+    "findings": {
+      "FAIL": [],
+      "WARN": []
+    },
+    "n_authors": 4
+  },
+  "what-s-producible-may-not-be-reachable-measuring-the-steerab": {
+    "authors": [
+      "Keyon Vafa",
+      "Sarah Bentley",
+      "Jon Kleinberg",
+      "Sendhil Mullainathan"
+    ],
+    "status": "PASS",
+    "findings": {
+      "FAIL": [],
+      "WARN": []
+    },
+    "n_authors": 4
+  },
+  "zero-shot-adaptation-of-behavioral-foundation-models-to-unse": {
+    "authors": [
+      "Maksim Bobrin",
+      "Ilya Zisman",
+      "Alexander Nikulin",
+      "Dmitry V. Dylov",
+      "Vladislav Kurenkov"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        }
+      ]
+    },
+    "n_authors": 5
+  }
+}

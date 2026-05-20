@@ -1,0 +1,74 @@
+{
+  "paper_id": "d4mZyZB5I9",
+  "decision": "Accept (poster)",
+  "reviews": [
+    {
+      "reviewer_id": "OZpvyTNsvJ",
+      "overall": 4,
+      "confidence": 2,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 3,
+      "originality": 3,
+      "summary": "This paper proposes a training-free, online routing algorithm to efficiently handle high-volume, budget-constrained LLM inference requests. Unlike prior methods that rely on heavy offline training or dynamic retraining, the proposed method:\n1. Uses Approximate Nearest Neighbor Search (ANNS) to estimate query-level performance and cost features from historical data.\n2. Learns a single global routing strategy (\u03b3)* based on a small subset of initial queries.\n3. Applies this learned strategy for online query routing using a principled dual formulation of a relaxed MILP.\n\nIt demonstrates strong theoretical guarantees (competitive ratio of 1-o(1) and empirical results showing up to: 3.55\u00d7 performance, 1.85\u00d7 better cost-efficiency, 4.25\u00d7 higher throughput over 8 competitive baselines on 3 benchmarks.",
+      "strengths_and_weaknesses": "Strengths:\n1. This is the first routing method for online multi-LLM serving that is training-free, addressing the scalability bottlenecks of prior methods in realistic deployments.\n2. Solid formulation of routing as a MILP and its LP relaxation.\n3. Compared against 8 baselines across multiple metrics and settings.\n\nWeaknesses:\n1. While the paper claims low-latency routing, it doesn\u2019t provide absolute latency measurements (e.g., milliseconds per query) or breakdowns.",
+      "questions": "1. How sensitive is the routing performance to the quality and size of the historical dataset?\n2. How often should \u03b3\u2217 be re-learned in a real system?\n3. Could reinforcement learning improve the second-stage routing?\n4. Can the proposed method be applied for VLM (vision language model)?",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "My concerns are addressed."
+    },
+    {
+      "reviewer_id": "e4QNSImhqG",
+      "overall": 3,
+      "confidence": 4,
+      "quality": 2,
+      "clarity": 3,
+      "significance": 2,
+      "originality": 2,
+      "summary": "This paper introduces a training-free routing strategy by leveraging the log of historical prompts and associated generations as well as their quality scores and costs. Specifically, it conducts semantic embedding based nearest neighbor search to retrieve similar past queries and estimate the performance by averaging recorded measures. Then, it combines estimated quality and cost of each model using learned and fixed weights to decide the final pick of the model.",
+      "strengths_and_weaknesses": "Strength:\n- Comprehensive evaluation on three benchmarks.\n- Extensive tests over query volume, arrival order, size of historical data, size of search candidates, etc.\n- Code and data are released for reproducibility.\n\nWeakness:\n- The effectiveness of the proposed method depends on reliable quality labels. The experiments mainly use the pre-existing ground truth and lack of robustness evaluation against noisy quality labels.\n- The baseline methods are somewhat weak. Some of the comparable works are discussed in the related work sections but are not empirically compared in the evaluation section. \n- The theoretical proof relies on strong assumptions including the existence of at least one close neighbor in the log and that generation quality and cost are smoothly tied to prompt embeddings. Similarly, evaluation is mainly conducted with an in-distribution setting, and it is unclear if the proposed method is robust enough to handle the out-of-distribution challenge and drifting query patterns in dynamic online settings.",
+      "questions": "What is the query-level latency? How does it compare to other routing strategies including trained lightweight routers?",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "While I appreciate the additional results and explanations provided by the authors during the discussion period, I believe the paper needs another round of revision to consolidate the extra supporting experiments and strengthen the associated discussions. Therefore, I\u2019m leaning toward a borderline rating."
+    },
+    {
+      "reviewer_id": "QHuw6FcQDL",
+      "overall": 3,
+      "confidence": 3,
+      "quality": 2,
+      "clarity": 3,
+      "significance": 2,
+      "originality": 2,
+      "summary": "Existing works for LLM router primarily focus on offline scenarios and struggle to adapt to online settings with high query volume and constrained token budgets.\n\nThis paper introduces the first training-free algorithm for online routing scenarios. The algorithm leverages approximate nearest neighbor search to efficiently estimate query features and performs a one-time optimization over a small set of initial queries to learn a routing strategy that guides future routing.\n\nThe algorithm estimates the performance scores and costs efficiently using a historical dataset, and learns a routing strategy from a small subset of observed queries (of size \u03f5|Q|) to guide future query routing.\n\nExperiments on simulated traces show the performance.",
+      "strengths_and_weaknesses": "Strengths\n\n1. Improving the efficiency of LLM routing is an important topic.\n\n2. The proposed method with approximate nearest neighbor search and online learning is helpful.\n\n3. Theoretical analysis and experiments are provided.\n\nWeaknesses\n\n1. Such approximate nearest neighbor methods highly rely on the training data. E.g. Routerbench has 36,497 examples. The paper uses 26,497 queries as historical data to construct the search examples and 10,000 queries for testing.\n\n2. Stronger model-based methods like BERT can be added. The router running time of these methods can also be compared.\n\n3. Experiments are only on simulated traces.",
+      "questions": "1. Move Table 1 to the next page.",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "After discussion with authors, the paper needs to improve the experiment setup to provide a fair comparison with baselines and consolidate the extra supporting experiments."
+    },
+    {
+      "reviewer_id": "w8VEV97xKY",
+      "overall": 5,
+      "confidence": 4,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 3,
+      "originality": 3,
+      "summary": "The paper introduces a training-free algorithm for optimizing the routing of user queries to multiple LLMs in online settings with constrained token budgets. The algorithm leverages a small subset of queries to builds an offline ANNS indice for estimating performance and cost for\neach deployed LLM, and performs a one-time optimization over a small subset of queries to learn weights for routing. These weights are utilized for guiding routing decisions of online queries, ensuring high performance and cost efficiency.",
+      "strengths_and_weaknesses": "Advantages:\n\n1. The performance of the method is good. It achieves an average improvement of 3.55\u00d7 in overall performance, 1.85\u00d7 in cost efficiency, and nearly 4.25\u00d7 in throughput.\n\n2. The method does not require training or frequent finetuning existing models.\n\n3. The method looks not very sensitive to the distributions of user queries. Even if the query distribution might shift in online setting, it only requires an update on the HNSW index by inserting the new query data. And this process can be performed in an offline manner.\n\n4. The writing is clear.\n\n5. The evaluations are comprehensive.\n\nWhat I like most about this paper is that their method is simple but effective. It does not make strong or unrealistic assumptions and is suitable for real-world deployment. My major concern is, the method only considers cost and efficiency as features for model selection. However, in a real-world setting, the traffic of queries is also important. If a high volume of queries arrives at a same time and they are routed to a same LLM, there might be a traffic congestion. \nFor example, if a large number of users ask similar questions in a short amount of time, and the HNSW index suggests to route all the queries to the same LLM, the inference efficiency would be very low. However, at the same time, the other LLMs are idle. \nAlso, the arrival time of different queries and the sequences of different queries matter. \nI understand that solving this problem isn't straightforward, and the linear programming might not be suited. However, the problem is practical and important in a real-world setting.",
+      "questions": "1. What parameters have you set for HNSW? I only saw the number of neighbors in the appendix. However, the number of layers of HNSW is not specified. The parameters of HNSW might impact the evaluation results. Could you add evaluations for that? \n\n2. See weakness. \n\n3. Should be HNSW not HWSN throughout the whole paper.",
+      "limitations": "The method only considers cost and efficiency as features for model selection but does not consider traffics of the queries. The authors mentioned to add additional constraints in the original MILP for incorporating other routing factors. However, it is not accurate as incorporating sequences of similar types of queries is not straightforward using MILP.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "The authors have addressed my concern."
+    }
+  ]
+}

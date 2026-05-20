@@ -1,0 +1,25 @@
+{
+  "redactions": [
+    "title_page_author_block"
+  ],
+  "pattern": {
+    "email": 0,
+    "orcid": 0,
+    "url": 18,
+    "arxiv": 0
+  },
+  "section_redactions": 0,
+  "author_name_redactions": {
+    "Heng": 2
+  },
+  "authors_groundtruth": [
+    "Nguyen Minh Phuc",
+    "Chinh Duc La",
+    "Heng Ji",
+    "Khoa D Doan"
+  ],
+  "verify": {
+    "ok": true,
+    "issues": []
+  }
+}

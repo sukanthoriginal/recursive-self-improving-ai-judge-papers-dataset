@@ -1,0 +1,75 @@
+{
+  "paper_id": "txmJldjJUw",
+  "decision": "Reject",
+  "reviews": [
+    {
+      "reviewer_id": "XIc1QzdL5K",
+      "overall": 4,
+      "confidence": 5,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 2,
+      "originality": 3,
+      "summary": "This paper collects a new dataset introducing long videos (average >60s) for RVOS. A straightforward baseline is proposed along with new metics evaluating temporal and spatiotemporal consistency.",
+      "strengths_and_weaknesses": "Strengths \n* The introduction of Long-RVOS addresses a critical gap by focusing on long videos (average >60s), moving beyond the short-clip paradigm prevalent in existing RVOS datasets.\n* Taxonomy of videos (unfortunately not for texts) are detailed and structured.\n\nConcerns\n* While the paper effectively highlights the visual challenges of long videos (occlusion, reappearance, shot changes), it provides less in-depth analysis of the specific linguistic and cross-modal alignment difficulties introduced by long-term contexts. How do long descriptions, temporal references (\"later\", \"after the cut\"), or complex event sequences impact performance? This aspect deserves more exploration.\n* The observation that current SOTA methods \"struggle severely\" is noted, but the paper could delve deeper into why they fail beyond the implied lack of long-term modeling. Is it primarily due to limited temporal context windows, failure to track through occlusions/reappearances, difficulty resolving ambiguous language over time, or a combination? \n* This paper's biggest contribution is the new dataset. While authors choose not to submit this paper to dataset track, which has extra rules, like requiring authors to submit the dataset and the code used to test it. This ensures everyone can check the data is good and rerun the tests. Since this paper wasn't submitted that way, I worry we can't fully trust the dataset quality or easily reuse it. \n* The solution they propose works well for long videos. That's good. But the ideas inside it \u2013 using motion info and combining short-term/local info with longer-term/global info \u2013 are solutions we've seen used in other video problems before. It's a good baseline, but it doesn't introduce any major new tricks or concepts.\n* Using metrics to check consistency over time isn't actually new outside of RVOS; it's common in other video tasks. While this is the first time to bring temporal and spatiotemporal concistency metrics into RVOS, it feels more like catching up to what other fields already do, rather than inventing something truly novel.",
+      "questions": "see above",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "My concerns are addressed. I have no further comment. I decide to raise my score."
+    },
+    {
+      "reviewer_id": "7JVekEZdlC",
+      "overall": 5,
+      "confidence": 5,
+      "quality": 3,
+      "clarity": 4,
+      "significance": 3,
+      "originality": 3,
+      "summary": "This paper introduces Long-RVOS, the first large-scale benchmark specifically designed for long-term referring video object segmentation (RVOS). The dataset features over 2,000 minute-long videos annotated with diverse object categories and three types of language descriptions (static, dynamic, hybrid). To evaluate performance more rigorously, the authors propose two new metrics, tIoU and vIoU, capturing temporal and spatiotemporal consistency beyond frame-wise accuracy. The paper also presents a baseline model, ReferMo, which integrates motion information into a local-to-global architecture, using sparse keyframe supervision combined with SAM2-based propagation at inference time.\nExperiments show that ReferMo achieves strong performance, outperforming existing methods on Long-RVOS.",
+      "strengths_and_weaknesses": "**Strenghts**\n\n**First large-scale benchmark for Long-Term RVOS**\nThe paper introduces Long-RVOS, the first benchmark specifically designed for evaluating referring video object segmentation in minute-long, realistic video scenarios. Compared to existing datasets limited to short clips, Long-RVOS features significantly longer durations, diverse object types, and multiple instances per video, making it a valuable resource for practical settings.\n\n\n**Explicit annotation of text types for fine-grained evaluation**\n Each object is annotated with three distinct types of natural language descriptions (static, dynamic, hybrid), allowing for fine-grained evaluation of a model ability to understand different semantic cues. This is a novel addition that enables more precise performance analysis and avoids overfitting to static or appearance-based prompts.\n\n\n**Strong baseline (ReferMo) and extensicve evaluation**\n The proposed ReferMo introduces a local-to-global architecture that integrates appearance, motion, and temporal reasoning across clips. The paper benchmarks six state-of-the-art methods and performs detailed ablations. Oracle experiments using SAM2 highlight the difficulty of the benchmark and confirm the need for improved long-term reasoning. Despite its simplicity, ReferMo outperforms several strong baselines, including SAM-based models, in long-video settings.\n\n\n**Weaknesses**\n\n1. The model relies on a single keyframe per clip for language-guided mask prediction, with subsequent frames handled via mask propagation. In long and complex videos where the target object is frequently occluded, it is possible that multiple keyframes fail to capture the object, if occluded. While efficient, this design introduces a clear failure mode when visibility is limited across clips.\n\n2. While the proposed method achieves strong performance, it inherently relies on access to future frames (e.g., for inter-clip aggregation). This design limits its applicability in streaming scenarios, where frames must be processed as they arrive. Although not a flaw per se, this aspect could benefit from further discussion, especially in contrast with recent RVOS models that operate in a streaming fashion.",
+      "questions": "1. How does ReferMo handle cases where the target object is absent in the keyframe?\n\n2. To what extent does SAM2 contribute to the final performance during inference?\nGiven that SAM2 is used to propagate masks beyond the predicted keyframes, could the authors provide an ablation or alternative comparison to isolate the contribution of ReferMo from that of SAM2? For example, what happens if other propagation strategies are used?\n\n3. Were the reported results for SAMWISE obtained using the latest version of the codebase?\nRecent updates to the SAMWISE repository indicate that a bug affecting inference quality was present in earlier releases. Could the authors clarify whether the SAMWISE results reported in the paper reflect the corrected implementation? If the reported results are based on an outdated version, it would be helpful to update the comparison using the corrected implementation for a fair evaluation.",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I remain convinced of my initial positive assessment. The proposed Long-RVOS dataset fills an important gap in RVOS research: existing benchmarks are typically limited to short clips and are insufficient for evaluating long-term reasoning. I believe Long-RVOS will be a valuable and widely used resource for the community. The proposed baseline, ReferMo, is simple yet competitive, and the additional experiments in the rebuttal clarify my remaining doubts."
+    },
+    {
+      "reviewer_id": "Vdk9CBipOC",
+      "overall": 5,
+      "confidence": 5,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 3,
+      "originality": 3,
+      "summary": "This paper introduces Long-RVOS, a new benchmark dataset for referring video object segmentation (RVOS) in long-duration videos. Unlike existing datasets that focus on short video clips, Long-RVOS includes videos with an average duration exceeding 60 seconds, enabling the evaluation of long-term visual grounding. The dataset emphasizes static attributes, motion patterns, and spatio-temporal relationships. Two new evaluation metrics are proposed to assess temporal and spatio-temporal consistency. Furthermore, six state-of-the-art methods are benchmarked on Long-RVOS, and a baseline model, ReferMo, is proposed that incorporates motion cues to improve long-term understanding.",
+      "strengths_and_weaknesses": "Strength:\n1. The paper is well-written and easy to follow. The motivation is clear. Compared with previous datasets, the proposed Long-RVOS includes long videos with object referring expressions, which is valuable for the community.  \n2. The dataset is built using manually written referring expressions and manually verified masks, facilitated by an adapted SAM2-based annotation tool. Figure 4 presents a word cloud that shows the diversity and frequency of descriptive attributes.  \n3. Six state-of-the-art methods are evaluated on Long-RVOS, and the paper includes an ablation study using the ReferMo baseline to demonstrate the challenge of long-term RVOS.\n\n\nWeakness:\n1. Compared to other benchmarks like ReasonVOS[1] and ReVOS[2], Long-RVOS lacks reasoning-based referring expressions involving spatio-temporal logic or contextual reasoning (e.g., object relationships, causality). While the dataset captures dynamic/static object descriptions, it does not fully reflect real-world reasoning demands. This limits its potential to evaluate higher-level model understanding.  \n2. As illustrated in Figure 5, the referring expression (e.g., \u201cA student\u2026 boxing moves.\u201d) spans the entire video, but clip-level retrieval requires aligning short video segments with appropriate referring expressions. The methodology lacks a clear explanation of how irrelevant text segments are filtered or avoided during short clip retrieval, which could introduce noise in evaluation.\n\n[1] One Token to Seg Them All: Language Instructed Reasoning Segmentation in Videos. 2024, NeurIPS.\n[2] VISA: Reasoning Video Object Segmentation via Large Language Models. 2024, ECCV.",
+      "questions": "1. Can the authors clarify how short clips are matched with full-length referring expressions? For example, if a referring sentence spans the entire video, how do you ensure that clip-level models are not misled by irrelevant temporal segments?   \n2. Why do SAM2-based methods underperform in Table 2?\n3. How robust and time-efficient is the SAM2-based mask annotation process? Including the average annotation time and inter-annotator agreement (if any) would help validate the dataset\u2019s quality.   \n4. It is encouraged to extend the dataset with reasoning-based referring expressions in the future.",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only",
+        "Major Concern: Improper research involving human subjects"
+      ],
+      "final_justification": null
+    },
+    {
+      "reviewer_id": "AhVLez6PYy",
+      "overall": 4,
+      "confidence": 4,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 3,
+      "originality": 3,
+      "summary": "This paper introduces Long-RVOS, a large-scale benchmark dataset for long-term referring video object segmentation containing 2,193 videos with an average duration of 60.3 seconds, significantly longer than existing datasets like MeViS (13.2s average). The dataset encompasses diverse challenging scenarios including occlusion and re-identification. The authors propose two new evaluation metrics specifically designed for long-duration videos and present ReferMo, a baseline method that achieves strong performance on the proposed benchmark using both conventional and newly introduced metrics.",
+      "strengths_and_weaknesses": "**Strength:**\n- The paper addresses a highly important and practical problem in the field. Long-term referring video object segmentation is crucial for real-world applications but has been underexplored due to the lack of appropriate benchmarks.\n- The motivation and storyline are clear and well-articulated. Despite covering substantial content, the paper is well-organized and easy to follow. The effective use of graphs and visualizations significantly enhances understanding of the proposed dataset and methodology.\n- The dataset has sufficient volume (over 2K), and the average duration of 60 seconds presents appropriately challenging scenarios for current state-of-the-art models. The categorization of object sequences into dynamic, hybrid, and static types provides valuable analytical framework for understanding model performance across different tracking scenarios.\n- The baseline method ReferMo has valid design and provides a reasonable starting point for future research on this benchmark.\n\n**Weakness:**\nThe primary concern is the annotation quality of the dataset. According to the paper, mask annotations were generated using SAM2. Upon reviewing a few samples in the supplementary videos, I observed annotation issues, particularly in challenging occlusion scenarios. For instance, in video 9cc6ddb584_2.mp4, annotations are missing at critical frames (e.g., 11s, 39s). Video 4dee73ec95_1.mp4 shows representative cases of inconsistent mask quality in the 2-3s and 35-36s segments. Other samples exhibit the same issues. Annotation errors occur particularly in challenging scenarios involving occlusion, which ironically are the very situations this long-term benchmark aims to address. While RVOS tasks emphasize language-masklet alignment, video object segmentation fundamentally serves editing applications where IoU-based evaluation makes ground truth mask quality critically important. Although SAM2 also provided a semi-automatic annotation pipeline, their SA-V compensates for potential quality issues through massive scale (50K+ videos). Given Long-RVOS's scale, the annotation quality issues become more problematic and may limit the dataset's reliability for rigorous evaluation of long-term tracking methods. Overall, while the annotation quality is reasonable, it is not sufficiently robust for a definitive benchmark in this challenging domain.",
+      "questions": "Could the authors explain why ReferMo shows such a large performance improvement (+2.8) over ReferDINO in the Static category in Table 2?",
+      "limitations": "The authors addressed limitations in appendix.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "This paper presents a solid contribution, and I believe the dataset has the potential to positively impact the community. I support borderline acceptance."
+    }
+  ]
+}

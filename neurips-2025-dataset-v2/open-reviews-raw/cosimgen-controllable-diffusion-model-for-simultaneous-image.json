@@ -1,0 +1,74 @@
+{
+  "paper_id": "z8rQHF8OOt",
+  "decision": "Reject",
+  "reviews": [
+    {
+      "reviewer_id": "rNs2dMVFCR",
+      "overall": 2,
+      "confidence": 5,
+      "quality": 2,
+      "clarity": 3,
+      "significance": 2,
+      "originality": 2,
+      "summary": "This paper proposes to utilize diffusion models for simultaneous image and mask synthesis. It includes class-grounded textual prompts, spatial embeddings, and spectral timestep embeddings for multi-level conditioning. Contrastive loss and auxiliary super-resolution modules are used to enhance model performance.",
+      "strengths_and_weaknesses": "Strengths:\n1. The paper's organization is clear and easy to follow.\n\nWeaknesses:\n1. Lacking novelty. MosaicFusion[1] can simultaneously generate images and masks. Additionally, numerous works[2] can synthesize images from masks. The difference and the motivation of this work need to be clarified.\n\n2. Missing SOTAs and insufficient experiments. This paper claims to generate images and masks simultaneously. The authors should compare it to some related works[1,2,3] on image synthesis and segmentation tasks, respectively. Also, the paper lacks relevant ablation studies to demonstrate the effectiveness of the designed modules.\n\n3. Insufficient research on related work and missing technical details. In Sec.2, several classic works are missing, like DiT[4] and SD3[5]. In Sec.3.2.3, the authors do not provide necessary details of the SR module, such as loss function and network structure. In Sec3.2.2 (a), the author claims that diffusion models typically add conditions to the axis of feature maps. However, many classic works, such as SD[6] or DiT[4], use cross-attention.\n\n[1] MosaicFusion: Diffusion Models as Data Augmenters for Large Vocabulary Instance Segmentation. IJCV, 2024.\n\n[2] Freestyle Layout-to-Image Synthesis. CVPR, 2023.\n\n[3] Masked-attention Mask Transformer for Universal Image Segmentation. CVPR, 2022.\n\n[4] Scalable Diffusion Models with Transformers. ICCV, 2023.\n\n[5] Scaling Rectified Flow Transformers for High-Resolution Image Synthesis. ICML, 2024.\n\n[6] High-Resolution Image Synthesis with Latent Diffusion Models. CVPR, 2022.",
+      "questions": "1. Text prompt is a more general type of semantic condition. Why (fixed category) class vector is needed?",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "Overall, my opinion agrees with the other reviewers - reject. This paper lacks innovation, discussion of numerous classical methods, and experimental evidence. The authors also failed to provide the necessary experimental evidence in their follow-up. These are the clear reasons for my rating."
+    },
+    {
+      "reviewer_id": "GqCOLQWFwa",
+      "overall": 2,
+      "confidence": 5,
+      "quality": 1,
+      "clarity": 2,
+      "significance": 1,
+      "originality": 2,
+      "summary": "This paper proposes CoSimGen, a diffusion-based framework for the controllable and simultaneous generation of images and their corresponding segmentation masks. The motivation comes from domains like medical imaging and remote sensing, where annotated paired data are scarce and costly to obtain.",
+      "strengths_and_weaknesses": "## Strengths\n\n- The paper addresses the practical issue of generating paired images and segmentation masks, which is valuable in data-scarce domains.\n- Multi-level conditioning using text, class, and temporal embeddings is implemented in a reasonably comprehensive way.\n- Experiments cover several datasets and show some improvements over a few basic baselines.\n\n## Weaknesses\n\n- The paper overstates its novelty. Actually, simultaneous controllable generation of images and masks is not new\u2014previous works have already explored this topic, such as:\n    - Wu, Weijia, et al. \"DatasetDM: Synthesizing data with perception annotations using diffusion models.\" Advances in Neural Information Processing Systems 36 (2023): 54683-54695.\n    - Qian, Haotian, et al. \"MaskFactory: Towards high-quality synthetic data generation for dichotomous image segmentation.\" Advances in Neural Information Processing Systems 37 (2024): 66455-66478.\n    - Chen, Qi, et al. \"Towards generalizable tumor synthesis.\" Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2024.\n- There\u2019s a big gap in the related work section: relevant and recent methods are missing, and the experimental comparison with state-of-the-art approaches is entirely absent. This really undermines the credibility of the claimed contribution.\n- The baselines used are outdated and not competitive. There\u2019s no comparison with modern diffusion-based paired generation models, so it\u2019s hard to tell if the improvements are meaningful.\n- The approach of generating low-resolution images and then super-resolving them feels clunky and a bit outdated. Current models like FLUX or even Stable Diffusion 1.5 can generate 512\u00d7512 or even 1024\u00d71024 images directly, which are already usable for segmentation training.\n- The paper doesn\u2019t make it clear what the underlying generative model is\u2014whether it\u2019s Latent Diffusion, vanilla DDPM, or something else. This lack of transparency makes it tough to judge reproducibility or how the method might generalize.\n- The figures and visualizations are not up to standard. The diagrams are not vector graphics, font styles are inconsistent, and the content is too simple. Overall, the visuals don\u2019t meet the bar for a major conference submission.",
+      "questions": "See in weakness",
+      "limitations": "See in weakness",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I maintain my original rating of 2 (Reject). While your explanations help clarify the technical approach, the fundamental issue remains: the experimental evaluation lacks comparison with recent diffusion-based methods that could reasonably be adapted to this task. Even if perfect baselines don't exist for your specific problem formulation, demonstrating superiority over adapted state-of-the-art methods would significantly strengthen your claims. The current baselines, while providing some validation, are insufficient to establish the method's effectiveness in the context of modern generative models."
+    },
+    {
+      "reviewer_id": "ONBhXRXzI1",
+      "overall": 3,
+      "confidence": 3,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 3,
+      "originality": 3,
+      "summary": "This paper presents CoSimGen, a diffusion based framework for controllable simultaneous generation of images and segmentation masks. The method integrates multi-level conditioning via class-grounded textual prompts enabling hot-swapping of input control and spatial embeddings for contextual coherence and also spectral timestep embeddings for denoising control. \nTo enforce alignment and generation fidelity, it combines contrastive triplet loss between text and class embeddings with diffusion and adversarial objectives. Two stage generation with low resolution output first then super resolution to higher resolution. Evaluated across five diverse datasets.",
+      "strengths_and_weaknesses": "## Strengths\n1. successfully addresses the challenging problem of simultaneous image and segmentation mask generation, supporting flexible switching between class vectors and text prompts.\n2. Proposes two novel conditioning mechanisms including Spectron and Textron. Spectron is particularly intuitive by applying semantic conditions spatially and timestep conditions spectrally.\n\n## Weaknesses\n1. In Fig 1, the segmentation mask of the air plane may have issue, they have two colors to represent the airplane and its edge, in my opinion it should be one object.\n2. The related work part is too simple, there are much more work to reference for the image generation and the diffusion based segmentation. For example:\n\t1. SemFlow: Binding Semantic Segmentation and Image Synthesis via Rectified Flow \n\t2. Emu Edit: Precise Image Editing via Recognition and Generation Tasks\n\t3.  InstructDiffusion: A Generalist Modeling Interface for Vision Tasks\n\t4. UniGS: Unified Representation for Image Generation and Segmentation\n3. Why not use latent diffusion model with VAE, it might be better for the image generation task compare to the two stage generation (generate low res then super resolution), do you have any ablations on the two stage or one stage (large size image / latent diffusion)\n4. It is better to provide the detailed training time, inference speed comparisons with other methods.",
+      "questions": "see Weaknesses",
+      "limitations": "see Weaknesses, I think the major limitation is the capability, while the recent latent diffusion, DiT achieve a much better performance, and other diffusion based segmentation methods also achieved good performance. I'd like to see the author's rebuttal on this point.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "Compare to the latent diffusion method, this method produced lower resolution results, and currently they do not have ablations to show their advantages. It is common to add input and output channels to support the image-mask co generation, they should do some comparison. As this paper is not that complete, I'm keeping my score and toward to reject."
+    },
+    {
+      "reviewer_id": "AP3cpWew24",
+      "overall": 2,
+      "confidence": 5,
+      "quality": 2,
+      "clarity": 2,
+      "significance": 2,
+      "originality": 2,
+      "summary": "This paper presents CoSimGen, a two-step LR-2-SR diffusion-based framework for simultaneous generation of images and segmentation masks with controllable conditioning. The method introduces two main components: (1) Spectron, a spatio-spectral embedding fusion mechanism that applies class embeddings spatially and timestep embeddings spectrally, and (2) Textron, a contrastive learning approach that enables interchangeable use of class labels or text prompts during inference.",
+      "strengths_and_weaknesses": "Strength:\n1. Clear Problem Motivation: Addresses a practical need in data-scarce domains where paired image-mask datasets are expensive to obtain\n2. Reasonable Technical Approach: The Spectron mechanism for spatial vs. spectral conditioning has intuitive motivation; Textron's contrastive alignment between text and class embeddings enables flexible conditioning\n\nWeakness:\n1. Limited Technical Novelty: The core contributions are relatively incremental: spatial vs. spectral conditioning is a straightforward idea, and contrastive text-class alignment is well-established; Most components (U-Net diffusion, CLIP-style contrastive learning, super-resolution) are standard techniques combined in an expected way\n2. Weak Baseline Comparisons: Baselines are quite dated (TGAN, Pix2PixGAN, CVAE) and not representative of current state-of-the-art; Missing comparisons with recent diffusion-based approaches or more sophisticated paired generation methods. The improvement compared to recent SOTA diffusion model or flow matching models are missed. And make the reviewer questionable about the improvement brought by the simple embedding design without updating the generation network. \n3. Writing and Presentation Issues: Inconsistent notation and unnecessarily complex mathematical presentation. In figure 3(a), class embedding, text embedding and time step embedding are all used in the spectron, while only class embedding and time step embedding are used in the main text and equation (1)(2).",
+      "questions": "1. Novelty and Technical Contribution: What specific algorithmic innovations distinguish this work beyond combining existing techniques (U-Net diffusion + CLIP-style contrastive learning + super-resolution)? Why should applying class embeddings spatially and timestep embeddings spectrally be considered a novel contribution rather than an obvious design choice?\n2. Experimental Rigor and Baseline Fairness: Why weren't recent state-of-the-art diffusion methods adapted for comparison? Can you provide ablation studies isolating the contributions of Spectron vs. Textron vs. the super-resolution pipeline?\n3. The writing is not clear and is not consistent with the figure.",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": null
+    }
+  ]
+}

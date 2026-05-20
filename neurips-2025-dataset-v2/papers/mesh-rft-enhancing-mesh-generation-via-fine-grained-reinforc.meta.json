@@ -1,0 +1,10 @@
+{
+  "paper_id": "te2RsWcyQp",
+  "title": "Mesh-RFT: Enhancing Mesh Generation via Fine-grained Reinforcement Fine-Tuning",
+  "venue": "NeurIPS 2025 spotlight",
+  "decision": "Accept (spotlight)",
+  "accept": true,
+  "bin": "[5.5,6.0)",
+  "openreview_url": "https://openreview.net/forum?id=te2RsWcyQp",
+  "mismatch": false
+}

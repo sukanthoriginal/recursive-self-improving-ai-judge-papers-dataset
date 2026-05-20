@@ -1,0 +1,10 @@
+{
+  "paper_id": "3Qo2SRcHgU",
+  "title": "AdaDetectGPT: Adaptive Detection of LLM-Generated Text with Statistical Guarantees",
+  "venue": "NeurIPS 2025 poster",
+  "decision": "Accept (poster)",
+  "accept": true,
+  "bin": "[4.5,5.0)",
+  "openreview_url": "https://openreview.net/forum?id=3Qo2SRcHgU",
+  "mismatch": false
+}

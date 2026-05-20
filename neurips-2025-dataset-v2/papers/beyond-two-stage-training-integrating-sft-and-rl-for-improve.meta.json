@@ -1,0 +1,10 @@
+{
+  "paper_id": "cEd00CXWE5",
+  "title": "Beyond Two-Stage Training: Integrating SFT and RL for Improved Reasoning in LLMs",
+  "venue": "Submitted to NeurIPS 2025",
+  "decision": "Reject",
+  "accept": false,
+  "bin": "[4.0,4.5)",
+  "mismatch": true,
+  "openreview_url": "https://openreview.net/forum?id=cEd00CXWE5"
+}

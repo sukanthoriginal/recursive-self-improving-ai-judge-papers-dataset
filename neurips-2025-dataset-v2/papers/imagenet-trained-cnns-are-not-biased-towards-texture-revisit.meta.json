@@ -1,0 +1,10 @@
+{
+  "paper_id": "i5WnXNjwbR",
+  "title": "ImageNet-trained CNNs are not biased towards texture: Revisiting feature reliance through controlled suppression",
+  "venue": "NeurIPS 2025 oral",
+  "decision": "Accept (oral)",
+  "accept": true,
+  "bin": "[5.0,5.5)",
+  "openreview_url": "https://openreview.net/forum?id=i5WnXNjwbR",
+  "mismatch": false
+}

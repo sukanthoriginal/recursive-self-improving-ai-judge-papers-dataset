@@ -1,0 +1,10 @@
+{
+  "paper_id": "1rUj9ZN6Bz",
+  "title": "FlexOLMo: Open Language Models for Flexible Data Use",
+  "venue": "NeurIPS 2025 spotlight",
+  "decision": "Accept (spotlight)",
+  "accept": true,
+  "bin": "[5.5,6.0)",
+  "openreview_url": "https://openreview.net/forum?id=1rUj9ZN6Bz",
+  "mismatch": false
+}

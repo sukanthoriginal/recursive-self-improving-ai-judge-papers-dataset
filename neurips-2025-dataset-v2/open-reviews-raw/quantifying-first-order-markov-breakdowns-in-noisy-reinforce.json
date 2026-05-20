@@ -1,0 +1,74 @@
+{
+  "paper_id": "ziLHIExi1j",
+  "decision": "Reject",
+  "reviews": [
+    {
+      "reviewer_id": "hGqZOaFT3p",
+      "overall": 2,
+      "confidence": 4,
+      "quality": 1,
+      "clarity": 2,
+      "significance": 3,
+      "originality": 1,
+      "summary": "This paper proposes a Markov violation score for how much multi-step dependencies affects the violation of the Markov property, leveraging this with existing algorithms for causal discovery, PCMCI.",
+      "strengths_and_weaknesses": "strengths: \n\nThe paper studies a very relevant problem related to diagnosing state representations in MDP, and conducts some informative experiments on simple classical environments. \n\nweaknesses: \n\nOn significance, the paper itself doesn't have a lot of strong contributions. It builds on existing causal discovery algorithms without contributing here on methodology. The experiments are not systematic and may be limited to these small toy experiments. Although this is a promising proof of concept, the paper would have to shore up and scale up its empirical analysis in order for this to be a more complete paper.",
+      "questions": "I am not sure that a response from the authors can change my opinion, as the paper would require substantial revisions. My suggestion is to consider a more extensive empirical study, for example on more complicated environments. It may be helpful to refer to the scope of accepted Neurips papers for reference.",
+      "limitations": "n/a",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "Final justification - appreciate the rebuttal but the paper needs a lot of work to be a full paper submission to Neurips or analogous conferences."
+    },
+    {
+      "reviewer_id": "Oe4sT361L3",
+      "overall": 3,
+      "confidence": 3,
+      "quality": 3,
+      "clarity": 4,
+      "significance": 2,
+      "originality": 3,
+      "summary": "This paper introduces the Markov Violation Score (MVS), a metric derived from the PCMCI causal discovery algorithm, designed to quantify multi-step dependencies in reinforcement learning environments. Through experiments on low-dimensional control tasks, the authors demonstrate that perturbations, such as autoregressive noise or the omission of pivotal state variables, lead to an increase in MVS that correlates with a decline in policy performance. The work proposes MVS as a diagnostic tool to pinpoint when and why an agent's observations fail to satisfy the Markov property.",
+      "strengths_and_weaknesses": "Strengths:\n- It addresses the  overlooked problem of Markov property violations within reinforcement learning.\n- It introduces the Markovian Violation Score (MVS), a novel and principled metric designed to quantify specific types of structural, multi-lag dependencies, offering a new analytical tool.\n- The experiments provide  empirical validation for the utility of MVS, demonstrating its effectiveness within the specific domain of low-dimensional state vectors subjected to targeted perturbations.\n\nWeaknesses:\n- The  methodology for validation fundamentally lacks scalability, its reliance on a one-by-one ablation of state vector dimensions restricts its application to simple, low-dimensional tasks and presents no clear pathway for use in  RL environments with high-dimensional inputs like images.\n- This reliance on an unscalable ablation method consequently limits the evaluation's scope, constraining it to classic control tasks and leaving the metric's utility unverified in more complex problem settings where it would be most needed.\n- The connection between the MVS and actual performance is conditional, exhibiting a strong correlation only under specific and structured data perturbations, which curtails its role as a universally applicable diagnostic for performance issues.",
+      "questions": "1. The method for identifying \"high-influence\" dimensions is central to the paper's validation, but it relies on an ablation of a low-dimensional state vector.   How can the dimension ablation method be scaled to high-dimensional inputs, such as images?\n2. How can MVS be considered a reliable diagnostic tool, given that it uses linear tests for problems that are fundamentally non-linear?",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "The core concerns regarding scalability and sufficiency of evaluation remain unaddressed."
+    },
+    {
+      "reviewer_id": "ibbMhbfrKF",
+      "overall": 2,
+      "confidence": 4,
+      "quality": 2,
+      "clarity": 2,
+      "significance": 1,
+      "originality": 2,
+      "summary": "This paper proposes to use partial correlation based causal discovery procedure (PCMCI) to measure a newly proposed property named Markov Violation score (MVS). MVS measures how severely the Markov property is damaged. The authors conduct experiments with noisy/incomplete observations to verify the effectiveness of MVS.",
+      "strengths_and_weaknesses": "Pros:\n- MVS is an interesting property that measures whether current observations satisfy the Markov property.\n\nCons:\n- The challenge posed by noisy or incomplete observations has long been recognized in the reinforcement learning community. While MVS serves as a tool to validate this phenomenon, it does not help to obtain stronger agents under such situations, which is the prime challenge.\n- Whether the observations satisfy the Markov Property (i.e. one-step assumption) does not necessarily indicate the difficulty in solving the task.\n    - Some Atari tasks (e.g. Pong) are POMDPs, yet are easy to solve.",
+      "questions": "- Could you provide a more detailed explanation of how PCMCI works? Additionally, what is the computational cost of the proposed method with respect to the observation dimensionality?\n- Could you illustrate how to use MVS to mitigate the challenge imposed by noisy/incomplete observations?",
+      "limitations": "NA",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "The main reason that I vote for rejection is that this paper only provides a solution to discovering the non-Markov property, which is not enough. As the authors have not provided convincing arguments during the rebuttal, I choose to keep my score."
+    },
+    {
+      "reviewer_id": "4SJtgVwP9t",
+      "overall": 3,
+      "confidence": 4,
+      "quality": 2,
+      "clarity": 3,
+      "significance": 2,
+      "originality": 3,
+      "summary": "The manuscript pointed out one-step (first-order) Markov violation problem, which means the assumption of Markov property of RL is violated and then cause the RL break down.\nIn reality, sensor noise or partial observability often violates this assumption, introducing hidden multi-step dependencies.\n\nTo address this, the authors introduce a Markov Violation Score (MVS),  as a diagnostic tool, that quantitatively measures multi-lag effects. MVS combines the PCMCI causal-discovery procedure (which tests for significant partial correlations across time lags) with a novel scoring formula. In practice, they collect offline trajectories (rollouts) of a trained policy and apply PCMCI to the state time-series; any statistically significant edges at lag \u22652 signal a departure from first-order Markov dynamics. The MVS then aggregates the magnitude and significance of all such multi-step partial correlations, giving zero if no violations are detected.",
+      "strengths_and_weaknesses": "**Strendths**\n1. The methodology is well-motivated and carefully executed. \n2. The manuscript is generally well-written and logically organized.\n\n**Weaknesses**\n1. The MVS is intuitively well-motivated and interpretable, but its computational scalability is not analyzed. Given the $N^2(\\tau_{\\max} - 1)$ complexity and dependence on the PCMCI pipeline, it may be prohibitive in high-dimensional RL settings without approximation strategies. It would strengthen the work to either benchmark runtime or explore scalable surrogates.",
+      "questions": "1. Is the MVS only suitable for linear dependencies? please discuss.\n2. So the MVS genereally says \"for every variable pair $(i, j)$ and time lag $k \\geq 2$, if there is a statistically significant dependency (as detected by PCMCI), then compute its strength, give it more weight if the lag is long or the p-value is small, and sum it up. it seems like lots of compute complixety here, cuz you need to account lags for every variable pair $(i, j)$, could you plese discuss. \n3. While the authors demonstrate (in Figure 4) that increasing autoregressive order elevates MVS and reduces RL returns in synthetic tasks, it remains unclear whether MVS correlates with performance degradation over time in nonstationary environments. Showing that rising MVS reliably predicts declining reward during learning (e.g., in an online RL setting with drift) would strongly reinforce its practical value as an early diagnostic.",
+      "limitations": "see above",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I believe the main concern remains to be addressed and the paper is not yet for publication as well."
+    }
+  ]
+}

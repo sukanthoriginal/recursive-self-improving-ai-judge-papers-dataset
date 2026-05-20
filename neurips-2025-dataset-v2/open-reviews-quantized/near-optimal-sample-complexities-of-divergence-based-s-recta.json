@@ -1,0 +1,47 @@
+{
+  "paper_id": "vhnDpzcaO2",
+  "decision": "Reject",
+  "accept": false,
+  "reviews": [
+    {
+      "reviewer_id": "NF8pNp119s",
+      "overall": 3,
+      "confidence": 3,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 3,
+      "originality": 3
+    },
+    {
+      "reviewer_id": "YHgNqC27BZ",
+      "overall": 2,
+      "confidence": 4,
+      "quality": 2,
+      "clarity": 3,
+      "significance": 2,
+      "originality": 1
+    },
+    {
+      "reviewer_id": "V9aere9Tm3",
+      "overall": 3,
+      "confidence": 3,
+      "quality": 2,
+      "clarity": 1,
+      "significance": 2,
+      "originality": 2
+    },
+    {
+      "reviewer_id": "mRhD1rw4oa",
+      "overall": 3,
+      "confidence": 3,
+      "quality": 2,
+      "clarity": 3,
+      "significance": 2,
+      "originality": 3
+    }
+  ],
+  "ground_truth": {
+    "weighted_mean_overall": 2.6923,
+    "accept": false
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "paper_id": "vhnDpzcaO2",
+  "decision": "Reject",
+  "reviews": [
+    {
+      "reviewer_id": "NF8pNp119s",
+      "overall": 3,
+      "confidence": 3,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 3,
+      "originality": 3,
+      "summary": "This work obtains the first near-optimal sample complexity bound $\\widetilde{O}[|S||A|(1-\\gamma)^{-4}\\epsilon^{-2}]$ of empirical value iteration algorithm on distributionally robust reinforcement learning (DR-RL) problem with $f$-divergence based $s$-rectangular uncertainty set.",
+      "strengths_and_weaknesses": "Strengths: This is a complete and clear work. The topic of distributionally robust reinforcement learning is popular with many applications. It achieves the first theoretical sample complexity result with optimal dependence on $\\epsilon,|S|,|A|$, and the complexity result is verified by simulations. The result looks reasonable to me based on my knowledge of value iteration and sample-based transition kernel estimation. The proof has improved the existing techniques from [25]. This work may be cited in the future in either of two ways: (1) Apply this algorithm to small state-action spaces due to efficient sample complexity obtained by this work. (2) Improve this work by future works for more practical and tricky settings such as large state-action spaces, lack of generative model, model-free setting, offline reinforcement learning, etc. \n\nWeaknesses: The second experiment in Section 5.2 needs more clarification to be reproducible (See my questions below). It also would be better to compare with other existing sample-based value iteration algorithms in the experiments. A few more citations are needed (See my questions below). There are some limitations as listed in the conclusion section.",
+      "questions": "(1) What's the theoretical complexity lower bound? You could write it down and cite the corresponding work, in the introduction and other proper places. The conclusion section mentions the complexity gap as a limitation. Does it mean dependence on $1-\\gamma$ is not optimal? You might make it more explicit. \n\n(2) Could you cite the following works of value iteration on robust MDP? Also, [1] seems to have better dependence on $\\epsilon$. How to explain? \n\n[1] Grand-Cl\u00e9ment, J. and Kroer, C. (2021). Scalable first-order methods for robust mdps. In Proceedings of the AAAI Conference on Artificial Intelligence, volume 35, pages 12086\u201312094.\n\n[2] Kumar, N., Levy, K., Wang, K., and Mannor, S. (2023b). An efficient solution to s-rectangular robust markov decision processes. ArXiv:2301.13642.\n\n(3) Are Lemmas 1 and 2 proposed by you or existing literature? If latter, please cite.\n\n(4) To reproduce Section 5.2 (the second experiment), what does \"estimation error\" mean? (might be defined by equations) What is the discount factor $\\gamma$? \n\nMinor issues:\n\n(5) $A_t$ instead of $a_t$ in Examples 1. \n\n(6) $\\|R+\\gamma v\\| _ {\\infty}$ in Proposition 2 could be defined, especially considering that $R(s,a)$ and $v(s)$ take different input variables. \n\n(7) In Section 5, does $n_0=n$? \n\n(8) Figure 4 caption: \"number of actions\".",
+      "limitations": "Yes, the authors have written their two limitations in the conclusion section: (1) \"The reliance on access to a generative model and the presence of a gap between our upper bound and the minimax lower bound established in Yang [29]\"; (2) \"As part of future work, we aim to develop provable theoretical guarantees for other settings, including model-free algorithms and offline reinforcement learning.\"",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I just read the interaction between the authors and the other reviewers. \n\nI also agree with Reviewer Qk39 that this work is not significant. This work simply changes transition kernel from P into its empirical estimation P_hat, which has no significant technical challenge and novelty. Also this work only focuses on statistical \n\nSo I reduce my rating to 3."
+    },
+    {
+      "reviewer_id": "YHgNqC27BZ",
+      "overall": 2,
+      "confidence": 4,
+      "quality": 2,
+      "clarity": 3,
+      "significance": 2,
+      "originality": 1,
+      "summary": "The paper establishes sample complexity of value iteration for divergence based s-rectangular robust MDPs. It assumes the generative model of the MDP, and constructs empirical nominal kernels using the samples, then use this for Bellman updates.",
+      "strengths_and_weaknesses": "Strengths: Established $O(\\epsilon^{-2})$ sample complexity of the divergence based robust MDPs.\n\nWeakness: 1) The approach builds empirical kernel using samples which is not feasible for large states space MDPs. 2) Missing large body of relevant works, see questions.",
+      "questions": "***Q1)  Para (Line 40-44) of the paper discusses the nature of the optimal policies for SA/S -rect. Robust MDPs. The should mention that the optimal policies for s-rect can be stochastic [1] and a exact nature (threshold power policy) was shown in [2] for L_p bounded s-rect MDP.***\n\n***Q2) Literature review missing mention large bodies of relevant works such as s-rectangular works [2,4,8] ,  non -rectangular works  [3,5] that are even less convervative than s-rect,  KL-based SA-rect work [6], and [7] that has sample complexity for R-contamination uncertainty sets***\n\n***Q3) Please compare your techniques and results with [9,10], it also claims $O(\\epsilon^{-2})$ sample complexity for policy evaluation  diverence based robust MDPs. Can policy evaluation be trivially used to get optimal value funtion using policy iteration ?***\n\n[1] Wolfram Wiesemann, Daniel Kuhn, Ber\u00e7 Rustem, (2012) Robust Markov Decision Processes. Mathematics of Operations Research 38(1):153-183.\nhttps://doi.org/10.1287/moor.1120.0566 \n\n[2]@inproceedings{\nkumar2024efficient,\ntitle={Efficient Value Iteration for s-rectangular Robust Markov Decision Processes},\nauthor={Navdeep Kumar and Kaixin Wang and Kfir Yehuda Levy and Shie Mannor},\nbooktitle={Forty-first International Conference on Machine Learning},\nyear={2024},\nurl={https://openreview.net/forum?id=J4LTDgwAZq}\n}\n\n[3] Gadot, U., Derman, E., Kumar, N., Elfatihi, M. M., Levy, K., & Mannor, S. (2024). Solving Non-rectangular Reward-Robust MDPs via Frequency Regularization. Proceedings of the AAAI Conference on Artificial Intelligence, 38(19), 21090-21098. https://doi.org/10.1609/aaai.v38i19.30101\n\n[4]@inproceedings{10.5555/3666122.3668721,\nauthor = {Kumar, Navdeep and Derman, Esther and Geist, Matthieu and Levy, Kfir and Mannor, Shie},\ntitle = {Policy gradient for rectangular robust Markov decision processes},\nyear = {2023},\npublisher = {Curran Associates Inc.},\naddress = {Red Hook, NY, USA},\nbooktitle = {Proceedings of the 37th International Conference on Neural Information Processing Systems},\narticleno = {2599},\nnumpages = {25},\nlocation = {New Orleans, LA, USA},\nseries = {NIPS '23}\n}\n\n[5]@misc{kumar2025dualformulationnonrectangularlp,\n      title={Dual Formulation for Non-Rectangular Lp Robust Markov Decision Processes}, \n      author={Navdeep Kumar and Adarsh Gupta and Maxence Mohamed Elfatihi and Giorgia Ramponi and Kfir Yehuda Levy and Shie Mannor},\n      year={2025},\n      eprint={2502.09432},\n      archivePrefix={arXiv},\n      primaryClass={cs.AI},\n      url={https://arxiv.org/abs/2502.09432}, \n}\n\n[6] @inproceedings{\ngadot2024bring,\ntitle={Bring Your Own (Non-Robust) Algorithm to Solve Robust {MDP}s by Estimating The Worst Kernel},\nauthor={Uri Gadot and Kaixin Wang and Navdeep Kumar and Kfir Yehuda Levy and Shie Mannor},\nbooktitle={Forty-first International Conference on Machine Learning},\nyear={2024},\nurl={https://openreview.net/forum?id=UqoG0YRfQx}\n}\n\n[7] @inproceedings{\nwang2021online,\ntitle={Online Robust Reinforcement Learning with Model Uncertainty},\nauthor={Yue Wang and Shaofeng Zou},\nbooktitle={Advances in Neural Information Processing Systems},\neditor={A. Beygelzimer and Y. Dauphin and P. Liang and J. Wortman Vaughan},\nyear={2021},\nurl={https://openreview.net/forum?id=IhiU6AJYpDs}\n}\n\n[8]@misc{derman2021twiceregularizedmdpsequivalence,\n      title={Twice regularized MDPs and the equivalence between robustness and regularization}, \n      author={Esther Derman and Matthieu Geist and Shie Mannor},\n      year={2021},\n      eprint={2110.06267},\n      archivePrefix={arXiv},\n      primaryClass={cs.LG},\n      url={https://arxiv.org/abs/2110.06267}, \n}\n\n[9]@misc{xu2025finitesampleanalysispolicyevaluation,\n      title={Finite-Sample Analysis of Policy Evaluation for Robust Average Reward Reinforcement Learning}, \n      author={Yang Xu and Washim Uddin Mondal and Vaneet Aggarwal},\n      year={2025},\n      eprint={2502.16816},\n      archivePrefix={arXiv},\n      primaryClass={stat.ML},\n      url={https://arxiv.org/abs/2502.16816}, \n}\n\n[10]@misc{xu2025efficientqlearningactorcriticmethods,\n      title={Efficient $Q$-Learning and Actor-Critic Methods for Robust Average Reward Reinforcement Learning}, \n      author={Yang Xu and Swetha Ganesh and Vaneet Aggarwal},\n      year={2025},\n      eprint={2506.07040},\n      archivePrefix={arXiv},\n      primaryClass={cs.LG},\n      url={https://arxiv.org/abs/2506.07040}, \n}",
+      "limitations": "OK",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "In absence of proper comaparision of relevant literature, I am not able to judge the novelty very clearly. Additionally, there exist similar results for non-robust counterpart and I am not convinced that its extension to robust, is significant (technically or conceptually). Hence, I maintain my rating of 2."
+    },
+    {
+      "reviewer_id": "V9aere9Tm3",
+      "overall": 3,
+      "confidence": 3,
+      "quality": 2,
+      "clarity": 1,
+      "significance": 2,
+      "originality": 2,
+      "summary": "This paper addresses distributionally robust RL in the S-rectangular setting. This paper establishes a statistical bound on the *estimation error* for the optimal robust value. However, it does not address the *sample complexity*.",
+      "strengths_and_weaknesses": "* **Strengths:**\n    1. The writing of this paper is clear,\n    2. Numerical results are presented and align with the theoretical analysis.\n\n* **Weaknesses:** \n    1. The definitions are unclear (See Question 1 below).\n    2. The involvement of the minimum support probability (Def. 5) for $f_k$-divergence uncertainty set is sub-optimal when compared to the previously known bound [Theorem 3.2(b), 1].\n\n[1] Yang, W., Zhang, L., & Zhang, Z. (2022). Toward theoretical understandings of robust Markov decision processes: Sample complexity and asymptotics. The Annals of Statistics.",
+      "questions": "1. If I understand correctly, Theorems 1 and 2 are **not** the *sample complexity* discussed in [1, 2]. According to Proposition 1, $\\widehat{v} = \\widehat{T}^*(\\widehat{v})$ should refer to the optimal value under the **empirical DR Bellman Operators (Def.3)**, which is not the optimal robust value function defined w.r.t the true uncertainty set (i.e., $V_{\\mathcal{P}}^{\\widehat{\\pi}}$). If that is true, I believe it is inappropriate to claim your contributions as \"the first sample complexity results for divergence-based S-rectangular models\".\n2. I think the reference in Line 332 should be [30], instead of [29].\n3. Can you explain why the bounds in Theorems 1 and 2 do not involve the uncertainty radius $\\rho$?\n\n\n[1] Clavier, P., Shi, L., Le Pennec, E., Mazumdar, E., Wierman, A., & Geist, M. (2024). Near-Optimal Distributionally Robust Reinforcement Learning with General $L_p$ Norms. Advances in Neural Information Processing Systems.\n\n[2] Yang, W., Zhang, L., & Zhang, Z. (2022). Toward theoretical understandings of robust Markov decision processes: Sample complexity and asymptotics. The Annals of Statistics.",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "After reading the authors' response, I have raised my score accordingly. However, I remain skeptical about the tightness of the derived bounds due to their independence of the uncertainty radius."
+    },
+    {
+      "reviewer_id": "mRhD1rw4oa",
+      "overall": 3,
+      "confidence": 3,
+      "quality": 2,
+      "clarity": 3,
+      "significance": 2,
+      "originality": 3,
+      "summary": "This paper focuses on\u00a0divergence-based S-rectangular distributionally robust reinforcement learning (DR-RL), with the core being establishing near-optimal sample complexity bounds under this framework and validating their effectiveness through theoretical analysis and numerical experiments.",
+      "strengths_and_weaknesses": "Strengths\n-The article considers a reward function\u00a0$$R(S_t, A_t, S_{t+1})$$\u00a0that depends on the \"current state, current action, and next state\", a structure often overlooked in existing research.\u00a0\n- The article conducts numerical experiments on a robust inventory control problem and a theoretical worst-case example, verifying that the sample complexity decays at a rate of\u00a0$$1/\\sqrt{n}$$\u00a0with respect to the sample size\u00a0n\u00a0and has a linear dependence on\u00a0$$|S||A|$$, which is consistent with theoretical deductions, enhancing the credibility of the conclusion.\nWeaknesses\uff1a\n1.The numerical experiments only run under a single set of hyperparameters without reporting error bars or statistical significance information, making it difficult to fully verify the robustness of the results.\n2.The research primarily focuses on the theoretical analysis of sample complexity, with little discussion of practical implementation challenges. This narrow focus limits its guidance for real-world applications.",
+      "questions": "Suggestions:\n1.The authors should supplement additional numerical experiments to systematically investigate the impact of key hyperparameters on the estimation error and sample complexity\n2.The authors should elaborate on how the established near-optimal sample complexity theory directly guides the practical implementation of S-rectangular divergence-based DR-RL algorithms.",
+      "limitations": "Yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I thank the authors for addressing my concerns. The work fills a key gap in the sample complexity analysis of S-rectangular models, with clear contributions, though its practical applicability is limited. I have updated my score accordingly."
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "paper_id": "50vDcRUz5p",
+  "decision": "Reject",
+  "reviews": [
+    {
+      "reviewer_id": "gNV80fO3lf",
+      "overall": 1,
+      "confidence": 5,
+      "quality": 1,
+      "clarity": 2,
+      "significance": 1,
+      "originality": 2,
+      "summary": "This paper discusses the neural substrated of visual afterimages. It argues against the idea that visual afterimages are caused by adaptation of peripheral neurons (e.g. photoreceptors), but instead are of cortical origin. Here, visual afterimages are viewed as a originating between feedforward and feedback processing potentially in layer 4 of V1.",
+      "strengths_and_weaknesses": "Strengths:\n- The paper introduces an extensive historical overview of afterimages and concise summary of literature findings in Table 1.\n\nWeaknesses:\n- The paper does not present any new data, new models, new algorithms, new mathematical theory or empirical evaluation. It is a literature discussion of different findings regarding afterimages. \n- Figure 1a looks like it is reproduced from a textbook. What is the source? Also Fig. 2b is Fig. 10c from Adams and Horton 2003, JNeurosci, but no source is credited in the caption. Also reproduction of this figure is likely not covered by the licence of the original paper.\n- The style of the paper is sometimes that of a review, sometimes of a newspaper article, and often colloquial and of \"storrytelling\" nature (e.g. lines 234 ff).",
+      "questions": "What are the sources of the figures reused in the paper and is their use covered by the licences?\nWhat follows from the discussion in this paper for computational theories of vision and how could this be formalized?",
+      "limitations": "The authors did not address or discuss any limitations.",
+      "ethical_concerns": [
+        "Major Concern: Data privacy, copyright, and consent"
+      ],
+      "final_justification": "I maintain my view that this paper is not suitable for Neurips, as it simply provides a literature review together with some opinion/hypotheses parts. I also maintain that the use of figures published by others in this paper is questionable."
+    },
+    {
+      "reviewer_id": "QNRjioq285",
+      "overall": 3,
+      "confidence": 3,
+      "quality": 2,
+      "clarity": 3,
+      "significance": 2,
+      "originality": 2,
+      "summary": "This paper challenges the conventional view on the afterimage. The authors survey the recent neuroscientific literature and propose a new perspective on the afterimage as a form of cortical short-term memory.",
+      "strengths_and_weaknesses": "## Strength\n1. Novel theoretical perspective: This paper challenges the view widely accepted by the neuroscience community. This challenge is backed by recent neuroscientific evidence. \n2. Comprehensive literature review: This paper throughly surveys the related studies and draw new conclusion from them. \n\n## Weakness\n1. No original and empirical results: this paper surveys the related works, but does not have its own experimental or computational works and results. Claims of this paper is backed by the existing literature, and it limits the novelty of this paper to re-interpretation, rather than its own experimental discovery. \n2. Lack of quantitative results and not computational models: As this paper talks about the computational roles of STM, it does not provie any mathematical or computational modelings for this. Therefore, it is not easy to evaluate the validity of the claim.",
+      "questions": "This paper provides a new look on the STM. However, as was pointed out in the weakness, readers would be better convinced if there is a way to validate the claim made by the paper.",
+      "limitations": "Authors talks about the limitations.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I read the authors' response and one of my points that there are lack of computational works and results to validate the proposed hypothesis is not resolved. I don't think the idea itself is bad, but I just think the Neurips is not a proper venue for this paper. I will keep the original score."
+    },
+    {
+      "reviewer_id": "W659Xao9aL",
+      "overall": 2,
+      "confidence": 4,
+      "quality": 3,
+      "clarity": 2,
+      "significance": 2,
+      "originality": 3,
+      "summary": "The manuscript begins by presenting evidence from the literature suggesting that afterimages are primarily a cortical phenomenon rather than a retinal one. It then introduces a theoretical framework for understanding afterimages in the human visual system, built on three main pillars: (1) positive and negative afterimages share the same neural pathway, (2) afterimages can be interpreted as a form of short-term memory (STM) in the brain, and (3) computationally, STM occupies an intermediate position between feedforward and feedback networks.",
+      "strengths_and_weaknesses": "The manuscript is well written and enjoyable to read. It offers a valuable historical perspective on the phenomenon of afterimages and is well positioned within the visual science community, making a meaningful contribution to our understanding of afterimage perception. However, I have sincere doubts about NeurIPS being a suitable venue for this work\u2014at least in its current form\u2014since it lacks sufficient detail on how the hypothesised short-term memory circuits could be implemented and tested in relation to the afterimage phenomenon.",
+      "questions": "1. How would this STM network be implemented and how can it be systematically evaluated?",
+      "limitations": "Yes.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "Just to reemphasise that, in my opinion, this is an interesting paper with great potential, but needs more details to be accessible to the NeurIPS community, and I believe the manuscript would benefit from a more detailed description of the proposed computational architecture prior to its publication in NeurIPS; therefore, I maintain my original rating."
+    },
+    {
+      "reviewer_id": "6eJie1AKfB",
+      "overall": 2,
+      "confidence": 4,
+      "quality": 1,
+      "clarity": 2,
+      "significance": 2,
+      "originality": 1,
+      "summary": "The paper explores the phenomenon of afterimages, which are visual images that persist after the original stimulus has been removed. Traditionally, it has been believed that afterimages are due to peripheral adaptation mechanisms in the retina. In this paper, the authors argue that afterimages originate in the brain, specifically in the V1, particularly in layer 4 of V1. In addition, the authors also claim that the afterimages should be conceptualized as a form of short-term memory.",
+      "strengths_and_weaknesses": "## Strengths\n1. The paper provides a good review of the existing literature on afterimages.\n2. The significance of the research question is clearly articulated.\n\n\n## Weaknesses\n1. My primary concern is that this paper doesn't present new experimental data or simulations to substantiate its central claims about V1-L4 localization. The arguments rely entirely on correlating existing neuroanatomical findings with phenomenological observations. For such strong theoretical claims, direct neurophysiological or neuroimaging evidence would be essential.\n2. The core evidence comes from a single, specific phenomenon (i.e., seeing blind spots as afterimages). This evidential base is inadequate to support broad generalizations about all afterimage types, as different classes of afterimages (color, motion, form, duration-dependent) may involve distinct neural mechanisms that are not captured by this singular observation.\n3. The proposed computational architecture (feedforward-STM-feedback) lacks detailed description, simulation and verification, with key concepts such as \"short-term memory\" in the context of afterimages, \"variable binding,\" and the precise nature of the proposed neural computations remaining poorly defined.",
+      "questions": "How would your theory account for afterimage phenomena that have been convincingly demonstrated to have retinal components, and what role, if any, do you propose for peripheral mechanisms in your framework?",
+      "limitations": "Yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I recommend rejecting."
+    }
+  ]
+}

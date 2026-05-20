@@ -1,0 +1,74 @@
+{
+  "paper_id": "i5WnXNjwbR",
+  "decision": "Accept (oral)",
+  "reviews": [
+    {
+      "reviewer_id": "9K27yzjC1F",
+      "overall": 5,
+      "confidence": 3,
+      "quality": 4,
+      "clarity": 4,
+      "significance": 3,
+      "originality": 3,
+      "summary": "Previous work empirically establishes that CNNs are biased towards textures. This paper offers a critique on the nature and setting of the experiments presented in previous work. It also offers a new experimental methodology to show that CNNs and Transformers are not biased towards textures, but like humans, they are biased towards local shapes, at least in the computer vision domain.\n\nThree feature types are identified: shape, texture, and color. Several feature suppression transformations for each type are proposed and validated. Experiments evaluate the classification accuracy, under feature suppression, for human behaviour and several models. Additional experiments evaluate and compare different domains.\n\nModels with similar architectures that employed more involved training strategies, such as data augmentation, showed less bias towards local shape. Results show that the medical imaging domain is biased towards color, while remote sensing models are more affected by changes in texture.",
+      "strengths_and_weaknesses": "Strengths:\n1. Results provide interesting and actionable insights\n2. Quantitative validation of suppression transformations helps justify the experimental methodology\n3. Statistical significance tests increases the strength of the claim\n4. Thorough coverage of different model types and domains\n\nWeaknesses:\n1. Observing the visual examples in the Appendix, the proposed suppression transformations for texture still retain low frequency information, which, to the human eye at least, seem to still give away a lot of texture. The LV and HFE metrics, understandably, do not seem to capture this\n2. The causes for the suggested inductive biases are not explained. As shown in some cases, if the architecture (and not the nature of the task domain or the lack of an adequate training strategy) causes some of the bias, which characteristics cause it? This analysis might seem outside of the scope of this work, but in its absence, the validity of the methodology takes more importance and I am concerned that, similarly to the previous work, it might not have been validated enough\n3. To which extent do the data augmentations resemble the suppression transformations used? If we are training models using similar transformations, then we might just be overfitting to them. Thus, other suppression techniques might yield very different results. In particular, the Mixup, Cutout, and Cutmix augmentations can resemble some of the transformations\n4. As pointed out in the limitations, feature types seem to be interdependent. What if the observed biases only exist in the presence of other features. For example, what if local shapes are not as relevant in the absence of texture or color? Such behavior might produce different conclusions",
+      "questions": "Could you please provide reasoning that might help me reduce any of the four concerns I have raised as weaknesses?",
+      "limitations": "Yes, limitations are adequately addressed. Perhaps some additional considerations related to the concerns raised in this review should have been mentioned.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I no longer have concerns about the interdependence of feature types. I believe the paper will be much stronger with the additional results proposed by the authors. As for the other concerns, I think addressing them as suggested will be a great idea.\n\nAlthough I agree with the comments in the rebuttal and I am not as concerned about the points raised, I am still not completely satisfied. It seems to me like we are retaining more texture information than other types of information. This is a completely subjective opinion of course, and that is what leads me to the next concern: what is preventing this work from being criticized in the future and replaced by a different methodology that arrives at a different conclusion? As a counterargument: this methodology is definitely much more solid than previous work.\n\nI will keep my overall score but I will raise the quality to excellent and originality to good."
+    },
+    {
+      "reviewer_id": "w1UXwQh7Wv",
+      "overall": 6,
+      "confidence": 4,
+      "quality": 3,
+      "clarity": 4,
+      "significance": 4,
+      "originality": 4,
+      "summary": "The paper revisits the \"texture bias\" hypothesis introduced by Geirhos et al. CNNs preferentially rely on texture over shape. The authors argue that the classic cue\u2010conflict evaluation (combining one class's shape with another's texture via neural style transfer) conflates salience with reliance and entangles multiple features. To address these limitations, they propose a domain-agnostic suppression framework: for each feature class (shape, texture, colour), two targeted image transformations systematically suppress that feature while preserving others. They validate these transformations quantitatively.\n\nUsing this framework, they conduct two large\u2010scale experimental studies:\n\n1. Human vs. CNN feature reliance on the ImageNet16 dataset (50 images \u00d7 16 classes), comparing human observers to a range of CNNs (ResNets, EfficientNets, ConvNeXts) and transformers (ViT, Swin, CLIP-ViT). They show that (a) all models\u2014including humans\u2014are most vulnerable to local shape suppression, not texture; (b) modern training recipes and vision-language supervision mitigate this reliance; and (c) CNNs are not inherently texture-biased.\n\n2. Cross-domain analysis on computer-vision (ImageNet, Flowers, Pets, etc.), medical imaging (MedMNIST-v2), and remote-sensing (UCMerced, DeepGlobe, etc.). They find that CV models prioritise shape, MI models lean on colour, and RS models depend heavily on texture.\n\nOverall, the paper challenges a prevailing narrative, presents a clear empirical protocol, and sheds light on how feature reliance varies across different architectures, training strategies, and domains.",
+      "strengths_and_weaknesses": "### **Strengths:**\n- **Novelty of protocol:** The proposed protocol of targeted feature suppression yields a more direct and generalizable measure of reliance than the shape-cue conflict protocol.\n\n- Human evaluation is used as a baseline, and comparisons are made with various CNN and transformer architectures.\n\n- Analysis extends beyond natural images to medical imaging and remote sensing, revealing domain-specific reliance patterns.\n\n- **Clarity of writing and organisation:** The paper is well\u2013structured and easy to read. It has clear figures, tables, and supplemental material.\n\n### **Weaknesses:**\n- **Unrealistic training setup in specialised domains:** The authors train ResNet-50 from scratch on Medical Imaging and Remote Sensing datasets to \u201creflect realistic usage in specialised domains\u201d (lines 250\u2013251). However, in histopathology (e.g., PathMNIST), researchers almost invariably initialise CNNs with ImageNet-pretrained weights. In Multiple Instance Learning (MIL), practitioners typically use a frozen ResNet-50 (initialised with ImageNet weights) to extract embeddings. Moreover, realistic workflows employ not only geometric augmentations but also photometric variants (e.g., ColorJitter), which can reduce colour bias. While it's common to not use any data augmentation when using a frozen backbone in MIL (mostly to save GPU memory), other setups do apply it. From what I could find, it is generally common to fine-tune ImageNet-pretrained models with extensive data augmentation in both MI and RS domains; thus, experimenting under that paradigm would be better.\n\n- **Lack of class-wise analysis in Experiment II:** For the experiments in Experiment II, especially ImageNet-1K, a more fine-grained, per-class evaluation (or reporting the proportion of classes supporting the hypothesis of reliance on local shape over texture) would clarify whether this effect holds uniformly across all categories or only emerges in a subset.",
+      "questions": "- **Thresholding rationale (line 206):** Why choose a 0.5 softmax threshold for correctness? How do results differ if you use argmax instead?\n\n- **Visualisations for MI and RS samples:** You include two ImageNet examples of suppressed images; please provide analogous visualisations for all medical imaging and remote sensing datasets as well. They need not match the scale of the ImageNet figures but should illustrate key transformations in those domains.\n\n- **Attribution to earlier work for the patch-shuffle idea for analysing shape bias** The patch\u2010shuffle technique used to disrupt shape traces back to earlier work [1], which further cites [2] for the idea. The current manuscript lacks explicit attribution to either papers or any other prior work that first introduced the use of the patch-shuffle idea for shape analysis.\n\n- **Effect of patch rotation:** How much effect does patch rotation have on suppressing shape? How much do results vary if you shuffle the patches but do not rotate them? My guess would be that patch rotation has a larger effect when the grid size is small (3x3) but a smaller effect when it's large (6x6).\n\n**[1]** Mummadi, Chaithanya Kumar, et al. \"Does enhanced shape bias improve neural network robustness to common corruptions?.\" arXiv preprint arXiv:2104.09789 (2021).\n\n**[2]** Luo, Tiange, et al. \"Defective Convolutional Networks.\" arXiv preprint arXiv:1911.08432 (2019).",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I commend the authors on their thorough rebuttal and the additional experiments, which satisfactorily address all of my initial concerns and fully clarify the questions I raised. Moreover, having reviewed the other reviewers\u2019 comments, I find no outstanding issues or unresolved critiques. Consequently, I am confident that the manuscript now meets all expectations, and I hereby raise my score to 6."
+    },
+    {
+      "reviewer_id": "o1gQ8FufFX",
+      "overall": 5,
+      "confidence": 3,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 3,
+      "originality": 3,
+      "summary": "This paper challenges the experimental designs and conclusions of Geirhos et al.\u2019s cue-conflict experiment. Instead of doing cue-conflict experiments using style transfer, the paper proposes to use controlled suppression, and measure performance degradation of pre-trained vision models vs. human to understand the bias of models. The paper finds that the CNNs are not inherently biased towards texture, but rather, more biased towards local shape. Additionally, the paper suggests that the domain the models are trained on can also impact the dependence on various features.",
+      "strengths_and_weaknesses": "Strength:\n1. The idea of the paper is well-motivated, the authors start from the limitations of the Geirhos et al. and propose a new experimental setup to account for the limitations. The paper brings a new perspective that challenges the previously held ideas.\n2. The experimental design is convincing, with sufficient details provided.\n3. The paper is very well written, it was a pleasant read.\n\nI'm not aware of any pronounced weakness.",
+      "questions": "In general, I'm curious to know if the suppression operations can be done by off-the-shelf deep networks, and whether they are better candidates for doing suppressions.\n1. Can segmentation models be used for \"texture suppression\" by replacing the objects with masks, and making the color of each mask the average pixel values of the original region?\n2. Can advanced image editing tools be used for perturbing object shapes while keeping textures intact?",
+      "limitations": "The limitations are adequately addressed by the authors.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I agree with the authors that the suggestions may be more suitable for future work, and I keep my positive score."
+    },
+    {
+      "reviewer_id": "Ttl0JlHYBF",
+      "overall": 5,
+      "confidence": 3,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 3,
+      "originality": 3,
+      "summary": "The authors argue that the texture bias results (Geirhos et al.) are based upon the cue-conflict experimental framework with major limitations, e.g. texture feature often containing local shape structures, overloaded texture signals compared to shape signals, biased UI for experimentation. They introduced a suppression-based framework that disentangles texture, shape, and color better, with suppression strength validated by metrics. They then measured the human and model performance while suppressing global/local shape, texture and color and found that CNNs mainly rely on local shape. In addition, the reliance patterns differ across computer vision, medical image and remote sensing domains.",
+      "strengths_and_weaknesses": "Strength\n- Quality\n    - Convincing method critique of the cue-conflict experiment (which doesn\u2019t control variables)\n    - Nice suppression-based design with clear metrics on validating suppression\n    - Extensive experimentation with many model architectures and domains\n- Clarity: very well-written\n- Originality: the critique and the new framework is novel\n- significance: directly challenges a highly-cited claims with a more precise claim of what exactly models rely on\n\nWeaknesses:\n- It might be more interesting if you can plot the ROC curve as a function of the hyper parameters for feature suppression - however, I understand that you fixed the hyper parameters in order to make sure the suppression is high for one cue but not the other. It will be great to clarify\n- It would be more convincing to train models on cue-suppressed images and test on full-cue images. This would resemble an ablation study",
+      "questions": "Questions:\n- Please report more statistics on human study that reflects variations in the data, e.g. CI, noise ceiling. 20 subjects are low; compute a post-hoc power estimate.\n- Artifacts of block edges when using patch shuffle. Would models be strongly influenced by these artifacts in the images? Please design a control for artifacts",
+      "limitations": "N/A",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "The paper is technically solid. The authors' rebuttal addressed all my concerns. I also believe the work shows an impactful result that directly challenges a widely cited result."
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "redactions": [
+    "title_page_author_block"
+  ],
+  "pattern": {
+    "email": 0,
+    "orcid": 0,
+    "url": 37,
+    "arxiv": 10
+  },
+  "section_redactions": 1,
+  "author_name_redactions": {
+    "Zhang": 46,
+    "Mohan Zhang": 1,
+    "Mohan": 1,
+    "Yihua Zhang": 1,
+    "Yihua": 1,
+    "Jinghan Jia": 1,
+    "Jinghan": 1,
+    "Jia": 8,
+    "Zhangyang Wang": 1,
+    "Zhangyang": 1,
+    "Wang": 31,
+    "Sijia": 1,
+    "Liu": 14,
+    "Sijia Liu": 1,
+    "Tianlong Chen": 1,
+    "Tianlong": 1,
+    "Chen": 29
+  },
+  "authors_groundtruth": [
+    "Mohan Zhang",
+    "Yihua Zhang",
+    "Jinghan Jia",
+    "Zhangyang Wang",
+    "Sijia Liu",
+    "Tianlong Chen"
+  ],
+  "verify": {
+    "ok": true,
+    "issues": []
+  }
+}

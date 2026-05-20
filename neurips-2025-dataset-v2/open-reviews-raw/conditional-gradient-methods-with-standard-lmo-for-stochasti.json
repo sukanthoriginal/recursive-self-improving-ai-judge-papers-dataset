@@ -1,0 +1,91 @@
+{
+  "paper_id": "AJAEHgM8lc",
+  "decision": "Accept (poster)",
+  "reviews": [
+    {
+      "reviewer_id": "AkgoGyRQ8L",
+      "overall": 3,
+      "confidence": 4,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 2,
+      "originality": 2,
+      "summary": "In this paper, the authors propose projection-free methods for solving stochastic convex bilevel optimization problems. They establish non-asymptotic convergence rates of $\\mathcal{O}(t^{-(\\frac{1}{2} - p)})$ for the outer objective and $\\mathcal{O}(t^{-p})$ for the inner objective in the one-sample stochastic setting, where $p \\in (0, \\frac{1}{2})$ controls the decay of regularization. In the finite-sum setting with a mini-batch scheme, they obtain convergence rates of $\\mathcal{O}(t^{-(1 - p)})$ for the outer objective and $\\mathcal{O}(t^{-p})$ for the inner objective, where $p \\in (0, 1)$.",
+      "strengths_and_weaknesses": "Strengths:\n\n1. The theoretical foundations of the paper are solid and largely correct.\n\n2. The presentation is clear and easy to follow.\n\nWeaknesses:\n\n1. The main weakness is that the sample complexities of the proposed algorithms are worse than those in [1] under the same setting. There are also minor issues that could be addressed to improve the accuracy of the paper.\n\n2. The paper focuses on simple bilevel problems, which differ from general bilevel problems by excluding an additional upper-level variable. It would be better to specify this in the title and abstract.\n\n3. It would be preferable to present the exact upper bounds of the function gaps in the main theorems, rather than using big-\ud835\udcaa notation.\n\n4. Since some log terms appear in the convergence rates, the rates stated in the abstract should be written using $\\tilde{\\mathcal{O}}$ instead of $\\mathcal{O}$.\n\nReference:\n\n[1] J. Cao, R. Jiang, N. Abolfazli, E. Yazdandoost Hamedani, and A. Mokhtari. Projection-free methods for stochastic simple bilevel optimization with convex lower-level problem. Advances in Neural Information Processing Systems, pages 6105\u20136131, 2023.",
+      "questions": "1. The authors claim that the proposed algorithms eliminate the need for optimization over intersections of the base feasible set with halfspaces. However, for common feasible sets such as the $\\ell_1$ or $\\ell_2$ ball, linear minimization over their intersection with a halfspace admits a closed-form solution and does not introduce additional computational cost. Could the authors provide concrete examples or experimental evidence showing that such operations are indeed computationally expensive?\n\n2. How should the parameter $\\varsigma$ be chosen in both theory and practice? Does it depend on other problem-specific constants such as $D$, $L_f$, $L_g$, $\\sigma_f$, or $\\sigma_g$?\n\n3. In Theorem 1, what is $d$? Is it intended to be $D$?\n\n4. The appendix includes results for the case of a non-convex upper-level objective. Why are these results not presented in the main text? \n\n5. The notation $\\sigma_t$ is used for the regularization parameter, while $\\sigma_f$ and $\\sigma_g$ denote variance terms. This could be confusing. Consider using a different symbol for the regularization parameter to avoid ambiguity.",
+      "limitations": "Yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "After the rebuttal period, my main concern remains: the proposed method has worse complexity than (Cao et al., 2023) in the convex setting. As the authors suggest moving the nonconvex setting from the appendix to the main text, I note that its complexity is even worse than (Cao et al., 2023). Hence, I maintain my original score."
+    },
+    {
+      "reviewer_id": "lnIQhv2iHG",
+      "overall": 4,
+      "confidence": 3,
+      "quality": 3,
+      "clarity": 4,
+      "significance": 3,
+      "originality": 4,
+      "summary": "This work studies stochastic bilevel optimization problem where the inner & the outer objectives are smooth convex functions. Additionally, the inner problem is constrained on a convex compact set. After a thourough literature review, the paper uses a regularized objective $\\sigma_t F + G$ where the optimization algorithm focuses mainly on $F$ and gradually shifts toward minimization of G through decreasing $\\sigma_t$. The gradient estimations were done by two distinct well-known variance reduction methods: STORM & SPIDER. The convergence rates of the proposed methods were studied * simple numerical results supported the superiority of the proposed methods.",
+      "strengths_and_weaknesses": "**Strengths**\n\n1- Well-written paper\n\n2- Good literature review\n\n3- good contribution\n\n**Weaknesses**\n\n1- Numerics are either simple, or not even bilevel problems originally. My main issue is with section 3.2. This problem is a strongly convex constrained optimization. I guess one should consider other methods in this class of functions if we choose such a simulation.",
+      "questions": "First of all, thanks for your efforts.\n\n1- Why does the paper consider a 4-minute stopping criteria and not a stopping criteria based on suboptimality or Frank-Wolfe gap?\n\n2- As the lower level problem is constrained, objective suboptimality is not a correct measure of stationarity. In such cases the Franke-Wolfe gap is a suitable measure instead. This applies to both your simulations and theorems 1 and 2. Could you please explain why didn't you use the FW gap?\n\n3- Did you try other step-size strategies for your stochastic conditional gradient method?\n\nThanks!",
+      "limitations": "Limitations were not discussed or at least I could not find them in the main body.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "After reading al the comments I decided to keep my score for two main reasons:\n\n1- As raised by many reviewers, the theoretical results reported in this work are worse than the state of the art,\n\n2- I was happy with the fact that the authors provided additional detail on the experiments, but as raised by Reviewer ZPtF, the practical performance is quite problem-based. Therefore, I keep my borderline positive rating."
+    },
+    {
+      "reviewer_id": "BRWF1AgAWT",
+      "overall": 4,
+      "confidence": 4,
+      "quality": 2,
+      "clarity": 3,
+      "significance": 2,
+      "originality": 2,
+      "summary": "This paper studies the constrained convex simple bilevel optimization via penalty methods with Frank Wolfe algorithm. The proposed algorithm is projection-free and eliminates the need for optimization over intersections of the base feasible set with halfspaces. Convergence rate is given in both stochastic and finite-sum setting. Numerical results on over-parameterized regression and minimal norm logistic regression validate the effectiveness of the proposed method.",
+      "strengths_and_weaknesses": "Strength: 1) The proposed method is easy-to-implement and theoretical sound. 2) The method has strong empirical performance. \n\nWeakness: 1) The novelty of this work is limited, as both penalty methods and the Frank-Wolfe algorithm have been extensively studied in the context of simple and general bilevel optimization. 2) The convergence rate of the proposed method appears to be worse than that of Cao et al. [4, Algorithm 2], even when $p$ is chosen to optimally balance the upper- and lower-level objective value gaps. 3) This paper only considers the convex setting rather than the nonconvex case, which restricts the practical applicability of the algorithm. 4) The theoretical guarantee for the upper-level objective is weak. Specifically, $f^$ is not defined as the global minimum over the entire domain, so the actual objective value $f$ can be smaller than $f^$. As a result, the theory provides only an upper bound on $f - f^*$, without a corresponding lower bound.",
+      "questions": "1. How to implement $v_t \\in \\underset{v \\in X}{\\arg \\min }\\left\\{\\left(\\sigma_t \\widehat{\\nabla F}_t+\\widehat{\\nabla G}_t\\right)^{\\top} v\\right\\}$ in practice? Is there any closed-form solution or we need iterative algorithm?",
+      "limitations": "Same as weakness.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "This paper proposed a simple but efficient algorithm tailored for stochastic simple bilevel optimization problem. It has both theoretical guarantee and strong empirical performance. The merit of the proposed algorithm is its simple implementation and empirical performance, so my previous concerns are mainly around its theoretical guarantee compared with existing works. \n\nThe authors solve my concerns during rebuttal including: \n1) technical novelty of proving finite-time convergence in the stochastic setting without using linear optimization oracle of the intersection of a hyperplane. \n2) although the convergence rate provided is loose than the existing works (the only weakness after the rebuttal), considering its simple implementation, it is still acceptable. \n3) the authors have included the results for nonconvex objectives in Appendix which they will highlight in the main paper in the revision.\n4) For the lower bound of $f(z_t)-f^*$, the author provided asymptotic guarantee in Appendix B.1. \n5) Implementation details and the complexity of linear optimization oracle are provided. \n\nBased on the above justifications, I find this paper to be technically solid, presenting a simple yet practically efficient algorithm with sufficient theoretical guarantees. Therefore, I have changed my score to positive."
+    },
+    {
+      "reviewer_id": "g52nSedxyw",
+      "overall": 4,
+      "confidence": 4,
+      "quality": 3,
+      "clarity": 4,
+      "significance": 3,
+      "originality": 2,
+      "summary": "This paper tackles the challenge of solving stochastic convex bilevel optimization problems, where the goal is to minimize a stochastic outer function over the solution set of a stochastic inner function. Such problems are difficult because the inner problem's solution set is not explicitly known, which makes standard optimization operations like projections computationally expensive or intractable.  To address this, the authors propose an efficient framework based on the conditional gradient method (Frank-Wolfe-style algorithm) combined with iterative regularization. This approach sidesteps costly projections by relying exclusively on simple linear optimization oracles over the base feasible set, which is a significant advantage over prior methods.\n\nThe authors present two specific algorithms: IR-SCG for the general one-sample stochastic setting (the stochastic objective is averaged over a continuous distribution that only has sample access) and IR-FSCG for the finite-sum setting (the stochastic objective is averaged over finite samples). Both algorithms employ variance reduction techniques (STORM and SPIDER from previous literature) to handle the noise from stochastic gradient estimates. The paper establishes non-asymptotic convergence rates for both algorithms, showing rates of $O(t^{-(1/2\u2212p)})$ for the outer problem in the one-sample case and $O(t^{-(1\u2212p)})$ in the finite-sum case. Experiments on over-parametrized and logistic regression tasks demonstrate that these methods significantly outperform existing approaches in terms of wall-clock time, a practical advantage attributed to the computational efficiency of their simpler linear optimization oracles.\n\nRegarding the major claim of the contributions of the use of linear optimization oracles over the original feasible region $X$ as opposed to the intersection of the feasible region and a hyperplane, this part I don't completely get the computation benefit. When the feasible region $X$ is specified as a polygon, adding a hyperplane to get its intersection doesn't add additional difficulty. When the feasible region $X$ is not a polygon, adding a hyperplane can indeed lead to more difficulty but the original linear optimization in the non-polygon feasible region is also non-trivial if the feasible region is non-trivial. Since this is the major difference compared to prior work by Cao et al. 2023, could you please explain in what cases the linear optimization oracle has a clear advantage over the one by Cao that uses hyperplane? Other than that, I checked the proof in the main paper and Lemma 1, 2. I didn't check the rest of the proof in the appendix but the proof sketch looks correct to me.",
+      "strengths_and_weaknesses": "Strengths:\n- Clear presentation and clear difference compared to prior work (especially Cao et al.)\n- One difference compared to Cao et al. is the use of the weight $\\rho$ and the dynamic weight sequence $\\rho_t$. This choice of sequence gives an additional dependency of $p \\in (0,1/2)$ or $p \\in (0,1)$ for two cases that the paper considers. From the theory perspective, this is an interesting observation but not very significantly different from prior analysis though.\n- Very detailed summary of the literature! This is very helpful for readers.\n\nWeaknesses:\n- Very similar results compared to Cao et al. 2023. Please clarify the advantage of not requiring intersection over the feasible set in linear optimization. Why does linear optimization with one additional hyperplane cause significant computational issues?\n- Algorithm designs are also directly followed by Cao et al. I didn't check the proof in Cao et al. but I believe it follows a similar strategy.\n- Theoretical results are slightly worse than Cao et al. Could you explain why the use of dynamic weight sequence gives you worse result?\n\nNeutral questions:\n- Experimental results look good, but I wonder how many iterations does each algorithm run? How much worse is the linear optimization oracle in terms of the computational cost? How did you implement the one with additional hyperplane and is its computation cost optimized? I think it is hard to judge the performance by the computation cost merely because I can't tell if the oracles are all implemented in the optimal way.",
+      "questions": "Please refer to the strengths and weaknesses section.",
+      "limitations": "Yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I have read the authors' response and the response helps address my concerns. I agree that the convergence analysis is slightly different from prior work, and further analysis of the lower bound and impossibility result would be an interesting follow up. Therefore, I update my assessment accordingly."
+    },
+    {
+      "reviewer_id": "FinAIM6V6g",
+      "overall": 2,
+      "confidence": 3,
+      "quality": 2,
+      "clarity": 1,
+      "significance": 3,
+      "originality": 2,
+      "summary": "This paper studies *simple* (stochastic) Bilevel optimization, where the target variable $x$ is minimized over the solution set of a convex lower-level problem. The core contribution is an Iteratively Regularized Conditional Gradient (IR-CG) framework that avoids projection oracles by relying solely on linear optimization over the base feasible set. The authors present two algorithms (IR-SCG and IR-FSCG) for one-sample and finite-sum settings, respectively, and derive non-asymptotic convergence guarantees. Empirical comparisons on two benchmark problems demonstrate improved practical performance relative to baseline methods.",
+      "strengths_and_weaknesses": "My main concern is the poor technical writing that makes it difficult to assess their core contributions. With the current draft, it is very difficult to apprehend what the major improvement over the prior work is, and what is particularly interesting in their algorithm design. Detailed examples are below:\n\n-\tThe paper does not clearly explain how the proposed rates improve existing results. For instance, Cao et al. [4], achieves $O(t^{-1/2})$ convergence rates for both levels, while this paper obtains $O(t^{-1/2+p})$ and $O(t^{-p})$ for the upper and lower level, respectively, which seems worse anyway. It is not very clear either how significant the claimed computational gain is quantitatively. \n\n-\tAlgorithm 1 appears to be merely a combination of STORM gradient estimation and Frank-Wolfe updates on a penalized objective (except the last two lines, which is ad-hoc to varying penalty parameter). Aside from the weighting scheme and averaging, the novelty in algorithm design is not highlighted clearly.  \n\n-\tWhile it's reasonable to analyze both one-sample and finite-sum stochastic settings, presenting them in parallel obscures the logical flow. It would be more natural to treat the one-sample case as the more general scenario, and then specialize to finite-sum with in-depth intuition and analysis. This would also help clarify why the rates differ -- something that is rarely the case in related work.",
+      "questions": "-\tLine 89-91: \u201cHowever, their method requires linear optimization over intersections of X with halfspaces.\u201d \u2013 could you clarify what *with halfspaces* means and why this is an issue? Is it computationally prohibitive? \n\n-\tOn vanishing penalty parameters: assume we fix the max iteration $T$ or target accuracy. What happens if we set $\\sigma_t = \\sigma_T$ for all $t$? Does it degrade the convergence result? (if so, how worse would it be?)",
+      "limitations": "Overall, the current presentation needs to be significantly improved. I recommend rejection this round. It is difficult to comprehend the precise novelty, the trade-offs relative to prior work, or the design choices behind the algorithms.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I think the paper needs more polish at least."
+    }
+  ]
+}

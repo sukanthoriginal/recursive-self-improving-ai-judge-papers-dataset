@@ -1,0 +1,10 @@
+{
+  "paper_id": "txmJldjJUw",
+  "title": "Long-RVOS: A Comprehensive Benchmark for Long-term Referring Video Object Segmentation",
+  "venue": "Submitted to NeurIPS 2025",
+  "decision": "Reject",
+  "accept": false,
+  "bin": "[4.5,5.0)",
+  "mismatch": true,
+  "openreview_url": "https://openreview.net/forum?id=txmJldjJUw"
+}

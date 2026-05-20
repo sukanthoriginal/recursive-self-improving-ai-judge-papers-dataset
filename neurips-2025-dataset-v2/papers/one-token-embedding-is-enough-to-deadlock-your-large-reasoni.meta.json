@@ -1,0 +1,10 @@
+{
+  "paper_id": "gBgvuTd9Hx",
+  "title": "One Token Embedding Is Enough to Deadlock Your Large Reasoning Model",
+  "venue": "NeurIPS 2025 poster",
+  "decision": "Accept (poster)",
+  "accept": true,
+  "bin": "[3.5,4.0)",
+  "openreview_url": "https://openreview.net/forum?id=gBgvuTd9Hx",
+  "mismatch": false
+}

@@ -1,0 +1,74 @@
+{
+  "paper_id": "cNMYAzhdn5",
+  "decision": "Accept (poster)",
+  "reviews": [
+    {
+      "reviewer_id": "E61y41PNaV",
+      "overall": 3,
+      "confidence": 4,
+      "quality": 2,
+      "clarity": 3,
+      "significance": 3,
+      "originality": 2,
+      "summary": "The study proposes a novel magnitude and spread-guided edge pooling layer, incorporating metric space diversity measures into graph compression for the first time. This approach effectively preserves graph geometric structures while enhancing classification performance. The paper provides rigorous theoretical foundations, including error propagation bounds for both magnitude and spread metrics.",
+      "strengths_and_weaknesses": "Strengths:\n\n1. **Improved Classification Accuracy:** Achieves superior performance on most datasets, with significant improvements noted on specific datasets like DHFR.\n\n2. **Robustness:** Demonstrates minimal performance fluctuations across a wide range of pooling ratios (6.25% to 100%), indicating strong adaptability for dynamic graph compression needs.\n\n3. **Interpretability:** Decision-making based on geometric invariants offers transparent and explainable results.\n\nWeaknesses:\n\n1. **Inconsistent Performance:** Although beneficial for most datasets, the proposed method underperforms on certain datasets (e.g., Mutagenicity), with only half achieving state-of-the-art (SOTA) results.\n\n2. **High Computational Complexity:** Despite being training-free, PCA computations introduce considerable complexity, potentially limiting scalability to large-scale graphs.\n\n3. **Lack of Novelty in Diffusion Distance:** The diffusion distance concept applied by the authors is not novel; rather, the contribution lies in its specific application to graph pooling.\n\n4. **Spelling Errors:** The manuscript contains several spelling errors (e.g., \"MagEgdePool\" instead of \"MagEdgePool\" on line 195; repeated \"SpreadEgdePool\" errors on lines 220, 229, and 341), suggesting the need for careful proofreading.",
+      "questions": "1. **Runtime and Memory Usage:** Could the authors provide detailed runtime and memory usage data? Comparisons with other training-free methods (e.g., TopK and MinCut) would be valuable.\n\n2. **Scalability to Large-Scale Graphs:** Current experiments focus on small graphs. Testing on large-scale datasets, such as PDB for Enzyme Commission (EC) number prediction or Gene Ontology (GO) term prediction [1], would better demonstrate practical applicability.\n\n3. **Extension to Regression Tasks:** The study currently focuses exclusively on classification. Could the proposed method also be extended to regression tasks, such as Protein Localization Prediction on UniProt [2]?\n\n[1] Jos\u00e9 Juan Almagro Armenteros et al., DeepLoc: Prediction of protein subcellular localization using deep learning. Bioinformatics, 33 (21):3387\u20133395, 2017. https://www.nature.com/articles/s41467-021-23303-9#Sec27\n\n[2] Vladimir Gligorijevi\u0107 et al., Structure-based protein function prediction using graph convolutional networks. Nature Communications, 12(1):3168, 2021. https://pubmed.ncbi.nlm.nih.gov/29036616/",
+      "limitations": "Experiments are confined to small graphs and classification tasks, lacking validation on large-scale datasets or regression problems.\nWhile computational complexity is mentioned, concrete runtime measurements are absent.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I have revised my score upward after noticing that my initial assessment was based on a misreading of the performance table. Nevertheless, I remain concerned about the very high scalability of the proposed method, especially in the context of large-scale graph data."
+    },
+    {
+      "reviewer_id": "L3Gubk8i2O",
+      "overall": 5,
+      "confidence": 4,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 3,
+      "originality": 3,
+      "summary": "This paper introduces MagEdgePool and SpreadEdgePool, two novel geometry-aware edge pooling methods for GNNs that address the challenge of reducing graph size while preserving structural information. Unlike existing pooling approaches that focus on node clustering or dropping, these methods use edge contraction guided by the magnitude and spread of metric spaces - measures that quantify a graph's structural diversity based on diffusion distances. The key insight is that edges whose removal minimally affects the graph's magnitude or spread are the most redundant and should be collapsed first, thereby preserving the graph's geometric properties during pooling. The authors provide theoretical analysis showing that their methods are isometry-invariant and preserve key properties like additivity for disjoint graphs.",
+      "strengths_and_weaknesses": "Strengths:\n1. The paper provides rigorous mathematical grounding with theorems on additivity, isomorphism invariance, and bounds relating magnitude and spread, giving the methods solid theoretical justification beyond empirical results.\n2. The proposed methods achieve top rankings across 8 diverse datasets, demonstrating robustness and generalizability rather than being tuned to specific graph types.\n\nWeaknesses:\n1. In some parts, the graph is defined as G = (X, E), while in some other parts it is G = (V, E). Besides, the definitions of X, V, and E are not given. \n2. In the visualization results from Figure 1, the pooling ratio of different pooling methods are not consistent.",
+      "questions": "1. In the abstract, I am confused about this sentence: \"However, existing pooling operations often optimise for the learning task at the expense of fundamental graph structures and interpretability.\"\n2. Is the proposed method in this paper effective for the graph regression task?",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I have no further questions. I vote for acceptance."
+    },
+    {
+      "reviewer_id": "2FOV6Fyc2i",
+      "overall": 5,
+      "confidence": 3,
+      "quality": 3,
+      "clarity": 4,
+      "significance": 3,
+      "originality": 3,
+      "summary": "The paper \"Geometry-Aware Edge Pooling\" focuses on leveraging diffusion geometry to develop pooling layers that preserve both the metric structure and structural diversity of graphs in graph neural networks. The authors introduce two novel pooling methods, MagEdgePool and SpreadEdgePool, which outperform existing pooling layers across various graph classification tasks while retaining key spectral properties and maintaining high accuracy across different pooling ratios.",
+      "strengths_and_weaknesses": "Strengths\n\n- The paper proposes novel pooling methods that consider graph geometry and structural diversity, leading to improved performance compared to existing approaches.\n\n- The empirical results demonstrate the superiority of MagEdgePool and SpreadEdgePool over alternative pooling layers across diverse graph classification tasks.\n\n- The paper is well-organized and easy to follow. Relevant theoretical proofs have been conducted.\n\n  \n\nWeaknesses\uff1a\n\n- The experimental results demonstrating the efficiency of the method should be presented.\n- The method becomes more challenging to apply as the size of the graph nodes increases.",
+      "questions": "- Is the code open-source and reproducible?\n- Can you provide more experimental results regarding the efficiency of the method?",
+      "limitations": "Yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "The authors should also address the overlooked scalability issue and enhance the analysis by comparing with global pooling methods such as SOPool and DKEPool to make the study more complete."
+    },
+    {
+      "reviewer_id": "k1J8u3iY2y",
+      "overall": 4,
+      "confidence": 3,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 3,
+      "originality": 3,
+      "summary": "This paper proposes a novel structure-aware edge-pooling method that reduces the size of input graphs by collapsing redundant edges. The authors view a graph as a metric space (with a clever choice of metric) and use the mathematical concept of magnitude to measure the importance of each edge for the graph\u2019s geometry. Furthermore, they introduce the notion of the spread of a metric space as an alternative to magnitude, offering better computational properties while also being applicable to the proposed pooling method. Both approaches demonstrate strong performance on graph classification tasks.",
+      "strengths_and_weaknesses": "## Strengths\n\n1. The use of magnitude by the machine learning community is very recent and the authors are the first to introduce it in the context of graph learning. As far as I know, it is also the first time that the mathematical notion of spread is used in machine learning, contributing to previous (and future) works that use magnitude since it is a faster alternative.\n\n2. Presents a novel and structure-preserving form to reduce graphs.\n\n## Weaknesses:\n\n1. The authors say that EdgePool [1] is the most successful edge-based. Although they argue its major drawback of pooling graphs to half their size, there is no experimental comparison to support the superior performance of MagEdgePool/SpreadEdgePool with another edge-pooling method.\n\n2. The author cites [2] but they do not debate their argument that pooling methods (e.g GRACLUS and DIFFPOOL) are not significantly superior to baselines built upon randomized cluster assignments. A more thorough discussion and inclusion of randomized baselines in the experiments would improve the paper.\n\n3. The accuracy reported on Table 1 presents only slightly better results, i.e, the experimental results are not convincing.\n\n[1] F. Diehl. Edge contraction pooling for graph neural networks\n\n[2] Diego Mesquita, Amauri H. Souza, Samuel Kaski, Rethinking pooling in graph neural networks",
+      "questions": "1. The DHFR dataset was the single case where an expressive improvement was obtained. Do the authors have an explanation for this?\n\n2. As pointed out by the authors, Figure 3 indicates that preserving magnitude corresponds to lower spectral distances and better retention of spectral properties. Would you say this also corresponds to the lower difference between the MagEdgePool/SpreadEdgePool and No Pooling results reported in Table 1? Since Figure 3 only shows the results for the NCI1, could report the same analyses for another dataset such as DHFR?\n\n3. In general, do you have an intuition/experiment/theorem that explicitly relates the magnitude/spread (or magnitude\u2019s difference between input and reduced graph) with the accuracy?",
+      "limitations": "Please check \"Weaknesses\" and \"Questions\" above.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "After the discussion, my remaining concerns are:\n\n(i) the claims of superior performance in the manuscript are overstated (c.f. comparison with EdgePool);\n\n(ii) there is a chance that this method is just as \"good\" as random pooling based on prior criticism of pooling methods --- and there is not enough evidence in this work to support otherwise.\n\nI feel (i) can be easily solved by softening the claims in this work. Furthermore, even with (ii) on the way, I appreciate the methodological novelty the method and still lean towards acceptance."
+    }
+  ]
+}

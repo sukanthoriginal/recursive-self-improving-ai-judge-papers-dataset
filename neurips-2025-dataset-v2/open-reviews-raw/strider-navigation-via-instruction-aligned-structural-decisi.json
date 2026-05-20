@@ -1,0 +1,74 @@
+{
+  "paper_id": "w0xm9oG8im",
+  "decision": "Accept (poster)",
+  "reviews": [
+    {
+      "reviewer_id": "6XIj61uzCR",
+      "overall": 3,
+      "confidence": 4,
+      "quality": 3,
+      "clarity": 2,
+      "significance": 3,
+      "originality": 2,
+      "summary": "This paper addresses the task of Zero-shot Vision-and-Language Navigation in Continuous Environments (VLN-CE), where an agent must follow natural language instructions to navigate unseen 3D spaces without any scene-specific training or fine-tuning. The authors propose STRIDER, a novel framework that structures the agent\u2019s decision space using spatial layout priors\u2014via a Structured Waypoint Generator\u2014and dynamically regulates agent behavior through task progress feedback\u2014via a Task-Alignment Regulator. STRIDER is evaluated on the R2R-CE and RxR-CE benchmarks, achieving substantial improvements over state-of-the-art zero-shot methods, particularly in Success Rate (SR) and Success weighted by Path Length (SPL), thereby demonstrating the effectiveness of spatially-constrained and feedback-driven navigation.",
+      "strengths_and_weaknesses": "Major strengths:\n\n1. The paper identifies a key gap in zero-shot VLN-CE: existing agents often drift from the intended instruction due to unstructured decision spaces and lack of integrated feedback, particularly in long-horizon tasks.\n2. STRIDER achieves state-of-the-art zero-shot performance on both R2R-CE and RxR-CE benchmarks.\n3. The ablation studies\u2014especially on the Task-Alignment Regulator\u2014clearly demonstrate its consistent positive impact on navigation metrics, with an insightful discussion of metric trade-offs (e.g., slightly higher Navigation Error (NE) due to more conservative path execution).\n\nMajor weaknesses:\n\n1. The framework\u2019s dependence on a VLM for semantic descriptions and an LLM for action selection may obscure the core contributions; it remains unclear how much of the observed gains stem from STRIDER itself versus from the use of powerful pretrained models. Further ablations with varying backbones would help clarify this.\n2. STRIDER\u2019s success heavily relies on the robustness of the underlying VLM and LLM. If the VLM misinterprets visual scenes (e.g., under poor lighting or challenging viewpoints, as noted in the supplementary), or if the LLM provides inaccurate progress feedback, errors may compound. An analysis quantifying the impact of incorrect feedback on overall performance is needed.",
+      "questions": "Along with the queries mentioned in the \"Major weaknesses\" part, it would be great if the authors could address the following:\n\n1. What is the per-step latency introduced by skeletonization and LLM reasoning? Can STRIDER operate in real time? How does it compare to Open-Nav with an API call instead of a local deployment?\n2. How sensitive is STRIDER to the choice of VLM/LLM? Would a smaller or domain-specific language model still yield benefits?\n3. Have the authors observed cases where the Skeleton graph omits valid paths or where feedback misleads the agent due to issues in VLM? How are such issues mitigated?",
+      "limitations": "No limitation is mentioned explicitly.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "Thanks for the rebuttal. While I acknowledge the experiments, one major bottleneck I find is the model's over-reliance on the capabilities of the underlying VLM, which may hinder its more real-time application. Given this, I prefer to stay on my previous rating."
+    },
+    {
+      "reviewer_id": "illUqBm2WX",
+      "overall": 3,
+      "confidence": 4,
+      "quality": 2,
+      "clarity": 2,
+      "significance": 2,
+      "originality": 2,
+      "summary": "This paper introduces STRIDER, a framework for zero-shot Vision-and-Language Navigation in Continuous Environments (VLN-CE). STRIDER combines a *Structured Waypoint Generator* that encodes spatial priors into the action space, with a *Task-Alignment Regulator* that dynamically adjusts actions based on feedback about task progress. The authors report performance improvements across two VLN-CE benchmarks (R2R-CE and RxR-CE), claiming that STRIDER provides more structured, instruction-aligned navigation without fine-tuning.",
+      "strengths_and_weaknesses": "### ***Strengths***\n\n* The Structured Waypoint Generator is a clever use of skeletonization and topological abstraction to impose environmental constraints without explicit training.\n\n\n### ***Weakness***\n\n1. **Model Selection Justification**\n\n   - The paper uses Qwen-VL-Max as the VLM and GPT-4o as the LLM, but does not **justify these choices**. Why not use a more recent VLM such as Qwen2-VL-72B, especially since it has shown strong results in VLN tasks?\n\n   - It remains unclear whether STRIDER\u2019s performance gains are **architecture-agnostic** or dependent on these specific models. This limits the generalizability of the method.\n\n2. **Lack of Baseline Comparison for Waypoint Generation**\n\n   - The \"original waypoint generator\" is frequently mentioned but **never clearly referenced** in the main text. What are its core mechanics, and how does it compare structurally to the proposed method?\n\n   - There is **no direct comparison under a controlled setup** where Task-Alignment Regulator is held constant, and only the waypoint generation method varies. Such an experiment is essential to validate the structured waypoint hypothesis.\n\n3. **Missing Prompting System Details**\n\n   - Given that the entire method operates in a zero-shot prompting-based setup, **the absence of details on the prompt engineering** used with GPT-4o is a critical omission.\n\n   - How do these prompts compare to those used in **Open-Nav** or **SmartWay**? SmartWay integrates history reflection and allows backtracking \u2014 capabilities not clearly discussed in STRIDER. A deeper comparison here would be informative.\n\n4. **Zero-Shot Performance Remains Far from Supervised Upper Bound**\n\n   - Although the improvements in zero-shot settings are appreciated, the **gap with supervised models remains significant** (e.g., SR of 35 vs. 61 in R2R-CE).\n\n   - As zero-shot VLN-CE is still relatively immature, it is debatable whether this research constitutes a **paradigm-shifting contribution** or a well-executed empirical exploration. The paper could better contextualize its significance within current research trends, where fine-tuning and hybrid systems are dominant.",
+      "questions": "Typos:\n* Page 2, Line 77: \"**An** Task-Alignment Regulator\" -> \"**A** Task-Alignment Regulator\"\n* Page 9, Line 297-298: \"navigate complex, unseen environments\" -> \"navigate **in** complex, unseen environments\"\n\nSuggestions\n*  The LLM selects a waypoint from a candidate set, but it's unclear if this includes high-level reasoning (e.g., subgoal decomposition) or just ranking visual directions. The authors could detail the **reasoning scope** handled by GPT-4o.",
+      "limitations": "See Weaknesses#4.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "Thanks for the rebuttal. \nThe added experiment about different VLMs is appreciated. \nMy qustions regarding the details of prompts and the definition of original waypoint generator are resolved. \n\nMy major concern still remains that the framework replies heavily on superior VLMs. And it remains unclear how the SWG would influence the fine-tuning based methods. Therefore, I choose to keep my score."
+    },
+    {
+      "reviewer_id": "TpSdeDax7I",
+      "overall": 3,
+      "confidence": 3,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 2,
+      "originality": 3,
+      "summary": "The paper proposes STRIDER, a zero-shot Vision-and-Language Navigation (VLN-CE) framework that optimizes an agent\u2019s decision space using spatial layout priors and dynamic task feedback. Key innovations include a Structured Waypoint Generator (constraining actions via environmental skeletons) and a Task-Alignment Regulator (adjusting behavior based on task progress). Experiments on R2R-CE and RxR-CE show STRIDER improves Success Rate from 29% to 35% and outperforms SOTA on metrics like SPL and NDTW. The approach addresses long-horizon execution drift by integrating spatial structure and feedback loops.",
+      "strengths_and_weaknesses": "Strengths:\n\n1. Novel Framework Design: STRIDER\u2019s dual-module approach (structured waypoints + feedback regulation) effectively combines spatial constraint and semantic alignment, addressing core VLN-CE challenges.\n\n2. Strong Empirical Validation: Comprehensive experiments on two benchmarks (R2R-CE, RxR-CE) demonstrate significant performance gains over zero-shot baselines, with SR improvements and higher SPL.\n\nWeaknesses:\n\n1. Computational Overhead: The pipeline involves multiple model calls (VLM for descriptions, LLM for reasoning), which could impact real-time execution. \n\n2. The authors should indicate in the paper which LLMs or VLMs are used by other zero-shot methods. Additionally, it is important to clarify how much of the performance gain remains when the same LLM or VLM is used across methods.",
+      "questions": "1. Are there limitations in skeleton extraction for complex topologies or non-standard layouts (e.g., open spaces)?\n\n2. Can the task-alignment regulator handle fine-grained semantic differences in instructions?\n\n3. Why do some candidate waypoints in Figure 2 have a degree greater than 1\uff1f\n\n4. In the ablation study of Table 3, what is the performance without using TAR?",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "Due to the concerns on the computational overhead and the lack of deep analysis of limitations in skeleton extraction for complex topologies or non-standard layouts in simulator environments, I recommend the borderline reject rating."
+    },
+    {
+      "reviewer_id": "fTlMB6z2b7",
+      "overall": 3,
+      "confidence": 3,
+      "quality": 2,
+      "clarity": 2,
+      "significance": 2,
+      "originality": 3,
+      "summary": "This paper proposes a structural framework STRIDER for navigation tasks in a zero-shot manner. Specifically, STRIDER introduces a structural module to generate waypoint candidates and employs a regulator to adjust agent actions throughout action execution, ensuring alignment with the instruction's intent. Experimentally, STRIDER achieves significant performance improvements on both the R2R-CE and RxR-CE benchmarks.",
+      "strengths_and_weaknesses": "### Strengths\n- The paper is well-written and easy to follow.\n- STRIDER addresses an important real-world challenge: long-horizon navigation aligned with human intent. It demonstrates promising improvements on two benchmarks.\n### Weaknesses\n- While STRIDER improves SR and SPL across both benchmarks, its performance on NE is notably worse than the baselines. The authors discuss this betwen lines 259\u2013263, but the explanation does not address my questions. In particular, it remains unclear why STRIDER struggles more than other methods with stopping at semantically appropriate locations\u2014an issue that commonly affects zero-shot models.\n- Additionally, STRIDER shows a 12% drop in OSR on R2R-CE compared to baselines. This degradation needs further discussion.",
+      "questions": "- Why are different models (Qwen and GPT4o) used for feedback generation and action selection?\n- Could the authors provide a comparison of inference time to better understand the computational cost of STRIDER?\n- Given that the feedback plays an important role in STRIDER\u2019s performance, it would be valuable to include an ablation study using feedback of varying quality, like from open-source models of different sizes, to assess the impact on performance.\n- What stopping strategy does STRIDER employ? Is the decision to stop explicitly predicted by the model?",
+      "limitations": "Yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "Generally, this work introduce multiple VLM calls to perform long-horizon navigation aligned with human intent. I mainly concern about the diverse performance gains and the extra costs. The current stop strategy could also be improved. Therefore, I maintain my rating of bordline reject, but acknowledge the potential of this work."
+    }
+  ]
+}

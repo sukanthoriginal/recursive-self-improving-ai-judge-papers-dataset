@@ -1,0 +1,24 @@
+{
+  "redactions": [
+    "title_page_author_block"
+  ],
+  "pattern": {
+    "email": 0,
+    "orcid": 0,
+    "url": 0,
+    "arxiv": 2
+  },
+  "section_redactions": 0,
+  "author_name_redactions": {
+    "Kiruluta": 2,
+    "Andrew": 2,
+    "Andrew Kiruluta": 2
+  },
+  "authors_groundtruth": [
+    "Andrew Jeremy Kiruluta"
+  ],
+  "verify": {
+    "ok": true,
+    "issues": []
+  }
+}

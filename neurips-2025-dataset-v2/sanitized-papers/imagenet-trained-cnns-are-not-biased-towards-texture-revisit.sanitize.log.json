@@ -1,0 +1,36 @@
+{
+  "redactions": [
+    "title_page_author_block"
+  ],
+  "pattern": {
+    "email": 1,
+    "orcid": 0,
+    "url": 2,
+    "arxiv": 2
+  },
+  "section_redactions": 1,
+  "author_name_redactions": {
+    "Burgert": 3,
+    "Tom Burgert": 1,
+    "Tom": 6,
+    "Oliver": 1,
+    "Oliver Stoll": 1,
+    "Stoll": 2,
+    "Paolo Rota": 1,
+    "Paolo": 2,
+    "Rota": 7,
+    "Demir": 3,
+    "Beg\u00fcm Demir": 1,
+    "Beg\u00fcm": 1
+  },
+  "authors_groundtruth": [
+    "Tom Burgert",
+    "Oliver Stoll",
+    "Paolo Rota",
+    "Beg\u00fcm Demir"
+  ],
+  "verify": {
+    "ok": true,
+    "issues": []
+  }
+}

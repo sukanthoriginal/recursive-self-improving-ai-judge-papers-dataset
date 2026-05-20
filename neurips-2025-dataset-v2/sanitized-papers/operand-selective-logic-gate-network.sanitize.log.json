@@ -1,0 +1,22 @@
+{
+  "redactions": [
+    "title_page_author_block"
+  ],
+  "pattern": {
+    "email": 0,
+    "orcid": 0,
+    "url": 0,
+    "arxiv": 8
+  },
+  "section_redactions": 0,
+  "author_name_redactions": {
+    "Choi": 4
+  },
+  "authors_groundtruth": [
+    "Soon Ho Choi"
+  ],
+  "verify": {
+    "ok": true,
+    "issues": []
+  }
+}

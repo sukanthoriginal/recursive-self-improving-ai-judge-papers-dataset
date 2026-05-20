@@ -1,0 +1,74 @@
+{
+  "paper_id": "1KylG7l2oQ",
+  "decision": "Reject",
+  "reviews": [
+    {
+      "reviewer_id": "JJzVnSmatt",
+      "overall": 2,
+      "confidence": 5,
+      "quality": 1,
+      "clarity": 1,
+      "significance": 1,
+      "originality": 2,
+      "summary": "The provided manuscript introduces a novel padding approach that utilizes linear predictions from an autoregressive linear model. The method's evaluation focuses on super-resolution, specifically tested on a single dataset containing 10k images of size 512x512. The super-resolution task is performed on an anti-aliased, downsampled version of this dataset. Results indicate a small improvement with the proposed padding.",
+      "strengths_and_weaknesses": "Strength:\n\nThe idea of using an autoregressive predictive model to improve padding alignment, in contrast to standard zero padding (which can add extraneous edges) or reflection padding (which might add incorrect content), is interesting.\n\nWeaknesses:\n\n1. The applicability of the proposed approach seems limited, as the authors themselves note. The dataset used for evaluation offers only restricted comparability to other state-of-the-art methods. Moreover, the authors' statement in line 192 \"Our results might not directly apply to other CNN architectures and tasks\" raises questions about this work's broader relevance to the community. \n2. The computational overhead required to fit the model doesn't yield sufficient performance gains to justify its use in future work.\n3. The authors use the abbreviation \"RVSR\" without introducing it properly.\n4. Despite the encouraging future work section, this paper needs to incorporate the outlined improvements to be considered for a top-tier venue such as NeurIPS.",
+      "questions": "1. Why are the predicted pixels in Figure 4 (top-left) not actually at the top, but rather in the middle of the feature map/image? It appears the proposed method predicts padding values that should typically be at the corners/edges of the feature map/image.\n2. In line 83, the authors state, \"The approach is known as the covariance method.\" Could the authors please provide a reference for this claim?\n3. Why are some results in Table1 marked in gray?\n4. What do the different datapoints/shapes/colors represent in Figure 9? Please indicate by adding a legend or even improve visualization by using a different chart style like boxplots.",
+      "limitations": "The provided manuscript presents results only on a custom dataset, showing limited improvements compared to state-of-the-art methods like simple zero padding. Furthermore, the proposed method is much less efficient than zero padding, and the authors even suggest it might be ineffective for other datasets or model architectures. The outlined future improvements are valid and should be addressed in the next submission for this paper to be accepted at a top-tier conference. Therefore, I recommend rejecting the paper.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "Thank you for the detailed rebuttal and for providing the additional analysis. While I appreciate the effort to clarify your position, my original concerns remain.\n\nI understand the argument that the segmentation experiments were meant to showcase the generalizability of the proposed approach. However, the results show that the proposed approach fails to achieve competitive results compared to much simpler approaches like zero padding. The performance gap and the line of argumentation made by the authors on which segmentation tasks can be considered suggests that the core approach is not robust enough to generalize effectively, which is precisely my concern.\n\nFurther, the authors did not comment on the computational overhead of their proposed method, which is another major concern regarding the usability of the proposed approach.\n\nThus, my vote to reject the paper remains."
+    },
+    {
+      "reviewer_id": "7rpmPpzRqo",
+      "overall": 3,
+      "confidence": 3,
+      "quality": 3,
+      "clarity": 2,
+      "significance": 2,
+      "originality": 3,
+      "summary": "This paper proposes a padding method for convolutional neural networks, termed linear prediction padding (LP). LP employs stochastic autoregressive models to predict edge pixels by minimizing noise through least-squares fitting for each channel. It includes two variants: covariance-based and autocorrelation-based. The method has been validated in the context of satellite image super-resolution using the RVSR model. The LP reduces the mean squared error (MSE) by approximately 2% at the image edges compared to zero or replication padding, at the cost of a 25% increase in inference time.",
+      "strengths_and_weaknesses": "Strengths\n1. The paper presents a complete derivation and proof of the process behind the proposed method, demonstrating its theoretical foundation and validity. \n2. Conduct experiments from different aspects to comprehensively compare the performance of the proposed linear prediction padding with zero padding and replicate padding. \n\nWeaknesses\n1. Evaluated only on RVSR for satellite imagery; performance on other architectures (e.g., transformers) or data types (e.g., natural images) remains unverified.\n2. The writing of the paper is a bit hard to understand for non-expert readers, and it lacks a related work section to provide a brief overview of the task and related methods.",
+      "questions": "1.\tWould the tiling issue mentioned in the paper occur in transformer-based networks? Can the proposed method be applied to transformer-based networks? \n2.\tCan the proposed method be effective on tasks other than satellite image super-resolution? \n3.\tSince the paper mainly compares MSE, can the proposed method be evaluated using other commonly used metrics, such as PSNR, SSIM, or LPIPS?\n4.\tThe performance improvement is not significant, but the method has a impact on efficiency (~25%). Additionally, for tasks where edge quality is not critical, cropping the edges of the output nearly nullifies the advantage of the proposed method, though efficiency is still affected. Given that the advantages of the new method seem limited, is there any other potential significance or benefit?\n5.\tFrom Figure 1, it appears that the padding using the proposed linear prediction method still results in some blurriness, and it does not seem to provide much additional information compared to traditional padding methods. Can you explain why the proposed method still generates better results than zero padding and replicate padding, despite these observations?\n6.\tThe paper mentions a related padding module, \"multi-channel linear prediction,\" in line 29. However, it does not appear to be compared with the proposed method.",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "Thank you for the detailed response, which has addressed some of my concerns.\n\nHowever, I remain unconvinced about the overall effectiveness of the proposed method. Both the paper and the response demonstrate limited improvements, which may not adequately substantiate the claimed contributions. Notably, other reviewers (e.g., Reviewers 2k7F, dtmP, Skv7) have expressed similar concerns.\n\nAs such, I will maintain my initial rating."
+    },
+    {
+      "reviewer_id": "Ir0PCbi1i5",
+      "overall": 2,
+      "confidence": 3,
+      "quality": 2,
+      "clarity": 2,
+      "significance": 2,
+      "originality": 2,
+      "summary": "The paper proposes a per-channel, differentiable padding method for convolutional neural networks (CNNs) called linear prediction (lp) padding, which adapts autoregressive linear models to predict input tiles beyond their boundaries. The approach is parameter-free and can be implemented in a differentiable framework. The authors apply linear prediction padding in satellite image super-resolution using the RVSR model and compare it with standard zero, replication, and extrapolation padding methods. Experiments indicate that lp padding reduces the mean square error (especially near image edges) compared to baselines, although at the cost of a moderately increased inference time. The paper includes theoretical justifications, practical considerations, and ablation across cropping schemes, and discusses the implications of padding choice for CNN capacity usage.",
+      "strengths_and_weaknesses": "Strengths:\n-This is conceptually clear, does not require additional network parameters.\n-The authors carefully compare multiple padding strategies (lp variants, zero, repl, extrapolation), with experiments using a modern.\n\nWeaknesses:\n-The reported improvement in mean test MSE is modest (e.g., 0.2\u20130.9% overall and 1.5\u20132% at the outermost shell compared to standard padding, per Table 1). For many applications, this benefit may not outweigh the ~25% increased inference cost.\n-While implementation is differentiable and parameter-free, inference cost rises the method trades speed/memory efficiency for small quality increases, which may hinder adoption for large-scale or real-time systems.\n-Multiple lp variants are introduced (based on different neighborhoods; covariance vs. autocorrelation computation), which, while comprehensive, may make practical adoption cumbersome. It is not immediately clear to users which variant offers the best tradeoff for a new use case.\n-Although the motivation is strong for satellite imagery tiling, the experimental scope is limited to a single image domain and model (RVSR). There is no empirical demonstration on other vision tasks (e.g., segmentation, classification) or with alternative architectures (such as U-Net, ResNet).\n-While Table 1 is detailed, it is dense\u2014reporting many variants, metrics and intervals\u2014making it difficult to quickly identify the practical significance or to directly answer which method should generally be preferred.",
+      "questions": "See the weaknesses.",
+      "limitations": "Yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "My concerns about the computational complexity and limited performance are not well addressed in this paper. Thus, I keep my original score to reject this paper."
+    },
+    {
+      "reviewer_id": "YE7L3mSyP7",
+      "overall": 3,
+      "confidence": 3,
+      "quality": 2,
+      "clarity": 2,
+      "significance": 2,
+      "originality": 2,
+      "summary": "This paper introduces linear prediction (LP) padding, a novel non-trainable and differentiable padding technique for convolutional neural networks processing 2D spatial data. The core innovation lies in its per-channel autoregressive modeling approach:\n\n1. Methodology: For each channel, a stochastic autoregressive linear model is fitted to the data by minimizing noise terms via least-squares optimization. Padding values are iteratively generated as conditional expectations from this model.\n2. Validation: Applied to the RVSR super-resolution model trained on satellite imagery, the simplest LP variant achieves:\n   - \u223c2% reduction in mean square error (MSE) at image edges compared to zero/replication padding\n   - \u223c25% increase in inference latency\n3. Key observations:\n   - LP provides better approximations of both input data and feature maps\n   - Zero padding forces the model to dedicate more capacity to compensate for edge errors\n   - Output cropping minimizes padding-induced artifacts and equalizes performance across methods\n\nThis work establishes LP padding as a mathematically grounded alternative to conventional padding methods, with demonstrated efficacy in edge-quality enhancement for super-resolution tasks.",
+      "strengths_and_weaknesses": "Strengths:\n\n- Quality: Technically sound with rigorous implementation (JAX RVSR reimplementation, ablation via output cropping).\n- Originality: Novel application of autoregressive models to padding, offering a parameter-free alternative.\n- Clarity: Methods well-structured (Sections 2\u20133); figures (e.g., Fig 6\u20137) clarify cropping/padding workflows.\n- Significance: Highlights CNN capacity trade-offs when compensating padding errors.\n\nWeaknesses:\n\n- Significance: Marginal gains at high cost. Limited motivation for real-world adoption.\n- Quality: Experiments only on model (RVSR) and task (satellite SR). Generalizability unproven.\n- Clarity: Fig 1 unused (no reference in text); covariance variants underperformed but lacked analysis.\n- Originality: LP is an established signal-processing technique; innovation lies in CNN adaptation but not transformative.",
+      "questions": "1. Generalizability: Can LP padding improve performance in non-satellite tasks (e.g., natural images/medical data) or other architectures (e.g., U-Nets, Transformers)? Add experiments on 1\u20132 diverse datasets/architectures.\n2. Efficiency-Scalability Trade-off: LP adds 25% inference latency. Can optimizations (e.g., precomputed coefficients) mitigate this? How does cost scale for larger neighborhoods (e.g., lp6x7)? Report latency/FLOPs for all LP variants.\n3. Fig 1 Utility: What is the purpose of Fig 1? It is never cited. Integrate Fig 1 into the narrative or remove it.",
+      "limitations": "Yes.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": null
+    }
+  ]
+}

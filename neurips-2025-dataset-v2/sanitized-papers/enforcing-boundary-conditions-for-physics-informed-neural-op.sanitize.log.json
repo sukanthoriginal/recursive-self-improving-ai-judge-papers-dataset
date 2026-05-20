@@ -1,0 +1,22 @@
+{
+  "redactions": [
+    "title_page_author_block"
+  ],
+  "pattern": {
+    "email": 0,
+    "orcid": 0,
+    "url": 24,
+    "arxiv": 0
+  },
+  "section_redactions": 0,
+  "author_name_redactions": {},
+  "authors_groundtruth": [
+    "Niklas G\u00f6schel",
+    "Sebastian G\u00f6tschel",
+    "Daniel Ruprecht"
+  ],
+  "verify": {
+    "ok": true,
+    "issues": []
+  }
+}

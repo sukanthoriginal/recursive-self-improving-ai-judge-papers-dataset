@@ -1,0 +1,10 @@
+{
+  "paper_id": "z8rQHF8OOt",
+  "title": "CoSimGen: Controllable diffusion model for simultaneous image and segmentation mask generation",
+  "venue": "Submitted to NeurIPS 2025",
+  "decision": "Reject",
+  "accept": false,
+  "bin": "[2.0,2.5)",
+  "openreview_url": "https://openreview.net/forum?id=z8rQHF8OOt",
+  "mismatch": false
+}

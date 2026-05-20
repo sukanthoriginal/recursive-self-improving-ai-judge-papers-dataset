@@ -1,0 +1,64 @@
+{
+  "redactions": [
+    "title_page_author_block"
+  ],
+  "pattern": {
+    "email": 0,
+    "orcid": 0,
+    "url": 1,
+    "arxiv": 35
+  },
+  "section_redactions": 1,
+  "author_name_redactions": {
+    "Jian": 8,
+    "Liu": 30,
+    "Jian Liu": 2,
+    "Jing Xu": 1,
+    "Jing": 12,
+    "Song": 4,
+    "Guo": 18,
+    "Song Guo": 1,
+    "Jing Li": 1,
+    "Jiaao Yu": 1,
+    "Jiaao": 1,
+    "Haohan": 4,
+    "Haohan Weng": 4,
+    "Weng": 4,
+    "Biwen": 2,
+    "Biwen Lei": 2,
+    "Lei": 3,
+    "Xianghui Yang": 4,
+    "Xianghui": 4,
+    "Yang": 21,
+    "Zhuo Chen": 2,
+    "Zhuo": 3,
+    "Chen": 46,
+    "Zhu": 16,
+    "Fangqi Zhu": 1,
+    "Fangqi": 1,
+    "Han": 72,
+    "Tao Han": 1,
+    "Tao": 5,
+    "Chunchao Guo": 3,
+    "Chunchao": 3
+  },
+  "authors_groundtruth": [
+    "Jian Liu",
+    "Jing Xu",
+    "Song Guo",
+    "Jing Li",
+    "Guojingfeng",
+    "Jiaao Yu",
+    "Haohan Weng",
+    "Biwen Lei",
+    "Xianghui Yang",
+    "Zhuo Chen",
+    "Fangqi Zhu",
+    "Tao Han",
+    "Chunchao Guo"
+  ],
+  "verify": {
+    "ok": true,
+    "issues": []
+  }
+}

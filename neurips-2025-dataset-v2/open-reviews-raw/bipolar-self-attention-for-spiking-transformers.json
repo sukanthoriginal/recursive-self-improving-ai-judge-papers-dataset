@@ -1,0 +1,74 @@
+{
+  "paper_id": "nG45z7lJ7D",
+  "decision": "Accept (spotlight)",
+  "reviews": [
+    {
+      "reviewer_id": "dXuVkdb5jy",
+      "overall": 5,
+      "confidence": 4,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 4,
+      "originality": 4,
+      "summary": "This research identifies that existing Spiking Self-Attention (SSA) mechanisms are limited by the binary nature of spike trains, which restricts their ability to capture the polarity of membrane potential interactions, and they often omit the Softmax function to avoid energy-intensive multiply-accumulate operations, thereby failing to maintain row-stochasticity constraints on attention scores. To address these issues, the paper proposes a Bipolar Self-attention (BSA) paradigm, which effectively models multi-polar membrane potential interactions using ternary matrix products and introduces a shift-based Softmax approximation called Shiftmax to achieve low-entropy activation and partially maintain row-stochasticity without non-linear operations. Experimental results demonstrate that BSA achieves substantial performance improvements across various tasks, including image classification, semantic segmentation, and event-based tracking.",
+      "strengths_and_weaknesses": "Strengths\nThe primary strengths of this paper lie in its clear identification of two core limitations in SSA and its proposal of the innovative BSA solution, featuring Ternary Matrix Product (TMP) for comprehensive polarity information capture and the efficient Shiftmax for Softmax approximation; these contributions are supported by theory (such as Theorems 1 and 2 demonstrating TMP's statistical properties and correlation with real-valued products ) and extensive experimental validation across multiple tasks and architectures.\n\nWeaknesses:\n\n1\u3001The implementation of Ternary Spiking Neuron on the SDT-V3 at the inference time is confused. \n2\u3001This work  lacks experimens on neuromorphic datasets, such as CIFAR10DVS.\n3\u3001The authors should provide more details about tracking and segmentation tasks",
+      "questions": "1. Give more experiments on CIFAR10, CIFAR100, CIFAR10DVS, DVSGesture.\n2. The implementation of Ternary Spiking Neuron on the SDT-V3 at the inference time should give more details. According to your code and SDT-V3, the result of the Neuron should be the summation of spikes at all the time step, how do you allocate the spike signals at each time step?",
+      "limitations": "N/A",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "First, I already believed this work met the acceptance criteria. During the rebuttal phase, the authors addressed every concern I had raised, so I raised my score accordingly."
+    },
+    {
+      "reviewer_id": "M1mAYD5k8u",
+      "overall": 5,
+      "confidence": 5,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 3,
+      "originality": 3,
+      "summary": "This paper proposes a bipolar spike self-attention module to enhance the performance of Spike Transformer across multiple vision tasks. It primarily consists of ternary matrix multiplication and ShiftMax. On ImageNet, BSA demonstrates improvements over the baseline across various architectures.",
+      "strengths_and_weaknesses": "The visualizations provided by the authors are clear, and the theoretical proofs are thorough. However, there are a few issues to address:\n1. The term \u201cSOTA Spiking Transformer architectures\u201d seems imprecise; it is recommended to use \u201cadvanced\u201d instead.\n2. The paper fails to quantify the additional theoretical energy cost incurred by BSA\u2019s full shift operation relative to SSA.\n3. The authors consider only SSA as a spiking self-attention mechanism, omitting variants such as SDSA[1] and DSSA[2].\n4. In Figure 3, the distribution statistics do not clearly specify the dimensions of N and D. It is recommended to include a more detailed description in the figure caption to enhance rigor.\n\n\nAdditional Comments:\n1. In Figure 2, the caption for the ANN & SNN diagrams is too small; it should match the font size of the surrounding text.\n2. In the experimental section, the dimensions of SpikingFormer appear to be incorrect, as the table lists them as 512 and 768.\n3. The consensus regarding the Pyramid Vision Transformer is not addressed. It would be beneficial for the authors to provide clarification on this.",
+      "questions": "1. Based on the three vision tasks, BSA shows limited performance improvement in classification tasks, but a significant enhancement in regression tasks. Could the authors provide an analysis of the underlying reasons for this discrepancy?\n2. The authors demonstrate the method\u2019s effectiveness on several network architectures; however, the neurons in Spike\u2010Driven V3 were specially designed. How does the proposed approach conform to the ILIF neuron\u2019s dynamical properties, and can it support true spike\u2010driven inference on par with V3?\n3. Please evaluate other spike\u2010based self\u2010attention schemes (e.g., SDSA [1], DSSA [2]) by directly replacing them with BSA to quantify any performance gaps. Do these attention mechanisms plus softmax suffer the same softmax\u2010incompatibility issues observed in SSA? I recommend adding ablation experiments to investigate.\n4. Have the authors compared their method to BNNs (with activations limited to +1 and \u20131)?  Please support this with both theoretical analysis and experimental validation.\n\nReference\uff1a\n[1]. Yao, Man, et al. \"Spike-driven transformer.\" Advances in neural information processing systems 36 (2023): 64043-64058.\n[2] Shi, Xinyu, Zecheng Hao, and Zhaofei Yu. \"SpikingResformer: bridging ResNet and vision transformer in spiking neural networks.\" Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2024.",
+      "limitations": "Yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "My questions have been resolved. Since my initial rating was positive, I will maintain my rating and recommend acceptance."
+    },
+    {
+      "reviewer_id": "p5quvFO0LN",
+      "overall": 5,
+      "confidence": 5,
+      "quality": 3,
+      "clarity": 4,
+      "significance": 4,
+      "originality": 3,
+      "summary": "By analyzing the data characteristics of spiking neural networks, the authors identify two shortcomings in the Spiking self-attention\u2014polarity information loss and Softmax failure. They propose targeted remedies for each. The paper is rigorously structured with clear visualizations. experiments on multiple vision benchmarks demonstrate significant performance gains.",
+      "strengths_and_weaknesses": "Strength:  \nThe paper features clear visualizations and a well\u2010organized presentation of the problem analysis and methodology. Additionally, the experiments validate the proposed approach across multiple vision tasks, enhancing the credibility of the results.   \nWeaknesses    \n1. This work lacks Ablation experiments comparing RMP and TMP performance, despite both Theory 1 and Theory 2 resting on the premise that RMP outperforms TMP.\n2. The manuscript lacks description of the spiking neuron model within the Transformer Block. \n3. The proposed BSA is validated solely on visual datasets, with no evaluation on sequential or speech processing tasks.\n4. In the semantic segmentation experiments, the authors re-implement only the 19 M-parameter model; to ensure a fair comparison, the 5 M and 10 M variants should also be re-implemented.",
+      "questions": "1. Appendix A shows that binary matrix multiplication partially achieves low-entropy activation\uff1awhy can\u2019t binary multiplication directly replace ternary multiplication + Softmax? \n2. Why is it necessary to establish local correlation? Does it complement distributional similarity?\n3. In my view, the strengths of SNNs are most evident on dynamic datasets (e.g., DVS), yet the authors evaluate their method predominantly on static image tasks. I recommend validating the proposed approach on a dynamic benchmark to demonstrate its broader applicability.\n4. The ablation study confirms that TMP relies on the softmax operation more heavily than BMP, but omits RMP\u2019s performance results. Given the theoretical claim of RMP\u2019s superior performance bound, please include RMP in the ablation study to substantiate this assertion.\n5. In the presented BSA, V does not activated by Spiking neurons. Does it still retain true spike\u2010driven behavior?  It would also strengthen the paper to add theoretical energy\u2010consumption analyses to quantify the claimed efficiency gains.",
+      "limitations": "The proposed method may encounter limitations when applied to dynamic vision tasks.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "This paper makes a valuable contribution to the SNN field, and its writing meets the standards for a scientific paper. Therefore, I recommend acceptance."
+    },
+    {
+      "reviewer_id": "VdeRYmTYgS",
+      "overall": 4,
+      "confidence": 3,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 3,
+      "originality": 3,
+      "summary": "This paper proposes Bipolar Self-attention (BSA) to improve Spiking Transformers by addressing two key limitations of existing Spiking Self-attention (SSA): the inability to model negative or mixed Q-K interactions and the lack of normalized attention due to the omission of Softmax. BSA uses ternary spiking neurons for richer polarity modeling and introduces Shiftmax, an energy-efficient Softmax approximation via bit-shift operations. Experiments on image classification, semantic segmentation, and event-based tracking show that BSA consistently enhances performance across multiple spiking architectures.",
+      "strengths_and_weaknesses": "**Strengths:**\n\n 1. The paper presents a clear motivation: (1) binary matrix products lose polarity information by ignoring negative correlations, and (2) the absence of Softmax leads to incomparable attention scores across rows, limiting the effectiveness of attention allocation.\n 2. The paper's analysis of existing Spiking Self-Attention methods effectively supports its stated motivation.\n 3. The authors conducted extensive experiments to demonstrate the effectiveness of the proposed method, and the ablation studies further validate the contribution of each component.\n\n**Weaknesses:**\n\n 1. I am curious whether this module can serve as a viable replacement for the corresponding components in existing LLMs, and what level of performance improvement it can bring.",
+      "questions": "See Weaknesses.",
+      "limitations": "Yes.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I confirm that the revisions have resolved the key issues, and the manuscript is ready for acceptance."
+    }
+  ]
+}

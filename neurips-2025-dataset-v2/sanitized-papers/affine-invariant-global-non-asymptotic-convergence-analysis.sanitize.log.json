@@ -1,0 +1,28 @@
+{
+  "redactions": [
+    "title_page_author_block"
+  ],
+  "pattern": {
+    "email": 2,
+    "orcid": 0,
+    "url": 0,
+    "arxiv": 6
+  },
+  "section_redactions": 0,
+  "author_name_redactions": {
+    "Qiujiang": 5,
+    "Qiujiang Jin": 4,
+    "Jin": 5,
+    "Aryan": 5,
+    "Aryan Mokhtari": 5,
+    "Mokhtari": 6
+  },
+  "authors_groundtruth": [
+    "Qiujiang Jin",
+    "Aryan Mokhtari"
+  ],
+  "verify": {
+    "ok": true,
+    "issues": []
+  }
+}

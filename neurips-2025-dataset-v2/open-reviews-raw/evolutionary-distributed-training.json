@@ -1,0 +1,74 @@
+{
+  "paper_id": "tESKKiKhVp",
+  "decision": "Reject",
+  "reviews": [
+    {
+      "reviewer_id": "Knfr3Fzvp1",
+      "overall": 2,
+      "confidence": 4,
+      "quality": 2,
+      "clarity": 2,
+      "significance": 1,
+      "originality": 1,
+      "summary": "The authors propose an evolutionary distributed training method that replaces centralized gradient synchronization with evaluation, paired model cross-over, and mutation, enabling efficient training across loosely connected devices.",
+      "strengths_and_weaknesses": "The paper is novel and interesting, but there are still some shortcomings. \n1) Although the proposed evolutionary distribution training is interesting, it lacks relevant theoretical support.\n2) The structure and layout of the paper are hard to read.\n3) There are limitations in the experimental design and results, including insufficient comparative experiments, insufficient depth of result analysis, and a lack of specific application scenarios.\n4) To better validate the effectiveness of the proposed evolutionary distribution training, the paper should include experiments on larger-scale benchmark datasets, such as ImageNet, CIFAR-100, and COCO. The lack of such evaluations represents a major limitation of this study.\n5) The overall structure of this paper requires substantial revision. The current organization suffers from issues related to information flow and writing clarity, which hinder the effective communication of the paper\u2019s core contributions.",
+      "questions": "Please refer to Strengths and Weaknesses.",
+      "limitations": "Please refer to Strengths and Weaknesses.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "The author did no rebuttal, and my score will not change."
+    },
+    {
+      "reviewer_id": "cNSMN3ojDs",
+      "overall": 1,
+      "confidence": 5,
+      "quality": 1,
+      "clarity": 1,
+      "significance": 1,
+      "originality": 1,
+      "summary": "This paper attempts to propose an evolutionary approach as a way to perform distributed training of models, instead of centralized gradient synchronization. Local models are tested on some fixed validation set or validation episodes and are updated using an evolutionary algorithm. The paper performs preliminary experiments on a language pre-training task, a two player reinforcement learning task, and a language post-training task.",
+      "strengths_and_weaknesses": "Weaknesses:\n1) Unfortunately, I think the current paper is very preliminary, missing discussion on background (no discussion on what DiLoCo is and how it relates to the proposed method) and missing definition of used technical terms (what is model delta, velocity buffer, spherical linear interpolate? What are the 18 different reward functions? What is a standard Population-Based Training setup?).\n2) There are no results for the post-training experiments. Figure 4 is incoherent, and no explanation for it is provided.\n3) There are no error bars in any of the plots.",
+      "questions": "I have no questions.",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "My recommended score is 1. This paper has an incomplete related work section and preliminary section. Moreover, the experiments are also not explained in detail, a some plots seem incomprehensible."
+    },
+    {
+      "reviewer_id": "xMM0RXnCVF",
+      "overall": 2,
+      "confidence": 4,
+      "quality": 3,
+      "clarity": 2,
+      "significance": 1,
+      "originality": 2,
+      "summary": "This paper introduces Evolutionary Distributed Training (EDT), a nature-inspired approach to distributed model training. The idea is built over the DiLoCo paper, but it replaces centralized gradient synchronization with evaluation, pairwise model crossover, and mutation. It proposes local evaluation , pairwise model crossover via merging , and model mutation with reward combination. The paper is in a very preliminary stage, as they performed initial experiments on pre-training and reinforcement learning (RL).\nTheir initial results show that pre-training do not benefit from the approach, but RL does.",
+      "strengths_and_weaknesses": "- The paper demonstrates a use case for EDT in reinforcement learning (RL). By evolving both policy and reward functions, EDT-RL successfully fostered diverse exploration and led to the emergence of  effective strategies (e.g., \"ground slamming\") that were not explicitly designed. However, there is large literature for applying evolutionary algorithms for agents in game environments.\n- Paper is incomplete.\n- The experiments in both pre-training and RL are done with very small models. Even preliminary experiments should be done in larger scale.\n- Missing literature. Please check this paper and their related work: https://arxiv.org/pdf/2410.11163",
+      "questions": "- Validation set for pre-training is too small 400 examples\n- Linear interpolation was used to merge models, do you try other merge approaches?\n- Could you make a time/complexity analysis of the problem, exploration could be expensive.",
+      "limitations": "- The authors honestly stated that this work is preliminary and incomplete",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": null
+    },
+    {
+      "reviewer_id": "4PxD0SUk85",
+      "overall": 2,
+      "confidence": 3,
+      "quality": 2,
+      "clarity": 2,
+      "significance": 1,
+      "originality": 1,
+      "summary": "The authors propose a method for scaling a standard genetic algorithm to distributed training. The method struggles to benefit LLM pretraining, but shows some promise in RL settings. The authors compare their approach to federated learning methods that split their data across multiple machines and collaboratively train large models. In the conclusion, the authors note this is an exploratory work that they hope will yield feedback and potential collaborations. I\u2019ll focus my feedback to help guide the authors to improving this work.",
+      "strengths_and_weaknesses": "- I think comparing against federated learning is a good idea. I\u2019m not familiar with another work that has compared evolutionary algorithms and federated learning. DiLoCo seems like a reasonable baseline for this comparison.\n- The paper appears to be rather broad in the number of problems it is tackling. The three problems mentioned (pre-training, RL, and post-training) are all uniquely difficult problems in their own right; each one may even warrant an individual paper. I suggest selecting a single problem and focusing on that one.\n- The mechanisms used in the paper could be much better motivated. For example, what motivates the crossover mechanisms on lines 54-59? Similarly, what motivates the training procedure on lines 121-128? Furthermore, is there any (empirical) evidence to support that such mechanisms perform as expected? I think comparing the random vs. evolutionary selection in Section 2 is a good step in this direction.\n\n- For experimental results, it would be nice to eventually see a table listing the results (this is easier than trying to determine exact results from plots). Ideally, it would also be good to perform multiple runs of each algorithm and compare the results using statistical tests (such as t-tests and Wilcoxon tests).\n\n- Regarding compute limitations, I would recommend reaching out to faculty at the university to see if they are willing to collaborate on this project.",
+      "questions": "- A key point of the paper is that EDT does not require \"centralized synchronization of gradients.\" The implication of this seems to be that EDT would be faster than an algorithm like DiLoCo. Is there any metric that can support this, such as overall runtime, or the amount of time spent communicating gradients? It may also be helpful to include how much \"gradient communication\" is expected for each method, e.g., using big-O notation.\n\n- It\u2019s not clear to me how the proposed method fits in with other projects that have scaled evolutionary algorithms to distributed settings. I point the authors to the following papers (https://dl.acm.org/doi/abs/10.1145/3321707.3321817, https://arxiv.org/abs/1703.03864, https://arxiv.org/abs/2202.01258). Are these reasonable baselines that could be added? Given the strong performance on RL domains, it seems reasonable to add evolutionary RL baselines that were also distributed.",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": null
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "paper_id": "cEd00CXWE5",
+  "decision": "Reject",
+  "reviews": [
+    {
+      "reviewer_id": "U1KzsrBCs8",
+      "overall": 4,
+      "confidence": 4,
+      "quality": 2,
+      "clarity": 3,
+      "significance": 2,
+      "originality": 3,
+      "summary": "This paper proposes combining two-stage fine-tuning\u2014SFT followed by RL\u2014using a bi-level optimization framework. The lower-level optimization enables RL-based exploration constrained by SFT supervision, while the upper-level optimization ensures that the joint training achieves higher rewards than RL alone.",
+      "strengths_and_weaknesses": "## Pros:\n\n1. I am not an expert in bi-level optimization, but I find the idea to be interesting. The paper effectively bridges SFT and RL fine-tuning, two widely used but typically separate approaches in current LLM training pipelines (often used with a cold-start).\n2. The paper is well written and easy to follow.\n3. The motivation is sound, and the topic is timely and relevant.\n\n## Cons:\n\nThe main weakness of this paper is the lack of extensive experiments and in-depth analysis.\n\n1. The framework is only evaluated on a single LLM (Qwen3.5-3B). To convincingly demonstrate generalization, the authors should conduct experiments across multiple model families (e.g., LLaMA) and model sizes.\n2. While the paper shows out-of-distribution generalization at inference time on other benchmarks, the model is trained on only one dataset. To further support claims of generalization, the authors should train on multiple datasets and report in-distribution performance.\n3. The authors claim the method outperforms vanilla RL approaches. However, RL-based fine-tuning encompasses several families of methods, with PPO, DPO, and their variants being among the most commonly used. The paper primarily discusses GRPO/PPO. It remains important to evaluate whether this bi-level optimization technique can be seamlessly integrated with DPO-style methods as well.\n\n## Typo:\n\nLine 247: \"RL-zere\" should be corrected to \"RL-zero.\"",
+      "questions": "If the authors could provide the necessary additional experiments (covering multiple model families, model sizes, and in-distribution performance) along with more in-depth analysis (such as evaluating the method with different RL techniques, particularly DPO variants), I would be happy to raise my score.",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "The authors initially demonstrated the effectiveness of their method using only a single backbone model and one in-distribution task, which was insufficient to fully validate the proposed approach. Though the idea of jointly optimizing RL and SFT is interesting. In the revision, additional experiments were provided across multiple in-distribution datasets, using different backbone models and integrating various RL algorithms. Overall, the method shows promising performance on models in the 7B\u20138B scale. However, its effectiveness on larger models remains uncertain. Therefore, the final score is 4."
+    },
+    {
+      "reviewer_id": "r9q5n8ky7c",
+      "overall": 5,
+      "confidence": 3,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 3,
+      "originality": 3,
+      "summary": "A novel training paradigm that combines SFT and RL.",
+      "strengths_and_weaknesses": "- The proposed training method is interesting, with a strong motivation of taking the advantages from both SFT and RL training.\n- Paper is well written with clear method explained.\n- Performance improvements over pure SFT, RL and other training methods is notable on several public benchmarks.",
+      "questions": "(1) The paper introduce LoRA during training, does other baseline method uses LoRA training as well?\n\n(2) How much additional training time cost does the proposed training introduce compared to SFT or RL training?\n\n(3) Follow (2), how many additional computational cost is required to implement the proposed bilevel optimization, given the complexity of optimizing the model following two policy, I wonder if the training efficiency and performance tradeoff is worthwhile.",
+      "limitations": "The proposed training strategy is interesting and effective, and seems that there is no too much limitations beside the training complexity issue.\n\nGiven the complexity of the bilevel optimization, I believe the paper's main limitation lies in how to efficiently train the LLM. Very likely the proposed training will introduce extra complexity during training, and I hope the author can provide more analysis and discussion on this. See questions.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "The author's response justify that the proposed method, compared with SFT, does not incur additional computational overhead, which address my concerns. I will raise my score to 5: accept."
+    },
+    {
+      "reviewer_id": "hXusJRQrtj",
+      "overall": 4,
+      "confidence": 3,
+      "quality": 2,
+      "clarity": 3,
+      "significance": 2,
+      "originality": 3,
+      "summary": "This paper proposes BRIDGE, a bilevel optimization framework that unifies commonly used decoupled pipeline for training reasoning models: iteratively using SFT and RL. In BRIDGE, SFT is formulated as the upper-level optimization and RL as the lower-level. The method is evaluated on six mathematical reasoning benchmarks, showing performance gains over iterative SFT-RL baselines.",
+      "strengths_and_weaknesses": "### Strength\nThe paper presents an original and intuitive formulation to integrate SFT and RL. The paper is well-writen and easy to follow. The theoretical formulation is clear. Empirical results across multiple benchmarks show promising improvements on learning outcomes.\n\n### Weakness\nIn terms of experimental evaluation, since all baselines were implemented by the authors, the reported implementation details are somewhat insufficient. Only settings such as PPO parameters, LoRA configuration are briefly described. The specific implementations of Cold-Start, Naive Alternating, and BRIDGE lacked sufficient details (such as the SFT-RL switching intervals in Naive Alternating, the penalty strength $\\gamma$ in BRIDGE, etc.).",
+      "questions": "1. What is the fundamental challenge with the decoupled (alternating) training of SFT and RL that motivates the bilevel formulation?\n2. In the BRIDGE framework, why is SFT treated as the upper-level objective and RL as the lower-level? Would reversing the roles lead to worse results, or is it simply an arbitrary design choice?\n3. The learning outcome is undoubtedly important, but the BRIDGE method has profoundly changed the learning dynamics. Presenting the learning dynamics might bring more insights to this community. Could you provide a comparison of the BRIDGE and Naive Alternating training curves, including rewards and KL penalties?",
+      "limitations": "Yes.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "My concerns have been addressed."
+    },
+    {
+      "reviewer_id": "19pG0oHN1v",
+      "overall": 4,
+      "confidence": 4,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 3,
+      "originality": 3,
+      "summary": "This paper proposes BRIDGE, a novel bilevel optimization framework to integrate SFT and RL for improving reasoning capabilities in LLMs. \nThe method aims to overcome the limitations of traditional decoupled two-stage training by facilitating better cooperation between SFT and RL objectives. \nBRIDGE formulates SFT as an upper-level objective and RL as a lower-level objective, leveraging a penalty-based relaxation to explicitly encourage joint training to yield higher rewards than RL alone. \nEmpirical evaluations on five mathematical reasoning benchmarks demonstrate that BRIDGE consistently outperforms baselines in both accuracy and training efficiency.",
+      "strengths_and_weaknesses": "Strengths:\n* Integrating SFT and RL is a noval approach to address the decoupled nature of existing multi-stage pipelines. This provides a more sophisticated interaction between imitation learning and reward-driven exploration.\n* The experimental results consistently show that BRIDGE outperforms baselines across various mathematical reasoning benchmarks.\n* The paper provides a clear comparative analysis of existing fine-tuning strategies, highlighting the complementary advantages of SFT and RL and motivating the need for their deeper integration. \n\nWeaknesses:\n* In Table 2, the \"Average Performance across epochs\" is used to evaluate the trade-off between performance and training efficiency. Averaging performance across different epochs is generally not a standard or robust metric for this trade-off. A more appropriate evaluation would involve plotting performance curves over time (epochs/steps) for all methods and comparing areas under the curve, or explicitly reporting \"time-to-reach-a-target-performance\" metrics.\n* A more detailed discussion or empirical comparison of the computational cost of BRIDGE against baselines are needed.\n* Typo: \n  * The usage of \u03bb and \u03b3 in Section 3.2 appears inconsistent.\n  * line 247, zere->zero.",
+      "questions": "* Figure 1, which aims to compare training methods, notably lacks a dedicated curve for \"SFT\" alone. This makes it challenging to directly observe and confirm the claim in line 105 that \"SFT exhibits rapid initial learning\". While \"Cold start\" begins with an SFT phase, a separate SFT curve would provide clearer evidence for the initial learning dynamics.",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "Most of my concerns, especially the evaluation of performance and efficiency, is resolved. I choose to maintatin my original score."
+    },
+    {
+      "reviewer_id": "Li9cwMX4e0",
+      "overall": 4,
+      "confidence": 4,
+      "quality": 2,
+      "clarity": 2,
+      "significance": 2,
+      "originality": 2,
+      "summary": "The paper argues that today's \"SFT-warm-up -> RL-finetune\" pipelines leave the two learning paradigms isolated and therefore sub-optimal. It introduces BRIDGE, a bilevel optimization framework that treats supervised fine-tuning (SFT) as an upper-level objective and rule-based reinforcement learning (RL) as a lower-level objective. Using a penalty-based relaxation, BRIDGE learns LoRA adapter weights that explicitly maximize the reward gap between joint SFT + RL training and RL alone, while the base model parameters follow a curriculum-like blend of SFT and RL gradients. Experiments with a Qwen-2.5-3B-Base model on multiple mathematical-reasoning benchmarks (MATH500, Minerva-Math, OlympiadBench, AIME 2024, AMC 2023, etc.) show consistent accuracy gains.",
+      "strengths_and_weaknesses": "Strengths:\n\n1. The proposed method casts SFT\u2013RL cooperation as a bilevel game and solves it with first-order, penalty-based updates that avoid expensive second-order gradients.\n2. The proposed approach does outperform several baselines, including SFT, pure RL, and RL with code start, demonstrating the effectiveness of the method in the considered setting.\n\nWeaknesses:\n\n1. The experiment setup is quite limited in scope. All experiments include only Qwen2.5-3B-Base trained on a tiny training dataset of roughly 1.3K samples. The training setup is also restricted since each prompt only contributes to 5 rollouts, and a rather short maximum token length (i.e., 3000) is used. This raises the question of whether the baselines are weak due to scarce data or a too-restricted training setup. Evaluation-wise, only math tasks are considered.\n2. If I understand corretly, the core idea of treating SFT as an upper-level problem and RL as a lower-level one is conceptually similar to several recent bilevel methods for LLM data selection, meta-learning and RLHF that the authors cite. The paper positions itself as \"the first\" to apply BLO to reasoning models, but provides no concrete algorithmic advance beyond substituting the specific SFT/RL losses into an existing penalty formulation, and it does not analyze the additional approximation error introduced by assuming Danskin\u2019s conditions without proof.\n3. The authors admit that the nested optimization \"introduces additional computational overhead,\" yet they do not quantify that overhead relative to the modest absolute accuracy gains. Without a cost-benefit analysis, it is unclear that BRIDGE is a practical improvement over simpler pipelines.",
+      "questions": "1. Can you elaborate on the motivation of the paper more thoroughly? The authors state that \"this decoupled two-stage approach limits interaction between SFT and RL, thereby constraining overall effectiveness.\" Is there any theoretical / empirical evidence of why it is the case?\n2. The Limitations section concedes that the nested bilevel optimization \"introduces additional computational overhead\" but gives no quantitative figure. How does the computation overhead compare to a typical two-stage SFT-RL setup in terms of wall-clock time?\n3. How sensitive is BRIDGE's performance to the LoRA hyperparameters? The implementation in the paper seems to keep them fixed without ablation.",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "The authors has provided additional experiments to support the effectiveness of the algorithm. The rebuttal has addressed most of my concerns, mainly regarding the algorithm itself and its empirical performance in a broader scope."
+    }
+  ]
+}

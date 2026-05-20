@@ -1,0 +1,23 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Editor / OS
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Claude Code local settings (user-specific permissions)
+.claude/
+
+# Local env / secrets (never commit)
+.env
+.env.*
+*.key
+*.pem
+credentials.json

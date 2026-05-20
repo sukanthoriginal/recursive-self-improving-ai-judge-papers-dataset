@@ -1,0 +1,282 @@
+{
+  "adadetectgpt-adaptive-detection-of-llm-generated-text-with-s": {
+    "links_stripped": 469,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "affine-invariant-global-non-asymptotic-convergence-analysis": {
+    "links_stripped": 166,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "afterimages-their-neural-substrates-and-their-role-as-short": {
+    "links_stripped": 9,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "among-us-a-sandbox-for-measuring-and-detecting-agentic-decep": {
+    "links_stripped": 157,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "an-efficient-implementation-for-solving-the-all-pairs-minima": {
+    "links_stripped": 73,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "bipolar-self-attention-for-spiking-transformers": {
+    "links_stripped": 152,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "brillm-brain-inspired-large-language-model": {
+    "links_stripped": 30,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "conditional-gradient-methods-with-standard-lmo-for-stochasti": {
+    "links_stripped": 437,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "contextual-integrity-in-llms-via-reasoning-and-reinforcement": {
+    "links_stripped": 142,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "cosimgen-controllable-diffusion-model-for-simultaneous-image": {
+    "links_stripped": 92,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "efficient-training-free-online-routing-for-high-volume-multi": {
+    "links_stripped": 316,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "enforcing-boundary-conditions-for-physics-informed-neural-op": {
+    "links_stripped": 0,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "evolutionary-distributed-training": {
+    "links_stripped": 37,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "flexolmo-open-language-models-for-flexible-data-use": {
+    "links_stripped": 242,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "from-attention-to-atoms-spectral-dictionary-learning-for-fas": {
+    "links_stripped": 45,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "geometry-aware-edge-pooling-for-graph-neural-networks": {
+    "links_stripped": 341,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "higher-order-causal-structure-learning-with-additive-models": {
+    "links_stripped": 137,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "imagenet-trained-cnns-are-not-biased-towards-texture-revisit": {
+    "links_stripped": 141,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "korgym-a-dynamic-game-platform-for-llm-reasoning-evaluation": {
+    "links_stripped": 103,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "learning-to-factorize-spatio-temporal-foundation-models": {
+    "links_stripped": 186,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "mesh-rft-enhancing-mesh-generation-via-fine-grained-reinforc": {
+    "links_stripped": 140,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "ml-approach-to-qualimetry-gnns-in-value-assessment": {
+    "links_stripped": 3,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "multi-actor-multi-critic-deep-deterministic-reinforcement-le": {
+    "links_stripped": 171,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "mvg-crps-a-robust-loss-function-for-multivariate-probabilist": {
+    "links_stripped": 155,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "near-optimal-sample-complexities-of-divergence-based-s-recta": {
+    "links_stripped": 186,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "one-token-embedding-is-enough-to-deadlock-your-large-reasoni": {
+    "links_stripped": 142,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "openhype-hyperbolic-embeddings-for-hierarchical-open-vocabul": {
+    "links_stripped": 249,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "operand-selective-logic-gate-network": {
+    "links_stripped": 75,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "optimal-single-policy-sample-complexity-and-transient-covera": {
+    "links_stripped": 380,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "orient-anything-v2-unifying-orientation-and-rotation-underst": {
+    "links_stripped": 116,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "per-channel-autoregressive-linear-prediction-padding-in-tile": {
+    "links_stripped": 104,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "quantifying-first-order-markov-breakdowns-in-noisy-reinforce": {
+    "links_stripped": 107,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "reducing-deep-network-complexity-via-sparse-hierarchical-fou": {
+    "links_stripped": 41,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "self-directed-decomposition-empowers-reasoning-potentials-in": {
+    "links_stripped": 57,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "stab-sgd-noise-adaptivity-in-smooth-optimization-with-stabil": {
+    "links_stripped": 238,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "strider-navigation-via-instruction-aligned-structural-decisi": {
+    "links_stripped": 148,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "structured-sparse-transition-matrices-to-enable-state-tracki": {
+    "links_stripped": 503,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "training-language-models-to-generate-quality-code-with-progr": {
+    "links_stripped": 191,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "weak-to-strong-generalization-via-formative-learning-from-st": {
+    "links_stripped": 187,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  },
+  "what-s-producible-may-not-be-reachable-measuring-the-steerab": {
+    "links_stripped": 226,
+    "residual_email": 0,
+    "residual_url": 0,
+    "residual_orcid": 0,
+    "residual_name": 0
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "paper_id": "VyjFOO9cFi",
+  "title": "Convergence of Clipped SGD on Convex $(L_0,L_1)$-Smooth Functions",
+  "venue": "NeurIPS 2025 poster",
+  "decision": "Accept (poster)",
+  "accept": true,
+  "bin": "[2.5,3.0)",
+  "mismatch": true,
+  "openreview_url": "https://openreview.net/forum?id=VyjFOO9cFi"
+}

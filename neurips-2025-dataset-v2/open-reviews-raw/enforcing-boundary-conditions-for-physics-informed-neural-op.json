@@ -1,0 +1,74 @@
+{
+  "paper_id": "yT8hGWqoBm",
+  "decision": "Reject",
+  "reviews": [
+    {
+      "reviewer_id": "DnERyVZQ9K",
+      "overall": 3,
+      "confidence": 3,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 2,
+      "originality": 2,
+      "summary": "This paper introduces two improved approaches to enforce boundary conditions on piecewise $C^1$ boundaries in physics informed neural operator: generalized local solution structure (GLSS) and orthogonal projection (OP). Both of the proposed methods can make sure that the proposed solution satisfies boundary conditions by construction. GLSS makes use of distance function and normalized function to construct solutions, loosening the requirement of distance function to be normalized in a previous work. Once the boundaries with Robin boundary conditions are in the same hyperplane, the form of solution can be constructed differently to reduce the number of unknown functions to be trained. This method is called orthogonal projection (OP). Both of these methods can be applied to solve both single PDEs and PDE systems. These two methods are verified on Darcy flow equation and Navier Stokes equations with numerical experiments.",
+      "strengths_and_weaknesses": "Strengths:\n1. The motivation of this paper is thoroughly discussed.\n2. The proposed methods, though complicated, are stated in a very clear manner.\n\t\nWeaknesses:\n1. There are problems with the formatting of this paper. Please refer to formatting section of the review for more details.\n2. The title of this paper mentions 'physics informed neural operator', but it's not about operator learning. Instead, it is about PINN, which requires retraining for every new case.\n3. Only two equations (Darcy flow and NS) are involved in the numerical experiments in this paper, which is not sufficient to show the ability of the proposed methods to solve different problems.\n4. Related to 2, if the training time for a 2D Darcy is as long as 180 minutes, and a retraining is required for every new case, then this method is not very useful in practical use cases.",
+      "questions": "1. Why is FNO chosen as the framework for implementation in this work? It is not very suitable for irregular domains involved here and the computation of derivatives can only be approximated with finite difference.\n2. Table 1 shows the convergence time of different methods for Darcy and NS problems. Why is the convergence of NS much faster than that of Darcy? NS is a non-linear problem and is supposed to be harder to solve.",
+      "limitations": "Yes, the limitations are discussed in this manuscript.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "A major reorganization of the materials in this paper is required before this paper can be accepted, which could make this submission a totally different one."
+    },
+    {
+      "reviewer_id": "eH8L7sN9V3",
+      "overall": 2,
+      "confidence": 4,
+      "quality": 2,
+      "clarity": 2,
+      "significance": 2,
+      "originality": 2,
+      "summary": "This work studies enforcing boundary conditions in Neural Operators, which is an important problem but has been studied in other works that are not referenced. The method has u minimize the PDE loss and composes it in terms of orthogonal polynomials and by construction they satisfy the boundary conditions.",
+      "strengths_and_weaknesses": "## Strengths\n- It is good that the authors target an important and practical problem of enforcing boundary conditions in Neural Operators and that realistic BS including Dirichlet, Neumann and Robin are considered.\n\n## Weaknesses\n- A major weakness is that other relevant works that impose boundary conditions as hard constraints in Neural Operators, e.g., Saad et al., \"Guiding continuous operator learning through Physics-based boundary constraints\", ICLR, 2023 are not referenced or compared to.\n- Only two test equations are benchmarked and in addition they are stationary.\n- The references are not cited properly with citep for parathesis.\n- Unclear the novelities compared to Sukumar, et al. (2021)\n- The review of PINNs and PINO could be moved to appendix\n- The method is still similar to PINNs where the domain knowledge is incorporated as a soft constraint in the loss function contrary to hard-constrained works, e.g., Hansen et al., \"Learning Physical Models that Can Respect Conservation Laws, ICML, 2023, Negiar et al., \"Learning differentiable solvers for systems with hard constraints\", ICLR, 2023, Saad et al., \"Guiding continuous operator learning through Physics-based boundary constraints\", ICLR, 2023, Cheng et al., \"Gradient-free generation for hard-constrained systems\", ICLR, 2025.\n- There is no conclusion section",
+      "questions": "1. Why is the method tested on only stationary problem, e.g., scalar Darcy flow and stationary NS equations? Can it not work with a time component?\n2. This basis approach seems similar to finite elements - how does it compare/contrast?\n3. What does fine-tuning mean in this context?",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I would like to thank the authors very much for their detailed rebuttal. While I agree that the exact boundary conditions differ from those in Saad et al. and the methodology is distinct, Robin BCs are simply a linear combination of Neumann and Dirichlet boundary conditions, which are both covered in that work and could easily be extended to that case. I believe the BOON method should at least be compared to as a baseline.\n\nAlso, just because the boundary conditions need to be stationary does not require the PDEs to be stationary and more realistic time-dependent cases can be tested.\n\nIn addition, while the constraint type may in different in Hansen et al. imposing conservation laws, it compares a general framework from any linear constraint using an oblique or orthogonal projection. Hence, the orthogonal projection to impose the constraint is the same methodology. In fact, Mouli et al., \"Using uncertainty quantification to characterize and improve out-of-domain learning for pdes\", ICML 2024 proposes the Operator-ProbConserv, which applies this oblique (more general than orthogonal) projection to impose physical constraints using Neural Operators, which I think is relevant. In addition in Cheng et al., the constraints are also imposed via orthogonal projection. So, I do not think there is much novelty in the orthogonal projection approach.\n\nI appreciate the focus on enforcing hard constraints in this work and believe it could be beneficial to the community with a revised future submission that takes these points into consideration. At this time, I will be maintaining my score."
+    },
+    {
+      "reviewer_id": "pkuyZ8HlB2",
+      "overall": 2,
+      "confidence": 5,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 1,
+      "originality": 2,
+      "summary": "Machine learning techniques such as Physics-Informed Neural Networks (PINNs) and related operator learning methods are becoming increasingly popular for solving complex systems of PDEs. An important question is how to enforce boundary conditions. In this paper, the authors generalize a previous work to enable enforcing Neumann or Robin boundary conditions strongly (which is desirable for accuracy and training) even when the domain is not C^1. They conduct experiments showing the efficacy of this approach.",
+      "strengths_and_weaknesses": "Strengths: There has been much interest in PINNs and related techniques. It is now well-known that these techniques struggle to achieve high accuracy. Therefore, new methods that can improve accuracy are valuable.\n\nWeaknesses: \n1) The work is somewhat incremental in scope, as it is a direct generalization of Sukumar (2021). While it is relevant to relax the conditions required from C^1 to piecewise C^1, this is not, in my opinion, a big innovation.\n2) The contributions of this work are only tangentially related to neural networks and deep learning. Namely, the main contribution is about how to enforce boundary conditions when solving a PDE via minimizing a loss function over a parametrized function space. This does not require the space to be a space of neural networks. Therefore, while I think this is an interesting contribution, it is mainly one to numerical PDEs and not to neural networks and deep learning. Hence I do not think it is well suited to NeurIPS. In my opinion, it would be far better suited to a journal on numerical PDEs/scientific computing, e.g. Journal of Computational Physics, SISC or JSC.",
+      "questions": "None",
+      "limitations": "Yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "The authors have made several rebuttals to my main comments. However I do not find them satisfactory. In short, the contribution in this paper is not about neural networks/operators per se, but about enforcing boundary conditions. While the research may well be sound, I do not think it is a good fit for NeurIPS."
+    },
+    {
+      "reviewer_id": "FZiqgE7ZyM",
+      "overall": 4,
+      "confidence": 4,
+      "quality": 2,
+      "clarity": 1,
+      "significance": 3,
+      "originality": 3,
+      "summary": "The paper tackles the problem of automatically enforcing boundary conditions in physics-informed neural operators (PINOs). The improvement over prior work is that the submitted algorithm enables the enforcement of Neumann- and Robin-conditions on piecewise smooth segments of boundaries (that are not globally smooth), such as for solving PDEs on an L-shaped domain.\nThe method follows the construction outlined by Sukumar et al., but separates distance functions from normalised functions and adjusts the terms in the candidate function accordingly. Numerical experiments compare the proposed method to the baseline of weakly enforcing boundary conditions on standard test problems. The results are positive, especially for the version of the PINO that uses orthogonal projections.",
+      "strengths_and_weaknesses": "## Strengths \nThe paper proposes a solution to a well-defined problem that prior work suffers from: extending the method by Sukumar et al. to handle Robin and Neumann conditions on segmented boundaries. Furthermore, the article contains precise, albeit sometimes dense, instructions for implementing the proposed method, which I believe will enhance reproducibility.\n\nThat said, I think the paper's clarity could be improved considerably, which is why I ultimately recommend a (borderline) reject despite the value of the contribution. If the clarity-related issues can be resolved, I am open to revising my evaluation.\n\n## Weaknesses\n\nThe primary concern I have is with clarity and organisation, which I find significantly limits the accessibility of the contributions. Concretely, explanations of important steps are moved to the appendices (for no apparent reason), and mathematical symbols are often defined many paragraphs after their first usage. Here are some examples, with corresponding suggestions for improvement:\n- Line 67: Moving the content of Appendix A to the main paper would make the work accessible to an audience that is not necessarily familiar with the work by Sukumar et al.. For example, I found Appendix A helpful in reading the rest of this submission.\n- Definition 2.1: An example would be helpful. Would listing the example from Equation (31) be appropriate here?\n- Line 129: It would have helped me access the contributions if lines 92-129 were a \"Background\" section, and the \"Methodology\" section started at line 129, because everything before line 129 is existing work.\n- Equations (6) & (7): Expressions like those in Equations (6) and (7) would be more understandable if all mathematical symbols were introduced before their usage. For example, $\\Psi$ and $u_i$ are used in Equation (6). Still, it's only mentioned in Appendix A that $\\Psi$ is learnt, and $u_i$ is not defined until Section 2.1.1 below. This lack of explanation makes it difficult to appreciate the current state of Section 2.\n- Line 137: \"However, it is not always possible...\". This point is a critical step in the motivation for the submitted method -- it would be great if the submission could elaborate. For instance, an example would make this point more convincing.\n- Line 151: It would be great if Appendix B were included in the main paper here (I suggest how to make space for it below).\n- Line 167: Again, including Appendix D in the main text would clarify the construction and role of the normalisers.\n- There are also some formal issues, such as the confusion between \\citet and \\citep, and referencing equations with \"see (11)\" instead of \"see Equation (11)\". Correcting these would improve the flow of the text. \n\n\nTo make space for moving Appendices A, B, and D to the main paper, the discussion of systems of PDEs in Section 2.2 could be moved to the appendix (except Theorem 2.3, which should probably be stated in the main paper). This way, the main paper explains the approach precisely for scalar systems, and the generalisation to systems of PDEs is in the appendix for further reference. However, this is just a suggestion, and I (of course) leave this decision to the authors.\n\n\n\n\n## Summary\n\nIn summary, I believe the paper makes a valuable contribution: automatically enforcing Robin and Neumann boundary conditions for PDEs with smooth boundary segments. Still, in its current form, I find the presentation difficult to follow, which is why I lean towards rejection. If the presentation is improved (e.g. along the lines of the suggestions I made above), I would be willing to revise my recommendation.",
+      "questions": "- Line 58: If the distance function is $C^0$ or $C^1$, the Laplacian is not well-defined, or have I missed something?\n- Equation (11): I would appreciate a different symbol choice for normalisation; $N(x, \\phi)$ strongly resembles a Gaussian distribution. But this is subjective.",
+      "limitations": "I appreciate the open discussion of the limitations of the work in lines 85f.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "My original review emphasises that I like the contributions of the paper, but that clarity was a major concern. The rebuttal promises a number of changes which alleviate this issue considerably, so I increased my score."
+    }
+  ]
+}

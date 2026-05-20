@@ -1,0 +1,74 @@
+{
+  "paper_id": "uAeqQePu4c",
+  "decision": "Accept (spotlight)",
+  "reviews": [
+    {
+      "reviewer_id": "i9TONYMvJ3",
+      "overall": 5,
+      "confidence": 3,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 3,
+      "originality": 3,
+      "summary": "This paper present KORGym, a new benchmark of over fifty games targeting knowledge-orthogonal evaluation of LLM reasoning abilities. The benchmark categorizes the games along six reasoning dimensions, and supports an aggregated mean metric providing a normalized capability-wise evaluation of reasoning. The paper provides evaluation of many widely used LLMs, and informative analyses are provided.",
+      "strengths_and_weaknesses": "Strengths\n- The benchmark is well motivated and well designed. Due to many existing benchmarks becoming saturated due to pretrained knowledge leakage, it has value in helping assess the raw reasoning capability of models.\n- The benchmark is not saturated, particularly by open-source models, and it could also be interesting to see agent scaffolds evaluated on this benchmark.\n- The analyses of reasoning paradigms is particularly interesting, showing that model series' exhibit paradigm preferences, and some reasoning paradigms like code-based reasoning, can even partially constrain performance. This also enables interesting observations e.g. that the strongest model tested, o3-mini, does not exhibit this bias. \n\nWeaknesses\n- The core claim that the benchmark is knowledge-orthogonal is not validated.\n- The control, interaction, and task reasoning part of the benchmark feels weak, as it consists of relatively simple tasks in terms of control and interaction complexity.",
+      "questions": "- Could the authors show correlation with other tasks or benchmarks which feature more difficult or specialized tasks? For example control and interaction could measure correlation with alfworld or minecraft.\n- How is the reasoning paradigm disabling achieved?",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "The rebuttal addressed my concerns, which were about 1) the core claim of knowledge-orthogonality of the games, and 2) the lack of popular complex benchmarks for agents like Minecraft. The author response shows that the benchmark is overall sufficiently knowledge-orthogonal and leakage happens in certain recent models like o3-family, which is interesting in itself, and likely to provide new insights into the performance of latest agents. The authors also show a correlation study indicating that, taken together the benchmark could capture capabilities required for more complex benchmarks like Minecraft. Overall the paper makes meaningful contributions in improving the evaluation of reasoning agents, so I have give an accept rating."
+    },
+    {
+      "reviewer_id": "cC7Pa4R9qa",
+      "overall": 6,
+      "confidence": 5,
+      "quality": 4,
+      "clarity": 4,
+      "significance": 4,
+      "originality": 4,
+      "summary": "This paper introduces a new benchmark, namely KORGym, which evaluates multiple dimensions of reasoning abilities in an LLM. KORGym is based on a dataset of over fifty games. KORGym consists of separate modules, mainly to parse inputs, initialise game environments and model inference. KORGym uses a detailed scoring scheme for different types of games, such as for single objective games, 1 point is assigned for success and 0 for failure, and for games that award incremental points, they accumulate all points. After this, KORGym uses \"Capability Dimension Aggregated Mean\" which is an aggregation metric that takes into account different ranges of scores and aggregates it semantically. KORGym provides results on many LLMs or all the reasoning tasks. Furthermore, provides some results on multimodal reasoning.",
+      "strengths_and_weaknesses": "**Strengths:**\n\n- Very neatly written paper.\n- Precise, to the point description of the framework.\n- Brings in over 50 present games to test multiple reasoning fronts: mathematical and logical reasoning, control interaction reasoning, puzzle reasoning, spatial and geometric reasoning, strategic reasoning and multimodal reasoning.\n- The evaluation metric is well-derived. Takes into account that different games have different scoring schemes. Provides fair evaluation scheme.\n\n**Weaknesses:**\n\n- Figure 2 is not straightforward to understand. I appreciate the effort put into it but simplifying it will help the paper.\n- For related work I believe a few citations are a must: PlanBench and the works that followed it [1, 2], as it is one of the first works to evaluate reasoning in LLMs, and GameTraversalBenchmark [3], as it evaluates spatial reasoning and is the first benchmark to evaluate LLMs on games.\n\n[1] Valmeekam, K., Marquez, M., Olmo, A., Sreedharan, S. and Kambhampati, S., 2023. Planbench: An extensible benchmark for evaluating large language models on planning and reasoning about change. Advances in Neural Information Processing Systems, 36, pp.38975-38987.\n\n[2] Valmeekam, K., Stechly, K. and Kambhampati, S., 2024. LLMs Still Can't Plan; Can LRMs? A Preliminary Evaluation of OpenAI's o1 on PlanBench. arXiv preprint arXiv:2409.13373.\n\n[3] Nasir, M.U., James, S. and Togelius, J., 2024. GameTraversalBenchmark: Evaluating Planning Abilities Of Large Language Models Through Traversing 2D Game Maps. arXiv preprint arXiv:2410.07765.",
+      "questions": "None. I have no questions, as the paper is quite nicely presented. It would be nice to simplify the Figure 2. I understand the effort put into it. I also understand that there are a lot of pieces that are important and should be there. It would also be nice for the paper to include the above mentioned citations, plus more citations especially in LLMs for Gaming subsection, as the field has matured to a certain extent and many readers want to explore more papers through your paper. I am willing to change the score to strong accept as I foresee many readers coming to your paper, a lot of them will be skimming and they do need a simplified flow diagram and more papers to read from your paper.",
+      "limitations": "Yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I think the paper is a very solid improvement to the field. Hence, I have improved my scores."
+    },
+    {
+      "reviewer_id": "gPryh27h0g",
+      "overall": 6,
+      "confidence": 5,
+      "quality": 4,
+      "clarity": 4,
+      "significance": 4,
+      "originality": 4,
+      "summary": "The paper introduces KORGym, a novel interactive benchmark designed to evaluate the reasoning capabilities of large language models (LLMs). KORGym consists of 50 games, most of which do not require external knowledge, hence the term Knowledge Orthogonal. The benchmark includes both textual and visual games. A wide range of LLMs is evaluated on this benchmark, and the results provide valuable insights into the reasoning behavior of modern models.",
+      "strengths_and_weaknesses": "**Strengths:**\n\n- The proposed benchmark is highly relevant and timely for evaluating current SOTA LLMs. Unlike many existing benchmarks, KORGym is less susceptible to data contamination and better suited to test strategic thinking and planning.\n\n- The evaluation section is particularly strong. It includes:\n\n-- Analysis of reasoning facets in LLMs\n\n-- Insights into the interplay between textual and visual reasoning\n\n-- Clustering of models based on performance profiles\n\n-- Detailed ablation studies and thinking pattern analysis\n\n**Weaknesses:**\n\n- The section titled \u201cImpact of Reinforcement Learning\u201d lacks clarity:\n\n-- It is unclear how much overlap exists between the KORGym task set and the training tasks used for the Duobao RL training.\n\n-- Without a well-controlled ablation, it's difficult to conclude whether the performance improvement from the non-thinking to thinking variant of the model is due to RL training alone, or to other architectural or training changes.",
+      "questions": "1. It would be important to understand how much training on the same game set influences performance.  \n   For instance, the paper notes that the Duobao model was trained on classical games such as Sudoku.  \n   **Question:** Is it fair to compare Duobao's performance on these games with models that have *not* seen such games during pretraining?\n\n2. In the *Impact of RL* section, could the authors clarify:\n   - What fraction of KORGym games (if any) overlaps with Duobao's RL training set?\n   - Whether there is an ablation isolating the RL impact from other improvements in the \"thinking\" model variant?",
+      "limitations": "Yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": null
+    },
+    {
+      "reviewer_id": "ngpC2iUT8O",
+      "overall": 5,
+      "confidence": 4,
+      "quality": 3,
+      "clarity": 3,
+      "significance": 3,
+      "originality": 3,
+      "summary": "This paper introduces KORGym, a game-based LLMs and VLMs evaluation benchmark. The authors design 56 games across 6 reasoning dimensions and supports multi-turn, interactive assessments. The authors conduct large-scale evaluation on 19 LLMs (including 11 thinking models) and 8 VLMs. The results demonstrate KORGym\u2019s utility for evaluating and challenging LLMs on knowledge-orthogonal reasoning abilities.",
+      "strengths_and_weaknesses": "Strengths:\nNovel Benchmark: KORGym offers a diverse set of games to evaluate the reasoning abilities of LLMs and VLMs.\nBroad Scope: KORGym introduces a large suite of games spanning six key reasoning dimensions. Also, the authors design evaluation method beyond binary scoring.\nReady-to-Use Implementation: The authors not only provide the evaluation datasets and metrics but also deliver optimized evaluation code. This significantly lowers the barrier for adoption and ensures reproducibility.\nStrong Empirical Study: The experiments involve a broad collection of current LLMs and VLMs, with both closed- and open-source models. This enables comprehensive comparison and drives key findings on strengths, weaknesses and behavioral tendencies between model series.\n\nWeaknesses:\nPotential Domain and Task Distribution Bias: Although the knowledge-orthogonality concept aims to decouple evaluation from prior knowledge, the game/task design process is not fully transparent regarding avoidance of distributional overlap with LLM pre-training corpora. The paper does not concretely quantify the degree of knowledge leakage, which may influence some of the comparative results or limit conclusions about pure reasoning.",
+      "questions": "Check the weakness part mentioned above",
+      "limitations": "Check the weakness part mentioned above",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I am satified with the author's repsponse. My final rating is accept."
+    }
+  ]
+}

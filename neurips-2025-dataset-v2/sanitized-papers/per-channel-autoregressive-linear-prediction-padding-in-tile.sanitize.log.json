@@ -1,0 +1,28 @@
+{
+  "redactions": [
+    "title_page_author_block"
+  ],
+  "pattern": {
+    "email": 0,
+    "orcid": 0,
+    "url": 6,
+    "arxiv": 3
+  },
+  "section_redactions": 0,
+  "author_name_redactions": {
+    "Olli Niemitalo": 1,
+    "Niemitalo": 2,
+    "Olli": 4
+  },
+  "authors_groundtruth": [
+    "Olli Niemitalo",
+    "Otto Rosenberg",
+    "Nathaniel Narra",
+    "Olli Koskela",
+    "Iivari Kunttu"
+  ],
+  "verify": {
+    "ok": true,
+    "issues": []
+  }
+}

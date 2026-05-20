@@ -1,0 +1,58 @@
+{
+  "redactions": [
+    "title_page_author_block"
+  ],
+  "pattern": {
+    "email": 0,
+    "orcid": 0,
+    "url": 22,
+    "arxiv": 11
+  },
+  "section_redactions": 0,
+  "author_name_redactions": {
+    "Feng": 4,
+    "Yao": 3,
+    "Feng Yao": 1,
+    "Zilong": 1,
+    "Zilong Wang": 1,
+    "Wang": 8,
+    "Liu": 6,
+    "Liyuan Liu": 1,
+    "Liyuan": 1,
+    "Junxia": 2,
+    "Cui": 2,
+    "Junxia Cui": 1,
+    "Zhong": 1,
+    "Li Zhong": 1,
+    "Xiaohan": 1,
+    "Xiaohan Fu": 1,
+    "Haohui Mai": 1,
+    "Haohui": 1,
+    "Mai": 51,
+    "Vish": 1,
+    "Krishnan": 1,
+    "Vish Krishnan": 1,
+    "Jianfeng Gao": 1,
+    "Gao": 2,
+    "Jianfeng": 1,
+    "Jingbo Shang": 1,
+    "Shang": 2,
+    "Jingbo": 1
+  },
+  "authors_groundtruth": [
+    "Feng Yao",
+    "Zilong Wang",
+    "Liyuan Liu",
+    "Junxia Cui",
+    "Li Zhong",
+    "Xiaohan Fu",
+    "Haohui Mai",
+    "Vish Krishnan",
+    "Jianfeng Gao",
+    "Jingbo Shang"
+  ],
+  "verify": {
+    "ok": true,
+    "issues": []
+  }
+}
