@@ -21,3 +21,4 @@ __pycache__/
 *.key
 *.pem
 credentials.json
+**/_cache/all_papers.json

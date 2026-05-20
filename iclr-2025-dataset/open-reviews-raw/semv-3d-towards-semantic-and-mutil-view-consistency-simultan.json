@@ -1,0 +1,86 @@
+{
+  "paper_id": "r5yolhcrHe",
+  "decision": "Reject",
+  "reviews": [
+    {
+      "reviewer_id": "NGHUxXNvp2",
+      "rating": 6,
+      "confidence": 4,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "This paper proposes a novel framework, SeMv-3D, to ensure both semantic and multi-view consistency in generating 3D representations from text. It introduces a TPL module for learning the triplane prior and an SVS module for aligning textual and 3D visual information.",
+      "strengths": "- This paper is well-organized and well-motivated, targeting the text-to-3D problem with promising application prospects.\n- This paper effectively summarizes the limitations of existing methods in terms of semantic and multi-view consistency.\n- This paper makes a commendable attempt to address these issues within a unified framework.",
+      "weaknesses": "- The compared baseline methods are limited, lacking comparisons with recent methods such as [1] and [2].\n- The quality of the generated 3D models is limited, with granular and discontinuous surfaces visible in rendered images, particularly in Figures 3, 6 and 7.\n\n[1] DreamView: Injecting View-specific Text Guidance into Text-to-3D Generation, ECCV 2024.\n[2] DiverseDream: Diverse Text-to-3D Synthesis with Augmented Text Embedding, ECCV 2024.",
+      "questions": "- Many rendered images have noticeable graininess, such as the result on the right side of Figure 3 and the fish in Figure 6. Can you analyze the reason?",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "Fw6cjMnl7B",
+      "rating": 5,
+      "confidence": 5,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 2,
+      "summary": "This paper addresses the generalized text-to-3D generation problem. It proposes SEMV-3D -- a text-to-3D generative model composed of two stages: The first stage converts an input text prompt into three orthogonal images forming an \u201cRGB-triplane,\u201d while the second stage maps this \u201cRGB-triplane\u201d to a true radiance field triplane. Specifically, SEMV-3D introduces a Triplane Prior Learner (TPL) module in the first stage, which fine-tunes Stable Diffusion to generate a background-free front view, then refines additional layers (front, side, and top views) to produce the final RGB-triplane. In the second stage, the Semantic-aligned View Synthesizer (SVS) transforms the RGB-triplane into DINO tokens, which are concatenated with semantic descriptors of different prompt parts and passed through a transformer to create the true radiance field. Experiments are conducted in several settings including quantitative, qualitative, and user-study results to demonstrate the effectiveness of the proposed method.",
+      "strengths": "+ The paper is well-organized and written.\n+ The introduced modules, particularly in the TPL stages, appear effective; notably, the Orthogonalization Attention (OA) enhances view consistency and 3D detail, likely contributing significantly to the final 3D model.\n+ The overall pipeline is logically structured.",
+      "weaknesses": "+ The lack of quantitative results in the ablation study makes it challenging to validate the effectiveness of individual modules.\n+ The reasoning behind dividing the TPL stage into two substages, Object Retention (OR) and Triplane Orthogonalization (TO), is unclear.\n+ Equation 6 lacks clarity: the meaning of \ufffc is undefined, and the OA module should have two input arguments, though equation 6 shows only one.\n+ It is unclear why a widely recognized metric like FID (or its variants) is not used to evaluate the model\u2019s generative performance.\n+ The method for computing semantic information in the SVS stage is not well-explained.\n+ Line 232 should reference Fig. 2 (c) for easier comprehension.\n+ There is no time comparison with MVDream or similar approaches.\n+ Figures 4 and 5 show results of lower quality compared to MVDream.\n+ Visualizations and examples of the RGB-Triplane are needed, as it is an uncommon term.",
+      "questions": "+ In the TPL stage, could merging the two substages impact performance? Since the TO modules seem to encompass the OR modules, could it be possible to train the OR modules individually for each orientation in the first substage, and then aggregate the trained weights with the OA modules in the second? Additional insights on this would be valuable.\n+ Could you provide more detail on Equation 6 and the computation of semantic information in the SVS stage?\n+ Addressing the choice of metrics would clarify the evaluation approach and strengthen the paper.\n+ A comparison between Orthogonal Attention and Epipolar Attention from [a] and [b] would be beneficial.\n\n[a] Kant, Yash, et al. \"SPAD: Spatially Aware Multi-View Diffusers.\" Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2024.\n\n[b] Huang, Zehuan, et al. \"Epidiff: Enhancing multi-view synthesis via localized epipolar-constrained diffusion.\" Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2024.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "CcvXiCbq6B",
+      "rating": 6,
+      "confidence": 4,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "This paper presents SeMv-3D, a framework for text-to-3D generation that aims to address two main challenges in the field: semantic consistency and multi-view consistency. SeMv-3D utilizes a Triplane Prior Learner (TPL) and a Semantic-aligned View Synthesizer (SVS) to achieve dual consistency. TPL captures spatial coherence across views using a triplane representation, while SVS aligns three-dimensional features with textual semantics. This framework utilizes a batch sampling and rendering method that allows for generating arbitrary views in one feed-forward step. SeMv-3D outperforms existing methods in extensive experiments, achieving state-of-the-art performance despite limitations in text-to-3D data and computational resources.",
+      "strengths": "1. SeMv-3D effectively addresses challenges in achieving both multi-view and semantic consistency in text-to-3D generation.\n\n2. The TPL and SVS modules enable SeMv-3D to maintain high visual-textual alignment while ensuring 3D consistency across different views.\n\n3. The batch sampling and rendering approach enables efficient and flexible view generation in a single inference pass.\n\n4. Extensive experiments demonstrate SeMv-3D\u2019s qualitative and quantitative improvements over state-of-the-art methods.",
+      "weaknesses": "1. The lack of high-quality, large-scale text-3D paired data limits the model's ability to optimize for generalizability.\n\n2. Limited resources impact convergence, which can influence the stability and quality of the model's performance in complex scenarios.\n\n3. Clarify the novelty of the proposed semantic-aligned method. What is the semantic-aligned strategy, and how can it be applied?",
+      "questions": "This paper claims to use semantic and view-consistent methods to achieve high-quality text-to-3D. However, it does not clarify the semantic consistency process. Please provide more details to support the contributions.\n\n1. How does SVS achieve semantic alignment?\n\n2. Details on SVS\u2019s mechanisms to match text with 3D features in latent space would support the semantic consistency claim?\n\n3. Clarify if TPL\u2019s spatial correspondences enhance semantic alignment across views?\n\n4. Explain if TPL features are iteratively refined to improve SVS alignment?\n\n5. Specify how simultaneous multi-view generation strengthens semantic coherence?\n\n6. Evidence comparing SeMv-3D\u2019s semantic consistency to other methods would substantiate this contribution?",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "t7tV7J94DD",
+      "rating": 5,
+      "confidence": 4,
+      "soundness": 2,
+      "presentation": 2,
+      "contribution": 2,
+      "summary": "This paper presents a feed-forward text-to-3D generation framework, which consists of a triplane prior learner model and a semantic-aligned view synthesizer. Experiments are conducted to validate the effectiveness of the proposal.",
+      "strengths": "S1. The proposed triplane prior learner is reasonable. \n\nS2. Learning a high-quality feed-ward text-to-3D generation model is a promising research direction.\n\nS3. The proposed orthogonal attention is suitable for the triplane network.",
+      "weaknesses": "W1. What is the evaluation set used by authors? I am wondering whether the authors use standard benchmarks to evaluate their methods. \n\nW2. The authors only show two or three qualitative comparison examples in Figure 3. It is encouraged to provide more comparison examples to avoid cherry-picking results. \n\nW3. The authors only conduct qualitative ablation studies in Sec 4.5. Quantitative ablation studies are also necessary to better validate the effectiveness of each design.  \n\nW4. What is the inference time of the proposed method?",
+      "questions": "Please see the Weaknesses.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "vniKj8lFXB",
+      "rating": 3,
+      "confidence": 5,
+      "soundness": 3,
+      "presentation": 2,
+      "contribution": 2,
+      "summary": "This work proposes a feedforward text-to-3D generation framework with multi-view consistency and semantic alignment. Specifically, it fine-tunes a well-trained diffusion model to produce triplane priors. To achieve better semantic alignment, it further introduces the DINO feature in the semantic-aligned view synthesizer module.",
+      "strengths": "1. This work proposes a triplane-based pipeline to keep multi-view consistency and semantic alignment.\n2. The experiments showcase better consistency than MVDream.",
+      "weaknesses": "1. The motivation behind this work appears insufficient.\n  - The choice of MVDream-like methods for comparison seems misplaced. Fine-tuned diffusion models typically require additional optimization steps like NeRF or NeuS reconstruction to generate 3D shapes directly. A more appropriate comparison could be made with works such as \"ET3D: Efficient Text-to-3D Generation via Multi-View Distillation,\" which aligns closely with the task at hand.\n  - Concerns arise regarding semantic consistency. While prior-based methods have struggled with semantic alignment issues stemming from overfitting to 3D datasets, SEMV-3D's Semantic View Synthesis (SVS) mechanism appears to maintain semantic alignment, largely relying on DINO features. Similar strategies have been observed in instant3D and GRM.\n\n2. The paper overlooks multiview reconstruction-based feedforward pipelines, such as instant3D, LGM, and GRM, which excel in semantic consistency. Notably, instant3D, incorporating DINO and Triplane, shares striking similarities with this approach.\n- The claim of Triplane's 'efficiency' in Line 159 may not be entirely justified, particularly compared with 3D Gaussians.",
+      "questions": "- What is the inference time of SEMV-3D per prompt?\n\n- Figure 5 lacks a text prompt. The CA exhibits less benefit in Figure 5.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    }
+  ]
+}

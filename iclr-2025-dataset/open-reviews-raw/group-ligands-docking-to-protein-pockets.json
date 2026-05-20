@@ -1,0 +1,70 @@
+{
+  "paper_id": "zDC3iCBxJb",
+  "decision": "Accept (Poster)",
+  "reviews": [
+    {
+      "reviewer_id": "D96Qi6YPGC",
+      "rating": 8,
+      "confidence": 4,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "The paper describes an approach for leveraging the insight that similar ligands that bind to the same protein target are expected to binding similarly.  A method for attending between ligands as part of a diffusion docking process is described and the results convincingly show the benefit of this approach.",
+      "strengths": "Particularly during the lead optimization phase, it is reasonable to expect that there are a number of known ligands for the target protein and using this information to improve docking performance could help in the discovery of better ligands.\n\nA reasonable approach for message passing across ligands with triangle attention is described.  This might provide a more general template for other tasks where output are represented as graphs and there is a known consistency bias.\n\nThis approach does not require the accessory ligands to have a known structure at inference time, which is a realistic scenario.\n\nInformative ablation studies are performed.",
+      "weaknesses": "The contributions are inappropriate as written.  This is not the first time the concept that multiple similar molecules can be used to enhance molecular docking has been described.  ComBind (Paggi et al, 2021; cited in the paper) does exactly that.  There are other methods that use this insight in different ways (e.g. selecting poses from ensemble docking).  The contributions should be qualified that this is the first end-to-end deep neural network approach to molecular docking that uses this insight.\n\nThe results only compare to single-ligand docking.  Comparing to ComBind (or OpenComBind if lacking a Schroedinger license) would be more relevant.  Can the diffusion model approach make better use of the similarity bias than previous methods? This question goes unanswered.\n\nNot going beyond the PDBbind to identify alternative augmentation ligands (of which there are many, as structures aren't needed for inference) is a missed opportunity that weakens the paper as with the current evaluation framework many ligands can't be put into groups.  Replicating the ComBind evaluation would provide predefined groups of ligands while also making it possible directly compare to a conventional approach.\n\nThere are issues with using a time split to assess generalizability, but as this is the same split used with DiffDock it is appropriate to use for the comparisons performed here.\n\nThe overloading of \"k\" to mean two different things in Fig 2 is confusing.\n\nI found equations (4) and (5) confusing due to the overloading of z - the text says these two separate values (presumably equivalent to AF2 incoming and outgoing triangle attention edges) will be stacked, while the equations say they are summed.\n\n\"and since the C-C bond length is about 1.5A.\"\n\nTable 2 is apparently showing Top-10 results, but this fact is only stated in the main text. Why not replicate the reporting in Table 1?  \"Med.\" isn't defined, but is presumably median RMSD.\n\n4.4: \"Section\" is used when \"Figure\" is meant.  \"ifself\"",
+      "questions": "How does your method compare to ComBind in a head-to-head comparison? Answering this would significantly increase my enthusiasm for the paper as, in addition to providing a more relevant baseline, it would involve testing using ligands without known structure as augmentation ligands (assuming the ComBind evaluation framework is used).",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "aMnimZAEeA",
+      "rating": 5,
+      "confidence": 5,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 2,
+      "summary": "This paper presents a deep learning model for molecular docking, which improves data utilization and model quality by docking multiple molecules to the same protein. It further enhances the connections between similar atoms across different molecules and the same protein amino acids using a triangular perceptual network. Through this multi-molecule docking approach, the model surpasses existing methods.",
+      "strengths": "The study proposes a new molecu lar docking framework to simultaneously consider multiple ligands docking to a protein.",
+      "weaknesses": "Overall, this paper offers a certain level of contribution, but the experimental section requires clearer descriptions and further discussion. For the figures in the paper, the authors should provide detailed captions, including explanations of the methods used.",
+      "questions": "1.\tThe authors should account for the effect of protein similarity on the results by performing redundancy removal on the test set proteins that are either duplicated or highly similar to those in the training or validation sets. Tools like MMseqs or other alternatives could be used for this process.\n2.\tThe authors need to explain how the similarity between ligands in the group ligand set impacts the results.\n3.\tHow would the results of GROUPBIND change if tested on the latest PoseBuster (version 1 and version 2)?\n4.\tIn Figure 4 on page 8, does the success rate refer to Top 1 or Top 40? What do \u201cSG\u201d and \u201cAG\u201d specifically mean? These details should be clarified in the figure caption.\n5.\tWhat does Figure 5 on page 8 illustrate, and where is it referenced in the article?\n6.\tIn Figure 6 on page 8, does the success rate refer to Top 1 or Top 40? The meanings of \u201cNG\u201d, \u201cSG\u201d, and \u201cAG\u201d should also be clarified in the figure caption.\n7.\tOn line 457 on page 9, the percentage 36.3% is mentioned twice, which could cause confusion and should be clarified.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "1ppWG45770",
+      "rating": 6,
+      "confidence": 5,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "This paper introduces GroupBind, a blind rigid docking method predicated on the biochemical observation that ligands binding to the same target protein often adopt similar poses. GroupBind employs an interaction layer for a group of ligands and a triangle attention module to embed protein-ligand and group-ligand pairs. Performance is evaluated on the PDBbind dataset.",
+      "strengths": "1. The idea of leveraging similar binding poses among ligands targeting the same protein is intriguing and biologically relevant.\n2. The experimental results suggest that incorporating augmented ligands improves docking performance.",
+      "weaknesses": "1. The core idea is similar  to MCS (Maximum Common Substructure) docking [1, 2], which assume that ligands with similar substructures exhibit similar docking poses. GroupBind, however, assumes all ligands share similar docking poses. Figure 1 depicts highly similar ligands with similar docking structures. Conversely, [3] (Figure 4) illustrates cases where structurally distinct ligands adopt distinct poses. A statistical comparison quantifying the difference between the MCS docking assumption and GroupBind's assumption is warranted.\n\n2. Comparing GroupBind-Ref against blind docking methods like DiffDock is unfair. DiffDock performs blind docking, whereas GroupBind-Ref utilizes prior knowledge of the binding pocket, making it a site-specific docking method. This introduces a significant advantage for GroupBind-Ref.\n\n3. The evaluation should include more baselines such as FABind [5] and FABind+ [6], for which source code is available. Expanding the evaluation to include datasets like PoseBuster would assess GroupBind's ability to predict physically plausible structures.\n\n4. The reported top-1 docking success rate for DiffDock (32.4% with 40 samples in Table 1) appears considerably lower than previously \nreported results (38.2% in [4] and 36.0% in [5]). This discrepancy requires clarification.\n\n5. The clarity of the writing could be improved. Specific points of confusion are detailed below in the Questions section.\n\n[1] A High-Quality Data Set of Protein-Ligand Binding Interactions Via Comparative Complex Structure Mod, 2024\n\n[2] FitDock: protein-ligand docking by template fitting, 2022\n\n[3] DeltaDock: A Unified Framework for Accurate, Efficient, and Physically Reliable Molecular Docking, 2024\n\n[4] DiffDock: Diffusion Steps, Twists, and Turns for Molecular Docking, 2022\n\n[5] FABind: Fast and Accurate Protein-Ligand Binding, 2023\n\n[6] FABind+: Enhancing Molecular Docking through Improved Pocket Prediction and Pose Generation, 2024",
+      "questions": "1.\tThe definition of \"ligand ground graph\" needs explicit formalization. The current lack of clarity makes understanding this crucial concept challenging. For example, when referring \u201cnoisy group ligands\u201d in line 214, it is difficult to understand this concept.\n2.\tThe references to tables and figures are confusing. Avoid using \"Section\" to denote figures, tables, and section of manuscript at the same time. Use \"Figure\" when referring to images (e.g., Figure 1, Figure 2) and \"Table\" for tabular data (e.g., Table 1, Table 2). \n3.\tA thorough proofread is necessary to correct spelling and grammatical errors. For instance, \"beyound\" on line 101 should be corrected to \"beyond.\" A comprehensive review of the entire text is recommended.\n4.\tFigure 7's inclusion of Figures 3, 4, 5, and 6. For better visual organization and clarity, these figures should be presented as subfigures within a single figure (e.g., Figure 7a, 7b, 7c, and 7d). This allows for easier comparison and a more streamlined presentation.\n5.\tLacking explanation of \"NG\" in Figure 6. While the meaning of \"NG\" in Figure 6 might be discernible from the main text, its meaning should be explicitly stated. This ensures clarity and avoids requiring readers to search through the text for an explanation. A concise definition or clarification of \"NG\" within the caption is crucial.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "gQO6fxesjV",
+      "rating": 8,
+      "confidence": 3,
+      "soundness": 4,
+      "presentation": 4,
+      "contribution": 3,
+      "summary": "This paper presents a molecular docking framework called GROUPBIND, which enhances the binding capability of a ligand to a target protein pocket by leveraging other ligands that bind to the same pocket. \nThe framework introduces message padding among groups of ligands and a triangle attention module for protein-ligand pairs. Experimental results validate that GROUPBIND improves docking performance based on diffusion models.",
+      "strengths": "(1) The writing and organization of this paper are very clear.\n\n(2) This paper is intriguing because it is based on the idea of enhancing the binding capability of the current ligand by considering the binding positions of other ligands that target the same protein.",
+      "weaknesses": "(1) Why are the results of DIFFDOCK in Table 1 worse than those in the original paper, and it seems that the bold text annotations might be inaccurate?\n\n(2) From Figure 1, we can see that molecules binding to the same pocket indeed have similar structures, but how many pockets in the dataset exhibit this situation? Is there any statistical data on the number of pockets and the corresponding similar ligands in the PDBBind dataset? \n\n(3) During inference, when searching the database for ligands similar to the query ligand, how many entries in the test set can retrieve similar ligands? If similar ligands cannot be retrieved, does that mean the model becomes ineffective?",
+      "questions": "Refer to the content in the Weaknesses.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    }
+  ]
+}

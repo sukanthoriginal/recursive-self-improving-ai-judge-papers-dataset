@@ -1,0 +1,32 @@
+{
+  "pages": 19,
+  "redactions": [
+    "title_page_author_block"
+  ],
+  "pattern": {
+    "email": 0,
+    "orcid": 0,
+    "url": 51,
+    "arxiv_footnote": 0
+  },
+  "section_redactions": 0,
+  "author_name_redactions": {
+    "Qiu": 1,
+    "chen": 20,
+    "Cai": 4,
+    "Hao": 19
+  },
+  "authors_groundtruth": [
+    "Chenjie Qiu",
+    "yongqi luo",
+    "Bingfeng chen",
+    "Boyan Xu",
+    "Ruichu Cai",
+    "Zhifeng Hao"
+  ],
+  "verify": {
+    "ok": true,
+    "issues": [],
+    "chars": 68034
+  }
+}

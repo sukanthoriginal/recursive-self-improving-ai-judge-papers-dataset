@@ -1,0 +1,70 @@
+{
+  "paper_id": "tTOo7r4G9j",
+  "decision": "Reject",
+  "reviews": [
+    {
+      "reviewer_id": "PxQpbCMLtr",
+      "rating": 5,
+      "confidence": 4,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "The paper introduced a novel compressive adaptation approach (SpaLLM) for LLMs that effectively addresses the limitations of existing methods QLoRA. Spallm maintains high performance while reducing computational and memory usage.",
+      "strengths": "1. The paper proposed sketched parameters, an interesting idea for compressive adaptation. \n\n2. The paper is well written. the proposed approach is simple and clear.",
+      "weaknesses": "1. In section 2.3. how did you fix the mapping introduced by the sketching matrix?\n2. in all the experimental settings, you choose the Lora rank equal to 64. I am not sure this comparison is fair. Could you show the results when Lora's rank equals 4 or 1? \n3. Why did you choose 5 common sense QA datasets in Table 3 while 7 common sense qa datasets in Table 4? Could you make it consistent?\n4. in Figure 3, the accuracy is still improving as the increase of training parameters. Could you show more training parameters? in other words, is it scaling to more training parameters?\n\n5. There is no code for the paper.\n\nI promise I would like to raise my score if these questions can be solved.",
+      "questions": "Please refer to the weakness.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "Uxp0Tjc3IV",
+      "rating": 3,
+      "confidence": 4,
+      "soundness": 2,
+      "presentation": 2,
+      "contribution": 2,
+      "summary": "The paper presents a unified approach to compressive adaptation of LLMs, namely SpaLLM. The method allows adaptation without the strict low-rank matrix assumption. The authors claim that the method is more efficient and have better performance than methods like QLoRA. A row-wise parameter sketching method is introduced to skech the parameters for fine-tuning. It supports unified compressive adaptation with a single-tower architecture, task-specific compression and inherently supoorts the dynamic management of multiple adapters. The method is compared with several popular compressive LoRA methods and demonstrate comparable efficiency and accuracy.",
+      "strengths": "1. The method demonstrates precision improvements on sevaral LLM finetuning benchmarks, which is a hot topic in the literature.\n2. The approach simplifies LLM's compressive adaptation workflow.",
+      "weaknesses": "1. The technical contribution seems limited and is not well elaborated. I expect some formal mathematical specification of the sketching method.The authors try to elaborate a lot on the use cases of the mehtod, however, the detailed description on how to implement those ideas are missing;\n2. The evaluation in figure 3 shows that accuracy on llama2 7B have better accuracy when GPR=8, however, in other evaluations, GPR seems to be randomly setted to 1\uff0c4 \uff0c8.  It makes the readers confused on the selection of GPR even with an ablation study. Moreover, the efficiency is only compared when GPR=1 in Table 5, which may lead to poteintial decay on the model performance.\n3.On the settings of experiments, it seems that the authors carefully selects some good results to present without introducing the intuition on the selection of certain parameters.",
+      "questions": "1. The authors listed some compressive adapation methods like DoRA, OFT and BOFT. Did the author try to make exprimental comparison with these methods?",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "7nTHxoHj5Y",
+      "rating": 1,
+      "confidence": 4,
+      "soundness": 2,
+      "presentation": 1,
+      "contribution": 2,
+      "summary": "The paper introduces a parameter-efficient finetuning (PEFT) method called SpaLLM for the compressive adaption of LLMs. It investigates the assumption and overhead issues of \u201ctwo-tower\u201d QLoRA-like PEFT methods. SpaLLM sketches the LLM weights into lookup tables and finetunes the table values without the low-rank assumption. The paper claims SpaLLM provides better accuracy and efficiency tradeoffs than previous methods.",
+      "strengths": "- The paper presents an interesting PEFT method that adapts LLM model weights by sketching without relying on LoRA style low-rank adaption techniques.\n\n- The experiments show competitive results than previous PEFT methods",
+      "weaknesses": "- The paper is potentially flawed without further clarification on the sketching technique. The introduction and method sections are vague, unclear, and incoherent. \n\nExamples include:\n1. The two-tower architecture is defined without any context, it normally means two branches of some encoder-like architecture, like in the Siamese network. From figure 2, the paper seems to indicate the weights getting finetuned in separate two steps and finetuning works like a two-twoer style. \n2. In the introduction, it is unclear how QLoRA causes a performance gap and how LoftQ reduces such a gap. And what are those performance gaps, task accuracy loss, or efficiency gaps? The introduction says the compression process is lossy (line 63), but why is it lossy? And why is the sketching via parameter sharing not lossy? Regarding difficulty in implementation, isn\u2019t there a QLoRA library that makes it easy for people to use, the paper also claims QLoRA has additional overhead and requires significant system-level optimizations (line 73), but it does not get quantified. \n3. The presentation of SpaLLM and sketching ideas in the introduction are vague and redundant and do not contain much useful information. Line 78 says finetuning directly on compressed model parameters, how are the parameters compressed? Seems the parameters are quantized to low-bit precision and then applied to sketching. Sketching is parameter sharing and not contradictory compression. Line 85-94 then discuss the look-up tables (LUTs), how is sketching connected to these LUTs is unknown. How the LUTs are used also remains unclear. The introduction has no results or any comparison with previous methods.\n\n4. Section 2.1 seems like a related work section but turns out not since it is mixed with existing work and the SpaLLM sketching-based parameter sharing. Line 113 - 122 says the two virtual and trainable parameter categorizations, which seems unnecessary because they are not referred to anywhere later in the paper. \n\n5. The Sketching idea is in fact parameter sharing from section 2.2, which is no new. The paper repurposes the parameter sharing for PEFT. However, it is unclear how the sketching works,  from lines 148 - 151, it consists of row-wise parameter sketching, weighted Lloyd optimization, and LUTs. It does not explain how these three components work together and why they are needed. The weighted Lloyd algorithm seems to avoid collision during hashing, so it is confusing to rebrand the hashing as sketching. \n\n- While the results are strong and much better than the compared baselines, without knowing the details of the SpaLLM method makes it much less convincing and difficult to evaluate the true improvements.",
+      "questions": "- Is the centroid learning process clustering?  are all of this Lloyd algorithm computation done during training? the overhead seems huge\n- The one-hot encoding does not save memory, any compression of one-hot encoding?\n\n- Line 196, what is the role of sketched parameters? is it similar to LoRA ranks? or just tuning more parameters? What are groups per row?\n\n- Line 206, why do the sketch parameters become floating-point? which set of parameters are fixed-point?\n\n- Line 215, no explanation of LUTs, how do you build it, how to maintain it in GPU memory? extra overhead?\n\n- Line 241, why only the sketched parameters are stored and updated for each task, not the LUTs? Do you still need LUTs for inference?\n\n- Line 255, how would compression not lose information? the identify matrix example is not convincing because real model weights are not identity.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "gsLcuVKNMm",
+      "rating": 6,
+      "confidence": 4,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "SpaLLM (Sketched Parameter Adaptation of LLMs), a novel approach for compressive adaptation of large language models (LLMs) that simplifies the fine-tuning process while enhancing efficiency and accuracy. Unlike traditional methods such as QLoRA, which use a \"two-tower\" architecture with low-rank assumptions, SpaLLM employs a sketching-based parameter-sharing technique that avoids these constraints. This unified approach combines model compression and adaptation into a single, streamlined process.\n\nKey contributions of the paper include:\n\n* Single-Tower Architecture: SpaLLM eliminates the need for the two-tower structure, reducing computational overhead by requiring only one compressed matrix multiplication per layer during inference.\n* Sketching-Based Compression: The method applies row-wise parameter sketching with optimized mappings, allowing direct adaptation of compressed parameters without relying on low-rank algebraic assumptions.\n* Improved Efficiency and Accuracy: Experimental results show that SpaLLM outperforms state-of-the-art compressive adaptation methods in both natural language understanding and generation tasks, delivering significant efficiency gains in memory and inference speed.\n* Task Flexibility: The approach supports dynamic maintenance of multiple adapters, allowing seamless task-switching and adaptability for multi-user serving environments.\n\nSpaLLM offers a resource-efficient solution for fine-tuning large models, making it particularly suited for deployment on hardware with limited resources.",
+      "strengths": "The paper presents an innovative solution to compressive adaptation by introducing SpaLLM, which avoids the traditional limitations of low-rank, two-tower architectures seen in methods like QLoRA. By employing a sketching-based parameter-sharing approach, it redefines how parameter compression and adaptation can be unified. This approach not only removes algebraic constraints but also opens new avenues for efficient fine-tuning, making SpaLLM a notable contribution that combines original ideas with practical advancements in LLM adaptation.\n\n## Quality\nThe quality of the work is high, demonstrated through meticulous experimentation and comparison against established state-of-the-art methods. The experiments cover various LLM architectures and datasets, including LLaMA and CommonsenseQA benchmarks, highlighting the method\u2019s accuracy and efficiency. The authors rigorously test SpaLLM\u2019s performance under different bit compression rates, group sizes, and model configurations, showcasing the robustness of the approach and supporting the claims with thorough empirical evidence.\n\n## Clarity\nThe paper is generally well-organized, with each section logically leading to the next. The authors provide clear definitions and motivations for concepts such as \"two-tower architectures\" and \"parameter-sharing compression.\" Diagrams and tables, such as the illustration of row-wise parameter sketching and comparisons with baselines like LoftQ, further enhance clarity by visually presenting complex ideas. Although highly technical in parts, the paper effectively communicates its contributions and methodology.\n\n## Significance\nSpaLLM has high practical and theoretical significance, especially given the growing need for resource-efficient LLM adaptation techniques. By enabling adaptation directly on compressed parameters, SpaLLM reduces computational and memory overhead, which has profound implications for deploying LLMs on hardware with limited resources. Its flexibility in managing multiple adapters and dynamic task-switching makes it particularly valuable for multi-task learning scenarios, enhancing its potential for broader, real-world applications in natural language understanding and generation.\n\nOverall, the paper\u2019s strengths lie in its innovative approach to compressive adaptation, robust methodology, clear presentation, and significant contributions to scalable and efficient LLM adaptation.",
+      "weaknesses": "In general , I think this is a great work.\n\nSome concerns are: \n\n* the success of SpaLLM relies heavily on the effectiveness of its sketching algorithm. If the sketching fails to capture essential details of the parameter distributions, it can lead to a loss in model accuracy or even failure to converge, particularly under aggressive compression settings.\n\n* SpaLLM\u2019s parameter-sharing approach could introduce challenges in tasks that require highly specialized or fine-grained learning (e.g., nuanced natural language understanding or highly specific domain tasks), as parameter-sharing might restrict the model\u2019s flexibility.",
+      "questions": "How to demonstrate the effectiveness of the sketching algorithm.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    }
+  ]
+}

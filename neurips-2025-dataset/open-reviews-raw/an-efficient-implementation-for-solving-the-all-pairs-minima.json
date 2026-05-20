@@ -1,0 +1,91 @@
+{
+  "paper_id": "hTbimOuFPM",
+  "decision": "Reject",
+  "reviews": [
+    {
+      "reviewer_id": "wb9LtMM9gE",
+      "overall": 1,
+      "confidence": 5,
+      "quality": 1,
+      "clarity": 3,
+      "significance": 1,
+      "originality": 1,
+      "summary": "The paper presents an $O(n^2)$ implementation for solving the all-pairs minimax path problem in undirected graphs. The max-weight of a path between two nodes $u$ and $v$ is the largest edge weight on the path.  A minimax path between $u$ and $v$ is a path between $u$ and $v$ with minimum max-weight among all $u$-$v$ paths. In the all-pair shortest minimax path problem, we are asked to compute the weight of the minimax path between all pairs of nodes. The paper claims that there is no $O(n^2)$ implementation known for this problem.",
+      "strengths_and_weaknesses": "The paper has several weaknesses in my opionion.\n\n1) First of all, the idea of computing a minimum tree and then taking edges by increasing weight and connecting components or alternatively by decreasing weight and splitting components can at least be traced back to:\nGower J C, Ross G J, \"Minimum spanning trees and single linkage cluster analysis\". Journal of the Royal Statistical Society, Series C. 18 (1): 54\u201364, 1969.\nSo there is no new theoretical contribution in the paper (which per se would be fine).\n\n2) The implementation of the algorithm is not particularly difficult. There are lots of state of the art minimum spanning tree computations as well as sorting algorithms. With this, what is left is a simple filling of the distance matrix. The whole implementation fits in a few lines (see Figure 1b). In my opinion, it has the level of an undergraduate programming assignment in a basic algorithms and data structures course.\n\n3) The benchmarking is somewhat unfair. Floyd-Warshall based algorithms can also handle directed graphs and are therefore more general problems. The MST_shortest_path algorithm (Figure 3) is a very naive implementation of the same algorithm. It simply recomputes the max-weights for all pairs, completely neglecting the fact that the underlying graph is a tree.",
+      "questions": "I would be happy if the authors could address the weaknesses mentioned above.",
+      "limitations": "Yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I do not think that the contribution of this paper has Neurips-level. It contains an implementation of a well-known algorithm. The implementation itself is rather straight-forward. Therefore, I cannot recommend acceptance.\n\nThe author stopped the discussion with me."
+    },
+    {
+      "reviewer_id": "EC7p6TomyX",
+      "overall": 1,
+      "confidence": 4,
+      "quality": 1,
+      "clarity": 1,
+      "significance": 1,
+      "originality": 1,
+      "summary": "This paper claims that no existing implementation of the algorithm referred to as \u201cAlgorithm 4\u201d exists in the literature for solving the all-pairs minimax path problem, and proceeds to implement it. However, the contribution is purely an implementation of a known algorithm. As such, the paper offers little scientific value and is not aligned with the scope of Neurips.",
+      "strengths_and_weaknesses": "Strength: \n- The problem being investigated, the all pairs path problem, is an important problem in a number of application areas\n- A good body of relevant methods is discussed in the related work section. \n\n\nWeakness: \n\n- the paper has limited scientific value since it only implements a known algorithm\n\n- the implemention does not relates to AI and does not align with the scope of Neurips\n\n- It is not clear why the implemention outperforms the existing methods in principle. \n\n- The conclusion includes some information that seems inappropriate in conclusion. If the authors consider this content important, it would be more appropriately placed earlier in the paper.",
+      "questions": "- Which part of the proposed implementation is related to AI?\n\n- Why the information after Line 176 is included in the conclusion section? Is there any particular reason?\n\n- The summary of the contribution presented in the conclusion could be put in the introduction. \n\n- This paper frequently cites \"Algorithm 4\" in another paper. It would be better to give a proper name to the algorithm. \n\n- Implementation, which is the main contribution of this paper, is too short and could include more details about the implementation\n\n- You discussed the correctness of \"Algorithm 4\". However, Algorithm 4 is the work of the cited reference paper. The contribution claimed by this paper is the efficient implementation of the algorithm.  Can you explain why the proposed implementation performs better than the existing methods from the theoretical perspective?",
+      "limitations": "Didn't discuss limitations",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": null
+    },
+    {
+      "reviewer_id": "VPgZQg8la0",
+      "overall": 2,
+      "confidence": 4,
+      "quality": 1,
+      "clarity": 2,
+      "significance": 1,
+      "originality": 1,
+      "summary": "The submission provides an implementation for an algorithm for the all points path distance (APPD) problem. In the APPD problem, the input is a weighted graph and the goal is as follows: For each pair of nodes $u$ and $v$, find a path from $u$ to $v$ such that the maximum weight of the path's edges is minimized.\n\nThe submission's main contribution is the implementation of an algorithm, which appeared in an arxiv paper in 2023 (see reference [16] in the paper). It then provides experiments and comparison with some baseline algorithms.",
+      "strengths_and_weaknesses": "**Strengths:**\n\nThe APPD problem is a classic and fundamental problem.\n\n**Weaknesses:**\n\nThe main weakness of the submission is that it just provides an implementation of an existing algorithm. In fact, the implemented algorithm was presented in another paper and its implementation just consists of 33 lines of Python code. Thus, the technical contribution and the originality is rather low. In these dimensions, I do not believe that the submission reaches the high bar of accepted NeurIPS papers.\n\nAnother weakness is that the submission's writing is somewhat informal in its tone, for instance including email exchanges between the authors and one of the researchers providing the related work. Therefore, I also believe that the writing quality is not acceptable for NeurIPS.",
+      "questions": "1. What was the main obstacle for implementing the algorithm?",
+      "limitations": "None.",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "Taking into account the rebuttal, as well as the other reviewer comments, my impression is still that the level of novelty of the paper does not reach the high standards of NeurIPS. Thus, I believe the submission should be rejected."
+    },
+    {
+      "reviewer_id": "DEFCSgc4wr",
+      "overall": 1,
+      "confidence": 5,
+      "quality": 1,
+      "clarity": 1,
+      "significance": 1,
+      "originality": 1,
+      "summary": "This paper considers the minimax path problem where given any two points in a graph, the goal is to compute the path that minimizes the largest cost edge on the path. It is well known that the minimum spanning tree preserves the shortest path between every pair of points. Thus, in order to compute all pairs shortest path, one has to compute the MST and then compute all pairs shortest path on the MST. There are several existing algorithms that achieve O(n^2) time but none of them have an implementation. The authors implement one of the existing algorithms and provides an empirical analysis of their implementation.",
+      "strengths_and_weaknesses": "There are two major drawbacks of this result. The problem itself is not central to ML and the result is therefore, not in scope for NeurIPS. Second, the main contribution is a seemingly standard implementation of an existing algorithm which does not meet the high standard for NeurIPS. For this reason, I cannot recommend accepting the paper.",
+      "questions": "NA",
+      "limitations": "yes",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "A standard implementation of an algorithm is not novel enough to be considered a publishable result."
+    },
+    {
+      "reviewer_id": "agMxXzNkaj",
+      "overall": 1,
+      "confidence": 5,
+      "quality": 1,
+      "clarity": 2,
+      "significance": 1,
+      "originality": 1,
+      "summary": "This paper is about an implementation of an algorithm for all pairs minimax path problem in undirected dense graphs that works in $O(n^2)$\n time. \nThe problem asks to output the minimax distance between every pair of points s and t, where the minimax distance between s and t is the minimum of the maximum weighted edge in a path from s to t, over all the paths from s to t. The algorithm is from \"Gangli Liu. 2023. Min-Max-Jump distance and its applications. arXiv preprint arXiv:2301.05994 (2023).\", and essentially first finds an MST, and uses the fact that the minimax distance between any s and t is the maximum weighted edge on the st path in the MST. Then they use this fact to fill up an n by n matrix storing all these values. This paper basically codes this algorithm up.",
+      "strengths_and_weaknesses": "strengths: I don't see any\n\nWeaknesses: I don't see any value in coding up an algorithm that is proven to be computationally feasible.",
+      "questions": "Could you provide any other paper that does a similar thing to your paper, i.e. coding up an already existing algorithm with existing guarantees?",
+      "limitations": "NA",
+      "ethical_concerns": [
+        "NO or VERY MINOR ethics concerns only"
+      ],
+      "final_justification": "I think this paper is a definite rejection since it has no value."
+    }
+  ]
+}

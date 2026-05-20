@@ -1,0 +1,54 @@
+{
+  "paper_id": "esYrEndGsr",
+  "decision": "Accept (Oral)",
+  "reviews": [
+    {
+      "reviewer_id": "e3TylMO2dk",
+      "rating": 10,
+      "confidence": 4,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 4,
+      "summary": "The paper provides a systematic treatment of tractable influence function (IF) estimation for generative diffusion models. Several forms of IFs are considered: IF of the ELBO, IF of the loss, IF of the path probabilities. These approaches are compared both conceptually and experimentally. The IF of the marginal probabilities of the images is discussed but not implemented.\nA large fraction of the paper deals with the intractability of the Jacobian estimation involved in the calculation of the IF and offers and compares several approximate solutions.\n\nThe paper provides a thorough experimental analysis of the different IF approaches on several datasets and compares the results with the exact retraining method.\n\n[edit] I increased my score due to the new analysis and results provided during the rebuttal phase, which answered some of the opened questions and provided links with the recent literature.",
+      "strengths": "This work is very valuable for anyone interested in IF estimation in generative diffusion models. This is likely going to be a very important tool due to privacy and copyright concerns associated with image and video generation. \n\nBoth the theoretical discussion and the experimental analysis is systematic and well executed. The paper is very easy to follow and it manages to both provide the intuition and the theoretical justification for its design choices.\n\nI particularly appreciated the discussion of the results, which highlight both the strengths and weaknesses of each approach and also the limitation of the approximate IF estimation when compared with exact retraining.",
+      "weaknesses": "Arguably, the marginal likelihood logp(x) is the ideal target for a IFa analysis. While it is somewhat challenging to compute using the deterministic integration formula with stochastic or deterministic  trace estimation, it is not intractable and in my opinion it should have been analyzed. For example, having the analysis of the IF of logp(x) would help to make sense of the counterintuitive behavior of the IF of the ELBO.\n\nIt would have also appreciated to see an analysis on more tractable low-dimensional models with small networks, where the Hessian can be computed exactly. This analysis can be used to evaluate the relative performance of the Hessian approximation techniques, at least in this simple regime.",
+      "questions": "In the last paragraph before the discussion (starting from line (507), the authors argue that the ELBO could be a poor proxy of the marginal probability due to the fact that it is rather insensitive to the resampling of up 50% of the dataset, meaning that such a resampling do not meaningfully change the ELBO of the generated images.\n\nI think that this conclusion is incorrect. There is in fact evidence that diffusion training enters a 'generalization phase' after a finite dataset size, after which the generative probabilities remain approximately constant even under a non-overlapping split of the training set. This for example can be seen in (Zahra, 2023).\n\nReferences:\nKadkhodaie, Zahra, et al. \"Generalization in diffusion models arises from geometry-adaptive harmonic representation.\" arXiv preprint arXiv:2310.02557 (2023).",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "MjbByZd6m1",
+      "rating": 8,
+      "confidence": 2,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "In this work the authors adapt influence functions to work with diffusion models. Computing influence functions typically requires one to compute the inverse of the Hessian, which is intractable for deep learning models. Therefore the authors make use of a series of approximations. Firstly, they approximate the Hessian with the generalized Gauss-Newton matrix (GGN). Then they approximate the GGN with a block diagonal matrix, where the diagonal blocks are defined by layers. Finally, they approximate each block as a kronecker product.\n\nThe authors then evaluate their method on \u201clinear data modelling score\u201d and \u201cretraining without top influencers\u201d, and find their methods achieve state-of-the-art on both metrics.",
+      "strengths": "This paper combines interesting ideas to tractably approximate influence functions for diffusion models, and achieve state-of-the-art performance on training data attribution on diffusion models, which is a challenging problem.",
+      "weaknesses": "While it is clear that the proposed method is much more scalable than computing the raw influence function, it is difficult to assess how scalable this method actually is based on the main body of this paper (e.g. things like what is the runtime, how does it scale with the model size, what are the space requirements). A reader ought to have a good idea of how feasible this would be to implement for themselves.\n\nIt is not clear whether the proposed method outperforms the existing methods given the overlaps in standard error. Perhaps statistical significance could be reported here to give a better idea?\n\nThe experimental evaluation is only performed on CIFARs 2 and 10, so it is unclear how well this method scales to larger image generators, both in the quality of attributions and in terms of compute.",
+      "questions": "You explicitly mention that K-FAC is defined for linear and convolutional layers (page 6), but this doesn\u2019t seem to include attention layers, which all diffusion architectures that I\u2019m aware of use. Is K-FAC also defined for attention in prior work, or could you define it?\n\nCould you provide a runtime analysis, or some idea of what the runtime is (e.g. how much time would it take to compute a all influence values for a single sample on an A100)? How does this runtime (and possibly space requirement) scale with the complexity of the model? How much computational resources would I need if I wanted to run this on my favorite existing diffusion model?",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "oBhPJRWtgz",
+      "rating": 6,
+      "confidence": 4,
+      "soundness": 3,
+      "presentation": 2,
+      "contribution": 3,
+      "summary": "This paper extends influence functions for data attribution of diffusion models. With an exposition focusing on approximating a Hessian with a generalized Gauss-Newton matrix (GCN), this paper justifies specific design choices (linearizing the neural networks combined with K-FAC-expand approximation) that lead to better performing influence functions. The theoretical framework also subsumes previous work such as Journey-TRAK and D-TRAK. Empirically, influence functions perform similarly to D-TRAK on CIFAR-2 and CIFAR-10, with lower sensitivity to the choice of the damping parameter. Finally, empirical observations are made to show the challenges when applying influence functions to diffusion models.",
+      "strengths": "- A theoretical framework is shown to unify influence functions, Journey-TRAK, and D-TRAK for diffusion models. This provides some clarity to the field of data attribution for diffusion models, which currently seems rather empirical.\n- The theoretical framework motivates the design choices for approximating influence functions, which actually lead to better performance (as shown in Figure 4).\n- Empirical observations (Section 4.1) are made to better understand how to apply influence functions to diffusion models.",
+      "weaknesses": "- The LDS and counterfactual evaluations are limited to DDPM on CIFAR. The paper would be strengthened if K-FAC Influence is also evaluated on LDM and LoRA-fine-tuned Stable Diffusion (as in the Journey-TRAK and D-TRAK papers). Furthermore, since the observations in Section 4.1 are empirical, not theoretical, they need to be validated in other model architectures and datasets to make the claims more general.\n- The proposed method K-FAC Influence is also sensitive to the choice of the damping parameter (LDS can range from ~15% to ~5% on CIFAR-10). This range of variation seems not much different from D-TRAK.\n- Observation 3 might be sensitive to the amount of training data removed. For example, if 90% of the data are removed, there could be more variation in the retrained diffusion models, as suggested by Kadkhodaie et al. (2024; Figure 2 in particular). In this sense, the claim in Observation 3 might need to be adjusted to be less general.\n- This is minor: It would be useful to include a brief summary of Grosse and Martens (e.g., the reduce vs. expand settings), perhaps in the Appendix.\n\nReferences\n - Kadkhodaie et al. (2024) - Generalization in Diffusion Models Arises from Geometry-Adaptive Harmonic Representations.",
+      "questions": "- In practice, how would we tune the damping parameter for K-FAC Influence? How would the tuning procedure differ from that for D-TRAK?\n- Observation 2 shows that F-FAC Influence overestimates the impact of data removal, whereas Koh et al. (2019) show that influence functions underestimates the impact of data removal. What are possible explanations for these differing observations?\n- Observation 3 seems to have been shown in Kadkhodaie et al. (2024; Figure 2 in particular). What additional insights are provided? For example, does Observation 3 only hold for ELBO, or does it also hold for the simple diffusion loss?\n\n\nReferences\n- Koh et al. (2019) - On the Accuracy of Influence Functions for Measuring Group Effects.\n- Kadkhodaie et al. (2024) - Generalization in Diffusion Models Arises from Geometry-Adaptive Harmonic Representations.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    }
+  ]
+}

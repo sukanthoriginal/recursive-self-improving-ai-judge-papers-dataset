@@ -1,0 +1,86 @@
+{
+  "paper_id": "1EnpStvBU8",
+  "decision": "Accept (Poster)",
+  "reviews": [
+    {
+      "reviewer_id": "BGcdyhqGmc",
+      "rating": 6,
+      "confidence": 4,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "This paper introduces an novel high-resolution adaptation method for multimodal large language models (MLLMs), termed Mixture-of-Resolution Adaptation (MRA). MRA employs a dual visual pathway design to process high- and low-resolution images simultaneously from both macro and micro perspectives, while integrating high-resolution information into the low-resolution pathway through the Mixture-of-Resolution Adapter (MR-Adapter). This approach reduces the number of visual tokens while preserving rich visual semantics, significantly enhancing the model's visual descriptive power.",
+      "strengths": "- Unlike previous strategies that divide high-resolution images into sub-images, this paper introduces an innovative dual visual pathway structure, offering a fresh perspective for high-resolution adaptation. The MR-Adapter effectively embeds high-resolution information into the low-resolution pathway, introducing a new adaptation mechanism within the visual processing framework of MLLMs. This design overcomes the efficiency limitations of traditional high-resolution processing.\n\n- The paper conducts extensive experiments across multiple vision-language tasks, providing a range of comparisons, with promising results.\n\n- The writing is clear and easy to follow. It effectively highlights MRA's performance gains and efficiency advantages across different tasks, helping readers fully understand the model\u2019s effectiveness and strengths.",
+      "weaknesses": "1. The processing of both low-resolution and high-resolution images in the paper is mainly square-based, such as 448x448 and 1024x1024. Is there any adaptation mechanism for handling images with different aspect ratios? Would processing high-resolution images in a way that matches the input image's aspect ratio lead to better performance?\n\n2. For high-resolution image inputs, we are more focused on improvements in OCR-related tasks. The results for OCRVQA in Table 5 don\u2019t seem to be the best. Additionally, Table 6 only presents results for LLaVA-HR+, but it lacks results for LLaVA-HR-7B, LLaVA-HR-13B, and LLaVA-HR-X with less training data. It would be helpful to include these results to better illustrate the impact of MRA on OCR-related tasks.\n\n3. Could the authors further explain why the MR-Adapter is inserted in the last 3 stages? What is the design principle behind this decision? Could it be inserted in the earlier stages instead?",
+      "questions": "See Weakness.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "gcYHRauKr9",
+      "rating": 6,
+      "confidence": 4,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "This paper focuses on the efficient high-resolution adaptation for multimodal large language models (MLLMs) and proposes a mixture-of-resolution adaptation (MRA) method for MLLMs. To be specific, the proposed MRA employs two visual pathways for images of different resolutions, where high-resolution visual information is embedded into the low-resolution pathway via the mixture-of-resolution adapters. Besides, the paper conducts extensive experiments to verify the effectiveness of the proposed model.",
+      "strengths": "1. The paper aims to explore the high-resolution adaptation for MLLMs, which is crucial and engaging.\n2. The paper is well written and easy to follow.\n3. The paper is well motivated and the proposed MRA appears reasonable.",
+      "weaknesses": "1. As demonstrated in Table 1, it seems that there is no significant gap between \u2018Avg. Pooling\u2019 and the proposed MRA for the VQAv2 task, which is perplexing. The paper should explain the experimental phenomenon.\n2. The paper should carry out a qualitative experiment between the proposed MRA and the model variant in Table 2.\n3. The paper fails to clarify the version of LLaVA-1.5 used in Figure 4.",
+      "questions": "As mentioned, in Table 1, it seems that there is no significant gap between \u2018Avg. Pooling\u2019 and the proposed MRA for the VQAv2 task, which is perplexing. The paper should explain the experimental phenomenon.\n2. The paper should carry out a qualitative experiment between the proposed MRA and the model variant in Table 2.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "XEvJhqxUrr",
+      "rating": 5,
+      "confidence": 4,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 2,
+      "summary": "This paper presents a new approach for efficient multimodal large language models (MLLMs) by addressing the high computational cost of processing high-resolution images. The authors introduce Mixture-of-Resolution Adaptation (MRA), a method that combines both low- and high-resolution visual features to enhance model efficiency without compromising visual recognition quality. MRA uses two visual pathways: one for low-resolution and one for high-resolution images, with novel mixture-of-resolution adapters (MR-Adapters) that embed high-resolution information into the low-resolution pathway. This design significantly reduces input sequence length and computational load.\n\nThe authors apply MRA to the LLaVA model, resulting in an improved version called LLaVA-HR, which demonstrates superior performance across 15 out of 17 vision-language (VL) tasks, including a 5.2% increase in accuracy on TextVQA. Furthermore, LLaVA-HR maintains efficient training and inference times, showing improvements over LLaVA-NeXT.",
+      "strengths": "1. The paper is well-written and easy to follow.\n\n2. Figures 2 and 3 are effectively designed and enhance understanding of the framework.\n\n3. The ablation study is solid to reveal the contribution of component.",
+      "weaknesses": "> ### 1. LImited performance imprvement.\n\nThe performance gains with MRA are modest. The low-resolution branch operates at 448\u00d7448, so the appropriate baseline is LLaVA-1.5 with 448-pixel resizing. Compared to this baseline, the improvements MRA achieves are minimal (e.g., +0.7 on VQA v2, +31 on MME, and +0.8 on POPE). Training cost and inference speed are also similar between MRA and LLaVA-1.5-448, reducing the practical benefit.\n\n> ### 2. Limited novelty\n\nThe dual-pathway, high-and-low-resolution approach isn\u2019t particularly new. Similar strategies have been explored in other works, such as Mini-Gemini and CogAgent, yet the authors do not compare their method with these models. Explicitly differentiating MRA from these approaches would help clarify its unique contributions.\n\n> ### 3. Limited generalizability\n\nThe authors apply MRA solely to LLaVA-1.5. Expanding the evaluation to other MLLMs, like Qwen-VL, would strengthen claims of the method\u2019s generalizability across architectures.\n\n\n[1] CogAgent: A Visual Language Model for GUI Agents\n[2] Mini-Gemini: Mining the Potential of Multi-modality Vision Language Models",
+      "questions": "> ### 1. Clarification on Visual Encoder Notation\n\nIn line 206, it states that $F_{I_l}$ and $F_{I_h}$ are visual encoders for high- and low-resolution images, which seems to be a typo. The correct notation should reflect that $F_{I_l}$ and $F_{I_h}$ correspond specifically to low- and high-resolution encoders, respectively.\n\n> ### 2. MR-Adapter Placement in ViT Architecture\n\nFigure 2 shows the MR-Adapter is applied starting from the second stage of the ViT architecture. Does this mean the initial stage of the ViT does not utilize high-resolution features? Clarifying this could help illustrate the feature extraction flow more clearly.\n\n> ### 3. Implementation of LLaVA-1.5-448\n\nFor LLaVA-1.5-448, only the image resolution is modified at the fine-tuning stage. Have you considered modifying the visual backbone from ViT-336 to ViT-448 and retraining it for both pre-training and fine-tuning? This comparison could provide insight into performance differences when using higher resolution throughout the model\u2019s entire training process.\n\n> ### 4. $SEED^{img}$ Performance Comparison\n\nCould you provide the $SEED^{img}$ performance for LLaVA-1.5, LLaVA-1.5-448, and LLaVA-NeXT? This metric would help evaluate relative image-processing capabilities across these models.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": "N/A"
+    },
+    {
+      "reviewer_id": "M53SECk0So",
+      "rating": 6,
+      "confidence": 4,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 2,
+      "summary": "In this paper, the authors propose the Mixture-of-Resolution Adaptation method to embed the high-resolution features into the low-resolution pathway. The MRA enhances the visual perception ability in MLLMs, and allow them to benefit from high-resolution visual inputs with reduced computational cost. Extensive experiments demonstrate the effectiveness of the MRA.",
+      "strengths": "1. The paper is well-written and easy to follow.\n2. The comparison of MRA and other high-resolution adaptation solutions is clear, highlighting the effectiveness of the dual visual pathways.\n3. The experiments are well-conducted and quite comprehensive.\n4. The study demonstrates strong performance on most datasets compared with other MLLMs.",
+      "weaknesses": "1. In Table 1, the MRA is compared to other high-resolution adaptation methods that use a single visual pathway. However, the introduction of a new visual encoder in the MRA raises concerns about the fairness of this comparison. Could the authors provide a baseline that uses dual visual pathways without the MR-Adapter?\n2. The analyses of the MRA\u2019s architecture and design details are insufficient, particularly regarding $\\mathcal{F}_l$, $\\mathcal{F}_h$, and the gate function. Could the authors provide ablation studies on these components?\n3. The main novelty of the paper appears to be the Mixture-of-Resolution Adapter. While the application of dual visual pathways for high-resolution adaptation in MLLMs is innovative, the overall contribution of the paper seems somewhat insufficient. If MR-Adapter could integrate a wider variety of low- and high- resolution visual encoders, its contribution would be significantly enhanced.",
+      "questions": "1. There are several micro-designs in the Mixture-of-Resolution Adapter, including $\\mathcal{F}_l$, $\\mathcal{F}_h$, and the gate function. Why do we choose a conv layer for $\\mathcal{F}_l$, an MLP layer for $\\mathcal{F}_h$? Are these layers and functions necessary? Please provide some analyses.\n\n2. In the Mixture-of-Resolution Adapter, the authors choose the addition operation to fuse features of different resolutions. (Deformable) Cross Attention is also an option. I wonder which method is better?",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "FxDVard2bM",
+      "rating": 6,
+      "confidence": 4,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "This paper aims to enhance MLLM by enlarging resolution of input images. By combining features from ViT and a CNN encoder through an adapter, performances of MLLM are improved a lot. Meanwhile, fusing high-resolution features from convolution-based encoder into low-resolution features from transformer-based encoder does not increase vision tokens to LLM decoder, so that additional computational cost is low. Proposed LLaVA-HR increases effective resolution for MLLM to 1024 and outperforms concurrent MLLMs.",
+      "strengths": "This work proposed a novel method to increase resolutions of MLLMs, which is an important problem in the field and critical in fine-grained  vision tasks. Without large modification of training recipe and computational cost of its baseline, LLaVA-1.5. \nEvalutions are conducted on many existing benchmarks and performance of LLaVA-HR is quite impressive. Besides, the computational cost involved is quite small compared with related works.",
+      "weaknesses": "Please see as in questions.",
+      "questions": "1. In section4.3(line 258), the statement, global average pooling is confusion, is the features are pooled into 1 global token? If so, it seems to be not consistent with figures. Please clarify the exact dimensions of fv after global average pooling.\n2. In Table 1, resizing LLaVA-1.5 to 672 pix achieves close performance with 768pix version of LLaVA-HR, is there a direct comparision between 768-pix version of them?\n3. In table 2, there is an ablation of \"tune vision\" referring to finetune vision encoder. However, I think the vision encoder in LLaVA-1.5 is fixed, can you provide a detailed description about this. For example, implementation and aim of tuning vision encoder.\n4. LLaVA-HR is proposed to process input resolution of 1024, what if input images larger than 1024. Is there any extended experiments for even larger images such as 4K ones.\n5. What do you mean by \"stages\" in vision transformers? And, currently only final features from ConvNext is utilized, is there any experiments of multi-stage feature integration for that of CNN encoder?",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    }
+  ]
+}

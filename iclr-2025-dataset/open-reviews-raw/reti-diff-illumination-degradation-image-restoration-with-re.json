@@ -1,0 +1,70 @@
+{
+  "paper_id": "kxFtMHItrf",
+  "decision": "Accept (Spotlight)",
+  "reviews": [
+    {
+      "reviewer_id": "xmxuZEIi49",
+      "rating": 8,
+      "confidence": 5,
+      "soundness": 3,
+      "presentation": 4,
+      "contribution": 3,
+      "summary": "This paper focuses on designing a latent diffusion model that utilizes the Retinex priors to address the issue of illumination degradation. To be detailed, the authors developed a module for estimating the Retinex priors from the low-quality and high-quality images and a Transformer backbone for the image enhancement. These components work in synergy to restore images. The authors provide extensive experiments to demonstrate the effectiveness and advancement of their method.",
+      "strengths": "1. The coupling of latent diffusion model with the Retinex priors and Transformer is intriguing. And exploring the robustness of network with the Retinex theory in illumination degradation scenarios is meaningful.\n2. The proposed method, compared to existing diffusion models in image enhancement, demonstrates relatively high computational efficiency and lower resource consumption while maintaining strong performance.\n3. The experimental validation in the paper is thorough, particularly regarding downstream tasks and evaluations across multiple datasets.\n4. The paper is well-organized, clearly written, and easy to understand.",
+      "weaknesses": "1. The paper utilizes diffusion models to get the latent Retinex priors, but further analysis is needed to explore the relationship between diffusion models and the designed latent Retinex priors. (insights)\n2. The mechanisms by which the Retinex priors operate need to be clarified. Ensuring the consistency of the Retinex theory in the latent space is a question worthy of investigation. Further deepening the results-oriented experimental conclusions in the mechanistic level would improve the quality of study.\n3. The design of the method results in a significant reliance on the modeling of Retinex theory. However, there seems to be little discussion on the reliability of Retinex decomposition.",
+      "questions": "1. What\u2019s the motivation of using the latent diffusion model to generate the Retinex priors? What are its advantages? Would it be more efficient and reliable to use a single Transformer or CNN network for it?\n2. DiffIR [1] achieves image restoration using a similar prior. What would be the difference if the entire image enhancement process were simply treated as the prior, compared to using the Retinex-based model as the priors? Demonstrating the necessity of the latent Retinex priors would be more valuable.\n3. About the Retinex priors, how does it perform in terms of prior feature errors when exchanging features between the ground truth and low-light images? In addition to the qualitative and quantitative evaluations of the enhancement results, it would be beneficial to conduct an assessment at the prior level as well.\n4. It is recommended to perform a convergence analysis of using the latent Retinex priors. For example, showcasing the changes in loss or evaluation metrics on the training and validation sets would be beneficial.\n5. Given the introduction of the Retinex priors, does the proposed method heavily depend on the reliability of Retinex decomposition? Since this is an ill-posed problem, it would be helpful to provide an explanation or at least a few qualitative results of the Retinex decomposition to support this claim.\n6. How does the method perform in extreme conditions, specifically when the Retinex decomposition fails? (Extremely bright light and strong shadows) \n\nAlthough there are some concerns, they do not detract from the fact that this is a relatively well-researched paper. I am inclined to provide a positive opinion in this stage.\n\n[1] Xia, Bin, et al. \"Diffir: Efficient diffusion model for image restoration.\" Proceedings of the IEEE/CVF International Conference on Computer Vision. 2023.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "C7GRwLHHew",
+      "rating": 8,
+      "confidence": 5,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "This paper introduces the Retinex-based LDM solution, Reti-Diff, for illumination degradation image restoration (IDIR) tasks, aiming to generate visual fidelity results while decreasing computational burdens. In specific, Reti-Diff proposes RLDM to acquire Retinex priors and then leverage RGformer to guide the image restoration process with the extracted priors, resulting in the production of refined images with consistent content and robustness to handle complex degradation scenarios. Extensive experiments demonstrate that Reti-Diff outperforms existing methods on three IDIR tasks, as well as downstream applications.",
+      "strengths": "1. This paper proposes RLDM to extract Retinex priors, and RGformer to integrate the priors, ensuring robustness and generalization in complex illumination degradation scenarios.\n2. This paper is well organized.\n3. Experiments on four IDIR tasks verify the superiority, efficiency, and generalizability of the method and demonstrate that Retinex priors can serve as a plug-and-play strategy to improve the quality of existing methods.",
+      "weaknesses": "1. More related works are expected to be discussed, for example, low-light image enhancement via clip-fourier guided wavelet diffusion[1]. \n2. Why do the authors choose to use a cross-attention mechanism to model the Retinex theory?\n3. The authors are encouraged to highlight the motivation for extracting Retinex priors and explain why using a diffusion model to extract the priors. \n4. Additionally, in the experiment, the authors are expected to verify if the Retinex priors perform better than the sole RGB prior and if the diffusion model can serve as a better predictor than the common network structure.\n5. In Phase 2, the authors first train the RLDM before conducting joint training with RGFormer. In the ablation study, the authors provide results without the joint training stage, but they do not compare the results of removing the independent RLDM training stage. Would it yield better results if RLDM, RPE, and RGFormer were trained directly together?\n6. Some typo errors are expected to be fixed, for example, ZR and ZL in Line 90 in the Supp.\n\n[1] Xue M, He J, He Y, et al. Low-light image enhancement via clip-fourier guided wavelet diffusion[J]. arXiv preprint arXiv:2401.03788, 2024.",
+      "questions": "Can the authors analyze the reason for the failure cases? Will this be because of the failure of one of the Retinex priors or because of the failure of RGformer to integrate the priors?",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "jYqzIvYlkY",
+      "rating": 8,
+      "confidence": 5,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "The paper introduces Reti-Diff, a novel latent diffusion model-based framework tailored for Illumination Degradation Image Restoration (IDIR). It leverages Retinex theory to improve image quality by using two primary components: the Retinex-based Latent Diffusion Model (RLDM) and the Retinex-guided Transformer (RGformer).",
+      "strengths": "1. The paper combined the Retinex model and data-driven methods since the first effort of RetinexNet. \n2. Experiments are sufficient.\n3. Code is a plus.",
+      "weaknesses": "1. For the low-light enhancement task, I want to see more results on LIME, NPE, MEF, DICM and VV. Since these datasets do not have ground truth, then is more fair to justify the effectiveness. Any visual results?\n\n2. Missing citations of real-world low-light enhancement methods,\n[1] Unsupervised Night Image Enhancement: When Layer Decomposition Meets Light-Effects Suppression\n[2] Enhancing Visibility in Nighttime Haze Images Using Guided APSF and Gradient Adaptive Convolution\n \n3. LDM is slow in inference. \nThe paper lacks a discussion on the computational complexity and runtime efficiency of the proposed model.",
+      "questions": "1. How does the proposed method handle edge cases such as extreme noise or heavy color distortions, which may not follow typical low-light degradation patterns?\n\n2. Is there a recommended strategy for tuning the noise variance parameters in the latent diffusion process for optimal performance across varied image qualities?\n\n3. How does Reti-Diff perform in scenarios with extreme lighting conditions, such as overexposed or underexposed images, which may challenge the reliability of Retinex-based priors?",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": "NA"
+    },
+    {
+      "reviewer_id": "CAdAWaToQ6",
+      "rating": 6,
+      "confidence": 5,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 2,
+      "summary": "The paper proposes to use diffusion models in conjunction with a transformer model to perform image restoration of poorly lit images. The proposed method is evaluated in 4 different settings and shown the merits.",
+      "strengths": "+ The paper looks at an important problem of illumination restoration in images which is quite relevant for downstream tasks.",
+      "weaknesses": "- The use of intrinsic image decomposition through Retinex is a dated idea. There are several better methods available that have neither been explored nor used. https://www.elenagarces.es/projects/SurveyIntrinsicImages/ \n\n- The work lacks novelty as it uses diffusion to decompose the image and a transformer to reconstruct it. The method has hardly any contribution. \n\n- Though the evaluation of the method is done for several conditions, the process is not built correctly with any conviction, which is a downer. \n\n- The method uses a couple of downstream applications to demonstrate the merits: detection and segmentation. The tasks are very easy to generalize, given the power of deep networks without illumination enhancement. The work could not convince the reader about the merit of this approach.",
+      "questions": "See above.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    }
+  ]
+}

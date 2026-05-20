@@ -1,0 +1,70 @@
+{
+  "paper_id": "mBJF0p9yRR",
+  "decision": "Reject",
+  "reviews": [
+    {
+      "reviewer_id": "d6tcfBhrnH",
+      "rating": 3,
+      "confidence": 3,
+      "soundness": 4,
+      "presentation": 3,
+      "contribution": 2,
+      "summary": "The paper provides an analysis of tabular average reward TD under the additive noise assumption and assuming a Markov chain. The analysis extends the result of SKM to Markovian noise case.",
+      "strengths": "1. The paper is well-written and provide clear comparison with related works.\n\n\n2. The authors almost sure convergence of tabular average reward TD under some restricted assumptions. The work may provide some hints on further proving its convergence under milder assumptions.",
+      "weaknesses": "1. My major concern is that as the authors mentioned, the additive noise assumption in Assumption 4.5 is quite strong assumption. For example, in bounding, $\\bar{\\bar{\\epsilon}}^{(1)}_n$, the additive noise assumption plays a key role. At least in the context of RL, this assumption seems to be not a mild assumption, and not commonly use used, as opposed to the argument in the abstract by the authors. With this assumption, I believe many open problems in RL can be solved.\n\n\n2. The analysis of stochastic approximation with Markovian noise has been well-studied in the literature, in particular using the Poisson equation. Therefore, it is questionable, what is the difficulty of applying such techinque to the anlaysis of SKM.",
+      "questions": "1. $e$ in equation (1) has not been defined previously.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "SinTybaH94",
+      "rating": 1,
+      "confidence": 5,
+      "soundness": 2,
+      "presentation": 1,
+      "contribution": 1,
+      "summary": "The present paper studies tabular average rewerd temporal difference and proves it converges almost surely to a sample path dependent fixed point.",
+      "strengths": "The proofs in this paper seem sound, even if the tools used are much more complicated than the problem.",
+      "weaknesses": "In my view, the contributions of this paper are limited, as the problem it addresses is significantly simpler than the authors suggest. At least one-third of the paper is spent attempting to persuade the reader that the problem is more complex than it actually is, taking up considerable space and reducing readability.\n\nHere is a list of concerns:\n1. The sections \"Hardness in Stability\" and \"Hardness in Convergence\" seem somewhat artificial: (5) and (6) admit explicit solutions, using matrix exponentials and the superposition principle. This approach would make the analysis clearer and directly yield the desired stability property, which is straightforward. It follows simply from the fact that $D(P-I_d)$ admits $A=$ { constant vectors } as its kernel and is Hurwitz on any space complementary to $A$. Similarly, the convergence property mentioned on lines 147\u2013148 is evident using the explicit solution.\n2. I disagree with the interpretations presented in the \"Hardness with Linear Function Approximation\" section. In fact, the results of this paper can be easily derived using standard results on linear function approximation. It suffices to take $K=|S|-1$, $\\Phi(i,i)=1-1/|S|$ and $\\Phi(j,i)=-1/|S|$ for $0\\leq i\\leq |S|-1$ and $j\\neq i$. This leads to a new algorithm similar to the one studied in this paper, up to an additive constant vector (constant with respect to the state but not the iterative variable). This approach enables straightforward convergence using the ODE method ($L^2$ and almost surely) and provides a much more precise description of the path-dependent limit in Theorem 5.1.\n3. Several primary definitions are missing, such as sample path-dependent convergence. Some standard definitions are misused: for instance, (3) is not an Euler discretization of (5), nor is the equation on line 188 an Euler discretization of (9).\n4. The main argument in this paper relies on the ODE method, yet I am surprised it is never explicitly cited. Moreover, this method only provides asymptotic convergence results, while the trend is increasingly toward non-asymptotic results. This leads me to think that a thorough discussion of such methods is missing, at least in the \"Related Work\" section.",
+      "questions": "See the weaknesses.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "JeuvpCu5Ao",
+      "rating": 6,
+      "confidence": 3,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "The paper studied the convergence temporal difference(TD) algorithm in average reward setting and tabular case. What differs the work from many existing literature is the focus on almost sure (a.s.) convergence. Discussions on limitations of existing approaches on a.s. is provided with clarity. A general a.s. convergence for stochastic system with Markovian noise and additive noise is established, as a result of which TD algorithm in average reward setting is established.",
+      "strengths": "* A long standing a.s. convergence of TD in average reward setting is investigated and convergence result is confirmed.\n\n* A general a.s. general a.s. convergence for stochastic system with Markovian noise and additive noise is established, which might be of an independent interest.\n\n* Discussions on existing approaches are helpful and provide clarity.",
+      "weaknesses": "* Although an a.s. convergence is characterized, it's not clear as to how the connection of sample path and the resulting fixed point. It would be nice to have further clarification.\n\n* In the sentence of Line 149-151, the authors argued that existing analysis failed to move beyond convergence to a bounded invariant set. However, the main result in Theorem 2 falls into the same category, as it converges to $\\mathcal{V}_{*}$, which is an unbounded set.",
+      "questions": "1. The value function defined in Line 65 appears slight different from Page 250 value function definition in [1], are they equivalent? If so how to see this?\n\n[1] Sutton, Richard S. \"Reinforcement learning: An introduction.\" A Bradford Book (2018).\n\n2. In equation (5), why not just cancel out v(t) with the last term in h(v(t))? Is there some consideration for not doing so?\n\n3.  In the sentence of Line 149-151, the authors argued that existing analysis failed to move beyond convergence to a bounded invariant set. Are there any particular references the authors are referring to? If so, please provide them.\n\n4. In Line 168, it mentioned that \"it cannot be used once function approximation is introduced\". Can you elaborate more on this?\n\n5. Maybe a question concerns future effort, where are the potentially challenges lie in analysis in order to achieve a convergence with rate rather asymptotic convergence?",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "h6WEVeoWGN",
+      "rating": 3,
+      "confidence": 5,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 1,
+      "summary": "The authors present an almost sure convergence analysis for finite state-action spaces, infinite horizon average reward in the tabular setting (that is without linear function approximation for the relative value function). There are many prior works in this regime, but the ones which are the most relevant are: (i) Tsitsiklis and Van Roy 1999 and (ii) Zhang et al 2021. The problem formulation addresses data sets obtained through Markovian sampling, with additive noises.",
+      "strengths": "It is theoretically interesting to examine the almost sure convergence of fixed policy evaluation in tabular settings without relying on value function projection to achieve the contraction needed for analysis.",
+      "weaknesses": "The amount of literature in this realm is quite significant. My main issue is the limited scope of this work. For instance, the following have been very well studied:\n(i) Tsitsiklis and Van Roy 1999 consider policy evaluation using linear value function approximation, where the feature vectors do not span the constant vector (a mild assumption which doesn't hinder the applicability of their approach in many problems). They provided an asymptotic convergence analysis for this TD learning algorithm. The authors argue that their assumption does not hold when considering tabular cases and that might be true, but for most applications of interest, the state and action spaces are large enough to necessitate the use of function approximations for value function estimation to ensure practicality. Hence, the importance of this work is not well motivated.\n(ii) Zhang et al 2021 considered the Tsitsiklis and Van Roy 1999 approach and relaxed the assumption by including a projection step, where the value function vectors are projected onto a subspace where an unique representation for them exists (generally the average reward value functions aren't unique vectors and are unique only upto an additive constant, and this projection eliminates this non uniqueness). They later characterize convergence in L2 space instead of asymptotic convergence and provide finite time bounds in terms of expectations of quantity of interest. The authors argue L2 convergence does not imply almost sure convergence which is true and also claim that the iterates converge to a set instead of a unique point. But if every point in this set is a solution, there is no need to obtain a unique solution since the original value function is not unique anyway.  \n\nGiven all these limitations, I feel the work lacks sufficient contribution.",
+      "questions": "Why is the asymptotic analysis for only the tabular case important? Prior results exist for applications with linear function approximations which capture almost all applications of interest. And prior literature also provides finite time bounds (although in the L2 norm sense) which are of more significance in terms of determining sample complexities, etc. The motivation for this work is not compelling in its current form.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    }
+  ]
+}

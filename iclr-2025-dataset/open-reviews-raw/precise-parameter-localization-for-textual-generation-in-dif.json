@@ -1,0 +1,86 @@
+{
+  "paper_id": "gdHtZlaaSo",
+  "decision": "Accept (Poster)",
+  "reviews": [
+    {
+      "reviewer_id": "ZyCuDLVnZn",
+      "rating": 6,
+      "confidence": 4,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "The paper introduces a method for precisely localizing the parameters within diffusion models (DMs) responsible for generating textual content in images. The key findings reveal that less than 1% of parameters, specifically in cross-attention and joint-attention layers, influence text generation. This localization approach, applicable across various DM architectures, including U-Net and transformer-based models, enables several enhancements:\n1. Efficient finetuning: By targeting only the localized attention layers, fine-tuning improves text generation capabilities while preserving image quality and diversity.\n2. Text editing: The method allows for precise text editing within generated images without altering other visual attributes.\n3. Toxic content prevention: The localized layer approach provides a cost-free way to prevent generating harmful text in images.\nThe authors validate their method across different models, demonstrating improvements in text alignment and visual consistency while showcasing its adaptability and efficiency across architectures.",
+      "strengths": "The paper is innovative in isolating specific cross and joint attention layers that directly influence text generation in diffusion models. This novel approach to localizing model parameters is broadly applicable across various architectures, including U-Net and transformer-based models, making it an impactful step forward in the interpretability and control of DMs. Furthermore, applying this localization technique to prevent toxic text generation is a unique and practical application, expanding the scope of ethical safeguards in generative models.\nThis research has notable significance for both practical applications and theoretical advancements in generative AI. By pinpointing and leveraging specific layers responsible for text content, the paper introduces a method that improves the efficiency and quality of DMs in text generation tasks. The application to toxic text prevention adds a meaningful dimension, contributing to the broader conversation on safe and ethical AI. The findings open up new avenues for fine-tuned, targeted adjustments in diffusion models, making it easier for practitioners to achieve high-quality text rendering and control content generation more responsibly.",
+      "weaknesses": "The method for identifying key cross and joint attention layers is central to the paper\u2019s contribution, yet the description of this process could benefit from greater specificity. For instance, while the authors mention leveraging activation patching techniques, the exact steps involved in isolating specific layers and evaluating their effect on text generation are not fully detailed. Providing pseudocode or a workflow diagram would make the process clearer and more reproducible.\nThe approach is tested on models using CLIP and T5 encoders, yet diffusion models incorporating different or proprietary text encoders could present challenges to the proposed localization technique. Extending the evaluations to other popular encoders (or discussing limitations for certain encoder types) would improve the generalizability of the method.\nWhile LoRA fine-tuning on localized layers is shown to enhance text generation quality, the paper does not deeply analyze potential trade-offs involved. Specifically, fine-tuning localized layers only may limit generalization to unseen prompts or introduce subtle biases in text rendering quality across different styles or languages. Including a comparative analysis of localized vs. whole-model fine-tuning would be helpful, especially with examples illustrating where one approach might be preferred over the other.\nWhile the method is shown to be effective on certain models, scaling the approach for larger models or more computationally intensive tasks may present challenges. A more detailed discussion on these potential limitations would provide a balanced view and help guide future research in optimizing model efficiency.",
+      "questions": "Could the authors provide more details on the method for identifying the critical cross and joint attention layers? Specifically, is the layer selection based solely on empirical observations, or are there theoretical underpinnings guiding this choice?\n\nHave the authors tested whether fine-tuning only the localized layers with LoRA introduces any long-term risks, such as overfitting or loss of generalization? Are there any benchmarks or datasets where this approach might underperform relative to fine-tuning all cross-attention layers?\n\nHow does the method handle diffusion models that utilize text encoders other than CLIP and T5, or models with proprietary modifications? Does the localization process adapt effectively to these scenarios, or are there specific challenges?\n\nWhy were SimpleBench and CreativeBench chosen as the primary benchmarks? Would the method be equally effective on more complex, real-world benchmarks that include diverse text styles, such as cursive or stylized fonts?\n\nCould the approach for localizing parameters influencing text generation extend to other applications? The paper would benefit from a discussion of possible applications beyond text generation and toxicity prevention, potentially sparking ideas for future work or new applications of the method.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "KOz8HiMuOJ",
+      "rating": 6,
+      "confidence": 4,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "This paper explores to find a small subset of attention layers in DMs which determines text generated in images. It finds only a few layers related to this. Based on this observation, this paper further introduces a new fine-tuning strategy and a text edit technique. It can be used to prevent the generation of harmful or toxic text in images. Extensive experiments and analysis are conducted to demonstrate the observation and effectiveness of the proposed method.",
+      "strengths": "The paper is well-structured, with a logical progression from the introduction to the conclusions. The writing is clear and concise, allowing complex exploration to be conveyed effectively. Key terms are introduced and defined appropriately, enhancing readability and ensuring that readers can follow the arguments easily. This observation is interesting and can effectively help us understand the inherent properties of the DMs in textual generation.",
+      "weaknesses": "1\u3001\tThe generalizability of the observations proposed in the paper needs further exploration. For instance, it remains to be determined whether this property holds consistently across texts of varying lengths and images with different aspect ratios.\n\n2\u3001\tDifferent attention layers tend to focus on varying aspects, such as content or style. This has already been explored in previous works. This paper applies this feature to textual generation, yet more clarification is needed to highlight the novelty of this contribution.\n\n3\u3001\tFrom some visualizations, it appears that the proposed approach not only alters the content of the text but also changes its style, such as the font. Are both style and content localized within the same layer?",
+      "questions": "Hope the author can answer the questions in the weaknesses part.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "BCJTD62N3j",
+      "rating": 8,
+      "confidence": 4,
+      "soundness": 3,
+      "presentation": 4,
+      "contribution": 3,
+      "summary": "This paper made an interesting observation on how visual text specified for text-to-image generation is realized through the cross-attention layers - there are only a few cross-attention layers responsible for processing the information about the text information. This is identified by swapping the key and values to be generated across every layer. With such observation, the authors perform several experiments showing the effectiveness of using these layers for different visual text applications.",
+      "strengths": "[Originality]\n\nThe finding about the function of cross-attention layers in generating visual text is quite novel and interesting.\n\n[Quality]\n\nThe authors did rigorous experiments to show that only a few layers are responsible for generating visual texts with multiple experiment setups. Additionally, the authors show that these layers only focus on these visual texts instead of generating other content described by the text prompts. The applications of improving text generation, editing, and preventing the generation of toxic text also demonstrate the usefulness of the findings. \n\n\n[Clarity]\n\nThe paper did a very good job of presenting the analysis and applications.\n\n[Significance]\n\nI personally find that this is an intriguing finding about the interpretation of the text-to-image diffusion model. The paper paves a way towards understanding how text embeddings are used through attention layers to control the text-to-image model. The finding also shows promise for several downstream tasks.",
+      "weaknesses": "I did not find significant weaknesses in the paper. However, the authors could consider the following feedback to improve the readiness and clarity of the paper:\n\n1. Although I'm fairly familiar with the architectures of SD3 and SDXL, I still need to guess how localizing by patching is different from injection. So, for SD3, are only the keys and values corresponding to text embeddings swapped by the target prompt caching? \n\n2. There are many papers in text-to-image generation/editing working on cross-attention layers and manipulating the denoising steps through keys and values. The authors should consider doing more comprehensive survey and here are some of them:\n\n[1] Kumari, Nupur, et al. \"Multi-concept customization of text-to-image diffusion.\" Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2023.\n\n[2] Geyer, Michal, et al. \"TokenFlow: Consistent Diffusion Features for Consistent Video Editing.\" The Twelfth International Conference on Learning Representations.\n\n[3] Patashnik, Or, et al. \"Localizing object-level shape variations with text-to-image diffusion models.\" Proceedings of the IEEE/CVF International Conference on Computer Vision. 2023.\n\n[4] Phung, Quynr, et al. \"Grounded text-to-image synthesis with attention refocusing.\" Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2024.\n\n[5] Tumanyan, Narek, et al. \"Plug-and-play diffusion features for text-driven image-to-image translation.\" Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2023.",
+      "questions": "Minor questions and suggestions:\n\n1. Is there any specific reason to classify the target text into different buckets and use the most frequent texts as the validation set? It seems other buckets are not used.\n\n2. Lines 144 and 145 look like new paragraph names.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "HOdTBIVGhb",
+      "rating": 6,
+      "confidence": 4,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 2,
+      "summary": "This paper proposes to localize the attention layers which influence the text-rendering ability of tex-to-image generation models. With the localized layers, the authors propose to utilize them in many tasks including generation and editing.",
+      "strengths": "Distribution of image samples with text may be quite different from image samples without text. As a result, we may face a trade-off between image quality and text-rendering ability in practice when training text-to-image generation model.\nThus the idea of localizing corresponding layers for text rendering ability in text-to-image generation models is interesting. \nIf we can localize such layers, then we can use carefully designed fine-tuning so that the resulting model performs well in both image quality and text accuracy.\n\n\n\nFrom the experiments, we can see that the localized parameters indeed influence the text-rendering ability.",
+      "weaknesses": "The fine-tuning experiment is conducted on a small subset of MARIO-10M dataset. So it is expected that fine-tuning the whole model may lead to overfitting. The experiment results can show fine-tuning localized layers indeed works, but it can not show that fine-tuning only localized layers is better than fine-tuning the whole model.\nTo illustrate the effects of the localized layers, it is suggested to conduct the experiment on large-scale dataset, i.e. fine-tuning the localized layers or whole model on all samples from MARIO-10M dataset.\n\nAnother case which is more related to the fine-tuning experiment with smaller dataset is fine-tuning the model on complicated samples of high-quality. Different from MARIO-10M which may contain some simple and low-quality samples, high-quality samples with long sentences rendered might be difficult to collect. It can strength the contribution of the proposed method if it can improve model performance under this setting. \n\n\nThe author mentioned \"We focus on LoRA for SDXL since this model has a significantly lower text generation\nquality compared to other studied DMs\". Can fine-tuned SDXL outperform SOTA methods on generation task with commonly used benchmark? If it can not, why not fine-tuning one of the SOTA models to show that the proposed method also works and can be used to improve not only SDXL? Only fine-tuning a model with lower performance is not convincing.\n\nMore qualitative results (especially with more words to be generated) and human evaluation are suggested.",
+      "questions": "Since MARIO-10M dataset is utilized in training, why is MARIO-Eval Benchmark not directly used to evaluate the generation performance in the paper? \n\nWhat is the reason that the authors only use a small subset of Mario-10M dataset?\n\nHow is the editing performance compared to other methods like textDiffuser?",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "4UMAVlngHU",
+      "rating": 5,
+      "confidence": 3,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 2,
+      "summary": "This paper discovered that only a small amount of parameters within modern diffusion models are in charge of textual content generation. This phenomenon is widely observed among U-Net-based diffusion models like SDXL and transformer-based ones like SD3. Based on this observation, this paper developed three possible application scenarios, including LoRA-based fine-tuning for enhanced text generation, textual content editing for images generated by diffusion models, and the prevention of toxic text generation.",
+      "strengths": "- By careful experimental analysis, this paper localized a small subset of cross and joint attention layers in diffusion models that are responsible for textual content generation.\n- Based on this observation, this paper developed an effective fine-tuning strategy for enhanced text generation while maintaining the model\u2019s overall generation performance.",
+      "weaknesses": "For the application of preventing the generation of toxic text within images, this paper claimed that their approach is able to remove the toxic text in the text prompt from the generated images. They achieved this target by first detecting the toxic text in the text prompt using state-of-the-art large language models, and then replacing the toxic text with non-harmful text for image generation using their approach. However, it seems that directly replacing the toxic text with non-harmful text and feeding the modified text prompt to the diffusion models can achieve the same target. Since the image generated by the source prompt won\u2019t be provided to the users, there seems no need to prevent other visual content from being influenced when changing the source prompt (with toxic text) to the target prompt (without toxic text).",
+      "questions": "Request the authors clarify the necessity of using their approach to prevent toxic textual content generation.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    }
+  ]
+}

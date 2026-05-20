@@ -1,0 +1,54 @@
+{
+  "paper_id": "6QBHdrt8nX",
+  "decision": "Reject",
+  "reviews": [
+    {
+      "reviewer_id": "P9oYXHynvz",
+      "rating": 1,
+      "confidence": 4,
+      "soundness": 1,
+      "presentation": 1,
+      "contribution": 1,
+      "summary": "The paper introduces SafetyAnalyst -- although it's not clear why there is also a SafetyReporter as a contribution to the paper -- that produces a harm-benefit-tree and aggregates its features mathematically to accomodate different safety preferences. The authors tackle the current limitations of LLM-based moderation systems in flagging possibly harmful prompts in presence of OOD samples which leads these classification systems astray. The authors claim that their SafetyAnalyst satisfies the two LLM moderation desiderata, i.e., interpretability and steerability, although the experimental section does not necessarily provide further details on the support (or not) of these desiderata.",
+      "strengths": "* The scenario looks interesting and challenging and the harm-benefit tree approach where one has LLM teachers such that a smaller student LM (by the way what kind of LM are you using here? BERT-based?) model learns how to \"moderate\".\n* The paper is very suitable for industrial applications rather than being theory-intensive.",
+      "weaknesses": "1. It is difficult to interpret the numbers in Table 1. What do they mean? Also SafetyReporter was never mentioned before Table 1. What is the difference between SafetyReporter and SafetyAnalyst?\n\n2. The paper feels as if it was written in haste, where the true insights of the paper are missed for some reason. For example, I would've included a list of contributions right after the introduction section to give the reader a brief summary of what they should expect from the paper.\n\n4. It's unfortunate that all the paper claims made in the method section refer to a table in the appendix.\n\n5. In Section 2.3, the authors claim that they propose a new aggregation algorithm. I have the feeling that this is just a mere multiplication between some predefined weights. Are these weights somewhat learned? Are you also constantly updating $f$, $g$, and $h$ when $W$ and $\\gamma$ are updated? This section needs heavy revision.\n\n6. Who's the teacher and who's the student model in Table 2?\n\n7. I makes little sense to say that a model's performance is $F_1 \\geq 84.7$. Is the $F_1 = 84.7$ as what it is shown in the table? What are you trying to say in lines 290-292?\n\n8. Although, as per ICLR reviewer's guidelines, not being SoTA for an approach is not reason for rejection, not having at least similar performances isn't great. There's a 6.2 point difference in terms of F1 scores (GPT-4 has 81.6 and SafetyAnalyst has 75.4). This would be justifiable if SafetyAnalyst were more interpretable than the black-box GPT-4. I fail to see why one would prefer SafetyAnalyst rather than GPT-4o.\n\n9. Table 3 reports averages of F1 scores on all datasets. Stating that an average score is better than the other doesn't say much. In fact, if you look at WildGuard and SafetyReporter, the former is constantly better than the latter on each dataset. It just has a performance drop in SORRY-Bench which makes the average F1 plummet. This is a classic scenario where averages aren't trustworthy and, in this scenario, make SafetyAnalyst the second-best performing method after GPT-4, when, instead, WildGuard should be. Here, I would suggest the authors to perform a Friedman test [1] with a post-hoc Bonferroni-Dunn test to assess whether SafetyReporter is better than the rest of the SoTA models without considering GPT-4. Here, one has to use multiple runs over the same dataset -- say 10+ -- to have several F1 scores for each dataset and then perform the Friedman test to tell whether the overall F1 averages are different among the SoTA methods and SafetyReporter. Then, one performs the Bonferroni-Dunn test where the control group is SafetyReporter and assess whether its average F1 score is statistically and significantly different from the rest. For each of the other SoTA methods, except GPT-4, this test gives a p-value which shows us if the method is \"better\" than the other. Using a p-value of $0.05$ would be sufficient. I expect that SafetyReporter is better than all but WildGuard, which undermines the paper's claim that ''**SafetyReporter outperforms existing LLM safety moderation systems on prompt harmfulness classification.**''\n\n10. Why is the conclusion a brief paragraph? Make it a section where you summarize your paper and future works.\n\n11. The experiments feel cut short where there is no clear connection between the harm-benefit-trees and the performances. Where do harm-benefit-trees come into play here. Do the authors really need these trees? If so, show it somehow. If there is a lack of space, I'd argue that Figure 2 should be rethought. Too much unsupported detail.\n\n12. In the appendix Table 5, it is not clear what the authors are measuring here to assess the agreement with human annotators. Are the authors measuring Cohen's kappa?\n\n\n[1] Friedman M. The use of ranks to avoid the assumption of normality implicit in the analysis of variance. Journal of the american statistical association. 1937 Dec 1;32(200):675-701.",
+      "questions": "See weaknesses.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "w39U0dgGW4",
+      "rating": 3,
+      "confidence": 4,
+      "soundness": 2,
+      "presentation": 2,
+      "contribution": 1,
+      "summary": "The SAFETYANALYST framework is a system for moderating content that aims to be both interpretable and adaptable to specific values. It uses harm-benefit trees to evaluate actions and their effects, producing a harmfulness score that aligns with safety preferences, and it outperforms existing systems on prompt safety benchmarks. They have considered various stakeholders and compared the results with five well-known LLM solutions.",
+      "strengths": "The use of both harm-benefit trees and symbolic knowledge distillation is the key element in this research.",
+      "weaknesses": "The idea is promising and the paper is focusing on a major issue of AI Safety that is scientifically sounds. Still, there is room to improve it to reach a high level of originality, quality, clarity, and significance. The following comments can be addressed to improve the paper from all mentioned aspects:\n1- The literature review of the paper could be improved, there are various papers on LLM safety. For example, \"SafeLLM\", \"TrustLLM\", etc and most of them focus on the same issue. For example, SafeLLM goes even deeper and focuses on Domain-specific or in-context safety.\n2- The author must provide results regarding computation complexity and delay in response time in the provided model.",
+      "questions": "1- How the proposed solution is robust again jail breaking and prompt injection.\n2- Considering the problem of in-context reward hacking, how the proposed method could help us to avoid such issues?\n3- I think more in depth research is needed to gain a proper novelty and originality. For example, one may consider formation of concepts in LLMs and try to fix the issue in the that level considering research like this: https://www.anthropic.com/research/mapping-mind-language-model",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "hCrnWP5cY0",
+      "rating": 6,
+      "confidence": 2,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "The authors introduce SafetyAnalyst, a language model solution to LLM content moderation. Critically, SafetyAnalyst is both interpretable and tunable to reflect different safety values while achieving SOTA performance on prompt safety benchmarks. The authors achieve this by training two open-weight LM to identify trees of stakeholders, actions, and effects from text prompts. One focuses on harms and the other on benefits. The model output is tunable to different safety values via a parameterized feature aggregation algorithm for calculating harmfulness. The output is interpretable due to the generated harm-benefit trees which consist of chains of stakeholders to actions to effects.",
+      "strengths": "The authors introduce a novel interpretable moderation system which achieves SOTA performance in a dense field. SafetyReporter provides structured output which helps humans understand the harmfulness of a prompt.\nThe paper presents a wealth of both benchmark datasets and models. This provides clear evidence that SafetyReporter is strong in a wide variety of content moderation.\nThe SafetyAnalyst framework is clearly explained. The authors make great use of graphics explaining the overall framework and the role of the language model. Additionally, the discussion of value alignment displays the flexibility of the system.",
+      "weaknesses": "In the related work section there is room for more discussion on the differences between existing content moderation systems. Both how the baseline models differ from each other and how they differ from SafetyReporter and SafetyAnalyst as a whole. Discussion beyond \u201c[existing content moderation systems] internal decision mechanisms are challenging to interpret\u201d would strengthen the authors\u2019 claims about the importance of interpretability in content moderation.\nMore experiments on the steerability of the content moderation system would be beneficial. As the paper stands, the authors do a good job explaining how to align the system with a dataset. However, experimentation about how alignment would make the system more effective for specific tasks is missing. For example, the authors could align the aggregation weights of SafetyAnalyst to a held-out portion of a benchmark dataset and look at how performance improves.",
+      "questions": "Overall the paper is strong however a few areas could use clarification.\nIn the limitation section the authors discuss the tradeoff between interpretability and inference time. Quantifying the difference in inference time between baselines, SafetyAnalyst, and LLMs would be beneficial to weigh the value of this tradeoff. \nAdditionally, more insight on the implications of GPT4 outperforming both SafetyAnalyst and baselines would be helpful.\nIn the evaluation results section the authors\u2019 mention that SafetyReporter was not aligned to any of the benchmark datasets. How does performance differ if alignment is done? Additionally, I would be interested in how aggregation feature weights change from baseline to baseline.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": "N/A"
+    }
+  ]
+}

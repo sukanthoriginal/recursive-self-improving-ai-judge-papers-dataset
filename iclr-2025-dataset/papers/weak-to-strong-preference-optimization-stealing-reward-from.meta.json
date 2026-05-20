@@ -1,0 +1,10 @@
+{
+  "paper_id": "f7KxfUrRSb",
+  "title": "Weak-to-Strong Preference Optimization: Stealing Reward from Weak Aligned Model",
+  "venue": "ICLR 2025 Spotlight",
+  "decision": "Accept (Spotlight)",
+  "accept": true,
+  "stratum": "bin[7,8)",
+  "mismatch": false,
+  "openreview_url": "https://openreview.net/forum?id=f7KxfUrRSb"
+}

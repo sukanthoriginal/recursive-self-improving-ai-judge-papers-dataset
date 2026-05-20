@@ -1,0 +1,86 @@
+{
+  "paper_id": "wrXCIsysqB",
+  "decision": "Accept (Poster)",
+  "reviews": [
+    {
+      "reviewer_id": "dOSmSzUn51",
+      "rating": 5,
+      "confidence": 4,
+      "soundness": 2,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "This paper presents a 3D scene reconstruction approach that achieves high fidelity, editability, and part-awareness by combining superquadric primitives and 3D Gaussians.",
+      "strengths": "1. Novel Hybrid Representation: The paper proposes a novel hybrid model combining superquadric primitives for part-awareness and 3D Gaussians. This hybrid design achieves high-quality 3D reconstructions while supporting precise part-level editing.\n\n2. Semantic Coherence Through Attention-Guided Centering Loss: It ensures that each superquadric primitive aligns semantically with different parts of the object. By clustering attention maps, this loss encourages disentanglement, making each part more coherent and interpretable.",
+      "weaknesses": "1. The datasets used in the experiments are limited to DTU, BlendedMVS, Truck, and Garden, which makes it challenging to assess the generalizability of the proposed method. A broader range of data would better demonstrate its robustness across diverse scenarios.\n\n2. As shown in Table 2, the method exhibits a noticeable drop in rendering quality compared to the 3DGS baseline and does not demonstrate a clear advantage over baseline methods. The authors do not provide a detailed analysis to explain this performance gap. While editability is an attractive feature, it should not come at the cost of compromising fundamental rendering quality.\n\n3. High Computational Cost: This approach takes around 6 hours for the training time, which is time-consuming. This paper lacks the rendering frame rate and the information related to the time cost during the editing process.",
+      "questions": "1. In Line 078-083, this paper discuss about the problem of \"lacking controllable editability\". However, multi-grained decomposition has already been achieved in lots of previous works for both GS-based or NeRF-based, such as [1, 2]. Besides, \"waving arms or shaking heads\" as mentioned are common editing demonstration in the field of dynamic gaussian works based on my knowledge, such as [3]. As an evidence, for the editing results in Fig.4, I believe they can be achieved by [1] or [2]. Therefore, a straightforward method for \"controllable editability\" defined in this paper might be combining existing works. I suggest the authors make the claims clearer for the motivation of the design.\n\n\n[1] Garfield: Group anything with radiance fields, CVPR 2024\n\n[2] Total-Decom: Decomposed 3D Scene Reconstruction with Minimal Interaction, CVPR 2024\n\n[3] Sc-gs: Sparse-controlled gaussian splatting for editable dynamic scenes, CVPR 2024",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "afJhhEeEW9",
+      "rating": 5,
+      "confidence": 4,
+      "soundness": 2,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "The paper proposes a new 3D reconstruction pipeline based on semantic primitives that facilitates 3D scene editing and animation. At the core of the proposed method is the 3D representation based on superquadrics that is derived from the pixel-aligned SAM features. By necessary attention-guided clustering and splitting&fusion strategy, the centroids are fused into part-wise primitives to represent the 3D object. In the second stage, 3D Gaussians are bound to the surface of primitives for photorealistic rendering while maintaining the ability for animation. Although the reconstruction quality of the proposed method cannot surpass previous non-editable methods for 3D reconstruction like 3DGS, it improves the performance against editable and primitive-based methods for 3D reconstruction like DBW by a large margin.",
+      "strengths": "- To enable intuitive drag-based 3D editing and animation, the paper proposes a new hybrid representation based on superquadrics followed by 3DGS. It works well in terms of decomposing object-centric scenes into semantic primitives with a quality boost compared with previous SOTA DBW.\n- The algorithm designed for semantic alignment of superquadrics from the semantic prior of SAM looks neat to me.\n- The paper is well-structured and easy to follow.",
+      "weaknesses": "- Lack of necessary qualitative results to support the paper\u2019s claim: As a method for 3D editing and animation, I personally hope to see qualitative results in multiple viewpoints and timestamps, especially dynamic results which could be better demonstrated by a demo video. Otherwise, there is no clue to support that the proposed method is a good fit for editing and animating 3D scenes.\n- Is Superquadrics + 3DGS a good design? Basically, the superquadrics used in the paper have two roles: 1) offering a good initialization for the latter 3D Gaussians and 2) providing group-wise semantic correspondence of each Gaussian centroid which facilitates animation and editing. However, this two-stage pipeline inherits the downside of 3D Gaussians when generalizing to unseen \u201cposes\u201d of objects. As shown in Figure 4, the animated results contain severe artifacts when the animated part is moved.\n- Worthy discussion against another primitive-based representation: It is worth mentioning Mixture-of-Volumetric-Primitives as an alternative representation for the target task in this paper. It naturally has the properties for both stages in the proposed method: 1) semantic correspondence alignment and 2) photorealistic differentiable rendering. It would be great to see authors\u2019 discussions and even experiments for this representation. Ideally, the only thing to do is to apply semantic alignment for all primitives without involving the second stage 3DGS training.\n- There is prior work in deforming and animating a well-trained 3D scene representation, which could be treated as a top-down approach (the proposed method could be treated as a bottom-up approach) to solve similar tasks:\n    - **Deforming Radiance Fields with Cages. ECCV 2022**\n    - **CageNeRF: Cage-based Neural Radiance Fields for Generalized 3D Deformation and Animation. NeurIPS 2022.**",
+      "questions": "- The proposed method requires bounding box and point prompts along with input posed images. This difference should be highlighted as a vanilla 3D reconstruction method does not require such information. Additional information introduced into the pipeline could lead to unfair comparisons. An interesting baseline would be using 3DGS to reconstruct the semantic scenes where the SAM segmented images are used as training images. The semantic correspondence could be further introduced into the original 3DGS by finding minimum distance based on world coordinates.\n- Is the proposed method (especially for the first stage) sensitive to segmentation failure? Some scenes like forward-facing scenes in LLFF have complicated scene geometry (e.g., leaves and flowers), which could be difficult for accurate segmentation.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "doFaW1haZz",
+      "rating": 6,
+      "confidence": 4,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "This paper proposes GaussianBlock, a part-aware compositional 3D scene representation that combines Gaussian splatting with superquadric primitives. Leveraging the strengths of both, the authors introduce Attention-guided Centering (AC) Loss and dynamic fusion/splitting modules to enhance semantic coherence and editability.",
+      "strengths": "1. The paper is technically well-written, presenting ideas clearly and effectively.\n2. Detailed experiments and visualizations demonstrate the method\u2019s effectiveness.\n3. The controllable editability feature is highly practical, enabling applications in diverse 3D scene settings.",
+      "weaknesses": "1. Adding more multi-view visualizations in Figure 4 would provide clearer insights into the coherence of reconstructed scenes from various perspectives.\n2. The reconstruction quality is lower than standard 3D Gaussian methods, potentially limiting fidelity in highly detailed scenes. Improvements here could enhance the method\u2019s overall competitiveness.\n3. Background handling, also a known limitation of DBW, is not fully addressed in this work, leaving room for further improvement in complex scenes where background elements are significant.",
+      "questions": "Could you provide details on FPS and training times for both stages to clarify the overall running time? Real-time performance and faster training are also advantages of incorporating 3D Gaussians.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "8tKuG9vW1K",
+      "rating": 6,
+      "confidence": 2,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "This paper proposes a pipeline for part-aware compositional reconstruction with 3D Gaussians, enabling precise and physically realistic editing similar to building with blocks. The method involves two training stages: In the first stage, superquadric blocks are optimized using a reconstruction loss and an attention-guided centering loss, guided by the SAM model. In the second stage, Gaussians are bound to the triangles of primitives using localized parameterization and are further optimized with an RGB loss and a local position regularization. Experiments on various datasets demonstrate state-of-the-art part-level decomposition and controllable, precise editability while maintaining high rendering fidelity.",
+      "strengths": "1. The block-based, part-aware compositional reconstruction enables intuitive local editing compared to SAM-based decomposition methods, which I find particularly interesting.\n2. To decompose a 3D scene into semantically coherent compositional primitives combined with Gaussians, the method proposes an effective two-stage optimization approach to tackle this challenging problem. It\u2019s not straightforward to prevent sub-optimal decomposition, yet the results show compact, well-defined parts.\n3. The paper demonstrates several types of local editing with the decomposed primitives, such as moving, duplicating, and rigging parts.\n4. The paper is well-written, and the figures are beautiful and clear.",
+      "weaknesses": "The reconstruction quality is not comparable to the original 3DGS and other baselines. On the DTU, Truck, and Garden datasets, the PSNR of this method is 5 points lower than that of the original 3DGS.",
+      "questions": "1. Does the method have any failure cases on these datasets in the paper, aside from challenges with complex backgrounds?\n2. The paper reports in the supplementary materials that the initial K is set to 10. How was this number determined, and how robust is the method to different initial values?",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "oIvlTLZOkA",
+      "rating": 6,
+      "confidence": 4,
+      "soundness": 3,
+      "presentation": 2,
+      "contribution": 3,
+      "summary": "The paper is on 3D part aware semantic editing of scenes using Gaussian Splatting . Similar to\nprevious work like GaussianAvatar the paper uses a prior for initializing the gaussians in the\nform of super-quadratics . The paper proposes a 2 stage training process in order to obtain\nsemantically coherent and disentangled gaussians that can obtain high fidelity edited images\n.The first stage optimizes the super-quadratics and the second stage uses these to initialize the\ngaussians and rasterize images. The underlying super-quadratics can be used to edit the parts\nof the object and reflect the changes subsequently in the gaussians the rasterized images .",
+      "strengths": "- Using super-quadratics as a prior for part aware editing using gaussian splatting is a novel approach .\n- Soft Dual rasterization for rasterizing the vertices and bounding boxes is novel, though this needs to be explained better in the paper.",
+      "weaknesses": "- The number of parts seems to be decided by the super-quadratics which implies there is\nno control over the granularity of the parts?\n- All results in the paper edit a single part of an object in the input image. \n- All results are shown for 360 multi-view scenes.",
+      "questions": "- Since performance of the method seems to be reliant on the super-quadratic primitives this places a limit on the number of parts that can be edited. Is there any way to control this while not losing fidelity ?\n- What is the effect on editing multiple parts in the same object in a single pass?\n- Can you show some results on more complex objects with more than 4-5 parts ?\n- Show more results on some forward facing scenes (Shiny, LLFF etc) ?\n- Why are the results for DTU and BlendedMVS shown for the whole dataset but for TnT and Mip-Nerf360 on a few scenes ? Why not the entire dataset ? or at least a few more scenes (2 scenes are not enough)\n- What is the required time for training since it is a 2 stage process ? The mention of 6 hours for 1 scene seems high and which dataset task does that scene belong to? Training time for splatting varies across different datasets and scenes so it is important\nto clarify that .",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    }
+  ]
+}

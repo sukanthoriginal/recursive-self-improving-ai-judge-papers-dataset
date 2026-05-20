@@ -1,0 +1,70 @@
+{
+  "paper_id": "Pu3c0209cx",
+  "decision": "Accept (Poster)",
+  "reviews": [
+    {
+      "reviewer_id": "Q8wPtpRNMY",
+      "rating": 6,
+      "confidence": 2,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "The paper presents an Adaptive Clustering (AC) router for MoE models. The Ac router offers faster convergence, better robustness, and overall performance improvement.",
+      "strengths": "The solution is theoretical based along with extensive evaluation.",
+      "weaknesses": "- The paper targets MoE experts only, some of the notations and terms seem to be used specifically in the MoE domain.",
+      "questions": "None",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "K6YnjTaexr",
+      "rating": 8,
+      "confidence": 3,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "the paper studies policies for selection of experts in sparse MoE models, and casts the problem as optimal clustering\n\nthe main contributions are 1) to derive closed form expression for the cluster weights. the formulation elegantly extends the classic topk MoE formulation using a diagonal matrix using inverse of cluster dispersion measure,  2) to theoretically bound the incorrect assignment probability and 3) prove faster convergence (though is not clear under which assumptions the prove holds\n\nthe paper presents experimental results on  text and image classification, mostly presenting results over baseline models",
+      "strengths": "- the theoretical framework is solid, with clear explanations and remarks on the main body, and abundant material (only skimmed through) in the appendix concerning proofs  of the framework \n\n- the paper is clearly written and motivated. \n\n- the experimental section tackles two complementary domains and, whereas has less critical mass than the theoretical part, it is well executed\n\n- extensive material in the appendix complement and completes the paper",
+      "weaknesses": "# necessity of the framework\n\nwhile the theoretical framework provides and the analysis in Tab 7 shows the method to only provide a rather modest additional complexity,  and the theoretical proofs shows it to be (in a sense) sufficient to solve the routing task, an open question is whether it is also necessary for the task.\n\notherwise stated, in the case of top-1/top-2 expert selection, an open question is whether it would be possible to significantly simplify the operations to be carried on (same way you do not need a full sort if you only need the maximum value of a vector) to attain similar performance ?\n\nsimilarly, a more systematic comparison with related competitor work would better allow to appreciate the practical impact.\n\n# structural difference of the solution \n\nauthors do a fair job in visually shown differences in the top experts (Fig 1), but that remains at an anecdotal level.  The load balancing analysis in sec 4.3 provides some complementary view, but is too aggregated (as it looks at measures of variation, but the baseline of perfect load balancing is clearly not a target as it likely would not be attainable).\n\nas such, assessing and quantifying the /differences/ at individual expert level, or input level would provide a factual quantitative assessment of the number of times ACMoE expert selection differs from competing selections. (ie. instead of maps in Fig, providing a distribution of the times where top-k selection differed).  \n\nAs in many cases the end-to-end performance improvement is slim (few percentage points) this intermediate assessment could allow to perceive the amount of top-k choices that were changed wrt the baselines models.\n\n\n# deviation measures\n\nit is unclear to what extent the proofs (and the practical performance) of the framework depends on subtle hyperparameter choices that are fixed and  not considered in the paper: e.g., measure of dispersion used in sec 3 is the mean absolute deviation, which is easier to compute but less robust than median absolute deviation (admittedly, this would go in the opposite direction as for simplification; but is unclear to what extent practical details as this one can have a performance impact in practice).\n\nto have no impact on the selection, the top-k rank would need to be maintained across a family of measures of dispersion -- the impact of which is far from being clear after reading the paper. If the proof holds for families with given properties, the paper could be reinforced by making that clear.",
+      "questions": "no further questions",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "49SQNxbpYG",
+      "rating": 8,
+      "confidence": 3,
+      "soundness": 4,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "This paper proposes a novel routing mechanism called Adaptive Clustering (AC) router for Mixture-of-Experts (MoE) architectures. The key idea is to compute token-expert assignments in an adaptively transformed space that better reveals latent clusters in the data. The transformation is derived from a feature-weighted clustering optimization perspective, where features that promote tight clustering for each expert are upweighted. The authors demonstrate both theoretical and empirical advantages of their method, showing improved convergence speed, robustness to data contamination, and overall performance across language modeling and image classification tasks.",
+      "strengths": "1. The paper introduces a novel perspective by viewing the MoE routing mechanism through the lens of feature-weighted clustering optimization. This theoretical framing allows for the derivation of optimal feature weights that improve cluster separability.\n\n2. The authors provide rigorous theoretical analysis that support their claims on the improved robustness and convergence speed of their method.\n\n3. Extensive experiments on large-scale datasets for both language modeling and image classification demonstrate the effectiveness of the AC router.\n\n4. The proposed method requires no additional learnable parameters and introduces negligible computational overhead. And it can be integrated into any existing MoE architecture",
+      "weaknesses": "1. The AC router relies on expert assignments from the previous layer to compute the adaptive transformation. This dependence may limit its applicability in scenarios where embedding sizes change between layers or in networks without consistent layer structures.\n\n2. The effectiveness of the AC router is closely tied to the quality of expert assignments in earlier layers. Since the method relies on routing decisions from prior layers, it may be less effective if the early layers have not yet learned meaningful or well-separated cluster structures. In practice, early layers in deep networks often learn basic features that may not be semantically distinct enough to form tight clusters. As a result, the AC router may struggle to make optimal routing decisions in later layers if the cluster assignments in the initial layers are poor.\n\n3. The method assumes that the input data naturally clusters in the feature space. While this assumption holds in many cases (e.g., language modeling and image classification), it might not generalize to tasks where the input data is more uniformly distributed or lacks clear clustering patterns.",
+      "questions": "1. The choice of mean absolute deviation (MAD) as the measure of dispersion is justified, but the paper does not deeply explore the impact of other potential measures, such as variance or interquartile range, on performance. Have you considered or tested other measures of dispersion besides MAD? How sensitive is the method to the choice of dispersion measure, and could alternative measures potentially improve performance or robustness?\n\n2. How does the AC router handle situations where the assignments from previous layers are noisy or not well-defined? Is there a way to initialize or adjust the method to be effective in early layers or when prior assignments are unreliable?\n\n3. Since the method requires consistent embedding dimensions between layers, how can it be adapted for architectures where the embedding size changes, such as in some convolutional neural networks or transformers with variable dimensions?\n\n4. The theoretical analysis relies on Gaussian mixture models. How does the AC router perform when the data clusters have non-Gaussian distributions or are not well-separated?",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "TacEwoibZf",
+      "rating": 6,
+      "confidence": 3,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "This paper proposes an Adaptive Clustering (AC) router for Sparse Mixture-of-Experts (MoE) architectures to improve routing efficiency. It focuses on optimizing the matching of tokens to experts by adaptively transforming the input feature space. This method promotes faster convergence, increased robustness against data contamination, and improved overall performance. The authors demonstrate the AC router's effectiveness in large-scale language and image tasks, outperforming baseline routers in robustness and efficiency without added learnable parameters.",
+      "strengths": "1.\tThe proposed router uses a unique, feature-weighted approach for adaptive clustering, enabling more efficient specialization in MoE models. It achieves improvements without extra learnable parameters or added computation cost, making it ideal for scalable applications.\n\n2.\tThe paper provides robust theoretical proof supporting the method's faster convergence and increased robustness\n\n3.\tThe experiments cover various large-scale tasks, such as WikiText-103 and ImageNet, and include backbones like Switch Transformer, GLaM, and Swin Transformers, evaluating performance under both clean and corrupted data conditions.",
+      "weaknesses": "1.\tThe approach seems to tailor to settings with well-structured clusters, which may limit performance on datasets or tasks where latent clusters are less distinct or not aligned with chosen features.\n\n2.\tThe AC router relies on prior layers for initial expert assignments, potentially constraining flexibility and requiring consistent embedding sizes across layers.\n\n3.\tAlthough tested on large-scale datasets, further application to more dynamic datasets could strengthen claims of robustness and adaptability.",
+      "questions": "1.\tHow does the AC router handle scenarios with overlapping or dynamically evolving clusters where expert specialization may be less clear?\n\n2.\tWhat mechanisms could be integrated to enhance adaptability in routing without relying on previous layer assignments?",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    }
+  ]
+}

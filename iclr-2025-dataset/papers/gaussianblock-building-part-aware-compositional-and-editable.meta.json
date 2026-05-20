@@ -1,0 +1,10 @@
+{
+  "paper_id": "wrXCIsysqB",
+  "title": "GaussianBlock: Building Part-Aware Compositional and Editable 3D Scene by Primitives and Gaussians",
+  "venue": "ICLR 2025 Poster",
+  "decision": "Accept (Poster)",
+  "accept": true,
+  "stratum": "bin[5,6)",
+  "mismatch": false,
+  "openreview_url": "https://openreview.net/forum?id=wrXCIsysqB"
+}

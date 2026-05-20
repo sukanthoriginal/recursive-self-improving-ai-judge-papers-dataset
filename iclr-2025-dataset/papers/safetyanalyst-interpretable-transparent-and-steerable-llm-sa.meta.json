@@ -1,0 +1,10 @@
+{
+  "paper_id": "6QBHdrt8nX",
+  "title": "SafetyAnalyst: Interpretable, transparent, and steerable LLM safety moderation",
+  "venue": "Submitted to ICLR 2025",
+  "decision": "Reject",
+  "accept": false,
+  "stratum": "bin[2,3)",
+  "mismatch": false,
+  "openreview_url": "https://openreview.net/forum?id=6QBHdrt8nX"
+}

@@ -1,0 +1,70 @@
+{
+  "paper_id": "FXJm5r17Q7",
+  "decision": "Reject",
+  "reviews": [
+    {
+      "reviewer_id": "seGtsAEKvC",
+      "rating": 3,
+      "confidence": 3,
+      "soundness": 2,
+      "presentation": 3,
+      "contribution": 2,
+      "summary": "This paper is positioned in the in-context reinforcement learning literature. The authors proposed to mitigate the burden of using only the optimal action labels by an exponential advantage weighting. As such, trajectories of different quality can be used for update since the exponential weighting can filter out bad actions when they have low advantage values.",
+      "strengths": "This paper is well-written and clearly motivated. The authors did a great job in crafting each section so they explained the context, problem and solution clearly.",
+      "weaknesses": "However, the paper lacks novelty in my opinion. In the offline RL setting, exponential advantage weighted regression is already very popular (AWAC, AWR) and has served as basis of many more sophisticated methods, see refs [1, 2]. The KL regularized policy optimization  as in proposition 4.1 has also been extensively investigated, the result of proposition 4.2 is fairly standard in the conservative policy iteration (CPI) literature, in which [Schulman et al., 2015] is one of the variants. The literature also includes the offline case, see [3]. So this paper did not propose anything sufficiently novel imo if it simply extended to in-context case with additional conditioning on $\\tau$.\nI recommend the authors take into account the above-mentioned references and discuss significant theoretical differences the paper has.\n\nI would suggest the authors go deeper in comparing the weighting scheme to enhance the paper. The exponential weighting scheme depends heavily on the estimation quality of advantage function, which itself can be unreliable. The proposed in-context estimation is not very convincing as well in this regard. And it is also due to this issue, AWAC is often found to be underperforming. Many tricks have been proposed to improve the weighting, e.g. by incorporating uncertainty [4], setting the weights of bad actions to zero to eliminate their updates [5,6]. The paper could benefit from such systematic comparison.\n\nReferences:\\\n[1] Simple and Scalable Off-Policy Reinforcement Learning\\\n[2] AWAC: Accelerating Online Reinforcement Learning with Offline Datasets\\\n[3] Behavior Proximal Policy Optimization\\\n[4] Uncertainty Weighted Actor-Critic for Offline Reinforcement Learning\\\n[5] Offline RL with No OOD Actions: In-Sample Learning via Implicit Value Regularization\\\n[6] Offline Reinforcement Learning via Tsallis Regularization",
+      "questions": "Please refer to the above for my questions.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "LQzc4U90dK",
+      "rating": 6,
+      "confidence": 4,
+      "soundness": 3,
+      "presentation": 2,
+      "contribution": 3,
+      "summary": "The paper proposes the Decision Importance Transformer (DIT), a novel approach in reinforcement learning (RL) that leverages transformer models to improve decision-making using suboptimal historical data. Traditional RL models struggle with data that does not include optimal action labels, but DIT overcomes this by introducing a weighted pretraining method. This method utilizes the advantage function, which estimates the importance of each action and weights the learning process accordingly. To handle situations where advantage functions are not directly available, DIT uses a transformer-based estimator that learns to approximate these advantage values across various tasks, enhancing the model\u2019s ability to generalize. The authors demonstrate DIT\u2019s effectiveness on bandit and Markov Decision Process (MDP) tasks, where DIT often matches or exceeds the performance of existing models, even when trained with suboptimal trajectories.",
+      "strengths": "* By integrating a transformer-based in-context advantage estimation, the model approximates the advantage values dynamically when they are not explicitly available. This allows DIT to extend its functionality to environments where advantage functions are challenging to compute or estimate, improving its general applicability in real-world scenarios with limited labeled data.\n* The authors conducted extensive testing across bandit and MDP environments, demonstrating DIT\u2019s ability to match or exceed the performance of state-of-the-art methods. The results on tasks with noisy or suboptimal data showcase the model\u2019s robustness and adaptability, emphasizing its potential in practical applications where perfect data is scarce.",
+      "weaknesses": "* As the optimal solution of the optimization problem in Eq.4 and the policy improvement theorem under KL constraint have been widely researched, this work seems to me the main contribution of the paper is applying it into the in-context learning RL domain. Thus I suggest the authors to conclude the contribution more from the aspect that what's the new insight of combing in-context RL and advantage weighted regression. \n* The weighted pretraining approach heavily relies on accurate advantage values to guide the learning process effectively. DIT uses Eq.9 to optimize the Q and V functions. However,  there is no evidence learning via this objective could avoid the overestimation problem widely exist in offline RL settings. I suggest the authors to compare the adopted training objective of Q and V with the ones with in-sample optimality guarantees such as IQL.  Or at least an illustration of Eq.9 could converge to an optimal solution should be given. \n* I suggest add some experiments between DIT and DPT using the same sub-optimal datasets to illustrate the advantages of DIT further. Current comparison such as Figure 5-7 could confuse the readers.\n* The writing could be further improved regrading the notations paragraph.\n* Several related works are missed which use RL or chain-of-thought to improve (in-context) LTM for decision making such as [1][2][3]. \n\n[1] Q-value Regularized Transformer for Offline Reinforcement Learning. ICML 2024.\n\n[2] Rethinking Decision Transformer via Hierarchical Reinforcement Learning. ICML 2024.\n\n[3] In-Context Decision Transformer: Reinforcement Learning via Hierarchical Chain-of-Thought. ICML 2024.",
+      "questions": "See weakness above.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "VibYiZf3XJ",
+      "rating": 6,
+      "confidence": 3,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "This paper explores the potential of large-scale transformer models for in-context learning in reinforcement learning (RL). The authors present the Decision Importance Transformer (DIT), a new framework for training transformers with suboptimal historical data, diverging from previous approaches that rely on optimal action labels. DIT leverages a weighted maximum likelihood estimation that assigns higher weights to actions with high advantage values, encouraging the model to learn near-optimal policies despite the lack of optimal trajectories in the dataset.",
+      "strengths": "Decision Importance Transformer (DIT) presents a novel approach by leveraging suboptimal historical data for in-context reinforcement learning (RL). While previous transformer-based RL approaches like Decision Pretrained Transformer (DPT) rely on datasets labeled with optimal actions, DIT uniquely addresses the challenge of training RL agents with suboptimal data by introducing a weighted maximum likelihood estimation guided by advantage functions. This framework effectively removes the constraint of needing optimal labels, broadening the applicability of transformer models in RL to real-world scenarios where optimal data is scarce or inaccessible. Additionally, the proposal of using an in-context advantage estimator to enhance policy learning from suboptimal data represents a creative blend of autoregressive modeling and advantage-weighted learning.",
+      "weaknesses": "* Baseline Comparisons: To contextualize DIT's performance on suboptimal data, the paper could be strengthened by comparing DIT to more recent offline RL methods, such as Conservative Q-Learning (CQL) or other SOTA offline RL methods.\n* Add DPT experiments comparison on bandit problems: In the MDP PROBLEMS setting, many experiments are compared with DPT. Why DPT comparisons were not included for bandit problems?",
+      "questions": "* How does DIT handle scalability with larger task sets or datasets? What is the computational overhead introduced by the advantage-based weighting mechanism? such as training time or memory usage comparisons.\n* This DIT makes actions with high advantage values receive more weight, leading to guaranteed policy improvements over the behavior policies. It is very similar to some offline RL methods, such as A2PR[1], AW/RW[2].  How DIT specifically differs from or improves upon these methods? Can you add some discussion with these methods in the related works or more experiments comparison? \n* For different tasks, how many does DIT train the in-context task identification transformer, the Q and Value models? Is there one for all tasks?\n\nReferences\uff1a\n\n[1] Liu, Tenglong, et al. \"Adaptive Advantage-Guided Policy Regularization for Offline Reinforcement Learning.\" In International Conference on Machine Learning (ICML). PMLR, 2024.\n\n[2] Hong, Zhang-Wei, et al. \"Harnessing mixed offline reinforcement learning datasets via trajectory weighting.\" arXiv preprint arXiv:2306.13085 (2023).",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "rjaliMpNkS",
+      "rating": 8,
+      "confidence": 4,
+      "soundness": 3,
+      "presentation": 4,
+      "contribution": 3,
+      "summary": "This paper introduces the Decision Importance Transformer (DIT), a model designed to generalize to new RL tasks through in-context learning, even when pre-training data originates from sub-optimal behavior policies. DIT accomplishes this by reweighting an offline dataset using advantage functions estimated by a large-scale transformer model (LTM) that is trained autoregressively. Additionally, the authors demonstrate that the exponential reweighting technique provably ensures policy improvement. Experimental results in bandit, planning, and continuous-control tasks show that DIT outperforms baselines when generalizing to new RL instances, even when trained on data generated by sub-optimal policies.",
+      "strengths": "- **Significance**: Generalizing to new RL tasks via in-context learning is a major concern in RL, particularly for handling sub-optimal datasets in offline RL. DIT addresses both of these challenges within a unified framework.\n  \n- **Novelty**: The proposed DIT combines multiple methods\u2014including LTMs, exponential reweighting, and actor-critic approaches\u2014in a cohesive design. To the best of my knowledge, no similar approach exists in current literature.\n\n- **Clarity**: The paper is well-organized and self-contained, presenting DIT's architecture and methodology progressively, making it accessible and providing insights to guide future work.",
+      "weaknesses": "**Suggestions for Improvement**:\n1. Provide more direct empirical evidence that task information $\\tau$ is being captured through in-context learning. For instance, demonstrate recovery of $\\tau$ in experiments by querying with some special states.\n2. The literature review is missing policy regularization methods for offline RL [1].\n\n**Minor Issues**:\n1. If $\\pi(a | s ; \\tau)$ and $\\pi_\\tau(a | s)$ refer to the same concept, choose one notation or define one in terms of the other for clarity.\n2. Proposition 4.2 is labeled as \"In-Context Policy Improvement.\" Since $\\tau$ is provided explicitly, this theorem seems to justify the design of the loss function rather than \"in-context learning.\" Renaming it to better reflect its role might avoid potential misinterpretation.\n\n[1] Fujimoto, Scott, and Shixiang Shane Gu. \"A minimalist approach to offline reinforcement learning.\" *Advances in Neural Information Processing Systems*, 34 (2021): 20132-20145.",
+      "questions": "1. Is DIT pre-trained in an autoregressive way or an \u201cencoder\u201d way, i.e., does the output of the LTMs contain only a single action token instead of a sequence of predictions?\n2. In a fair comparison\u2014such as using DIT with optimal historical data\u2014would DIT still outperform baseline methods like DPT? If so, what do you think is the advantage of DIT over DPT when both are using optimal historical data?",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    }
+  ]
+}

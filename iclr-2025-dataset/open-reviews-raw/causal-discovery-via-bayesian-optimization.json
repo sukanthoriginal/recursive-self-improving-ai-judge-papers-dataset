@@ -1,0 +1,70 @@
+{
+  "paper_id": "8muemqlnG3",
+  "decision": "Accept (Poster)",
+  "reviews": [
+    {
+      "reviewer_id": "VQIzwzikwv",
+      "rating": 6,
+      "confidence": 5,
+      "soundness": 2,
+      "presentation": 3,
+      "contribution": 2,
+      "summary": "This paper introduces DrBO, a Bayesian Optimization-based framework for efficient and accurate DAG learning from observational data. By leveraging dropout neural networks instead of Gaussian Processes, DrBO addresses scalability issues while integrating uncertainty in score estimation. Empirical results demonstrate DrBO's improved efficiency and accuracy over existing methods across synthetic and real datasets.",
+      "strengths": "- Using BO in causal discovery is interesting and novel. \n- The paper is very well written.",
+      "weaknesses": "see questions.",
+      "questions": "1. To my knowledge, the CBO series of papers assumes that the DAG structure is known and primarily focuses on optimizing policies with this prior knowledge. Therefore, these papers may not be directly relevant to the active causal discovery literature. Please revise this in the introduction to reflect the distinction.\n\n2. The synthetic dataset, as first used in NOTEARS, is known to be relatively easy to learn, making pursuit of very low SHD scores less meaningful in recent research, especially the very simple linear gaussian case. How does your method perform on this dataset after standardization, as described in the paper *Beware of the Simulated DAG*?\n\n3. The proposed method appears to be limited to ANMs in causal discovery, which restricts the scope of the paper. It may be more accurate to frame the task as DAG structure learning or Bayesian structure learning rather than causal discovery.\n\n4. In Section 4.1, the authors mention that their method incorporates a low-rank adaptation of Vec2DAG. Does this imply an assumption about the data\u2019s structure, as discussed in *On Low Rank Directed Acyclic Graphs and Causal Structure Learning*? Additionally, what would occur if \\( k < d \\)?\n\n5. Replacing the Gaussian Process in Bayesian Optimization with Dropout is not uncommon, so it may not warrant being highlighted as a novel contribution in this paper.\n\n6. While many prior works employ CAM as a pruning method, I believe this approach may lack justification here. Why would score-based search methods, including this paper, attempt to prune under nonlinear conditions? It's unusual for newly proposed methods to rely on post-processing from an older method.\n\n7. Please compare this baseline method, *Truncated Matrix Power Iteration for Differentiable DAG Learning*, to your approach.\n\n8. In Figure 1, several methods being compared fail to converge. For the tabulated results, have you ensured that all comparison methods have converged? Additionally, consider moving the running time details from the appendix to the main content, as the high time complexity is a notable limitation of the proposed method.\n\n9. Please provide results for nonlinear functions with datasets of 50 and 100 nodes, detailing both performance metrics and running time.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "ZMHkc1xO7f",
+      "rating": 6,
+      "confidence": 3,
+      "soundness": 2,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "This paper develops a Bayesian optimization method for score-based causal discovery. Several design choices are adopted, which include (1) developing a low-rank DAG representation, (2) replacing Gaussian process in conventional Bayesian optimization with dropout neural networks, (3) learning the DAG score indirectly via node-wise local scores, and (4) training in a continual way. Empirical studies are provided.",
+      "strengths": "- The paper is well written and easy to follow.\n- Developing effective search procedure for score-based causal discovery is an interesting and important topic. The proposed method adopts various design choices and is practical.\n- The search method is reasonable.\n- The empirical studies demonstrate that the proposed method considerably outperforms existing methods.",
+      "weaknesses": "- Some of the baselines considered are not adequate.\n- Some of the results may seem too good to be true. For example, achieving a SHD of 1.6 with only 1000 samples across 30 nodes and 240 edges seems highly challenging due to finite sample error. This concern is especially relevant when dealing with nonlinear data. (I look forward to the authors' clarification/explanation on this, and please correct me if I misunderstood anything.)",
+      "questions": "- Is there a reason why the paper considers only identifiable models? That is, why general linear Gaussian model cannot be learned by the BIC-NV score?\n- Although BIC-NV is given, it seems that the experiments focus on equal variances. I would suggest adding experiments for different variances as well.\n- Baselines: For linear case, GOLEM may also be included. Also, adding the results for more conventional search methods, such as GES/FGES, may also be helpful.\n- Why does DAGMA-MLP performs so poorly for nonlinear data? The TPR is close to 0. If the reason is due to instability in optimization, the paper may consider adding NOTEARS-MLP that may be more stable.\n- For Section 5.2, specifically Sachs data, did the paper use linear or nonlinear version of the method?",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "RWL0M8yzfO",
+      "rating": 6,
+      "confidence": 3,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 2,
+      "summary": "This paper proposes an efficient causal discovery algorithm with Bayesian optimization. In particular, the authors consider a variant of Vec2DAG (Duong et al., 2024) for the DAG constraint, and use dropout neural networks and continual training scheme to optimize the adjacency matrix. Experiments show the efficiency and effectiveness of their method.",
+      "strengths": "- This paper is written clearly, with clear and detailed descriptions of their method and experiments.\n\n- They performed extensive experiments for validation.",
+      "weaknesses": "- While there exist some causal discovery algorithms with Bayesian optimization, it seems not proper to state \u201cTo our knowledge, this is the first score-based causal discovery method based on BO \u201d. I think it should be corrected.\n\n- Throughout the paper, from the experiments, it is demonstrated that the proposed method can give better performances in both accuracy, sample-efficiency, and scalability, compared with other SOTA baselines. Generally, such a great method needs more assumptions or conditions to be satisfied. But intuitively, I cannot find these assumptions or conditions. Did this method have some other implied assumptions or conditions (like more hyperparameters)? \n\n- In experiments, it would be good to compare some Bayesian causal discovery methods (Deleu et al., 2022: Tranet al., 2023; Annadani et al., 2023), since they are all causal discovery methods. Or explain the reasons why not comparing with them.\n\n- The code is not available for reproduction.",
+      "questions": "- In Eq.(4), is the matrix $R$ strictly upper-triangular?\n- In Figure 1(b), did the authors still use 1000 samples for the large-graph experiments? $n=1000$ for the graph with 100 nodes?\n- In Figure 3(a), why in general smaller $k$ could obtain higher performances, compared with the full-rank cases?",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "xgUlQatpON",
+      "rating": 8,
+      "confidence": 3,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "The authors propose DrBO (DAG recovery via Bayesian Optimization)\u2014a novel DAG learning framework leveraging Bayesian optimization (BO) to find high-scoring DAGs.  To address the scalability issues of conventional BO in DAG learning,  the authors replace Gaussian Processes commonly employed in BO with dropout neural networks, trained in a continual manner. DrBO is computationally efficient and can find the accurate DAG in fewer trials and less time than existing state-of-the-art methods. This is demonstrated through an extensive set of empirical evaluations on many challenging settings with both synthetic and real data.",
+      "strengths": "Learning DAG from data using BO is novel and interesting.  The authors overcome the scalability issue of conventional BO by leveraging dropout in neural networks. Experimental results show that the proposed method is effective and can achieve improved results. The paper was written with technical details.",
+      "weaknesses": "N/A",
+      "questions": "Could the authors give more details on how to ensure the binary adjacent matrix is a DAG in the optimization steps?",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "paper_id": "u1cQYxRI1H",
+  "title": "Scaling In-the-Wild Training for Diffusion-based Illumination Harmonization and Editing by Imposing Consistent Light Transport",
+  "venue": "ICLR 2025 Oral",
+  "decision": "Accept (Oral)",
+  "accept": true,
+  "stratum": "bin[10,10]",
+  "mismatch": false,
+  "openreview_url": "https://openreview.net/forum?id=u1cQYxRI1H"
+}

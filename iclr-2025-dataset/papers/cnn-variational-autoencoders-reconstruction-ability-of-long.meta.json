@@ -1,0 +1,10 @@
+{
+  "paper_id": "v3XabZsB7j",
+  "title": "CNN Variational autoencoders' reconstruction ability of long ECG signals",
+  "venue": "Submitted to ICLR 2025",
+  "decision": "Reject",
+  "accept": false,
+  "stratum": "bin[1,2)",
+  "mismatch": false,
+  "openreview_url": "https://openreview.net/forum?id=v3XabZsB7j"
+}

@@ -1,0 +1,54 @@
+{
+  "paper_id": "xXTkbTBmqq",
+  "decision": "Accept (Oral)",
+  "reviews": [
+    {
+      "reviewer_id": "uRHBIfCcem",
+      "rating": 10,
+      "confidence": 5,
+      "soundness": 4,
+      "presentation": 4,
+      "contribution": 4,
+      "summary": "This work is devoted to sharing the insights, data, and checkpoints of a series of MoE LLMs. The model achieved promising results on various benchmarks as a fully open model family.",
+      "strengths": "1) There is no doubt that training MoE LLMs is challenging. This work offers a couple of important takeaways about how to train a good MoE LLMs, which is very helpful to the community.\n2) The presentation is very clear. For instance, the Table 1 delivers many key designs clearly at the early section of the paper.\n3) The model performance is good as well. As shown in Table 2 and 3, the model performs competitive with dense open models and partially open models (e.g. Qwen, Deepseek).\n4) The Analysis in Section 5 is informative, which greatly help readers and authors to understand how is the model working. This can also greatly speedup the growth of the community.",
+      "weaknesses": "1) Although the model has been relatively large, it is still much smaller than the SoTA MoE LLMs. I understand it is hard to get enough training resource for a fully open projects.",
+      "questions": "1) What do you think about the necessity of expert parallelism? This model used dropless MoE, so it anyway will be unbalanced when using expert parallelism during training and inference. Without expert parallelism, it is still okay when the model is small. However, if we are aiming at a very large model, which has very large experts even if we are using the \"fine-grained MoE\", the expert parallelism would still be required? So how can we handle the token drop problem in this case?",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "QOI4jeOedV",
+      "rating": 8,
+      "confidence": 2,
+      "soundness": 4,
+      "presentation": 4,
+      "contribution": 3,
+      "summary": "This paper presents a mixture-of-experts (MoE) LLM model called OLMoE that has 1B active parameters and 7B total parameters. The OLMoE model Pareto dominates many state-of-the-art models in the performance vs. active parameters space. The paper explores and presents insights on what is optimal in the design-space of MoE parameters and present analysis of routing behavior in MoEs.",
+      "strengths": "1) Strong empirical results with state-of-the-art performance for 1B active parameters.\n2) Good exploration of the MoE design space which forms a good guide for MoE model design.\n3) Novel analysis of routing behavior in MoE models during training and inference.\n4) This is the only MoE model where the model weights, code, data and checkpoints are openly available and thus the work is entirely reproducible.",
+      "weaknesses": "1) Other state-of-the art MoE models in related works are not exactly in the same parameter count configuration (1B/7B) so an exact comparison cannot be made to this model's performance.\n2) Most of the design choices and training choices are based on prior work and the novelty is more in the design space exploration and analysis of routing behavior.",
+      "questions": "The work is well presented and possible suggestions for improvements are addressed in the future work section.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "wsaqtgZmFV",
+      "rating": 8,
+      "confidence": 3,
+      "soundness": 4,
+      "presentation": 4,
+      "contribution": 4,
+      "summary": "This paper introduces OLMoE, a fully open, state-of-the-art language model built on a sparse Mixture-of-Experts (MoE) architecture. The authors conducted extensive experiments to validate the effectiveness of the proposed method, including evaluations after pre-training and adaptation phases. Additionally, they explored key design choices within the MoE framework, examining factors like expert granularity, routing strategies. Their analyses provided valuable insights into MoE, including router saturation, expert co-activation, and domain/vocabulary specialization.",
+      "strengths": "- The writing in this paper is clear and easy to follow.\n- The paper advances MoE research by providing a fully open-sourced, state-of-the-art MoE architecture, which is beneficial for the research community.\n- The paper presents a thorough analysis of key design choices in MoE, offering valuable guidance on building high-performance MoE models.\n- The analysis is insightful, with discussions on phenomena such as router saturation and expert co-activation providing fresh perspectives and meaningful implications for the field.",
+      "weaknesses": "I have a question regarding the experimental results: were the model parameters quoted directly from the original paper for the results shown in Table 2? For instance, in the original paper, OpenMOE\u2019s activation parameter count is reported as 2.1B, whereas Table 2 shows an activation parameter count of 2.9B for OpenMOE. I recommend that the authors carefully verify the accuracy of these values.",
+      "questions": "See Above.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": "N/A"
+    }
+  ]
+}

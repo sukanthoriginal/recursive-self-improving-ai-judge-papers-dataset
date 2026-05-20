@@ -1,0 +1,24 @@
+{
+  "pages": 14,
+  "redactions": [
+    "title_page_author_block"
+  ],
+  "pattern": {
+    "email": 0,
+    "orcid": 0,
+    "url": 4,
+    "arxiv_footnote": 3
+  },
+  "section_redactions": 0,
+  "author_name_redactions": {
+    "Liu": 5
+  },
+  "authors_groundtruth": [
+    "Gangli Liu"
+  ],
+  "verify": {
+    "ok": true,
+    "issues": [],
+    "chars": 44325
+  }
+}

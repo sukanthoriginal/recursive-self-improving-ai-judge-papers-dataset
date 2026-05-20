@@ -1,0 +1,70 @@
+{
+  "paper_id": "SrGP0ILoYa",
+  "decision": "Reject",
+  "reviews": [
+    {
+      "reviewer_id": "bA1FPGp0Ir",
+      "rating": 8,
+      "confidence": 4,
+      "soundness": 3,
+      "presentation": 4,
+      "contribution": 4,
+      "summary": "This paper focuses on characterizing graph topological structures with persistent homology methods. The proposed TopER rerpesents graphs with a sereis of graph filtrations and characterizes graphs with merely two parameters. Experimental results validate the effectiveness of the proposed TopER in generating self-supervised graph representations.",
+      "strengths": "+ A novel simple yet framework to represent graphs with persistence homology.\n+ Compared with existing mainstream graph contrastive learning based method, the proposed TopER is parameter-free while achieving promising results.\n+ Solid experiments and ablation studies on the proposed TopER.\n+ The paper is well written and easy to follow.",
+      "weaknesses": "- The reason of adapting linear regression to fit the filtration sequences is mentioned in the Appendix, yet no theoretical or experimental support are provided.\n- The key parts of TopER's implementation are missing from the provided repo link.\n- The used filtration functions require further introduction and explanation.",
+      "questions": "1. The `functions_to_calculate_[a,b]` folder in the anonymous repository appears to be empty. Could you explain why?\n2. Is there a theoretical basis for the linear correlation between $a$ and $b$ ? How would the model performance when applying other fitting functions, such as polynomials?",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "BcZHGZlxrP",
+      "rating": 5,
+      "confidence": 4,
+      "soundness": 2,
+      "presentation": 2,
+      "contribution": 2,
+      "summary": "This paper presents Topological Evolution Rate (TopER), a novel low-dimensional embedding method based on topological data analysis for intuitive and interpretable graph representations. TopER achieves competitive performance in graph clustering and classification, with strong results across diverse datasets.",
+      "strengths": "1. TopER introduces a topologically grounded, low-dimensional embedding approach that efficiently captures graph substructure evolution, simplifying the computation-heavy process of Persistent Homology.\n\n2. TopER provides clear, low-dimensional embeddings that highlight key topological features such as clusters and outliers, enhancing the ability to analyze individual and cross-dataset graphs.",
+      "weaknesses": "1. The methodology briefly mentions alternatives to linear fitting, such as polynomial fits, but lacks detailed explanations. This omission raises questions about the impact of different fitting methods on the TopER vector and its adaptability to diverse graph types.\n2. Although the linear regression on filtration sequences is computationally simpler than full Persistent Homology, the paper does not clarify how this process scales for large graphs with numerous filtration levels, making it uncertain whether the approach maintains efficiency for complex, high-dimensional data.\n3. The ablation study shows that combining different filtration functions improves performance. However, it does not clearly explain how each function helps or why they work well together. This makes it hard to know which functions are truly needed and which may just add extra complexity without much benefit.",
+      "questions": "Can the authors clarify why combining these specific filtration functions enhances performance in ablation study?",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "SUykNioCje",
+      "rating": 6,
+      "confidence": 3,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 2,
+      "summary": "The paper presents a novel approach to train low-dimensional graph embeddings inspired by topological graph data analysis. Their method, Topological Evolution Rate (TopER), argues that the graph structure can be characterized by the linear function that relates how the number of edges relates to the number of nodes in the graphs induced by the nodes/edges that have a given value of a property such as degree. Through experiments, they show superior performance in graph classification, clustering, and interpretability. Furthermore, their method enables embedding different graph datasets in a shared embedding space, which is interesting.",
+      "strengths": "- The paper is well-written with minimal typos and gives a good background of topological learning. \n- Experiments are mostly thorough and provide a comparison against different baselines, especially for graph classification. \n- The ability to train a shared interpretable embedding space of different graph datasets is interesting and has a lot of potential impact.\n- The proposed method is computationally efficient and shows significant gains in performance.",
+      "weaknesses": "- Motivation behind the method is lacking: The paper provides very little motivation behind the actual methodology. \n  - It is not clear what the correlation between the number of edges and number of nodes of the induced graphs wrt a filtration function has to do with how the graph is characterized/classified. \n  - It is not clearly stated why there should be a linear correlation between the two numbers. The motivating figures also do not motivate a linear correlation, except for MUTAG.\n  - If there is a relation with persistence homology, then it should be discussed. \n- The method is limited to non-attributed graphs and cannot easily extend to attributed graphs, for which it might depend on other graph kernels to be devised.\n- High sensitivity to filtration functions: As can be noted by the ablation study, the performance is highly sensitive to the filtration functions used for a particular dataset. This limits the strengths since it is not clear if the set of filtration functions considered in this work are even exhaustive. \n- Training an MLP on top of (a, b) of different filtration functions also limits the interpretability since the discriminative features may be formed as a combination of different filtration trends. Furthermore, using a single filtration function is always less performative than using multiple functions, which means the evolution rate of no one function is capable of classifying the graphs accurately. \n- A simpler comparison should be provided that compares persistent homology and TopER in their time complexity and graph classification accuracy assuming the same filtration function. \n- Hyperparameter analysis of the number of thresholds is missing. \n- Empirical comparison with some important baselines is not provided:\n  - Immonen, Johanna, Amauri Souza, and Vikas Garg. \"Going beyond persistent homology using persistent homology.\" Advances in Neural Information Processing Systems 36 (2024).\n  - Hofer, Christoph, et al. \"Graph filtration learning.\" International Conference on Machine Learning. PMLR, 2020.\n  - Rieck, Bastian, Christian Bock, and Karsten Borgwardt. \"A persistent weisfeiler-lehman procedure for graph classification.\" International Conference on Machine Learning. PMLR, 2019.",
+      "questions": "See above weaknesses.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "PxplfuFXeb",
+      "rating": 6,
+      "confidence": 3,
+      "soundness": 2,
+      "presentation": 3,
+      "contribution": 2,
+      "summary": "This paper presents TopER, an innovative method for graph embedding based on topological data analysis (TDA). TopER introduces an efficient approach to graph representation learning by simplifying Persistent Homology, particularly in creating embeddings that capture the evolution of graph substructures. Instead of traditional graph neural network (GNN)-based methods, TopER focuses on generating interpretable, low-dimensional embeddings through filtration and linear regression on subgraph evolution rates. It shows competitive performance in clustering and classification tasks across various datasets, such as molecular and social networks, underscoring its utility for interpretable, scalable graph embeddings.",
+      "strengths": "Innovative Approach: The paper introduces TopER, a novel method based on Topological Data Analysis (TDA) that simplifies Persistent Homology for graph embedding. By tracking the evolution rate of graph substructures, TopER provides a low-dimensional, interpretable graph representation, enabling it to capture graph structure effectively without high computational costs.\nss\nComputational Efficiency: The limitations in computational efficiency are crucial since they directly impact the scalability of TopER for large real-world applications, a primary goal of embedding methods. Improving this area could make TopER more viable for large-scale datasets in practice.\n\nGood Interpretability and Visualization: The two-dimensional embeddings produced by TopER offer strong interpretability, allowing users to easily identify clusters, outliers, and structural features within datasets. Unlike higher-dimensional embeddings, which are often challenging to interpret, TopER is well-suited for data exploration and graph visualization.",
+      "weaknesses": "Lack of Threshold Setting Details: The paper does not explain how thresholds are set for different filtration functions, nor how the number of subgraphs n is determined. Since both threshold choice and n could impact results, further analysis would be valuable.\n\nClarity on Embedding Dimension: The paper lacks details on TopER\u2019s final embedding dimension and does not directly compare it to the embedding dimensions of other algorithms. Embedding dimension is crucial for evaluating performance and computational efficiency, so specifying and comparing the dimensions of different methods would enhance the clarity and interpretability of the results.\n\nDataset-Specific Dimension Variability: Line 394 mentions \"top-performing combinations of filtration and vectorization for each dataset,\" which suggests that embedding dimensions might vary across datasets. However, the paper does not clarify what these combinations are or discuss the impact of using different combinations across datasets, especially given the many possible configurations with the eight filtration functions.\n\nAblation Study Needs More Analysis: The ablation study does not analyze the effects of each filtration function on individual datasets, missing insights into how specific functions influence results across different types of data.",
+      "questions": "See from Paper Weaknesses.",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    }
+  ]
+}

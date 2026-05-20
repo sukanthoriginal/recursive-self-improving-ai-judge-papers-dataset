@@ -1,0 +1,70 @@
+{
+  "paper_id": "Ha6RTeWMd0",
+  "decision": "Accept (Oral)",
+  "reviews": [
+    {
+      "reviewer_id": "dvmRgxnB6P",
+      "rating": 10,
+      "confidence": 5,
+      "soundness": 4,
+      "presentation": 4,
+      "contribution": 4,
+      "summary": "This paper extends SAM to video, which can segment anything in images and videos. This paper has three significant contributions:\n1. The paper expands SAM to video, enabling the segmentation of anything in video.\n2. The paper develops a data engine for promptable video segmentation and constructs a large-scale video segmentation dataset, SA-V.\n3. The paper designs a more efficient architecture for promptable image and video segmentation, demonstrating significant acceleration.",
+      "strengths": "1. The paper is well-written and easy to follow. \n2. The paper has significant contributions, including a more efficient model architecture, a large-scale SA-V dataset, and fantastic performance.\n3. The paper conducts comprehensive experiments and provides some valuable insights.",
+      "weaknesses": "The paper does not have significant weaknesses. My concerns and suggestions are listed in the ``Questions\" section.",
+      "questions": "1. How would existing SOTA VOS methods perform after finetuning on the SA-V dataset? The paper uses SAM+Cutie as a baseline; however, Cutie has not been trained on large-scale data like SA-V. Therefore, I am interested in Cutie's performance after training with the SA-V dataset. After finetuning with SA-V, would SAM+Cutie surpass SAM2? This would not affect the paper's significant contributions, regardless of the results, as SAM2 is an end-to-end model.\n\n2. I suggest the authors should cite some works from VIS [1, 2, 3, 4], VSS [5], and VPS [6, 7, 8] fields in the related works section, as these areas are also highly relevant to this paper.\n\n[1] Video instance segmentation\n\n[2] End-to-end video instance segmentation with transformers\n\n[3] Tube-Link: A flexible cross tube framework for universal video segmentation\n\n[4] DVIS: Decoupled video instance segmentation framework\n\n[5] Vspw: A large-scale dataset for video scene parsing in the wild\n\n[6] Video-kmax: A simple unified approach for online and near-online video panoptic segmentation\n\n[7] Video k-net: A simple, strong, and unified baseline for video segmentation\n\n[8] OMG-Seg: Is one model good enough for all segmentation?",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "TF56VsyKw5",
+      "rating": 8,
+      "confidence": 4,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 3,
+      "summary": "This work addresses promptable visual segmentation in both images and videos. The primary contributions include a new task that generalizes image segmentation to the video domain, a new unified model for video and image segmentation, and a new dataset consisting of 35.5M masks across 50.9K videos. EExtensive evaluations across diverse benchmarks demonstrate that SAM 2 achieves state-of-the-art performance, highlighting its potential to enable \"segment anything in videos.\"",
+      "strengths": "* Compared to the original SAM model, SAM 2 improves segmentation accuracy, enabling more precise identification and segmentation of objects in images and videos.\n* The processing speed is approximately six times faster than its predecessor. This allows SAM 2 to generate segmentation masks more quickly, making it suitable for real-time applications.\n* SAM 2 exhibits strong zero-shot transfer capability.\n* The training dataset includes 11 million images and 11 billion masks, providing a robust foundation for new video segmentation tasks for the community.\n* The model and dataset are open-sourced.",
+      "weaknesses": "From my perspective, there is no obvious weakness in this work. If must to say:\n1. The claimed improvement in running speed is mainly due to the usage of the Hiera image encoder, which may not be viewed as a unique contribution of this study.\n2. The primary contribution lies in a large-scale dataset and pre-trained models, while the technical contribution is relatively limited.",
+      "questions": "N/A",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "M5CFKoUyTa",
+      "rating": 8,
+      "confidence": 4,
+      "soundness": 4,
+      "presentation": 3,
+      "contribution": 4,
+      "summary": "This paper proposed a strong foundation model for promptable visual segmentation in images and videos. It proposed a new data engine  that enhances model and data through user interaction, creating the largest video segmentation dataset to date.  A streaming memory augmented transformer is proposed  for real-time video processing.",
+      "strengths": "1. This paper proposed a strong foundation model for the video and image segmentation. The data, model, and insights will serve\nas a significant milestone for video segmentation.\n\n2. The writing of the paper is good and the paper is easy to understand.",
+      "weaknesses": "1. More experiments should be conducted. For example, more interactive VOS methods should be compared.\n[1*] Modular interactive video object segmentation: Interaction-to-mask, propagation and difference-aware fusion. CVPR 2021\n[2*] Memory aggregation networks for efficient interactive video object segmentation. CVPR 2020\n\n2. More VOS datasets (e.g., VIPOSeg[4*]) should be included in this paper. \n[4*] Video Object Segmentation in Panoptic Wild Scenes. IJCAI 2023",
+      "questions": "1. How is the annotation quality of the SA-V dataset, and how do you ensure the quality of the annotations? What is the difficulty level of this dataset (such as the movement of objects in the video, occlusions, etc.) compared to previous datasets?\n\n2. Has SAM 2 attempted stability testing for results on ultra-long videos? Is object tracking in long videos more prone to errors?\n\n\n3. If the memory bank is of fixed size, will it lead to forgetting when dealing with long videos?",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": null
+    },
+    {
+      "reviewer_id": "YTu5kFXmZ4",
+      "rating": 10,
+      "confidence": 4,
+      "soundness": 4,
+      "presentation": 4,
+      "contribution": 3,
+      "summary": "In this paper, the authors build a data engine to generate a large-scale video segmentation dataset. Using the datasets, they train a strong yet efficient model.",
+      "strengths": "1. With the data engine pipeline, the paper provides an extremely large-scale video segmentation dataset compared to previous datasets. This will allow the researchers to tackle much more challenging tasks in video segmentation.\n\n2. Based on the experimental results, the trained SAM2 model outperforms the combination of SAM and existing state-of-the-art trackers by a large margin. Therefore, the data scaling-up with the data engine is effective, as described by the authors. The results also imply the potential of further data scaling up with the data engine.\n\n3. For image segmentation, the SAM2 model can also perform better, even with a much smaller computational cost. This will facilitate the applications of the SAM2 model. In a constrained platform, it is always better to have a good and efficient model.\n\n4. The paper provides detailed information about the implementations of the data engine and data distribution. It is also good that the authors release their data and models. It would be even better if the training code and data engine could be publicly available.",
+      "weaknesses": "1. Although this paper uses a simpler structure and performs well, it is still possible to use previous structures, such as Cutie [R1], to achieve even better performance with SAM2 data. It would be better if the structure could be explored.\n\n2. SAM2 cannot recognize segmented objects like previous models [R2, R3]. It would be better to discuss this since it may limit the application of this paper. It would also be better to discuss the difference with [R4], which supports image and video segmentation and can recognize the objects.\n\n\n[R1] Putting the Object Back into Video Object Segmentation.\n\n[R2] Open-Vocabulary SAM: Segment and Recognize Twenty-thousand Classes Interactively.\n\n[R3] Semantic-SAM: Segment and Recognize Anything at Any Granularity.\n\n[R4] OMG-Seg: Is One Model Good Enough For All Segmentation?",
+      "questions": "NA",
+      "flag_for_ethics_review": [
+        "No ethics review needed."
+      ],
+      "details_of_ethics_concerns": "NA"
+    }
+  ]
+}

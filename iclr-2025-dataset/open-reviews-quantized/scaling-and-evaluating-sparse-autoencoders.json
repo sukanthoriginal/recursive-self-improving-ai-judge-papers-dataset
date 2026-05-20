@@ -1,0 +1,51 @@
+{
+  "paper_id": "tcsZt9ZNKD",
+  "decision": "Accept (Oral)",
+  "accept": true,
+  "reviews": [
+    {
+      "reviewer_id": "fc3wRUvaiu",
+      "rating": 10,
+      "confidence": 4,
+      "soundness": 4,
+      "presentation": 3,
+      "contribution": 4
+    },
+    {
+      "reviewer_id": "GvAvq2QoQP",
+      "rating": 8,
+      "confidence": 4,
+      "soundness": 3,
+      "presentation": 4,
+      "contribution": 4
+    },
+    {
+      "reviewer_id": "GuelfijD33",
+      "rating": 10,
+      "confidence": 4,
+      "soundness": 4,
+      "presentation": 3,
+      "contribution": 4
+    },
+    {
+      "reviewer_id": "FFirLIpvVs",
+      "rating": 10,
+      "confidence": 4,
+      "soundness": 4,
+      "presentation": 4,
+      "contribution": 4
+    },
+    {
+      "reviewer_id": "YXtmcN5e0x",
+      "rating": 3,
+      "confidence": 4,
+      "soundness": 3,
+      "presentation": 3,
+      "contribution": 2
+    }
+  ],
+  "ground_truth": {
+    "weighted_mean_overall": 8.2,
+    "accept": true
+  }
+}

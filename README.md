@@ -45,6 +45,18 @@ score↔decision mismatches:
 
 Mismatch papers are flagged with `mismatch: true` in their meta.json.
 
+## ICLR 2025 dataset
+
+49 papers from ICLR 2025 (`iclr-2025-dataset/`) — different review scale (1–10) but same prediction-target shape:
+
+- 45 papers: 5 per bin × 9 bins (`[1,2)` through `[9,10)`)
+- 1 paper from `[10,10]` (the only one)
+- 3 mismatch papers: 1 low-score accept + 1 high-score reject per high bin
+
+Confidence-weighting still applies (ICLR confidence field exists, 1–5 scale).
+
+![ICLR 2025 ground-truth distribution](iclr-2025-dataset/iclr_ground_truth.png)
+
 ## Sanitization
 
 The blinded PDFs (`sanitized-papers/`) have:

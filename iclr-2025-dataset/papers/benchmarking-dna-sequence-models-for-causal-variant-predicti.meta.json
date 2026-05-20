@@ -1,0 +1,10 @@
+{
+  "paper_id": "GlLXMjW7oF",
+  "title": "Benchmarking DNA Sequence Models for Causal Variant Prediction in Human Genetics",
+  "venue": "Submitted to ICLR 2025",
+  "decision": "Reject",
+  "accept": false,
+  "stratum": "bin[4,5)",
+  "mismatch": false,
+  "openreview_url": "https://openreview.net/forum?id=GlLXMjW7oF"
+}
