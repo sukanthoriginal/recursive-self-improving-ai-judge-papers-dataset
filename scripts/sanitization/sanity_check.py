@@ -40,7 +40,7 @@ from pathlib import Path
 import fitz
 from openreview.api import OpenReviewClient
 
-ROOT = Path("neurips-2025-dataset-v2")
+ROOT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("neurips-2025-dataset-v2")
 SANI = ROOT / "sanitized-papers"
 PAPERS_META = ROOT / "papers"
 REPORT = ROOT / "sanity_check_report.json"

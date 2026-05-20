@@ -1,0 +1,1464 @@
+{
+  "a-is-for-absorption-studying-feature-splitting-and-absorptio": {
+    "authors": [
+      "David Chanin",
+      "James Wilken-Smith",
+      "Tom\u00e1\u0161 Dulka",
+      "Hardik Bhatnagar",
+      "Joseph Isaac Bloom"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        }
+      ]
+    },
+    "n_authors": 5
+  },
+  "a-language-model-based-model-manager": {
+    "authors": [
+      "Shravan Doda",
+      "Shashidhar Reddy Javaji",
+      "Zining Zhu"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.25"
+        },
+        {
+          "check": "acknowledgment_style_phrase",
+          "match": "supported by",
+          "context": "the accuracy of explanations, a concept supported by Ajwani et al. (2024). Notably, our work aligns with Kroeger"
+        }
+      ]
+    },
+    "n_authors": 3
+  },
+  "adam-exploits-ell-infty-geometry-of-loss-landscape-via-coord": {
+    "authors": [
+      "Shuo Xie",
+      "Mohamad Amin Mohamadi",
+      "Zhiyuan Li"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.25"
+        },
+        {
+          "check": "self_reference_phrase",
+          "match": "extend our",
+          "context": "(Adam with \u03b21 = 0, \u03b22 \u2208[0, 1]). Then we extend our analysis of Adam to more general blockwise Adam (Theorem 3.11), which contains "
+        },
+        {
+          "check": "self_reference_phrase",
+          "match": "extend our",
+          "context": "chastic case (Corol- lary 3.6). We also extend our analysis to blockwise Adam on loss L with respect to an arbitrary partition of "
+        }
+      ]
+    },
+    "n_authors": 3
+  },
+  "almost-sure-convergence-of-average-reward-temporal-differenc": {
+    "authors": [
+      "Ethan Blaser",
+      "Shangtong Zhang"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref package"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.18"
+        }
+      ]
+    },
+    "n_authors": 2
+  },
+  "benchmarking-dna-sequence-models-for-causal-variant-predicti": {
+    "authors": [
+      "Gonzalo Benegas",
+      "G\u00f6kcen Eraslan",
+      "Yun S. Song"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "title",
+          "value": "Overleaf Example"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        }
+      ]
+    },
+    "n_authors": 3
+  },
+  "boosting-deductive-reasoning-with-step-signals-in-rlhf": {
+    "authors": [
+      "Jialian Li",
+      "YipinZhang",
+      "Wei Shen",
+      "Yuzi Yan",
+      "Jian Xie",
+      "Dong Yan"
+    ],
+    "status": "PASS",
+    "findings": {
+      "FAIL": [],
+      "WARN": []
+    },
+    "n_authors": 6
+  },
+  "causal-discovery-via-bayesian-optimization": {
+    "authors": [
+      "Bao Duong",
+      "Sunil Gupta",
+      "Thin Nguyen"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        }
+      ]
+    },
+    "n_authors": 3
+  },
+  "cnn-variational-autoencoders-reconstruction-ability-of-long": {
+    "authors": [
+      "Ahsan Habib",
+      "Brenton Adey",
+      "Chandan Karmakar"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        }
+      ]
+    },
+    "n_authors": 3
+  },
+  "comparing-noisy-neural-population-dynamics-using-optimal-tra": {
+    "authors": [
+      "Amin Nejatbakhsh",
+      "Victor Geadah",
+      "Alex H Williams",
+      "David Lipshutz"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.25"
+        }
+      ]
+    },
+    "n_authors": 4
+  },
+  "constrained-posterior-sampling-time-series-generation-with-h": {
+    "authors": [
+      "Sai Shankar Narasimhan",
+      "Shubhankar Agarwal",
+      "Litu Rout",
+      "Sanjay Shakkottai",
+      "Sandeep P. Chinchali"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        }
+      ]
+    },
+    "n_authors": 5
+  },
+  "cybench-a-framework-for-evaluating-cybersecurity-capabilitie": {
+    "authors": [
+      "Andy K Zhang",
+      "Neil Perry",
+      "Riya Dulepet",
+      "Joey Ji",
+      "Celeste Menders",
+      "Justin W Lin",
+      "Eliot Jones",
+      "Gashon Hussein",
+      "Samantha Liu",
+      "Donovan Julian Jasper",
+      "Pura Peetathawatchai",
+      "Ari Glenn",
+      "Vikram Sivashankar",
+      "Daniel Zamoshchin",
+      "Leo Glikbarg",
+      "Derek Askaryar",
+      "Haoxiang Yang",
+      "Aolin Zhang",
+      "Rishi Alluri",
+      "Nathan Tran",
+      "Rinnara Sangpisit",
+      "Kenny O Oseleononmen",
+      "Dan Boneh",
+      "Daniel E. Ho",
+      "Percy Liang"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        },
+        {
+          "check": "acknowledgment_style_phrase",
+          "match": "we acknowledge",
+          "context": "t available to law-abiding actors. Here we acknowledge that the agent and the benchmark are dual-use. In this spac"
+        },
+        {
+          "check": "self_reference_phrase",
+          "match": "build on our",
+          "context": "easing our code allows the community to build on our work, helping accelerate scientific progress. After weighing the various factor"
+        }
+      ]
+    },
+    "n_authors": 25
+  },
+  "do-i-know-this-entity-knowledge-awareness-and-hallucinations": {
+    "authors": [
+      "Javier Ferrando",
+      "Oscar Balcells Obeso",
+      "Senthooran Rajamanoharan",
+      "Neel Nanda"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        },
+        {
+          "check": "acknowledgment_style_phrase",
+          "match": "We acknowledge",
+          "context": "dix A for a description of the process. We acknowledge that this methodology might introduce some labeling inaccur"
+        },
+        {
+          "check": "acknowledgment_style_phrase",
+          "match": "we acknowledge",
+          "context": "ivation frequencies (Appendix R). While we acknowledge potential overlap between these song titles and pre-trainin"
+        },
+        {
+          "check": "self_reference_phrase",
+          "match": "extend our",
+          "context": "ICLR 2025 Q LLAMA 3.1 8B REPLICATION We extend our experimental analysis to Llama 3.1 8B (Grattafiori et al., 2024), using the SAE"
+        }
+      ]
+    },
+    "n_authors": 4
+  },
+  "embedding-converter-a-unified-framework-for-cross-model-embe": {
+    "authors": [
+      "Jinsung Yoon",
+      "Sercan O Arik"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.20"
+        },
+        {
+          "check": "self_reference_phrase",
+          "match": "extend our",
+          "context": "satility of the Embedding-Converter, we extend our analysis beyond retrieval encompassing other embedding-dependent tasks, includi"
+        },
+        {
+          "check": "self_reference_phrase",
+          "match": "extend our",
+          "context": "of the proposed Embedding-Converter, we extend our evalu- ation to scenarios involving conversions between different embedding mod"
+        }
+      ]
+    },
+    "n_authors": 2
+  },
+  "embodiedsam-online-segment-any-3d-thing-in-real-time": {
+    "authors": [
+      "Xiuwei Xu",
+      "Huangxing Chen",
+      "Linqing Zhao",
+      "Ziwei Wang",
+      "Jie Zhou",
+      "Jiwen Lu"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.21"
+        }
+      ]
+    },
+    "n_authors": 6
+  },
+  "feast-your-eyes-mixture-of-resolution-adaptation-for-multimo": {
+    "authors": [
+      "Gen Luo",
+      "Yiyi Zhou",
+      "Yuxin Zhang",
+      "Xiawu Zheng",
+      "Xiaoshuai Sun",
+      "Rongrong Ji"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        }
+      ]
+    },
+    "n_authors": 6
+  },
+  "fedgraph-a-new-paradigm-for-federated-graph-learning": {
+    "authors": [
+      "Nannan Wu"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        }
+      ]
+    },
+    "n_authors": 1
+  },
+  "from-counseling-transcript-to-mind-map-leveraging-llms-for-e": {
+    "authors": [
+      "Julian Hao Yong",
+      "Mei Kuan Lim",
+      "Chun Yong Chong"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        }
+      ]
+    },
+    "n_authors": 3
+  },
+  "gaussianblock-building-part-aware-compositional-and-editable": {
+    "authors": [
+      "Shuyi Jiang",
+      "Qihao Zhao",
+      "Hossein Rahmani",
+      "De Wen Soh",
+      "Jun Liu",
+      "Na Zhao"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        }
+      ]
+    },
+    "n_authors": 6
+  },
+  "group-ligands-docking-to-protein-pockets": {
+    "authors": [
+      "Jiaqi Guan",
+      "Jiahan Li",
+      "Xiangxin Zhou",
+      "Xingang Peng",
+      "Sheng Wang",
+      "Yunan Luo",
+      "Jian Peng",
+      "Jianzhu Ma"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        }
+      ]
+    },
+    "n_authors": 8
+  },
+  "improve-code-generation-with-feedback": {
+    "authors": [
+      "Zhi Xu",
+      "Yun Fu"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        }
+      ]
+    },
+    "n_authors": 2
+  },
+  "in-context-reinforcement-learning-from-suboptimal-historical": {
+    "authors": [
+      "Juncheng Dong",
+      "Moyang Guo",
+      "Ethan X Fang",
+      "Zhuoran Yang",
+      "Vahid Tarokh"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.25"
+        }
+      ]
+    },
+    "n_authors": 5
+  },
+  "influence-functions-for-scalable-data-attribution-in-diffusi": {
+    "authors": [
+      "Bruno Kacper Mlodozeniec",
+      "Runa Eschenhagen",
+      "Juhan Bae",
+      "Alexander Immer",
+      "David Krueger",
+      "Richard E. Turner"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.25"
+        },
+        {
+          "check": "residual_arxiv_id",
+          "count": 2,
+          "samples": [
+            "arXiv 2211.14133",
+            "arXiv\n2501.19183"
+          ]
+        },
+        {
+          "check": "acknowledgment_style_phrase",
+          "match": "supported by",
+          "context": " GGNloss D (\u03b8l) in Equation (34) is not supported by curvlinops (Dangel et al., 2025), we only implemented this "
+        }
+      ]
+    },
+    "n_authors": 6
+  },
+  "martryoshka-learning-to-drive-black-box-llms-with-llms": {
+    "authors": [
+      "ChangHao Li",
+      "Yuchen Zhuang",
+      "Rushi Qiang",
+      "Haotian Sun",
+      "Hanjun Dai",
+      "Chao Zhang",
+      "Bo Dai"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        }
+      ]
+    },
+    "n_authors": 7
+  },
+  "multi-grained-knowledge-for-retrieval-augmented-question-ans": {
+    "authors": [
+      "Wang Qian",
+      "Ying Cheng",
+      "Jianqiang Wang",
+      "Jianqiang Fu",
+      "Rui Feng"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        }
+      ]
+    },
+    "n_authors": 5
+  },
+  "olmoe-open-mixture-of-experts-language-models": {
+    "authors": [
+      "Niklas Muennighoff",
+      "Luca Soldaini",
+      "Dirk Groeneveld",
+      "Kyle Lo",
+      "Jacob Morrison",
+      "Sewon Min",
+      "Weijia Shi",
+      "Evan Pete Walsh",
+      "Oyvind Tafjord",
+      "Nathan Lambert",
+      "Yuling Gu",
+      "Shane Arora",
+      "Akshita Bhagia",
+      "Dustin Schwenk",
+      "David Wadden",
+      "Alexander Wettig",
+      "Binyuan Hui",
+      "Tim Dettmers",
+      "Douwe Kiela",
+      "Ali Farhadi",
+      "Noah A. Smith",
+      "Pang Wei Koh",
+      "Amanpreet Singh",
+      "Hannaneh Hajishirzi"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.25"
+        }
+      ]
+    },
+    "n_authors": 24
+  },
+  "on-the-generalization-of-preference-learning-with-dpo": {
+    "authors": [
+      "Shawn Im",
+      "Yixuan Li"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.25"
+        }
+      ]
+    },
+    "n_authors": 2
+  },
+  "one-pass-streaming-algorithm-for-super-long-token-attention": {
+    "authors": [
+      "Raghavendra Addanki",
+      "Chenyang Li",
+      "Zhao Song",
+      "Chiwun Yang"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.25"
+        },
+        {
+          "check": "residual_arxiv_id",
+          "count": 1,
+          "samples": [
+            "arxiv 2304.03426"
+          ]
+        }
+      ]
+    },
+    "n_authors": 4
+  },
+  "optimizing-large-language-models-with-automatic-speech-recog": {
+    "authors": [
+      "Abdulhameed Abiola Dere"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        }
+      ]
+    },
+    "n_authors": 1
+  },
+  "person-detection-through-the-lens-of-algorithmic-bias": {
+    "authors": [
+      "Kiana Alikhademi",
+      "Emma Drobina",
+      "Jean D Louis"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        }
+      ]
+    },
+    "n_authors": 3
+  },
+  "physiome-ode-a-benchmark-for-irregularly-sampled-multivariat": {
+    "authors": [
+      "Christian Kl\u00f6tergens",
+      "Vijaya Krishna Yalavarthi",
+      "Randolf Scholz",
+      "Maximilian Stubbemann",
+      "Stefan Born",
+      "Lars Schmidt-Thieme"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.22"
+        }
+      ]
+    },
+    "n_authors": 6
+  },
+  "precise-parameter-localization-for-textual-generation-in-dif": {
+    "authors": [
+      "\u0141ukasz Staniszewski",
+      "Bartosz Cywi\u0144ski",
+      "Franziska Boenisch",
+      "Kamil Deja",
+      "Adam Dziedzic"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        },
+        {
+          "check": "xmp_metadata",
+          "value": "t2i - 1"
+        },
+        {
+          "check": "font_name_contains_author_part",
+          "font": "BMQQDV+DejaVuSans",
+          "part": "Deja"
+        },
+        {
+          "check": "font_name_contains_author_part",
+          "font": "BXGEVL+DejaVuSerif",
+          "part": "Deja"
+        },
+        {
+          "check": "self_reference_phrase",
+          "match": "extend our",
+          "context": "l., 2024), or optimization. Finally, we extend our edition technique to prevent the generation of toxic text, on the fly without i"
+        }
+      ]
+    },
+    "n_authors": 5
+  },
+  "reti-diff-illumination-degradation-image-restoration-with-re": {
+    "authors": [
+      "Chunming He",
+      "Chengyu Fang",
+      "Yulun Zhang",
+      "Longxiang Tang",
+      "Jinfa Huang",
+      "Kai Li",
+      "Zhenhua Guo",
+      "Xiu Li",
+      "Sina Farsiu"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "iLovePDF"
+        },
+        {
+          "check": "self_reference_phrase",
+          "match": "extend our",
+          "context": "e foundation model ( et al., 2024), and extend our method to wider applications, such as image super-resolution (Chen et al., 2023"
+        }
+      ]
+    },
+    "n_authors": 9
+  },
+  "reward-as-observation-learning-reward-based-policies-for-rap": {
+    "authors": [
+      "Morgan Byrd",
+      "Maks Sorokin",
+      "Robert Wright",
+      "Sehoon Ha"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        }
+      ]
+    },
+    "n_authors": 4
+  },
+  "safetyanalyst-interpretable-transparent-and-steerable-llm-sa": {
+    "authors": [
+      "Jing-Jing Li",
+      "Valentina Pyatkin",
+      "Max Kleiman-Weiner",
+      "Liwei Jiang",
+      "Nouha Dziri",
+      "Anne Collins",
+      "Jana Schaich Borg",
+      "Maarten Sap",
+      "Yejin Choi",
+      "Sydney Levine"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        },
+        {
+          "check": "xmp_metadata",
+          "value": "fig1"
+        },
+        {
+          "check": "xmp_metadata",
+          "value": "fig2"
+        },
+        {
+          "check": "xmp_metadata",
+          "value": "fig3"
+        },
+        {
+          "check": "xmp_metadata",
+          "value": "SORRY-Bench"
+        }
+      ]
+    },
+    "n_authors": 10
+  },
+  "sam-2-segment-anything-in-images-and-videos": {
+    "authors": [
+      "Nikhila Ravi",
+      "Valentin Gabeur",
+      "Yuan-Ting Hu",
+      "Ronghang Hu",
+      "Chaitanya Ryali",
+      "Tengyu Ma",
+      "Haitham Khedr",
+      "Roman R\u00e4dle",
+      "Chloe Rolland",
+      "Laura Gustafson",
+      "Eric Mintun",
+      "Junting Pan",
+      "Kalyan Vasudev Alwala",
+      "Nicolas Carion",
+      "Chao-Yuan Wu",
+      "Ross Girshick",
+      "Piotr Dollar",
+      "Christoph Feichtenhofer"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.25"
+        },
+        {
+          "check": "font_name_contains_author_part",
+          "font": "MUFUZY+TimesNewRomanPSMT",
+          "part": "Roman"
+        },
+        {
+          "check": "font_name_contains_author_part",
+          "font": "TXDNJQ+Times-Roman",
+          "part": "Roman"
+        },
+        {
+          "check": "acknowledgment_style_phrase",
+          "match": "funded by",
+          "context": "reation of the dataset? The dataset was funded by Meta FAIR. 4. Any other comments? No. Composition 1. What d"
+        },
+        {
+          "check": "acknowledgment_style_phrase",
+          "match": "we acknowledge",
+          "context": "ting datasets of its kind at this time, we acknowledge that we do not have parity ac all geographic and demographi"
+        }
+      ]
+    },
+    "n_authors": 18
+  },
+  "scaling-and-evaluating-sparse-autoencoders": {
+    "authors": [
+      "Leo Gao",
+      "Tom Dupre la Tour",
+      "Henk Tillman",
+      "Gabriel Goh",
+      "Rajan Troll",
+      "Alec Radford",
+      "Ilya Sutskever",
+      "Jan Leike",
+      "Jeffrey Wu"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.25"
+        }
+      ]
+    },
+    "n_authors": 9
+  },
+  "scaling-in-the-wild-training-for-diffusion-based-illuminatio": {
+    "authors": [
+      "Lvmin Zhang",
+      "Anyi Rao",
+      "Maneesh Agrawala"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.24"
+        },
+        {
+          "check": "acknowledgment_style_phrase",
+          "match": "thanks to its linearity. For",
+          "context": "replaced by arbitrary diffusion targets thanks to its linearity. For instance, consider a simple k-diffusion epsilon target at s"
+        }
+      ]
+    },
+    "n_authors": 3
+  },
+  "semv-3d-towards-semantic-and-mutil-view-consistency-simultan": {
+    "authors": [
+      "Xiao Cai",
+      "Pengpeng Zeng",
+      "Lianli Gao",
+      "Junchen Zhu",
+      "JiaxinZhang",
+      "Sitong Su",
+      "Heng Tao Shen",
+      "Jingkuan Song"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        }
+      ]
+    },
+    "n_authors": 8
+  },
+  "simplifying-stabilizing-and-scaling-continuous-time-consiste": {
+    "authors": [
+      "Cheng Lu",
+      "Yang Song"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        },
+        {
+          "check": "self_reference_phrase",
+          "match": "As we showed in",
+          "context": " Step 3: Unified framework by TrigFlow. As we showed in the previous step, we can always assume \u02c6\u03b12 t + \u02c6\u03c32 t = 1. An equivalent change"
+        }
+      ]
+    },
+    "n_authors": 2
+  },
+  "spallm-unified-compressive-adaptation-of-large-language-mode": {
+    "authors": [
+      "Tianyi Zhang",
+      "Junda Su",
+      "Oscar Wu",
+      "Zhaozhuo Xu",
+      "Anshumali Shrivastava"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        }
+      ]
+    },
+    "n_authors": 5
+  },
+  "sqt-rough-conservative-actor-critic": {
+    "authors": [
+      "Nitsan Soffair",
+      "Gilad Katz",
+      "Dotan Di Castro",
+      "Orly Avner",
+      "Shie Mannor"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        }
+      ]
+    },
+    "n_authors": 5
+  },
+  "tight-clusters-make-specialized-experts": {
+    "authors": [
+      "Stefan Nielsen",
+      "Rachel Teo",
+      "Laziz Abdullaev",
+      "Tan Minh Nguyen"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        }
+      ]
+    },
+    "n_authors": 4
+  },
+  "toper-topological-embeddings-in-graph-representation-learnin": {
+    "authors": [
+      "Astrit Tola",
+      "Funmilola Mary Taiwo",
+      "Cuneyt Gurcan Akcora",
+      "Baris Coskunuzer"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.24"
+        }
+      ]
+    },
+    "n_authors": 4
+  },
+  "two-effects-one-trigger-on-the-modality-gap-object-bias-and": {
+    "authors": [
+      "Simon Schrodi",
+      "David T. Hoffmann",
+      "Max Argus",
+      "Volker Fischer",
+      "Thomas Brox"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "title",
+          "value": "Two Effects, One Trigger: On the Modality Gap, Object Bias, and Information Imbalance in Contrastive Vision-Language Models"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        }
+      ]
+    },
+    "n_authors": 5
+  },
+  "unlocking-the-power-of-function-vectors-for-characterizing-a": {
+    "authors": [
+      "Gangwei Jiang",
+      "Caigao JIANG",
+      "Zhaoyi Li",
+      "Siqiao Xue",
+      "JUN ZHOU",
+      "Linqi Song",
+      "Defu Lian",
+      "Ying Wei"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        },
+        {
+          "check": "acknowledgment_style_phrase",
+          "match": "supported by",
+          "context": "variable \u03b8T elicited by the input x, as supported by the fol- lowing empirical findings. Finding I: forgetting i"
+        }
+      ]
+    },
+    "n_authors": 8
+  },
+  "weak-to-strong-preference-optimization-stealing-reward-from": {
+    "authors": [
+      "Wenhong Zhu",
+      "Zhiwei He",
+      "Xiaofeng Wang",
+      "Pengfei Liu",
+      "Rui Wang"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        }
+      ]
+    },
+    "n_authors": 5
+  },
+  "what-matters-when-repurposing-diffusion-models-for-general-d": {
+    "authors": [
+      "Guangkai Xu",
+      "Yongtao Ge",
+      "Mingyu Liu",
+      "Chengxiang Fan",
+      "Kangyang Xie",
+      "Zhiyue Zhao",
+      "Hao Chen",
+      "Chunhua Shen"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.26"
+        }
+      ]
+    },
+    "n_authors": 8
+  },
+  "why-solving-multi-agent-path-finding-with-large-language-mod": {
+    "authors": [
+      "Weizhe Chen",
+      "Sven Koenig",
+      "Bistra Dilkina"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.25"
+        }
+      ]
+    },
+    "n_authors": 3
+  },
+  "world-simulation-as-pre-training-for-scalable-perception": {
+    "authors": [
+      "Hao Xiang",
+      "Zhaoqi Leng",
+      "Alex Zihao Zhu",
+      "Kan Chen",
+      "Mengtian Li",
+      "Xia Chen",
+      "Yingwei Li",
+      "Tong He",
+      "Yanhui Liang",
+      "Junwen Yao",
+      "Yan Xu",
+      "Anant Subramanian",
+      "Cheolho Park",
+      "Runsheng Xu",
+      "Dragomir Anguelov",
+      "Mingxing Tan"
+    ],
+    "status": "WARN",
+    "findings": {
+      "FAIL": [],
+      "WARN": [
+        {
+          "check": "pdf_metadata",
+          "field": "creator",
+          "value": "LaTeX with hyperref"
+        },
+        {
+          "check": "pdf_metadata",
+          "field": "producer",
+          "value": "pdfTeX-1.40.20"
+        }
+      ]
+    },
+    "n_authors": 16
+  }
+}
