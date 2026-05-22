@@ -1,0 +1,433 @@
+
+iclr-2025-dataset: 49 anonymized PDFs
+
+  [!!] a-is-for-absorption-studying-feature-splitting-and-absorptio_anon.pdf
+       p 11  Grant award pattern          [in-refs]
+            match:   Grant Herman
+            context: rgia Swee, Gil Halpern, Govind Thattai, Grant Herman, Grigory Sizov, Guangyi, Zhang, Guna La
+  [OK] a-language-model-based-model-manager_anon.pdf
+
+  [!!] adam-exploits-ell-infty-geometry-of-loss-landscape-via-coord_anon.pdf
+       p  9  Grant number                
+            match:   CIFAR-10 (Krizhevsky & Hinton, 2009
+            context: ct an experiment on ResNet18 trained on CIFAR-10 (Krizhevsky & Hinton, 2009).
+
+  [!!] almost-sure-convergence-of-average-reward-temporal-differenc_anon.pdf
+       p 11  University name             
+            match:   Cambridge
+            context: rol systems and reinforcement learning. Cambridge University Press, 2022.
+       p 11  University name             
+            match:   University
+            context: s and reinforcement learning. Cambridge University Press, 2022.
+       p 11  University name             
+            match:   MIT
+            context: earning: An Introduction (2nd Edition). MIT
+  [OK] benchmarking-dna-sequence-models-for-causal-variant-predicti_anon.pdf
+  [OK] boosting-deductive-reasoning-with-step-signals-in-rlhf_anon.pdf
+  [OK] causal-discovery-via-bayesian-optimization_anon.pdf
+
+  [!!] cnn-variational-autoencoders-reconstruction-ability-of-long_anon.pdf
+       p  2  University name             
+            match:   MIT
+            context: supervised trained on ECG recordings of MIT-BIH Polysomnographic Database (top row)
+       p  5  University name             
+            match:   MIT
+            context: wnsampled to 100Hz. Another dataset was MIT-BIH Polysomnographic Database (SLPDB) (
+       p  7  University name             
+            match:   MIT
+            context: om both the datasets - MESA dataset and MIT-BIH Polysomnography dataset. This one i
+       p  7  University name             
+            match:   MIT
+            context: that at 70 epoch. The ECG data are from MIT-BIH Polysomnographic Database.
+       p  9  Grant number                 [in-refs]
+            match:   NIH Public Access, 2019
+            context: kshop proceedings, volume 2429, pp. 15. NIH Public Access, 2019.
+  [OK] comparing-noisy-neural-population-dynamics-using-optimal-tra_anon.pdf
+  [OK] constrained-posterior-sampling-time-series-generation-with-h_anon.pdf
+
+  [!!] cybench-a-framework-for-evaluating-cybersecurity-capabilitie_anon.pdf
+       p  2  University name             
+            match:   university
+            context: duce a distinction between high school, university, and professional-level CTF competition
+       p  6  University name             
+            match:   university
+            context: th high school (Yang et al., 2023b) and university- level (Shao et al., 2024b) tasks, we f
+       p  9  University name             
+            match:   university
+            context: NYU CTF Dataset include high school and university-level CTF tasks respectively. InterCode
+       p  9  University name             
+            match:   University
+            context: y PicoCTF, organized by Carnegie Mellon University, and targets high school students. The
+       p  9  University name             
+            match:   University
+            context: CSAW, organized by students at New York University. Each of these competitions were includ
+       p  9  University name             
+            match:   university
+            context: 024) and rated as high school-level and university-level respectively. Each of these datas
+       p 14  Grant award pattern          [in-refs]
+            match:   Grant Her-
+            context: rgia Swee, Gil Halpern, Govind Thattai, Grant Her- man, Grigory Sizov, Guangyi, Zhang, Gun
+
+  [!!] do-i-know-this-entity-knowledge-awareness-and-hallucinations_anon.pdf
+       p 12  Grant award pattern          [in-refs]
+            match:   Grant Herman
+            context: rgia Swee, Gil Halpern, Govind Thattai, Grant Herman, Grigory Sizov, Guangyi, Zhang, Guna La
+       p 14  Grant award pattern          [in-refs]
+            match:   Grant Herman
+            context: Gada Badeer, Georgia Swee, Gil Halpern, Grant Herman, Grigory Sizov, Guangyi, Zhang, Guna La
+  [OK] embedding-converter-a-unified-framework-for-cross-model-embe_anon.pdf
+  [OK] embodiedsam-online-segment-any-3d-thing-in-real-time_anon.pdf
+  [OK] feast-your-eyes-mixture-of-resolution-adaptation-for-multimo_anon.pdf
+  [OK] fedgraph-a-new-paradigm-for-federated-graph-learning_anon.pdf
+
+  [!!] from-counseling-transcript-to-mind-map-leveraging-llms-for-e_anon.pdf
+       p  3  University name             
+            match:   University
+            context: l of Information Tech- nology at Monash University Malaysia to participate in an evaluatio
+       p  6  University name             
+            match:   University
+            context: ool of Information Technology at Monash University Malaysia to conduct quality evaluation
+       p 12  Acknowledgement heading      [in-refs]
+            match:   Acknowledgment
+            context: g ** Discussion on Friend Influence *** Acknowledgment of peer pressure **** Following friends
+  [OK] gaussianblock-building-part-aware-compositional-and-editable_anon.pdf
+
+  [!!] group-ligands-docking-to-protein-pockets_anon.pdf
+       p  5  Lab name leak               
+            match:   group ligands at ℓ-th layer is then defined as follows
+            context: ing layer for each ligand atom j within group ligands at ℓ-th layer is then defined as follows:
+  [OK] improve-code-generation-with-feedback_anon.pdf
+  [OK] in-context-reinforcement-learning-from-suboptimal-historical_anon.pdf
+
+  [!!] influence-functions-for-scalable-data-attribution-in-diffusi_anon.pdf
+       p 25  Grant number                 [in-refs]
+            match:   CIFAR-2. 250
+            context: n the LDS scores for K-FAC influence on CIFAR-2. 250 samples were used for Monte Carlo estia
+       p 25  Grant number                 [in-refs]
+            match:   CIFAR-2. 250
+            context: (random projection) based influence on CIFAR-2. 250 samples were used for Monte Carlo estia
+       p 26  Grant number                 [in-refs]
+            match:   CIFAR-10. 250
+            context: LDS scores for K-FAC based influence on CIFAR-10. 250 samples were used for computing the EK-
+       p 26  Grant number                 [in-refs]
+            match:   CIFAR-10. 250
+            context: (random projection) based influence on CIFAR-10. 250 samples were used for Monte Carlo estia
+       p 27  Grant number                 [in-refs]
+            match:   CIFAR-2. 250
+            context: for various GGN K-FAC approximations on CIFAR-2. 250 samples were used for Monte Carlo estia
+       p 29  Grant number                 [in-refs]
+            match:   CIFAR-10 Song et al. (2021
+            context: models trained on uniformly dequantised CIFAR-10 Song et al. (2021b) so that we can meaningfully compute t
+       p 30  Grant number                 [in-refs]
+            match:   CIFAR-10 CIFAR-10 is a dataset of small RGB images of size 32 × 32 Krizhevsky (2009
+            context: CIFAR-10 CIFAR-10 is a dataset of small RGB images of size 32 × 32 Krizhevsky (2009). We use 50000 images (the train split)
+       p 30  Grant number                 [in-refs]
+            match:   CIFAR-2 For CIFAR-2, we follow Zheng et al. (2024
+            context: CIFAR-2 For CIFAR-2, we follow Zheng et al. (2024) and create a subset of CIFAR-10 with 5
+       p 31  Grant number                 [in-refs]
+            match:   CIFAR-10 in Ho et al. (2020
+            context: ard U-Net architecture as described for CIFAR-10 in Ho et al. (2020). This U-Net architecture contains both
+       p 31  Grant number                 [in-refs]
+            match:   CIFAR dataset in Ho et al. (2020
+            context: ame noise schedule as described for the CIFAR dataset in Ho et al. (2020).
+       p 34  Grant number                 [in-refs]
+            match:   CIFAR experiments, we use 250
+            context: For all CIFAR experiments, we use 250 samples throughout for all methods (inc
+       p 35  Grant number                 [in-refs]
+            match:   CIFAR LDS benchmarks Park et al. (2023
+            context: For all CIFAR LDS benchmarks Park et al. (2023), we sample 100 sub-sampled datasets (M
+       p 36  Grant number                 [in-refs]
+            match:   CIFAR-10 and CIFAR-2 we again follow the training procedure outlined in Ho et al. (2020
+            context: For CIFAR-10 and CIFAR-2 we again follow the training procedure outlined in Ho et al. (2020), with the only difference being a shor
+       p 36  Grant number                 [in-refs]
+            match:   CIFAR-2, we train for 32000
+            context: datasets (410 epochs in each case). On CIFAR-2, we train for 32000 steps for the model trained on the full
+
+  [!!] martryoshka-learning-to-drive-black-box-llms-with-llms_anon.pdf
+       p 29  University name             
+            match:   MIT
+            context: 5? After almost 20 years in and around MIT, I’ve encountered only two great MIT bo
+       p 29  University name             
+            match:   MIT
+            context: nd MIT, I’ve encountered only two great MIT books: (1) A.R. Gurney’s out-of-print n
+  [OK] multi-grained-knowledge-for-retrieval-augmented-question-ans_anon.pdf
+
+  [!!] olmoe-open-mixture-of-experts-language-models_anon.pdf
+       p  2  Grant number                
+            match:   MoE (Komatsuzaki et al., 2023
+            context: upcycling a pretrained dense LM into an MoE (Komatsuzaki et al., 2023) unless under small compute budgets. Fi
+       p  5  Grant number                
+            match:   MoE model, each on 128
+            context: and a 1.3B active, 6.9B total parameter MoE model, each on 128 H100 GPUs. Apart from MoE-related chang
+       p  6  Grant number                
+            match:   MoE configurations, and Switch Transformer MoEs (Fedus et al., 2022
+            context: avings but for very different dense and MoE configurations, and Switch Transformer MoEs (Fedus et al., 2022) train 2-7× faster but for encoder-deco
+       p  6  Grant number                
+            match:   MoE vs. 37,500
+            context: 3,600 tokens per second per GPU for the MoE vs. 37,500 for dense). Thus, in terms of training
+       p 13  Grant number                 [in-refs]
+            match:   moe, 2024
+            context: Soumith Chintala. Gpt-4 moe, 2024. URL https://x.com/soumithchintala/stat
+       p 14  Grant number                 [in-refs]
+            match:   arc, the ai2 reasoning challenge, 2018
+            context: you have solved question answering? try arc, the ai2 reasoning challenge, 2018. URL https://arxiv.org/abs/1803.05457.
+       p 18  Grant number                 [in-refs]
+            match:   moe: Scaling unified multimodal llms with mixture of experts, 2024
+            context: Uni-moe: Scaling unified multimodal llms with mixture of experts, 2024b. URL https://arxiv.org/ abs/2405.11273
+       p 18  Grant number                 [in-refs]
+            match:   Moe-llava: Mixture of experts for large vision-language models, 2024
+            context: Munan Ning, and Li Yuan. Moe-llava: Mixture of experts for large vision-language models, 2024a. URL https://arxiv.org/abs/2401.15947.
+       p 24  Grant number                 [in-refs]
+            match:   moe: Matching 7b model performance with 1/3 activated parameters”, February 2024
+            context: Qwen Team. Qwen1.5-moe: Matching 7b model performance with 1/3 activated parameters”, February 2024b.
+       p 24  Grant number                 [in-refs]
+            match:   moe: A deep dive into training techniques for mixture-of-experts language models, 2024
+            context: Yan, Han Fang, and Yahui Zhou. Skywork-moe: A deep dive into training techniques for mixture-of-experts language models, 2024.
+       p 25  Grant number                 [in-refs]
+            match:   moe for instruction tuning, 2023
+            context: he limit: Extremely parameter efficient moe for instruction tuning, 2023. URL https://arxiv.org/abs/2309.05444.
+       p 26  Grant number                 [in-refs]
+            match:   moe: Designing stable and transferable sparse expert models, 2022
+            context: Fedus. St-moe: Designing stable and transferable sparse expert models, 2022.
+       p 30  Grant number                 [in-refs]
+            match:   MoE from scratch. We find that after 500
+            context: oeneveld et al., 2024) with training an MoE from scratch. We find that after 500B tokens, an otherwise equivalent MoE tr
+       p 40  Grant number                 [in-refs]
+            match:   ARC-E refer to ARC-Challenge and -Easy (Clark et al., 2018
+            context: nd after pretraining (OLMES). ARC-C and ARC-E refer to ARC-Challenge and -Easy (Clark et al., 2018), CSQA=CommonsenseQA (Talmor et al., 20
+       p 41  Grant number                 [in-refs]
+            match:   MoE-22B-146
+            context: Skywork-MoE-22B-146B (Wei et al., 2024)
+       p 47  Grant number                 [in-refs]
+            match:   MoE (Yang et al., 2024
+            context: ise upcycling For the creation of Qwen2-MoE (Yang et al., 2024a; Team, 2024b; Bai et al., 2023a), the
+       p 59  Grant number                 [in-refs]
+            match:   MoE that has been overtrained (Gadre et al., 2024
+            context: our knowledge, there has been no large MoE that has been overtrained (Gadre et al., 2024) as much as OLMOE-1B-7B. Specifically,
+  [OK] on-the-generalization-of-preference-learning-with-dpo_anon.pdf
+  [OK] one-pass-streaming-algorithm-for-super-long-token-attention_anon.pdf
+  [OK] optimizing-large-language-models-with-automatic-speech-recog_anon.pdf
+  [OK] person-detection-through-the-lens-of-algorithmic-bias_anon.pdf
+  [OK] physiome-ode-a-benchmark-for-irregularly-sampled-multivariat_anon.pdf
+  [OK] precise-parameter-localization-for-textual-generation-in-dif_anon.pdf
+  [OK] reti-diff-illumination-degradation-image-restoration-with-re_anon.pdf
+  [OK] reward-as-observation-learning-reward-based-policies-for-rap_anon.pdf
+  [OK] safetyanalyst-interpretable-transparent-and-steerable-llm-sa_anon.pdf
+  [OK] sam-2-segment-anything-in-images-and-videos_anon.pdf
+
+  [!!] scaling-and-evaluating-sparse-autoencoders_anon.pdf
+       p 10  Grant number                
+            match:   MoE (Shazeer et al., 2017
+            context: bout work in the direction of combining MoE (Shazeer et al., 2017) and au- toencoders, which would substa
+  [OK] scaling-in-the-wild-training-for-diffusion-based-illuminatio_anon.pdf
+  [OK] semv-3d-towards-semantic-and-mutil-view-consistency-simultan_anon.pdf
+
+  [!!] simplifying-stabilizing-and-scaling-continuous-time-consiste_anon.pdf
+       p  2  Grant number                
+            match:   CIFAR-10, ImageNet 64×64, and ImageNet 512
+            context: asets and model sizes. We train sCMs on CIFAR-10, ImageNet 64×64, and ImageNet 512×512, reaching an unprecedented scale wi
+       p 28  Grant number                 [in-refs]
+            match:   CIFAR-10, ImageNet 64×64 and ImageNet 512
+            context: e train the teacher diffusion models on CIFAR-10, ImageNet 64×64 and ImageNet 512×512 with the proposed improvements of p
+       p 28  Grant number                 [in-refs]
+            match:   CIFAR-10. Our architecture is based on the Score SDE (Song et al., 2021
+            context: CIFAR-10. Our architecture is based on the Score SDE (Song et al., 2021b) architecture (DDPM++). We use the sam
+
+  [!!] spallm-unified-compressive-adaptation-of-large-language-mode_anon.pdf
+       p  6  Grant number                
+            match:   ARC (Clark et al., 2018
+            context: 2018), BoolQ (Clark et al., 2019), and ARC (Clark et al., 2018). In addition, we evaluate our model’s
+       p 14  Grant number                 [in-refs]
+            match:   ARC (Clark et al., 2018
+            context: 2018), BoolQ (Clark et al., 2019), and ARC (Clark et al., 2018), as well as LLM-as-a-judge (Zheng et a
+
+  [!!] sqt-rough-conservative-actor-critic_anon.pdf
+       p  5  GitHub/GitLab URL           
+            match:   https://github.com/anonymouszxcv16/SQT
+            context: 1SQT code: https://github.com/anonymouszxcv16/SQT
+
+  [!!] tight-clusters-make-specialized-experts_anon.pdf
+       p  3  Grant number                
+            match:   MoE architectures in large-scale tasks such as WikiText-103
+            context: outperforms baseline routing methods in MoE architectures in large-scale tasks such as WikiText-103 language modeling and downstream finetu
+       p  7  University name             
+            match:   Stanford
+            context: ing classification tasks on the 2-class Stanford Sen- timent Treebank-2 (SST2) (Socher e
+       p  7  University name             
+            match:   Stanford
+            context: 2 (SST2) (Socher et al., 2013), 5-class Stanford Sentiment Treebank-5 (SST5) (Socher et
+       p  8  University name             
+            match:   Stanford
+            context: pretraining and top-1 test accuracy on Stanford Sentiment Treebank 2, 5 (SST2, SST5), a
+  [OK] toper-topological-embeddings-in-graph-representation-learnin_anon.pdf
+
+  [!!] two-effects-one-trigger-on-the-modality-gap-object-bias-and_anon.pdf
+       p  3  University name             
+            match:   MIT
+            context: ), ImageNet (Russakovsky et al., 2015), MIT-States (Isola et al., 2015), and UT-Zap
+       p  6  Grant number                
+            match:   CIFAR-100
+            context: CIFAR-10 CIFAR-100 ImgNet-100-1 ImgNet-100-2 ImgNet-100-3
+       p  6  University name             
+            match:   MIT
+            context: MIT-States
+       p  6  University name             
+            match:   MIT
+            context: MIT-States
+  [OK] unlocking-the-power-of-function-vectors-for-characterizing-a_anon.pdf
+  [OK] weak-to-strong-preference-optimization-stealing-reward-from_anon.pdf
+  [OK] what-matters-when-repurposing-diffusion-models-for-general-d_anon.pdf
+  [OK] why-solving-multi-agent-path-finding-with-large-language-mod_anon.pdf
+  [OK] world-simulation-as-pre-training-for-scalable-perception_anon.pdf
+
+  Summary: 17/49 PDFs flagged, 71 findings.
+
+neurips-2025-dataset-v2: 44 anonymized PDFs
+
+  [!!] adadetectgpt-adaptive-detection-of-llm-generated-text-with-s_anon.pdf
+       p  8  University name             
+            match:   university
+            context: ., 2015), and Essay for high school and university-level essays (Verma et al., 2024). Foll
+  [OK] affine-invariant-global-non-asymptotic-convergence-analysis_anon.pdf
+
+  [!!] afterimages-their-neural-substrates-and-their-role-as-short_anon.pdf
+       p  5  University name             
+            match:   University
+            context: 7) (from Prof. Jonathan Horton’s lab at University of California, 122
+       p  5  Lab name leak               
+            match:   lab at University of California
+            context: l. (2007) (from Prof. Jonathan Horton’s lab at University of California, 122
+       p  8  University name             
+            match:   University
+            context: history and is currently in archive at University of Cambridge 198
+       p  8  University name             
+            match:   Cambridge
+            context: s currently in archive at University of Cambridge 198
+       p  9  University name             
+            match:   CMU
+            context: cognitive science neuroscience at UCSD, CMU, and UCL before his distinguished 235
+  [OK] among-us-a-sandbox-for-measuring-and-detecting-agentic-decep_anon.pdf
+  [OK] an-efficient-implementation-for-solving-the-all-pairs-minima_anon.pdf
+  [OK] aya-vision-advancing-the-frontier-of-multilingual-multimodal_anon.pdf
+  [OK] beyond-two-stage-training-integrating-sft-and-rl-for-improve_anon.pdf
+
+  [!!] bipolar-self-attention-for-spiking-transformers_anon.pdf
+       p  2  Grant award pattern         
+            match:   allocation between
+            context: bility to effectively compute attention allocation between Q and K, causing SSA more like a simpli
+       p  2  Grant award pattern         
+            match:   allocation ineffective
+            context: omparable scales, render- ing attention allocation ineffective. These deficiencies prevent SSA from fu
+       p  7  Grant award pattern         
+            match:   allocation without
+            context: ns. It achieves optimal attention score allocation without incurring significant additional comput
+  [OK] brillm-brain-inspired-large-language-model_anon.pdf
+  [OK] conditional-gradient-methods-with-standard-lmo-for-stochasti_anon.pdf
+  [OK] contextual-integrity-in-llms-via-reasoning-and-reinforcement_anon.pdf
+  [OK] convergence-of-clipped-sgd-on-convex-l-0-l-1-smooth-function_anon.pdf
+  [OK] cosimgen-controllable-diffusion-model-for-simultaneous-image_anon.pdf
+
+  [!!] efficient-training-free-online-routing-for-high-volume-multi_anon.pdf
+       p  9  Grant award pattern         
+            match:   allocation schemes
+            context: ht its robustness across diverse budget allocation schemes.
+       p 34  Grant award pattern          [in-refs]
+            match:   allocation schemes
+            context: range of complex and imbalanced budget allocation schemes.
+       p 41  Grant award pattern          [in-refs]
+            match:   allocation problem
+            context: ighted matching [4, 1], the display ads allocation problem [14, 6], and the AdWords problem [39, 1
+  [OK] enforcing-boundary-conditions-for-physics-informed-neural-op_anon.pdf
+
+  [!!] evolutionary-distributed-training_anon.pdf
+       p  7  University name             
+            match:   university
+            context: we were noticed by the university and informed that personal research is
+       p  7  University name             
+            match:   university
+            context: hat personal research is not allowed on university 217
+  [OK] flexolmo-open-language-models-for-flexible-data-use_anon.pdf
+  [OK] from-attention-to-atoms-spectral-dictionary-learning-for-fas_anon.pdf
+
+  [!!] geometry-aware-edge-pooling-for-graph-neural-networks_anon.pdf
+       p  5  Grant award pattern         
+            match:   contract first
+            context: (X′, E′) := G. To assess which edges to contract first, we determine their importance for the
+       p 30  Grant award pattern          [in-refs]
+            match:   Contract edge
+            context: reviously contracted edge in Ec then 8: Contract edge e, update G′ ←G′/e 9: Add e and any edg
+  [OK] higher-order-causal-structure-learning-with-additive-models_anon.pdf
+
+  [!!] imagenet-trained-cnns-are-not-biased-towards-texture-revisit_anon.pdf
+       p  8  University name             
+            match:   Oxford
+            context: [45], Caltech101 [56], Flowers102 [57], Oxford-IIIT-Pet [58], STL10 [59]). Across data
+
+  [!!] korgym-a-dynamic-game-platform-for-llm-reasoning-evaluation_anon.pdf
+       p  5  Grant award pattern         
+            match:   award incremental
+            context: s. • Cumulative Scoring: For games that award incremental points, accumulate all points earned. F
+  [OK] learning-to-factorize-spatio-temporal-foundation-models_anon.pdf
+  [OK] long-rvos-a-comprehensive-benchmark-for-long-term-referring_anon.pdf
+  [OK] mesh-rft-enhancing-mesh-generation-via-fine-grained-reinforc_anon.pdf
+
+  [!!] ml-approach-to-qualimetry-gnns-in-value-assessment_anon.pdf
+       p  1  University name             
+            match:   University
+            context: of the cereweigers of the Kingstonnaya University 30
+       p  4  Grant award pattern         
+            match:   Contract termination
+            context: port costs 8 100 0.778 0.0972 1.2.1.2.1 Contract termination losses 9 29 0.222 0.0278 1.2.1.2.2 Fran
+  [OK] multi-actor-multi-critic-deep-deterministic-reinforcement-le_anon.pdf
+  [OK] mvg-crps-a-robust-loss-function-for-multivariate-probabilist_anon.pdf
+  [OK] near-optimal-sample-complexities-of-divergence-based-s-recta_anon.pdf
+  [OK] one-token-embedding-is-enough-to-deadlock-your-large-reasoni_anon.pdf
+  [OK] openhype-hyperbolic-embeddings-for-hierarchical-open-vocabul_anon.pdf
+  [OK] operand-selective-logic-gate-network_anon.pdf
+  [OK] optimal-single-policy-sample-complexity-and-transient-covera_anon.pdf
+  [OK] orient-anything-v2-unifying-orientation-and-rotation-underst_anon.pdf
+  [OK] per-channel-autoregressive-linear-prediction-padding-in-tile_anon.pdf
+  [OK] quantifying-first-order-markov-breakdowns-in-noisy-reinforce_anon.pdf
+
+  [!!] reducing-deep-network-complexity-via-sparse-hierarchical-fou_anon.pdf
+       p  2  Grant number                
+            match:   CIFAR-10/100
+            context: experimental results on ImageNet-1k, CIFAR-10/100, and WMT14 En-De translation, and compa
+       p  6  Grant number                
+            match:   CIFAR-10/100
+            context: normalized channel-wise. CIFAR-10/100 contain 50 K training and 10 K test ima
+       p  6  Grant number                
+            match:   CIFAR-100
+            context: CIFAR-100, surpassing FNet by +1.3 percentage poi
+       p  7  Grant number                
+            match:   CIFAR-10 and CIFAR-100
+            context: Table 2: CIFAR-10 and CIFAR-100 test accuracy and efficiency. Latency m
+       p  7  Grant number                
+            match:   CIFAR-100
+            context: uracy (%) Params Latency Model CIFAR-10 CIFAR-100 (M) (ms)
+
+  [!!] self-directed-decomposition-empowers-reasoning-potentials-in_anon.pdf
+       p  5  Grant award pattern         
+            match:   allocation paradoxically
+            context: Computational resource allocation paradoxically harms reasoning performance: higher tok
+
+  [!!] stab-sgd-noise-adaptivity-in-smooth-optimization-with-stabil_anon.pdf
+       p  9  Grant number                
+            match:   CIFAR-10 image classification dataset [Krizhevsky, 2009
+            context: Methods. We perform experiments on the CIFAR-10 image classification dataset [Krizhevsky, 2009] with the ResNet-56 architecture14 [He
+       p  9  Grant number                
+            match:   CIFAR-targeting architectures [He et al., 2015
+            context: 14Note that the numbering refers to the CIFAR-targeting architectures [He et al., 2015a, Sec 4.2], contrary to the much larger
+  [OK] strider-navigation-via-instruction-aligned-structural-decisi_anon.pdf
+
+  [!!] structured-sparse-transition-matrices-to-enable-state-tracki_anon.pdf
+       p  8  University name             
+            match:   University
+            context: e evaluate our model on a subset of the University of East Anglia (UEA) Multivariate Time-
+  [OK] training-language-models-to-generate-quality-code-with-progr_anon.pdf
+  [OK] weak-to-strong-generalization-via-formative-learning-from-st_anon.pdf
+  [OK] what-s-producible-may-not-be-reachable-measuring-the-steerab_anon.pdf
+
+  Summary: 13/44 PDFs flagged, 29 findings.
+
+Done: 30 PDFs flagged, 100 total findings.
