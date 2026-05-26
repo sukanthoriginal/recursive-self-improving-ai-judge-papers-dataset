@@ -1,0 +1,227 @@
+{
+  "venue": "neurips2025",
+  "raw_scale": "1-10 integer (from <overall_score>)",
+  "normalization": "identity (AI judge already on 1-10 integer)",
+  "papers": [
+    {
+      "paper_id": "1KylG7l2oQ",
+      "title": "Per-channel autoregressive linear prediction padding in tiled CNN processing of 2D spatial data",
+      "venue": "neurips2025",
+      "score_raw": 4,
+      "score_normalized": 4.0,
+      "prediction": "REJECT",
+      "confidence": 72,
+      "correct": true
+    },
+    {
+      "paper_id": "3nza35A6I4",
+      "title": "Training Language Models to Generate Quality Code with Program Analysis Feedback",
+      "venue": "neurips2025",
+      "score_raw": 6,
+      "score_normalized": 6.0,
+      "prediction": "REJECT",
+      "confidence": 55,
+      "correct": false
+    },
+    {
+      "paper_id": "49TFMeqNKd",
+      "title": "Reducing Deep Network Complexity via Sparse Hierarchical Fourier Interaction Networks",
+      "venue": "neurips2025",
+      "score_raw": 4,
+      "score_normalized": 4.0,
+      "prediction": "REJECT",
+      "confidence": 72,
+      "correct": true
+    },
+    {
+      "paper_id": "8WP2NgiRUV",
+      "title": "Higher-Order Causal Structure Learning with Additive Models",
+      "venue": "neurips2025",
+      "score_raw": 4,
+      "score_normalized": 4.0,
+      "prediction": "REJECT",
+      "confidence": 62,
+      "correct": true
+    },
+    {
+      "paper_id": "A1Zte0ixms",
+      "title": "What's Producible May Not Be Reachable: Measuring the Steerability of Generative Models",
+      "venue": "neurips2025",
+      "score_raw": 7,
+      "score_normalized": 7.0,
+      "prediction": "ACCEPT",
+      "confidence": 72,
+      "correct": true
+    },
+    {
+      "paper_id": "BJBje1IHI9",
+      "title": "Aya Vision: Advancing the Frontier of Multilingual Multimodality",
+      "venue": "neurips2025",
+      "score_raw": 6,
+      "score_normalized": 6.0,
+      "prediction": "REJECT",
+      "confidence": 62,
+      "correct": true
+    },
+    {
+      "paper_id": "JRFMzQnYXl",
+      "title": "Stab-SGD: Noise-Adaptivity in Smooth Optimization with Stability Ratios",
+      "venue": "neurips2025",
+      "score_raw": 5,
+      "score_normalized": 5.0,
+      "prediction": "REJECT",
+      "confidence": 62,
+      "correct": false
+    },
+    {
+      "paper_id": "MjOf5qnEX7",
+      "title": "Optimal Single-Policy Sample Complexity and Transient Coverage for Average-Reward Offline RL",
+      "venue": "neurips2025",
+      "score_raw": 7,
+      "score_normalized": 7.0,
+      "prediction": "ACCEPT",
+      "confidence": 75,
+      "correct": true
+    },
+    {
+      "paper_id": "RDbuSCWhad",
+      "title": "Structured Sparse Transition Matrices to Enable State Tracking in State-Space Models",
+      "venue": "neurips2025",
+      "score_raw": 7,
+      "score_normalized": 7.0,
+      "prediction": "ACCEPT",
+      "confidence": 72,
+      "correct": true
+    },
+    {
+      "paper_id": "cEd00CXWE5",
+      "title": "Beyond Two-Stage Training: Integrating SFT and RL for Improved Reasoning in LLMs",
+      "venue": "neurips2025",
+      "score_raw": 4,
+      "score_normalized": 4.0,
+      "prediction": "REJECT",
+      "confidence": 72,
+      "correct": true
+    },
+    {
+      "paper_id": "d4CZoiaXeC",
+      "title": "Learning to Factorize Spatio-Temporal Foundation Models",
+      "venue": "neurips2025",
+      "score_raw": 6,
+      "score_normalized": 6.0,
+      "prediction": "ACCEPT",
+      "confidence": 62,
+      "correct": true
+    },
+    {
+      "paper_id": "e2hlcfECdu",
+      "title": "Self-Directed Decomposition Empowers Reasoning Potentials in Large Language Models",
+      "venue": "neurips2025",
+      "score_raw": 3,
+      "score_normalized": 3.0,
+      "prediction": "REJECT",
+      "confidence": 85,
+      "correct": true
+    },
+    {
+      "paper_id": "eR8raBLZW7",
+      "title": "BriLLM: Brain-inspired Large Language Model",
+      "venue": "neurips2025",
+      "score_raw": 2,
+      "score_normalized": 2.0,
+      "prediction": "REJECT",
+      "confidence": 92,
+      "correct": true
+    },
+    {
+      "paper_id": "hTbimOuFPM",
+      "title": "An efficient implementation for solving the all pairs minimax path problem in an undirected dense graph",
+      "venue": "neurips2025",
+      "score_raw": 2,
+      "score_normalized": 2.0,
+      "prediction": "REJECT",
+      "confidence": 90,
+      "correct": true
+    },
+    {
+      "paper_id": "i5WnXNjwbR",
+      "title": "ImageNet-trained CNNs are not biased towards texture: Revisiting feature reliance through controlled suppression",
+      "venue": "neurips2025",
+      "score_raw": 5,
+      "score_normalized": 5.0,
+      "prediction": "REJECT",
+      "confidence": 62,
+      "correct": false
+    },
+    {
+      "paper_id": "k5ekIwvmYA",
+      "title": "Multi-Actor Multi-Critic Deep Deterministic Reinforcement Learning with a Novel Q-Ensemble Method",
+      "venue": "neurips2025",
+      "score_raw": 4,
+      "score_normalized": 4.0,
+      "prediction": "REJECT",
+      "confidence": 72,
+      "correct": true
+    },
+    {
+      "paper_id": "mZuFaBAVs6",
+      "title": "MVG-CRPS: A Robust Loss Function for Multivariate Probabilistic Forecasting",
+      "venue": "neurips2025",
+      "score_raw": 6,
+      "score_normalized": 6.0,
+      "prediction": "REJECT",
+      "confidence": 62,
+      "correct": true
+    },
+    {
+      "paper_id": "nG45z7lJ7D",
+      "title": "Bipolar Self-attention for Spiking Transformers",
+      "venue": "neurips2025",
+      "score_raw": 6,
+      "score_normalized": 6.0,
+      "prediction": "ACCEPT",
+      "confidence": 62,
+      "correct": true
+    },
+    {
+      "paper_id": "tESKKiKhVp",
+      "title": "Evolutionary Distributed Training",
+      "venue": "neurips2025",
+      "score_raw": 2,
+      "score_normalized": 2.0,
+      "prediction": "REJECT",
+      "confidence": 88,
+      "correct": true
+    },
+    {
+      "paper_id": "uAeqQePu4c",
+      "title": "KORGym: A Dynamic Game Platform for LLM Reasoning Evaluation",
+      "venue": "neurips2025",
+      "score_raw": 5,
+      "score_normalized": 5.0,
+      "prediction": "REJECT",
+      "confidence": 52,
+      "correct": false
+    },
+    {
+      "paper_id": "zQmXDUbZ5D",
+      "title": "OpenHype: Hyperbolic Embeddings for Hierarchical Open-Vocabulary Radiance Fields",
+      "venue": "neurips2025",
+      "score_raw": 6,
+      "score_normalized": 6.0,
+      "prediction": "ACCEPT",
+      "confidence": 62,
+      "correct": true
+    },
+    {
+      "paper_id": "ziLHIExi1j",
+      "title": "Quantifying First\u2010Order Markov Breakdowns in Noisy Reinforcement Learning: A Causal Discovery Approach",
+      "venue": "neurips2025",
+      "score_raw": 3,
+      "score_normalized": 3.0,
+      "prediction": "REJECT",
+      "confidence": 78,
+      "correct": true
+    }
+  ]
+}

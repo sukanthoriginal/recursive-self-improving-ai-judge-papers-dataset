@@ -1,0 +1,653 @@
+[
+  {
+    "paper_id": "1EnpStvBU8",
+    "venue": "iclr2025",
+    "gt_score_raw": 5.8,
+    "gt_score_normalized": 6,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "1KylG7l2oQ",
+    "venue": "neurips2025",
+    "gt_score_raw": 2.4286,
+    "gt_score_normalized": 3,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "1rUj9ZN6Bz",
+    "venue": "neurips2025",
+    "gt_score_raw": 5.5294,
+    "gt_score_normalized": 10,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "3Qo2SRcHgU",
+    "venue": "neurips2025",
+    "gt_score_raw": 4.5385,
+    "gt_score_normalized": 8,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "3nza35A6I4",
+    "venue": "neurips2025",
+    "gt_score_raw": 3.9375,
+    "gt_score_normalized": 6,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "473sH8qki8",
+    "venue": "iclr2025",
+    "gt_score_raw": 1.9412,
+    "gt_score_normalized": 1,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "49TFMeqNKd",
+    "venue": "neurips2025",
+    "gt_score_raw": 1.4375,
+    "gt_score_normalized": 1,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "50vDcRUz5p",
+    "venue": "neurips2025",
+    "gt_score_raw": 1.875,
+    "gt_score_normalized": 3,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "6QBHdrt8nX",
+    "venue": "iclr2025",
+    "gt_score_raw": 2.8,
+    "gt_score_normalized": 3,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "6ouZaBzeNO",
+    "venue": "iclr2025",
+    "gt_score_raw": 3.6429,
+    "gt_score_normalized": 3,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "8WP2NgiRUV",
+    "venue": "neurips2025",
+    "gt_score_raw": 3.0,
+    "gt_score_normalized": 5,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "8muemqlnG3",
+    "venue": "iclr2025",
+    "gt_score_raw": 6.4286,
+    "gt_score_normalized": 6,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "A1Zte0ixms",
+    "venue": "neurips2025",
+    "gt_score_raw": 4.2667,
+    "gt_score_normalized": 6,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "AJAEHgM8lc",
+    "venue": "neurips2025",
+    "gt_score_raw": 3.4444,
+    "gt_score_normalized": 5,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "BJBje1IHI9",
+    "venue": "neurips2025",
+    "gt_score_raw": 5.2143,
+    "gt_score_normalized": 8,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "BW8O4wHgbo",
+    "venue": "iclr2025",
+    "gt_score_raw": 3.0,
+    "gt_score_normalized": 3,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "BgYbk6ZmeX",
+    "venue": "iclr2025",
+    "gt_score_raw": 6.0,
+    "gt_score_normalized": 6,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "CscKx97jBi",
+    "venue": "iclr2025",
+    "gt_score_raw": 2.7647,
+    "gt_score_normalized": 3,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "F9iHSa1Iz5",
+    "venue": "iclr2025",
+    "gt_score_raw": 3.4,
+    "gt_score_normalized": 3,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "FSowNqrLpp",
+    "venue": "neurips2025",
+    "gt_score_raw": 3.25,
+    "gt_score_normalized": 5,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "FXJm5r17Q7",
+    "venue": "iclr2025",
+    "gt_score_raw": 5.9286,
+    "gt_score_normalized": 6,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "GlLXMjW7oF",
+    "venue": "iclr2025",
+    "gt_score_raw": 4.4118,
+    "gt_score_normalized": 5,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "Ha6RTeWMd0",
+    "venue": "iclr2025",
+    "gt_score_raw": 9.0588,
+    "gt_score_normalized": 10,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "IOScl0QXf8",
+    "venue": "neurips2025",
+    "gt_score_raw": 1.6667,
+    "gt_score_normalized": 3,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "JRFMzQnYXl",
+    "venue": "neurips2025",
+    "gt_score_raw": 3.6923,
+    "gt_score_normalized": 6,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "LC2KxRwC3n",
+    "venue": "iclr2025",
+    "gt_score_raw": 7.5714,
+    "gt_score_normalized": 8,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "LyJi5ugyJx",
+    "venue": "iclr2025",
+    "gt_score_raw": 9.3,
+    "gt_score_normalized": 10,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "MjOf5qnEX7",
+    "venue": "neurips2025",
+    "gt_score_raw": 4.2,
+    "gt_score_normalized": 6,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "Oqqbnn1snA",
+    "venue": "iclr2025",
+    "gt_score_raw": 3.0,
+    "gt_score_normalized": 3,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "PUnD86UEK5",
+    "venue": "iclr2025",
+    "gt_score_raw": 7.3333,
+    "gt_score_normalized": 8,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "Pu3c0209cx",
+    "venue": "iclr2025",
+    "gt_score_raw": 7.0909,
+    "gt_score_normalized": 8,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "RDbuSCWhad",
+    "venue": "neurips2025",
+    "gt_score_raw": 4.5882,
+    "gt_score_normalized": 8,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "SrGP0ILoYa",
+    "venue": "iclr2025",
+    "gt_score_raw": 6.2857,
+    "gt_score_normalized": 6,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "VyjFOO9cFi",
+    "venue": "neurips2025",
+    "gt_score_raw": 2.7143,
+    "gt_score_normalized": 5,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "WCRQFlji2q",
+    "venue": "iclr2025",
+    "gt_score_raw": 9.0588,
+    "gt_score_normalized": 10,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "XFYUwIyTxQ",
+    "venue": "iclr2025",
+    "gt_score_raw": 7.619,
+    "gt_score_normalized": 8,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "XP3v1THxsq",
+    "venue": "neurips2025",
+    "gt_score_raw": 5.0,
+    "gt_score_normalized": 8,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "Xm57IXqU0n",
+    "venue": "neurips2025",
+    "gt_score_raw": 4.8,
+    "gt_score_normalized": 8,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "bFlE9AyEJY",
+    "venue": "neurips2025",
+    "gt_score_raw": 2.25,
+    "gt_score_normalized": 3,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "bGkPZtisSm",
+    "venue": "iclr2025",
+    "gt_score_raw": 5.3077,
+    "gt_score_normalized": 5,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "cEd00CXWE5",
+    "venue": "neurips2025",
+    "gt_score_raw": 4.1667,
+    "gt_score_normalized": 6,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "cNMYAzhdn5",
+    "venue": "neurips2025",
+    "gt_score_raw": 4.2143,
+    "gt_score_normalized": 6,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "cNmu0hZ4CL",
+    "venue": "iclr2025",
+    "gt_score_raw": 8.0,
+    "gt_score_normalized": 8,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "d4CZoiaXeC",
+    "venue": "neurips2025",
+    "gt_score_raw": 5.0,
+    "gt_score_normalized": 8,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "d4mZyZB5I9",
+    "venue": "neurips2025",
+    "gt_score_raw": 3.7692,
+    "gt_score_normalized": 6,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "d6UV0UNgn9",
+    "venue": "neurips2025",
+    "gt_score_raw": 5.5625,
+    "gt_score_normalized": 10,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "dgb4rfPzaw",
+    "venue": "iclr2025",
+    "gt_score_raw": 5.0,
+    "gt_score_normalized": 5,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "e2hlcfECdu",
+    "venue": "neurips2025",
+    "gt_score_raw": 1.7647,
+    "gt_score_normalized": 3,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "eR8raBLZW7",
+    "venue": "neurips2025",
+    "gt_score_raw": 1.4706,
+    "gt_score_normalized": 1,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "esYrEndGsr",
+    "venue": "iclr2025",
+    "gt_score_raw": 8.0,
+    "gt_score_normalized": 8,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "f7KxfUrRSb",
+    "venue": "iclr2025",
+    "gt_score_raw": 7.0625,
+    "gt_score_normalized": 8,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "fBkdjUnymd",
+    "venue": "iclr2025",
+    "gt_score_raw": 4.7333,
+    "gt_score_normalized": 5,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "gBgvuTd9Hx",
+    "venue": "neurips2025",
+    "gt_score_raw": 3.75,
+    "gt_score_normalized": 6,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "ga9PAnFsAt",
+    "venue": "iclr2025",
+    "gt_score_raw": 4.875,
+    "gt_score_normalized": 5,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "gc8QAQfXv6",
+    "venue": "iclr2025",
+    "gt_score_raw": 9.0,
+    "gt_score_normalized": 8,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "gdHtZlaaSo",
+    "venue": "iclr2025",
+    "gt_score_raw": 6.2632,
+    "gt_score_normalized": 6,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "gpKEDj9Dgg",
+    "venue": "iclr2025",
+    "gt_score_raw": 1.8889,
+    "gt_score_normalized": 1,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "hMjUnF3aQ8",
+    "venue": "iclr2025",
+    "gt_score_raw": 1.8,
+    "gt_score_normalized": 1,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "hTbimOuFPM",
+    "venue": "neurips2025",
+    "gt_score_raw": 1.1739,
+    "gt_score_normalized": 1,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "i5WnXNjwbR",
+    "venue": "neurips2025",
+    "gt_score_raw": 5.3077,
+    "gt_score_normalized": 8,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "k5ekIwvmYA",
+    "venue": "neurips2025",
+    "gt_score_raw": 2.7895,
+    "gt_score_normalized": 5,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "kxFtMHItrf",
+    "venue": "iclr2025",
+    "gt_score_raw": 7.5,
+    "gt_score_normalized": 8,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "mBJF0p9yRR",
+    "venue": "iclr2025",
+    "gt_score_raw": 2.9375,
+    "gt_score_normalized": 3,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "mZuFaBAVs6",
+    "venue": "neurips2025",
+    "gt_score_raw": 2.7143,
+    "gt_score_normalized": 5,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "n3armuTFit",
+    "venue": "neurips2025",
+    "gt_score_raw": 5.25,
+    "gt_score_normalized": 8,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "nG45z7lJ7D",
+    "venue": "neurips2025",
+    "gt_score_raw": 4.8235,
+    "gt_score_normalized": 8,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "pKMpmbuKnd",
+    "venue": "iclr2025",
+    "gt_score_raw": 6.5625,
+    "gt_score_normalized": 6,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "r5yolhcrHe",
+    "venue": "iclr2025",
+    "gt_score_raw": 4.9091,
+    "gt_score_normalized": 5,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "rKMz6cDE7W",
+    "venue": "iclr2025",
+    "gt_score_raw": 2.0909,
+    "gt_score_normalized": 3,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "sfqIc7BnwS",
+    "venue": "neurips2025",
+    "gt_score_raw": 1.4375,
+    "gt_score_normalized": 1,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "tC1b9DBWww",
+    "venue": "iclr2025",
+    "gt_score_raw": 2.4118,
+    "gt_score_normalized": 3,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "tESKKiKhVp",
+    "venue": "neurips2025",
+    "gt_score_raw": 1.6875,
+    "gt_score_normalized": 3,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "tTOo7r4G9j",
+    "venue": "iclr2025",
+    "gt_score_raw": 3.75,
+    "gt_score_normalized": 3,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "tc90LV0yRL",
+    "venue": "iclr2025",
+    "gt_score_raw": 8.7273,
+    "gt_score_normalized": 8,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "tcsZt9ZNKD",
+    "venue": "iclr2025",
+    "gt_score_raw": 8.2,
+    "gt_score_normalized": 8,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "te2RsWcyQp",
+    "venue": "neurips2025",
+    "gt_score_raw": 5.5625,
+    "gt_score_normalized": 10,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "txmJldjJUw",
+    "venue": "neurips2025",
+    "gt_score_raw": 4.5263,
+    "gt_score_normalized": 8,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "u1cQYxRI1H",
+    "venue": "iclr2025",
+    "gt_score_raw": 10.0,
+    "gt_score_normalized": 10,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "uAFHCZRmXk",
+    "venue": "iclr2025",
+    "gt_score_raw": 8.0,
+    "gt_score_normalized": 8,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "uAeqQePu4c",
+    "venue": "neurips2025",
+    "gt_score_raw": 5.5882,
+    "gt_score_normalized": 10,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "v3XabZsB7j",
+    "venue": "iclr2025",
+    "gt_score_raw": 1.9412,
+    "gt_score_normalized": 1,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "vhnDpzcaO2",
+    "venue": "neurips2025",
+    "gt_score_raw": 2.6923,
+    "gt_score_normalized": 5,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "w0xm9oG8im",
+    "venue": "neurips2025",
+    "gt_score_raw": 3.0,
+    "gt_score_normalized": 5,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "wrXCIsysqB",
+    "venue": "iclr2025",
+    "gt_score_raw": 5.5556,
+    "gt_score_normalized": 6,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "xE3Ra2GTpX",
+    "venue": "iclr2025",
+    "gt_score_raw": 4.1333,
+    "gt_score_normalized": 5,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "xXTkbTBmqq",
+    "venue": "iclr2025",
+    "gt_score_raw": 9.0,
+    "gt_score_normalized": 8,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "xom3YUQfbK",
+    "venue": "iclr2025",
+    "gt_score_raw": 3.5,
+    "gt_score_normalized": 3,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "yT8hGWqoBm",
+    "venue": "neurips2025",
+    "gt_score_raw": 2.6875,
+    "gt_score_normalized": 5,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "z8rQHF8OOt",
+    "venue": "neurips2025",
+    "gt_score_raw": 2.1667,
+    "gt_score_normalized": 3,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "zDC3iCBxJb",
+    "venue": "iclr2025",
+    "gt_score_raw": 6.5294,
+    "gt_score_normalized": 6,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "zPxlHOLxmh",
+    "venue": "iclr2025",
+    "gt_score_raw": 1.9412,
+    "gt_score_normalized": 1,
+    "gt_accept": false
+  },
+  {
+    "paper_id": "zQmXDUbZ5D",
+    "venue": "neurips2025",
+    "gt_score_raw": 4.0,
+    "gt_score_normalized": 6,
+    "gt_accept": true
+  },
+  {
+    "paper_id": "ziLHIExi1j",
+    "venue": "neurips2025",
+    "gt_score_raw": 2.4667,
+    "gt_score_normalized": 3,
+    "gt_accept": false
+  }
+]

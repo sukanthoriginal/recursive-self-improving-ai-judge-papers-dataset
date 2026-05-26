@@ -1,0 +1,208 @@
+{
+  "venue": "neurips2025",
+  "raw_scale": "1-6 continuous (confidence-weighted mean)",
+  "normalization": "linear stretch to continuous 1-10",
+  "neurips_formula": "1 + (raw - 1) * 9/5",
+  "iclr_formula": "identity (raw weighted mean already on 1-10)",
+  "accept_boundary_note": "no fixed numeric threshold; use venue's `accept` boolean",
+  "papers": [
+    {
+      "paper_id": "1KylG7l2oQ",
+      "title": "",
+      "venue": "neurips2025",
+      "raw_scale": "1-6",
+      "score_raw": 2.4286,
+      "score_normalized": 3.5715,
+      "accept": false
+    },
+    {
+      "paper_id": "3nza35A6I4",
+      "title": "",
+      "venue": "neurips2025",
+      "raw_scale": "1-6",
+      "score_raw": 3.9375,
+      "score_normalized": 6.2875,
+      "accept": true
+    },
+    {
+      "paper_id": "49TFMeqNKd",
+      "title": "",
+      "venue": "neurips2025",
+      "raw_scale": "1-6",
+      "score_raw": 1.4375,
+      "score_normalized": 1.7875,
+      "accept": false
+    },
+    {
+      "paper_id": "8WP2NgiRUV",
+      "title": "",
+      "venue": "neurips2025",
+      "raw_scale": "1-6",
+      "score_raw": 3.0,
+      "score_normalized": 4.6,
+      "accept": false
+    },
+    {
+      "paper_id": "A1Zte0ixms",
+      "title": "",
+      "venue": "neurips2025",
+      "raw_scale": "1-6",
+      "score_raw": 4.2667,
+      "score_normalized": 6.8801,
+      "accept": true
+    },
+    {
+      "paper_id": "BJBje1IHI9",
+      "title": "",
+      "venue": "neurips2025",
+      "raw_scale": "1-6",
+      "score_raw": 5.2143,
+      "score_normalized": 8.5857,
+      "accept": false
+    },
+    {
+      "paper_id": "JRFMzQnYXl",
+      "title": "",
+      "venue": "neurips2025",
+      "raw_scale": "1-6",
+      "score_raw": 3.6923,
+      "score_normalized": 5.8461,
+      "accept": true
+    },
+    {
+      "paper_id": "MjOf5qnEX7",
+      "title": "",
+      "venue": "neurips2025",
+      "raw_scale": "1-6",
+      "score_raw": 4.2,
+      "score_normalized": 6.76,
+      "accept": true
+    },
+    {
+      "paper_id": "RDbuSCWhad",
+      "title": "",
+      "venue": "neurips2025",
+      "raw_scale": "1-6",
+      "score_raw": 4.5882,
+      "score_normalized": 7.4588,
+      "accept": true
+    },
+    {
+      "paper_id": "cEd00CXWE5",
+      "title": "",
+      "venue": "neurips2025",
+      "raw_scale": "1-6",
+      "score_raw": 4.1667,
+      "score_normalized": 6.7001,
+      "accept": false
+    },
+    {
+      "paper_id": "d4CZoiaXeC",
+      "title": "",
+      "venue": "neurips2025",
+      "raw_scale": "1-6",
+      "score_raw": 5.0,
+      "score_normalized": 8.2,
+      "accept": true
+    },
+    {
+      "paper_id": "e2hlcfECdu",
+      "title": "",
+      "venue": "neurips2025",
+      "raw_scale": "1-6",
+      "score_raw": 1.7647,
+      "score_normalized": 2.3765,
+      "accept": false
+    },
+    {
+      "paper_id": "eR8raBLZW7",
+      "title": "",
+      "venue": "neurips2025",
+      "raw_scale": "1-6",
+      "score_raw": 1.4706,
+      "score_normalized": 1.8471,
+      "accept": false
+    },
+    {
+      "paper_id": "hTbimOuFPM",
+      "title": "",
+      "venue": "neurips2025",
+      "raw_scale": "1-6",
+      "score_raw": 1.1739,
+      "score_normalized": 1.313,
+      "accept": false
+    },
+    {
+      "paper_id": "i5WnXNjwbR",
+      "title": "",
+      "venue": "neurips2025",
+      "raw_scale": "1-6",
+      "score_raw": 5.3077,
+      "score_normalized": 8.7539,
+      "accept": true
+    },
+    {
+      "paper_id": "k5ekIwvmYA",
+      "title": "",
+      "venue": "neurips2025",
+      "raw_scale": "1-6",
+      "score_raw": 2.7895,
+      "score_normalized": 4.2211,
+      "accept": false
+    },
+    {
+      "paper_id": "mZuFaBAVs6",
+      "title": "",
+      "venue": "neurips2025",
+      "raw_scale": "1-6",
+      "score_raw": 2.7143,
+      "score_normalized": 4.0857,
+      "accept": false
+    },
+    {
+      "paper_id": "nG45z7lJ7D",
+      "title": "",
+      "venue": "neurips2025",
+      "raw_scale": "1-6",
+      "score_raw": 4.8235,
+      "score_normalized": 7.8823,
+      "accept": true
+    },
+    {
+      "paper_id": "tESKKiKhVp",
+      "title": "",
+      "venue": "neurips2025",
+      "raw_scale": "1-6",
+      "score_raw": 1.6875,
+      "score_normalized": 2.2375,
+      "accept": false
+    },
+    {
+      "paper_id": "uAeqQePu4c",
+      "title": "",
+      "venue": "neurips2025",
+      "raw_scale": "1-6",
+      "score_raw": 5.5882,
+      "score_normalized": 9.2588,
+      "accept": true
+    },
+    {
+      "paper_id": "zQmXDUbZ5D",
+      "title": "",
+      "venue": "neurips2025",
+      "raw_scale": "1-6",
+      "score_raw": 4.0,
+      "score_normalized": 6.4,
+      "accept": true
+    },
+    {
+      "paper_id": "ziLHIExi1j",
+      "title": "",
+      "venue": "neurips2025",
+      "raw_scale": "1-6",
+      "score_raw": 2.4667,
+      "score_normalized": 3.6401,
+      "accept": false
+    }
+  ]
+}

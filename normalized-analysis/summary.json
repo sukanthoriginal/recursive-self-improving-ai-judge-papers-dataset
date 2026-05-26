@@ -1,0 +1,1368 @@
+{
+  "scale": "continuous 1-10",
+  "normalization": {
+    "neurips": "1 + (raw - 1) * 9/5  (linear stretch from 1-6)",
+    "iclr": "identity (weighted mean already on 1-10)",
+    "ai": "identity (raw 1-10 integer)"
+  },
+  "task_A_score_regression": {
+    "description": "How close is AI's continuous 1-10 score to GT?",
+    "overall": {
+      "overall": {
+        "n": 48,
+        "mae": 1.171,
+        "rmse": 1.577,
+        "mean_error": -0.424,
+        "std_error": 1.519,
+        "within_1_point": 0.583,
+        "within_2_points": 0.812,
+        "spearman_r": 0.713,
+        "pearson_r": 0.777,
+        "r_squared": 0.564
+      },
+      "per_gt_bin": {
+        "1": {
+          "n": 1,
+          "gt_score_mean": 1.31,
+          "ai_score_mean": 2.0,
+          "ai_score_min": 2.0,
+          "ai_score_max": 2.0,
+          "mae": 0.69,
+          "mean_error": 0.69
+        },
+        "2": {
+          "n": 8,
+          "gt_score_mean": 2.05,
+          "ai_score_mean": 2.62,
+          "ai_score_min": 2.0,
+          "ai_score_max": 4.0,
+          "mae": 0.63,
+          "mean_error": 0.57
+        },
+        "3": {
+          "n": 2,
+          "gt_score_mean": 3.17,
+          "ai_score_mean": 5.5,
+          "ai_score_min": 4.0,
+          "ai_score_max": 7.0,
+          "mae": 2.33,
+          "mean_error": 2.33
+        },
+        "4": {
+          "n": 6,
+          "gt_score_mean": 3.93,
+          "ai_score_mean": 4.67,
+          "ai_score_min": 3.0,
+          "ai_score_max": 6.0,
+          "mae": 1.02,
+          "mean_error": 0.74
+        },
+        "5": {
+          "n": 4,
+          "gt_score_mean": 4.91,
+          "ai_score_mean": 4.75,
+          "ai_score_min": 4.0,
+          "ai_score_max": 6.0,
+          "mae": 0.79,
+          "mean_error": -0.16
+        },
+        "6": {
+          "n": 7,
+          "gt_score_mean": 6.1,
+          "ai_score_mean": 5.86,
+          "ai_score_min": 5.0,
+          "ai_score_max": 7.0,
+          "mae": 0.48,
+          "mean_error": -0.24
+        },
+        "7": {
+          "n": 6,
+          "gt_score_mean": 6.95,
+          "ai_score_mean": 6.33,
+          "ai_score_min": 4.0,
+          "ai_score_max": 7.0,
+          "mae": 0.74,
+          "mean_error": -0.62
+        },
+        "8": {
+          "n": 8,
+          "gt_score_mean": 7.87,
+          "ai_score_mean": 6.38,
+          "ai_score_min": 6.0,
+          "ai_score_max": 7.0,
+          "mae": 1.5,
+          "mean_error": -1.5
+        },
+        "9": {
+          "n": 6,
+          "gt_score_mean": 8.95,
+          "ai_score_mean": 6.17,
+          "ai_score_min": 5.0,
+          "ai_score_max": 8.0,
+          "mae": 2.79,
+          "mean_error": -2.79
+        }
+      }
+    },
+    "neurips2025": {
+      "overall": {
+        "n": 22,
+        "mae": 1.248,
+        "rmse": 1.736,
+        "mean_error": -0.668,
+        "std_error": 1.603,
+        "within_1_point": 0.636,
+        "within_2_points": 0.727,
+        "spearman_r": 0.725,
+        "pearson_r": 0.77,
+        "r_squared": 0.505
+      },
+      "per_gt_bin": {
+        "1": {
+          "n": 1,
+          "gt_score_mean": 1.31,
+          "ai_score_mean": 2.0,
+          "ai_score_min": 2.0,
+          "ai_score_max": 2.0,
+          "mae": 0.69,
+          "mean_error": 0.69
+        },
+        "2": {
+          "n": 4,
+          "gt_score_mean": 2.06,
+          "ai_score_mean": 2.75,
+          "ai_score_min": 2.0,
+          "ai_score_max": 4.0,
+          "mae": 0.81,
+          "mean_error": 0.69
+        },
+        "4": {
+          "n": 4,
+          "gt_score_mean": 3.88,
+          "ai_score_mean": 4.25,
+          "ai_score_min": 3.0,
+          "ai_score_max": 6.0,
+          "mae": 0.8,
+          "mean_error": 0.37
+        },
+        "5": {
+          "n": 1,
+          "gt_score_mean": 4.6,
+          "ai_score_mean": 4.0,
+          "ai_score_min": 4.0,
+          "ai_score_max": 4.0,
+          "mae": 0.6,
+          "mean_error": -0.6
+        },
+        "6": {
+          "n": 3,
+          "gt_score_mean": 6.18,
+          "ai_score_mean": 5.67,
+          "ai_score_min": 5.0,
+          "ai_score_max": 6.0,
+          "mae": 0.51,
+          "mean_error": -0.51
+        },
+        "7": {
+          "n": 4,
+          "gt_score_mean": 6.95,
+          "ai_score_mean": 6.25,
+          "ai_score_min": 4.0,
+          "ai_score_max": 7.0,
+          "mae": 0.88,
+          "mean_error": -0.7
+        },
+        "8": {
+          "n": 2,
+          "gt_score_mean": 8.04,
+          "ai_score_mean": 6.0,
+          "ai_score_min": 6.0,
+          "ai_score_max": 6.0,
+          "mae": 2.04,
+          "mean_error": -2.04
+        },
+        "9": {
+          "n": 3,
+          "gt_score_mean": 8.87,
+          "ai_score_mean": 5.33,
+          "ai_score_min": 5.0,
+          "ai_score_max": 6.0,
+          "mae": 3.53,
+          "mean_error": -3.53
+        }
+      }
+    },
+    "iclr2025": {
+      "overall": {
+        "n": 26,
+        "mae": 1.106,
+        "rmse": 1.429,
+        "mean_error": -0.218,
+        "std_error": 1.412,
+        "within_1_point": 0.538,
+        "within_2_points": 0.885,
+        "spearman_r": 0.747,
+        "pearson_r": 0.798,
+        "r_squared": 0.617
+      },
+      "per_gt_bin": {
+        "2": {
+          "n": 4,
+          "gt_score_mean": 2.05,
+          "ai_score_mean": 2.5,
+          "ai_score_min": 2.0,
+          "ai_score_max": 3.0,
+          "mae": 0.45,
+          "mean_error": 0.45
+        },
+        "3": {
+          "n": 2,
+          "gt_score_mean": 3.17,
+          "ai_score_mean": 5.5,
+          "ai_score_min": 4.0,
+          "ai_score_max": 7.0,
+          "mae": 2.33,
+          "mean_error": 2.33
+        },
+        "4": {
+          "n": 2,
+          "gt_score_mean": 4.03,
+          "ai_score_mean": 5.5,
+          "ai_score_min": 5.0,
+          "ai_score_max": 6.0,
+          "mae": 1.47,
+          "mean_error": 1.47
+        },
+        "5": {
+          "n": 3,
+          "gt_score_mean": 5.01,
+          "ai_score_mean": 5.0,
+          "ai_score_min": 4.0,
+          "ai_score_max": 6.0,
+          "mae": 0.86,
+          "mean_error": -0.01
+        },
+        "6": {
+          "n": 4,
+          "gt_score_mean": 6.04,
+          "ai_score_mean": 6.0,
+          "ai_score_min": 5.0,
+          "ai_score_max": 7.0,
+          "mae": 0.46,
+          "mean_error": -0.04
+        },
+        "7": {
+          "n": 2,
+          "gt_score_mean": 6.95,
+          "ai_score_mean": 6.5,
+          "ai_score_min": 6.0,
+          "ai_score_max": 7.0,
+          "mae": 0.45,
+          "mean_error": -0.45
+        },
+        "8": {
+          "n": 6,
+          "gt_score_mean": 7.82,
+          "ai_score_mean": 6.5,
+          "ai_score_min": 6.0,
+          "ai_score_max": 7.0,
+          "mae": 1.32,
+          "mean_error": -1.32
+        },
+        "9": {
+          "n": 3,
+          "gt_score_mean": 9.04,
+          "ai_score_mean": 7.0,
+          "ai_score_min": 6.0,
+          "ai_score_max": 8.0,
+          "mae": 2.04,
+          "mean_error": -2.04
+        }
+      }
+    }
+  },
+  "task_B_binary_classification": {
+    "description": "How well does AI predict the GT binary accept/reject decision?",
+    "overall": {
+      "overall": {
+        "n": 48,
+        "confusion": {
+          "TP": 17,
+          "TN": 23,
+          "FP": 2,
+          "FN": 6
+        },
+        "accuracy": 0.833,
+        "precision": 0.895,
+        "recall": 0.739,
+        "specificity": 0.92,
+        "f1": 0.81,
+        "gt_accept_rate": 0.479,
+        "ai_accept_rate": 0.396
+      },
+      "per_gt_bin": {
+        "1": {
+          "n": 1,
+          "gt_accept_count": 0,
+          "gt_reject_count": 1,
+          "gt_accept_rate": 0.0,
+          "ai_accept_count": 0,
+          "ai_reject_count": 1,
+          "ai_accept_rate": 0.0,
+          "binary_correct": 1,
+          "binary_accuracy": 1.0
+        },
+        "2": {
+          "n": 8,
+          "gt_accept_count": 0,
+          "gt_reject_count": 8,
+          "gt_accept_rate": 0.0,
+          "ai_accept_count": 0,
+          "ai_reject_count": 8,
+          "ai_accept_rate": 0.0,
+          "binary_correct": 8,
+          "binary_accuracy": 1.0
+        },
+        "3": {
+          "n": 2,
+          "gt_accept_count": 0,
+          "gt_reject_count": 2,
+          "gt_accept_rate": 0.0,
+          "ai_accept_count": 1,
+          "ai_reject_count": 1,
+          "ai_accept_rate": 0.5,
+          "binary_correct": 1,
+          "binary_accuracy": 0.5
+        },
+        "4": {
+          "n": 6,
+          "gt_accept_count": 1,
+          "gt_reject_count": 5,
+          "gt_accept_rate": 0.167,
+          "ai_accept_count": 0,
+          "ai_reject_count": 6,
+          "ai_accept_rate": 0.0,
+          "binary_correct": 5,
+          "binary_accuracy": 0.833
+        },
+        "5": {
+          "n": 4,
+          "gt_accept_count": 0,
+          "gt_reject_count": 4,
+          "gt_accept_rate": 0.0,
+          "ai_accept_count": 0,
+          "ai_reject_count": 4,
+          "ai_accept_rate": 0.0,
+          "binary_correct": 4,
+          "binary_accuracy": 1.0
+        },
+        "6": {
+          "n": 7,
+          "gt_accept_count": 6,
+          "gt_reject_count": 1,
+          "gt_accept_rate": 0.857,
+          "ai_accept_count": 3,
+          "ai_reject_count": 4,
+          "ai_accept_rate": 0.429,
+          "binary_correct": 4,
+          "binary_accuracy": 0.571
+        },
+        "7": {
+          "n": 6,
+          "gt_accept_count": 4,
+          "gt_reject_count": 2,
+          "gt_accept_rate": 0.667,
+          "ai_accept_count": 5,
+          "ai_reject_count": 1,
+          "ai_accept_rate": 0.833,
+          "binary_correct": 5,
+          "binary_accuracy": 0.833
+        },
+        "8": {
+          "n": 8,
+          "gt_accept_count": 7,
+          "gt_reject_count": 1,
+          "gt_accept_rate": 0.875,
+          "ai_accept_count": 7,
+          "ai_reject_count": 1,
+          "ai_accept_rate": 0.875,
+          "binary_correct": 8,
+          "binary_accuracy": 1.0
+        },
+        "9": {
+          "n": 6,
+          "gt_accept_count": 5,
+          "gt_reject_count": 1,
+          "gt_accept_rate": 0.833,
+          "ai_accept_count": 3,
+          "ai_reject_count": 3,
+          "ai_accept_rate": 0.5,
+          "binary_correct": 4,
+          "binary_accuracy": 0.667
+        }
+      }
+    },
+    "neurips2025": {
+      "overall": {
+        "n": 22,
+        "confusion": {
+          "TP": 6,
+          "TN": 12,
+          "FP": 0,
+          "FN": 4
+        },
+        "accuracy": 0.818,
+        "precision": 1.0,
+        "recall": 0.6,
+        "specificity": 1.0,
+        "f1": 0.75,
+        "gt_accept_rate": 0.455,
+        "ai_accept_rate": 0.273
+      },
+      "per_gt_bin": {
+        "1": {
+          "n": 1,
+          "gt_accept_count": 0,
+          "gt_reject_count": 1,
+          "gt_accept_rate": 0.0,
+          "ai_accept_count": 0,
+          "ai_reject_count": 1,
+          "ai_accept_rate": 0.0,
+          "binary_correct": 1,
+          "binary_accuracy": 1.0
+        },
+        "2": {
+          "n": 4,
+          "gt_accept_count": 0,
+          "gt_reject_count": 4,
+          "gt_accept_rate": 0.0,
+          "ai_accept_count": 0,
+          "ai_reject_count": 4,
+          "ai_accept_rate": 0.0,
+          "binary_correct": 4,
+          "binary_accuracy": 1.0
+        },
+        "4": {
+          "n": 4,
+          "gt_accept_count": 0,
+          "gt_reject_count": 4,
+          "gt_accept_rate": 0.0,
+          "ai_accept_count": 0,
+          "ai_reject_count": 4,
+          "ai_accept_rate": 0.0,
+          "binary_correct": 4,
+          "binary_accuracy": 1.0
+        },
+        "5": {
+          "n": 1,
+          "gt_accept_count": 0,
+          "gt_reject_count": 1,
+          "gt_accept_rate": 0.0,
+          "ai_accept_count": 0,
+          "ai_reject_count": 1,
+          "ai_accept_rate": 0.0,
+          "binary_correct": 1,
+          "binary_accuracy": 1.0
+        },
+        "6": {
+          "n": 3,
+          "gt_accept_count": 3,
+          "gt_reject_count": 0,
+          "gt_accept_rate": 1.0,
+          "ai_accept_count": 1,
+          "ai_reject_count": 2,
+          "ai_accept_rate": 0.333,
+          "binary_correct": 1,
+          "binary_accuracy": 0.333
+        },
+        "7": {
+          "n": 4,
+          "gt_accept_count": 3,
+          "gt_reject_count": 1,
+          "gt_accept_rate": 0.75,
+          "ai_accept_count": 3,
+          "ai_reject_count": 1,
+          "ai_accept_rate": 0.75,
+          "binary_correct": 4,
+          "binary_accuracy": 1.0
+        },
+        "8": {
+          "n": 2,
+          "gt_accept_count": 2,
+          "gt_reject_count": 0,
+          "gt_accept_rate": 1.0,
+          "ai_accept_count": 2,
+          "ai_reject_count": 0,
+          "ai_accept_rate": 1.0,
+          "binary_correct": 2,
+          "binary_accuracy": 1.0
+        },
+        "9": {
+          "n": 3,
+          "gt_accept_count": 2,
+          "gt_reject_count": 1,
+          "gt_accept_rate": 0.667,
+          "ai_accept_count": 0,
+          "ai_reject_count": 3,
+          "ai_accept_rate": 0.0,
+          "binary_correct": 1,
+          "binary_accuracy": 0.333
+        }
+      }
+    },
+    "iclr2025": {
+      "overall": {
+        "n": 26,
+        "confusion": {
+          "TP": 11,
+          "TN": 11,
+          "FP": 2,
+          "FN": 2
+        },
+        "accuracy": 0.846,
+        "precision": 0.846,
+        "recall": 0.846,
+        "specificity": 0.846,
+        "f1": 0.846,
+        "gt_accept_rate": 0.5,
+        "ai_accept_rate": 0.5
+      },
+      "per_gt_bin": {
+        "2": {
+          "n": 4,
+          "gt_accept_count": 0,
+          "gt_reject_count": 4,
+          "gt_accept_rate": 0.0,
+          "ai_accept_count": 0,
+          "ai_reject_count": 4,
+          "ai_accept_rate": 0.0,
+          "binary_correct": 4,
+          "binary_accuracy": 1.0
+        },
+        "3": {
+          "n": 2,
+          "gt_accept_count": 0,
+          "gt_reject_count": 2,
+          "gt_accept_rate": 0.0,
+          "ai_accept_count": 1,
+          "ai_reject_count": 1,
+          "ai_accept_rate": 0.5,
+          "binary_correct": 1,
+          "binary_accuracy": 0.5
+        },
+        "4": {
+          "n": 2,
+          "gt_accept_count": 1,
+          "gt_reject_count": 1,
+          "gt_accept_rate": 0.5,
+          "ai_accept_count": 0,
+          "ai_reject_count": 2,
+          "ai_accept_rate": 0.0,
+          "binary_correct": 1,
+          "binary_accuracy": 0.5
+        },
+        "5": {
+          "n": 3,
+          "gt_accept_count": 0,
+          "gt_reject_count": 3,
+          "gt_accept_rate": 0.0,
+          "ai_accept_count": 0,
+          "ai_reject_count": 3,
+          "ai_accept_rate": 0.0,
+          "binary_correct": 3,
+          "binary_accuracy": 1.0
+        },
+        "6": {
+          "n": 4,
+          "gt_accept_count": 3,
+          "gt_reject_count": 1,
+          "gt_accept_rate": 0.75,
+          "ai_accept_count": 2,
+          "ai_reject_count": 2,
+          "ai_accept_rate": 0.5,
+          "binary_correct": 3,
+          "binary_accuracy": 0.75
+        },
+        "7": {
+          "n": 2,
+          "gt_accept_count": 1,
+          "gt_reject_count": 1,
+          "gt_accept_rate": 0.5,
+          "ai_accept_count": 2,
+          "ai_reject_count": 0,
+          "ai_accept_rate": 1.0,
+          "binary_correct": 1,
+          "binary_accuracy": 0.5
+        },
+        "8": {
+          "n": 6,
+          "gt_accept_count": 5,
+          "gt_reject_count": 1,
+          "gt_accept_rate": 0.833,
+          "ai_accept_count": 5,
+          "ai_reject_count": 1,
+          "ai_accept_rate": 0.833,
+          "binary_correct": 6,
+          "binary_accuracy": 1.0
+        },
+        "9": {
+          "n": 3,
+          "gt_accept_count": 3,
+          "gt_reject_count": 0,
+          "gt_accept_rate": 1.0,
+          "ai_accept_count": 3,
+          "ai_reject_count": 0,
+          "ai_accept_rate": 1.0,
+          "binary_correct": 3,
+          "binary_accuracy": 1.0
+        }
+      }
+    }
+  },
+  "task_divergence": {
+    "description": "Where GT score-implied decision (>=5.5) and actual accept disagree.",
+    "overall": {
+      "implied_accept_threshold": 5.5,
+      "gt_score_vs_accept_mismatches": {
+        "count": 6,
+        "rate": 0.125,
+        "ai_got_binary_right_on_these": 4,
+        "papers": [
+          {
+            "paper_id": "BJBje1IHI9",
+            "venue": "neurips",
+            "title": "Aya Vision: Advancing the Frontier of Multilingual Multimodality",
+            "gt_score": 8.5857,
+            "gt_accept": false,
+            "ai_score": 6.0,
+            "ai_predicted_accept": false,
+            "ai_binary_correct": true
+          },
+          {
+            "paper_id": "cEd00CXWE5",
+            "venue": "neurips",
+            "title": "Beyond Two-Stage Training: Integrating SFT and RL for Improved Reasoning in LLMs",
+            "gt_score": 6.7001,
+            "gt_accept": false,
+            "ai_score": 4.0,
+            "ai_predicted_accept": false,
+            "ai_binary_correct": true
+          },
+          {
+            "paper_id": "6ouZaBzeNO",
+            "venue": "iclr",
+            "title": "Physiome-ODE: A Benchmark for Irregularly Sampled Multivariate Time-Series Forec",
+            "gt_score": 3.6429,
+            "gt_accept": true,
+            "ai_score": 5.0,
+            "ai_predicted_accept": false,
+            "ai_binary_correct": false
+          },
+          {
+            "paper_id": "FXJm5r17Q7",
+            "venue": "iclr",
+            "title": "In-Context Reinforcement Learning From Suboptimal Historical Data",
+            "gt_score": 5.9286,
+            "gt_accept": false,
+            "ai_score": 6.0,
+            "ai_predicted_accept": false,
+            "ai_binary_correct": true
+          },
+          {
+            "paper_id": "LC2KxRwC3n",
+            "venue": "iclr",
+            "title": "A is for Absorption: Studying Feature Splitting and Absorption in Sparse Autoenc",
+            "gt_score": 7.5714,
+            "gt_accept": false,
+            "ai_score": 6.0,
+            "ai_predicted_accept": false,
+            "ai_binary_correct": true
+          },
+          {
+            "paper_id": "pKMpmbuKnd",
+            "venue": "iclr",
+            "title": "Constrained Posterior Sampling: Time Series Generation with Hard Constraints",
+            "gt_score": 6.5625,
+            "gt_accept": false,
+            "ai_score": 6.0,
+            "ai_predicted_accept": true,
+            "ai_binary_correct": false
+          }
+        ]
+      },
+      "ai_internal_inconsistency": {
+        "count": 7,
+        "rate": 0.146,
+        "note": "AI papers where its own score crosses the 5.5 threshold differently from its own ACCEPT/REJECT call"
+      }
+    },
+    "neurips2025": {
+      "implied_accept_threshold": 5.5,
+      "gt_score_vs_accept_mismatches": {
+        "count": 2,
+        "rate": 0.091,
+        "ai_got_binary_right_on_these": 2,
+        "papers": [
+          {
+            "paper_id": "BJBje1IHI9",
+            "venue": "neurips",
+            "title": "Aya Vision: Advancing the Frontier of Multilingual Multimodality",
+            "gt_score": 8.5857,
+            "gt_accept": false,
+            "ai_score": 6.0,
+            "ai_predicted_accept": false,
+            "ai_binary_correct": true
+          },
+          {
+            "paper_id": "cEd00CXWE5",
+            "venue": "neurips",
+            "title": "Beyond Two-Stage Training: Integrating SFT and RL for Improved Reasoning in LLMs",
+            "gt_score": 6.7001,
+            "gt_accept": false,
+            "ai_score": 4.0,
+            "ai_predicted_accept": false,
+            "ai_binary_correct": true
+          }
+        ]
+      },
+      "ai_internal_inconsistency": {
+        "count": 3,
+        "rate": 0.136,
+        "note": "AI papers where its own score crosses the 5.5 threshold differently from its own ACCEPT/REJECT call"
+      }
+    },
+    "iclr2025": {
+      "implied_accept_threshold": 5.5,
+      "gt_score_vs_accept_mismatches": {
+        "count": 4,
+        "rate": 0.154,
+        "ai_got_binary_right_on_these": 2,
+        "papers": [
+          {
+            "paper_id": "6ouZaBzeNO",
+            "venue": "iclr",
+            "title": "Physiome-ODE: A Benchmark for Irregularly Sampled Multivariate Time-Series Forec",
+            "gt_score": 3.6429,
+            "gt_accept": true,
+            "ai_score": 5.0,
+            "ai_predicted_accept": false,
+            "ai_binary_correct": false
+          },
+          {
+            "paper_id": "FXJm5r17Q7",
+            "venue": "iclr",
+            "title": "In-Context Reinforcement Learning From Suboptimal Historical Data",
+            "gt_score": 5.9286,
+            "gt_accept": false,
+            "ai_score": 6.0,
+            "ai_predicted_accept": false,
+            "ai_binary_correct": true
+          },
+          {
+            "paper_id": "LC2KxRwC3n",
+            "venue": "iclr",
+            "title": "A is for Absorption: Studying Feature Splitting and Absorption in Sparse Autoenc",
+            "gt_score": 7.5714,
+            "gt_accept": false,
+            "ai_score": 6.0,
+            "ai_predicted_accept": false,
+            "ai_binary_correct": true
+          },
+          {
+            "paper_id": "pKMpmbuKnd",
+            "venue": "iclr",
+            "title": "Constrained Posterior Sampling: Time Series Generation with Hard Constraints",
+            "gt_score": 6.5625,
+            "gt_accept": false,
+            "ai_score": 6.0,
+            "ai_predicted_accept": true,
+            "ai_binary_correct": false
+          }
+        ]
+      },
+      "ai_internal_inconsistency": {
+        "count": 4,
+        "rate": 0.154,
+        "note": "AI papers where its own score crosses the 5.5 threshold differently from its own ACCEPT/REJECT call"
+      }
+    }
+  },
+  "papers": [
+    {
+      "paper_id": "1EnpStvBU8",
+      "title": "Feast Your Eyes:  Mixture-of-Resolution Adaptation for Multimodal Large Language Models",
+      "venue": "iclr",
+      "gt_score_raw": 5.8,
+      "gt_score_norm": 5.8,
+      "gt_accept": true,
+      "ai_score_raw": 6,
+      "ai_score_norm": 6.0,
+      "ai_predicted_accept": true,
+      "ai_confidence": 62
+    },
+    {
+      "paper_id": "6ouZaBzeNO",
+      "title": "Physiome-ODE: A Benchmark for Irregularly Sampled Multivariate Time-Series Forecasting Based on Biological ODEs",
+      "venue": "iclr",
+      "gt_score_raw": 3.6429,
+      "gt_score_norm": 3.6429,
+      "gt_accept": true,
+      "ai_score_raw": 5,
+      "ai_score_norm": 5.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 55
+    },
+    {
+      "paper_id": "8muemqlnG3",
+      "title": "Causal Discovery via Bayesian Optimization",
+      "venue": "iclr",
+      "gt_score_raw": 6.4286,
+      "gt_score_norm": 6.4286,
+      "gt_accept": true,
+      "ai_score_raw": 7,
+      "ai_score_norm": 7.0,
+      "ai_predicted_accept": true,
+      "ai_confidence": 62
+    },
+    {
+      "paper_id": "BgYbk6ZmeX",
+      "title": "What Matters When Repurposing Diffusion Models for General Dense Perception Tasks?",
+      "venue": "iclr",
+      "gt_score_raw": 6.0,
+      "gt_score_norm": 6.0,
+      "gt_accept": true,
+      "ai_score_raw": 5,
+      "ai_score_norm": 5.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 62
+    },
+    {
+      "paper_id": "F9iHSa1Iz5",
+      "title": "Boosting Deductive Reasoning with Step Signals In RLHF",
+      "venue": "iclr",
+      "gt_score_raw": 3.4,
+      "gt_score_norm": 3.4,
+      "gt_accept": false,
+      "ai_score_raw": 4,
+      "ai_score_norm": 4.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 72
+    },
+    {
+      "paper_id": "FXJm5r17Q7",
+      "title": "In-Context Reinforcement Learning From Suboptimal Historical Data",
+      "venue": "iclr",
+      "gt_score_raw": 5.9286,
+      "gt_score_norm": 5.9286,
+      "gt_accept": false,
+      "ai_score_raw": 6,
+      "ai_score_norm": 6.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 62
+    },
+    {
+      "paper_id": "GlLXMjW7oF",
+      "title": "Benchmarking DNA Sequence Models for Causal Variant Prediction in Human Genetics",
+      "venue": "iclr",
+      "gt_score_raw": 4.4118,
+      "gt_score_norm": 4.4118,
+      "gt_accept": false,
+      "ai_score_raw": 6,
+      "ai_score_norm": 6.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 62
+    },
+    {
+      "paper_id": "Ha6RTeWMd0",
+      "title": "SAM 2: Segment Anything in Images and Videos",
+      "venue": "iclr",
+      "gt_score_raw": 9.0588,
+      "gt_score_norm": 9.0588,
+      "gt_accept": true,
+      "ai_score_raw": 8,
+      "ai_score_norm": 8.0,
+      "ai_predicted_accept": true,
+      "ai_confidence": 82
+    },
+    {
+      "paper_id": "LC2KxRwC3n",
+      "title": "A is for Absorption: Studying Feature Splitting and Absorption in Sparse Autoencoders",
+      "venue": "iclr",
+      "gt_score_raw": 7.5714,
+      "gt_score_norm": 7.5714,
+      "gt_accept": false,
+      "ai_score_raw": 6,
+      "ai_score_norm": 6.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 62
+    },
+    {
+      "paper_id": "PUnD86UEK5",
+      "title": "Adam Exploits $\\ell_\\infty$-geometry of Loss Landscape via Coordinate-wise Adaptivity",
+      "venue": "iclr",
+      "gt_score_raw": 7.3333,
+      "gt_score_norm": 7.3333,
+      "gt_accept": true,
+      "ai_score_raw": 7,
+      "ai_score_norm": 7.0,
+      "ai_predicted_accept": true,
+      "ai_confidence": 62
+    },
+    {
+      "paper_id": "WCRQFlji2q",
+      "title": "Do I Know This Entity? Knowledge Awareness and Hallucinations in Language Models",
+      "venue": "iclr",
+      "gt_score_raw": 9.0588,
+      "gt_score_norm": 9.0588,
+      "gt_accept": true,
+      "ai_score_raw": 7,
+      "ai_score_norm": 7.0,
+      "ai_predicted_accept": true,
+      "ai_confidence": 62
+    },
+    {
+      "paper_id": "XFYUwIyTxQ",
+      "title": "EmbodiedSAM: Online Segment Any 3D Thing in Real Time",
+      "venue": "iclr",
+      "gt_score_raw": 7.619,
+      "gt_score_norm": 7.619,
+      "gt_accept": true,
+      "ai_score_raw": 7,
+      "ai_score_norm": 7.0,
+      "ai_predicted_accept": true,
+      "ai_confidence": 68
+    },
+    {
+      "paper_id": "bGkPZtisSm",
+      "title": "On the Generalization of Preference Learning with DPO",
+      "venue": "iclr",
+      "gt_score_raw": 5.3077,
+      "gt_score_norm": 5.3077,
+      "gt_accept": false,
+      "ai_score_raw": 5,
+      "ai_score_norm": 5.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 55
+    },
+    {
+      "paper_id": "dgb4rfPzaw",
+      "title": "World-simulation as pre-training for scalable perception",
+      "venue": "iclr",
+      "gt_score_raw": 5.0,
+      "gt_score_norm": 5.0,
+      "gt_accept": false,
+      "ai_score_raw": 4,
+      "ai_score_norm": 4.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 72
+    },
+    {
+      "paper_id": "esYrEndGsr",
+      "title": "Influence Functions for Scalable Data Attribution in Diffusion Models",
+      "venue": "iclr",
+      "gt_score_raw": 8.0,
+      "gt_score_norm": 8.0,
+      "gt_accept": true,
+      "ai_score_raw": 7,
+      "ai_score_norm": 7.0,
+      "ai_predicted_accept": true,
+      "ai_confidence": 62
+    },
+    {
+      "paper_id": "fBkdjUnymd",
+      "title": "Martryoshka: Learning to Drive Black-Box LLMs with LLMs",
+      "venue": "iclr",
+      "gt_score_raw": 4.7333,
+      "gt_score_norm": 4.7333,
+      "gt_accept": false,
+      "ai_score_raw": 6,
+      "ai_score_norm": 6.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 62
+    },
+    {
+      "paper_id": "gpKEDj9Dgg",
+      "title": "Optimizing Large Language Models with Automatic Speech Recognition for Medication Corpus in Low-Resource Healthcare Settings.",
+      "venue": "iclr",
+      "gt_score_raw": 1.8889,
+      "gt_score_norm": 1.8889,
+      "gt_accept": false,
+      "ai_score_raw": 2,
+      "ai_score_norm": 2.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 95
+    },
+    {
+      "paper_id": "kxFtMHItrf",
+      "title": "Reti-Diff: Illumination Degradation Image Restoration with Retinex-based Latent Diffusion Model",
+      "venue": "iclr",
+      "gt_score_raw": 7.5,
+      "gt_score_norm": 7.5,
+      "gt_accept": true,
+      "ai_score_raw": 6,
+      "ai_score_norm": 6.0,
+      "ai_predicted_accept": true,
+      "ai_confidence": 62
+    },
+    {
+      "paper_id": "mBJF0p9yRR",
+      "title": "Almost Sure Convergence of Average Reward Temporal Difference Learning",
+      "venue": "iclr",
+      "gt_score_raw": 2.9375,
+      "gt_score_norm": 2.9375,
+      "gt_accept": false,
+      "ai_score_raw": 7,
+      "ai_score_norm": 7.0,
+      "ai_predicted_accept": true,
+      "ai_confidence": 68
+    },
+    {
+      "paper_id": "pKMpmbuKnd",
+      "title": "Constrained Posterior Sampling: Time Series Generation with Hard Constraints",
+      "venue": "iclr",
+      "gt_score_raw": 6.5625,
+      "gt_score_norm": 6.5625,
+      "gt_accept": false,
+      "ai_score_raw": 6,
+      "ai_score_norm": 6.0,
+      "ai_predicted_accept": true,
+      "ai_confidence": 62
+    },
+    {
+      "paper_id": "tC1b9DBWww",
+      "title": "Person Detection Through the Lens of Algorithmic Bias",
+      "venue": "iclr",
+      "gt_score_raw": 2.4118,
+      "gt_score_norm": 2.4118,
+      "gt_accept": false,
+      "ai_score_raw": 3,
+      "ai_score_norm": 3.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 82
+    },
+    {
+      "paper_id": "tcsZt9ZNKD",
+      "title": "Scaling and evaluating sparse autoencoders",
+      "venue": "iclr",
+      "gt_score_raw": 8.2,
+      "gt_score_norm": 8.2,
+      "gt_accept": true,
+      "ai_score_raw": 7,
+      "ai_score_norm": 7.0,
+      "ai_predicted_accept": true,
+      "ai_confidence": 62
+    },
+    {
+      "paper_id": "uAFHCZRmXk",
+      "title": "Two Effects, One Trigger: On the Modality Gap, Object Bias, and Information Imbalance in Contrastive Vision-Language Models",
+      "venue": "iclr",
+      "gt_score_raw": 8.0,
+      "gt_score_norm": 8.0,
+      "gt_accept": true,
+      "ai_score_raw": 6,
+      "ai_score_norm": 6.0,
+      "ai_predicted_accept": true,
+      "ai_confidence": 62
+    },
+    {
+      "paper_id": "v3XabZsB7j",
+      "title": "CNN Variational autoencoders' reconstruction ability of long ECG signals",
+      "venue": "iclr",
+      "gt_score_raw": 1.9412,
+      "gt_score_norm": 1.9412,
+      "gt_accept": false,
+      "ai_score_raw": 3,
+      "ai_score_norm": 3.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 88
+    },
+    {
+      "paper_id": "xXTkbTBmqq",
+      "title": "OLMoE: Open Mixture-of-Experts Language Models",
+      "venue": "iclr",
+      "gt_score_raw": 9.0,
+      "gt_score_norm": 9.0,
+      "gt_accept": true,
+      "ai_score_raw": 6,
+      "ai_score_norm": 6.0,
+      "ai_predicted_accept": true,
+      "ai_confidence": 62
+    },
+    {
+      "paper_id": "zPxlHOLxmh",
+      "title": "From Counseling Transcript to Mind Map: Leveraging LLMs for Effective Summarization in Mental Health Counseling",
+      "venue": "iclr",
+      "gt_score_raw": 1.9412,
+      "gt_score_norm": 1.9412,
+      "gt_accept": false,
+      "ai_score_raw": 2,
+      "ai_score_norm": 2.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 92
+    },
+    {
+      "paper_id": "1KylG7l2oQ",
+      "title": "Per-channel autoregressive linear prediction padding in tiled CNN processing of 2D spatial data",
+      "venue": "neurips",
+      "gt_score_raw": 2.4286,
+      "gt_score_norm": 3.5715,
+      "gt_accept": false,
+      "ai_score_raw": 4,
+      "ai_score_norm": 4.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 72
+    },
+    {
+      "paper_id": "3nza35A6I4",
+      "title": "Training Language Models to Generate Quality Code with Program Analysis Feedback",
+      "venue": "neurips",
+      "gt_score_raw": 3.9375,
+      "gt_score_norm": 6.2875,
+      "gt_accept": true,
+      "ai_score_raw": 6,
+      "ai_score_norm": 6.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 55
+    },
+    {
+      "paper_id": "49TFMeqNKd",
+      "title": "Reducing Deep Network Complexity via Sparse Hierarchical Fourier Interaction Networks",
+      "venue": "neurips",
+      "gt_score_raw": 1.4375,
+      "gt_score_norm": 1.7875,
+      "gt_accept": false,
+      "ai_score_raw": 4,
+      "ai_score_norm": 4.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 72
+    },
+    {
+      "paper_id": "8WP2NgiRUV",
+      "title": "Higher-Order Causal Structure Learning with Additive Models",
+      "venue": "neurips",
+      "gt_score_raw": 3.0,
+      "gt_score_norm": 4.6,
+      "gt_accept": false,
+      "ai_score_raw": 4,
+      "ai_score_norm": 4.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 62
+    },
+    {
+      "paper_id": "A1Zte0ixms",
+      "title": "What's Producible May Not Be Reachable: Measuring the Steerability of Generative Models",
+      "venue": "neurips",
+      "gt_score_raw": 4.2667,
+      "gt_score_norm": 6.8801,
+      "gt_accept": true,
+      "ai_score_raw": 7,
+      "ai_score_norm": 7.0,
+      "ai_predicted_accept": true,
+      "ai_confidence": 72
+    },
+    {
+      "paper_id": "BJBje1IHI9",
+      "title": "Aya Vision: Advancing the Frontier of Multilingual Multimodality",
+      "venue": "neurips",
+      "gt_score_raw": 5.2143,
+      "gt_score_norm": 8.5857,
+      "gt_accept": false,
+      "ai_score_raw": 6,
+      "ai_score_norm": 6.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 62
+    },
+    {
+      "paper_id": "JRFMzQnYXl",
+      "title": "Stab-SGD: Noise-Adaptivity in Smooth Optimization with Stability Ratios",
+      "venue": "neurips",
+      "gt_score_raw": 3.6923,
+      "gt_score_norm": 5.8461,
+      "gt_accept": true,
+      "ai_score_raw": 5,
+      "ai_score_norm": 5.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 62
+    },
+    {
+      "paper_id": "MjOf5qnEX7",
+      "title": "Optimal Single-Policy Sample Complexity and Transient Coverage for Average-Reward Offline RL",
+      "venue": "neurips",
+      "gt_score_raw": 4.2,
+      "gt_score_norm": 6.76,
+      "gt_accept": true,
+      "ai_score_raw": 7,
+      "ai_score_norm": 7.0,
+      "ai_predicted_accept": true,
+      "ai_confidence": 75
+    },
+    {
+      "paper_id": "RDbuSCWhad",
+      "title": "Structured Sparse Transition Matrices to Enable State Tracking in State-Space Models",
+      "venue": "neurips",
+      "gt_score_raw": 4.5882,
+      "gt_score_norm": 7.4588,
+      "gt_accept": true,
+      "ai_score_raw": 7,
+      "ai_score_norm": 7.0,
+      "ai_predicted_accept": true,
+      "ai_confidence": 72
+    },
+    {
+      "paper_id": "cEd00CXWE5",
+      "title": "Beyond Two-Stage Training: Integrating SFT and RL for Improved Reasoning in LLMs",
+      "venue": "neurips",
+      "gt_score_raw": 4.1667,
+      "gt_score_norm": 6.7001,
+      "gt_accept": false,
+      "ai_score_raw": 4,
+      "ai_score_norm": 4.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 72
+    },
+    {
+      "paper_id": "d4CZoiaXeC",
+      "title": "Learning to Factorize Spatio-Temporal Foundation Models",
+      "venue": "neurips",
+      "gt_score_raw": 5.0,
+      "gt_score_norm": 8.2,
+      "gt_accept": true,
+      "ai_score_raw": 6,
+      "ai_score_norm": 6.0,
+      "ai_predicted_accept": true,
+      "ai_confidence": 62
+    },
+    {
+      "paper_id": "e2hlcfECdu",
+      "title": "Self-Directed Decomposition Empowers Reasoning Potentials in Large Language Models",
+      "venue": "neurips",
+      "gt_score_raw": 1.7647,
+      "gt_score_norm": 2.3765,
+      "gt_accept": false,
+      "ai_score_raw": 3,
+      "ai_score_norm": 3.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 85
+    },
+    {
+      "paper_id": "eR8raBLZW7",
+      "title": "BriLLM: Brain-inspired Large Language Model",
+      "venue": "neurips",
+      "gt_score_raw": 1.4706,
+      "gt_score_norm": 1.8471,
+      "gt_accept": false,
+      "ai_score_raw": 2,
+      "ai_score_norm": 2.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 92
+    },
+    {
+      "paper_id": "hTbimOuFPM",
+      "title": "An efficient implementation for solving the all pairs minimax path problem in an undirected dense graph",
+      "venue": "neurips",
+      "gt_score_raw": 1.1739,
+      "gt_score_norm": 1.313,
+      "gt_accept": false,
+      "ai_score_raw": 2,
+      "ai_score_norm": 2.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 90
+    },
+    {
+      "paper_id": "i5WnXNjwbR",
+      "title": "ImageNet-trained CNNs are not biased towards texture: Revisiting feature reliance through controlled suppression",
+      "venue": "neurips",
+      "gt_score_raw": 5.3077,
+      "gt_score_norm": 8.7539,
+      "gt_accept": true,
+      "ai_score_raw": 5,
+      "ai_score_norm": 5.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 62
+    },
+    {
+      "paper_id": "k5ekIwvmYA",
+      "title": "Multi-Actor Multi-Critic Deep Deterministic Reinforcement Learning with a Novel Q-Ensemble Method",
+      "venue": "neurips",
+      "gt_score_raw": 2.7895,
+      "gt_score_norm": 4.2211,
+      "gt_accept": false,
+      "ai_score_raw": 4,
+      "ai_score_norm": 4.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 72
+    },
+    {
+      "paper_id": "mZuFaBAVs6",
+      "title": "MVG-CRPS: A Robust Loss Function for Multivariate Probabilistic Forecasting",
+      "venue": "neurips",
+      "gt_score_raw": 2.7143,
+      "gt_score_norm": 4.0857,
+      "gt_accept": false,
+      "ai_score_raw": 6,
+      "ai_score_norm": 6.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 62
+    },
+    {
+      "paper_id": "nG45z7lJ7D",
+      "title": "Bipolar Self-attention for Spiking Transformers",
+      "venue": "neurips",
+      "gt_score_raw": 4.8235,
+      "gt_score_norm": 7.8823,
+      "gt_accept": true,
+      "ai_score_raw": 6,
+      "ai_score_norm": 6.0,
+      "ai_predicted_accept": true,
+      "ai_confidence": 62
+    },
+    {
+      "paper_id": "tESKKiKhVp",
+      "title": "Evolutionary Distributed Training",
+      "venue": "neurips",
+      "gt_score_raw": 1.6875,
+      "gt_score_norm": 2.2375,
+      "gt_accept": false,
+      "ai_score_raw": 2,
+      "ai_score_norm": 2.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 88
+    },
+    {
+      "paper_id": "uAeqQePu4c",
+      "title": "KORGym: A Dynamic Game Platform for LLM Reasoning Evaluation",
+      "venue": "neurips",
+      "gt_score_raw": 5.5882,
+      "gt_score_norm": 9.2588,
+      "gt_accept": true,
+      "ai_score_raw": 5,
+      "ai_score_norm": 5.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 52
+    },
+    {
+      "paper_id": "zQmXDUbZ5D",
+      "title": "OpenHype: Hyperbolic Embeddings for Hierarchical Open-Vocabulary Radiance Fields",
+      "venue": "neurips",
+      "gt_score_raw": 4.0,
+      "gt_score_norm": 6.4,
+      "gt_accept": true,
+      "ai_score_raw": 6,
+      "ai_score_norm": 6.0,
+      "ai_predicted_accept": true,
+      "ai_confidence": 62
+    },
+    {
+      "paper_id": "ziLHIExi1j",
+      "title": "Quantifying First\u2010Order Markov Breakdowns in Noisy Reinforcement Learning: A Causal Discovery Approach",
+      "venue": "neurips",
+      "gt_score_raw": 2.4667,
+      "gt_score_norm": 3.6401,
+      "gt_accept": false,
+      "ai_score_raw": 3,
+      "ai_score_norm": 3.0,
+      "ai_predicted_accept": false,
+      "ai_confidence": 78
+    }
+  ]
+}
